@@ -1,339 +1,100 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vita Ebooks — Sua biblioteca digital por R$1,00</title>
-  <meta name="description" content="Compre ebooks selecionados a partir de R$1,00. Download imediato, pagamento seguro, leia onde quiser." />
-  <meta property="og:title" content="Vita Ebooks" />
-  <meta property="og:description" content="Sua biblioteca digital a partir de R$1,00" />
-  <meta property="og:type" content="website" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231a5c3a'/><path d='M8 8h10a6 6 0 0 1 0 12H8V8zm0 14h12' stroke='%23f7f6f2' stroke-width='2' fill='none' stroke-linecap='round'/><path d='M16 6v3' stroke='%2386c99e' stroke-width='1.5' stroke-linecap='round'/></svg>" />
-  <link rel="preconnect" href="https://api.fontshare.com" />
-  <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vita Ebooks | Curadoria digital com compra avulsa, mensal e vital</title>
+  <meta name="description" content="Site estático da Vita Ebooks com catálogo, comparação de planos e páginas prontas para publicação manual na Hostinger.">
+  <meta property="og:title" content="Vita Ebooks">
+  <meta property="og:description" content="Curadoria de ebooks em português com compra avulsa, clube mensal e plano vital premium.">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </head>
-<body>
-  <a href="#main" class="sr-only skip-link">Pular para o conteúdo</a>
-
-  <!-- HEADER -->
+<body data-page="home">
+  <a class="sr-only skip-link" href="#main">Pular para o conteúdo</a>
   <header class="site-header" id="site-header">
     <div class="container header-inner">
-      <a href="/" class="logo" aria-label="Vita Ebooks — página inicial">
-        <svg viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="120" height="32">
-          <rect x="0" y="4" width="18" height="22" rx="2" stroke="currentColor" stroke-width="1.8"/>
-          <rect x="4" y="4" width="18" height="22" rx="2" fill="var(--color-bg)" stroke="currentColor" stroke-width="1.8"/>
-          <line x1="7" y1="11" x2="19" y2="11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <line x1="7" y1="15" x2="16" y2="15" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M13 3 L13 0 M11 1.5 L15 1.5" stroke="var(--color-primary)" stroke-width="1.4" stroke-linecap="round"/>
-          <text x="30" y="22" font-family="Zodiak, Georgia, serif" font-size="18" font-weight="700" fill="currentColor">vita</text>
-          <text x="60" y="22" font-family="Satoshi, sans-serif" font-size="13" font-weight="500" fill="var(--color-text-muted)">ebooks</text>
-        </svg>
+      <a class="logo" href="index.html" aria-label="Vita Ebooks">
+        <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 5.5h8.5a3.5 3.5 0 0 1 0 7H6z"></path><path d="M6 13h9.5a2.5 2.5 0 0 1 0 5H6z"></path></svg></span>
+        <span class="logo-wordmark">Vita Ebooks</span>
       </a>
-
-      <nav aria-label="Navegação principal" class="nav-desktop">
-        <ul role="list">
-          <li><a href="#categorias">Categorias</a></li>
-          <li><a href="#destaques">Destaques</a></li>
-          <li><a href="#como-funciona">Como funciona</a></li>
+      <nav class="nav-desktop" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html" aria-current="page">Início</a></li>
+          <li><a href="planos.html">Planos</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
           <li><a href="suporte.html">Suporte</a></li>
+          <li><a href="conta.html">Conta</a></li>
         </ul>
       </nav>
-
       <div class="header-actions">
-        <button type="button" data-theme-toggle aria-label="Alternar tema" class="btn-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </button>
-        <a href="conta.html" class="btn btn-ghost">Entrar</a>
-        <a href="#cta-final" class="btn btn-primary">Começar por R$1,00</a>
-        <button class="btn-icon hamburger" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
+        <button class="btn-icon" type="button" data-theme-toggle aria-label="Alternar tema"></button>
+        <a class="btn btn-soft desktop-only" href="planos.html">Ver planos</a>
+        <a class="btn btn-primary desktop-only" href="catalogo.html">Explorar catálogo</a>
+        <button class="btn-icon menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
       </div>
     </div>
-
-    <!-- MOBILE MENU -->
-    <nav id="mobile-menu" class="mobile-menu" aria-label="Menu mobile" hidden>
-      <ul role="list">
-        <li><a href="#categorias">Categorias</a></li>
-        <li><a href="#destaques">Destaques</a></li>
-        <li><a href="#como-funciona">Como funciona</a></li>
-        <li><a href="suporte.html">Suporte</a></li>
-        <li><a href="conta.html" class="btn btn-ghost" style="width:100%;justify-content:center">Entrar</a></li>
-        <li><a href="#cta-final" class="btn btn-primary" style="width:100%;justify-content:center">R$1,00 na 1ª compra</a></li>
-      </ul>
-    </nav>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Menu mobile" hidden><div class="container"><ul><li><a href="index.html">Início</a></li><li><a href="planos.html">Planos</a></li><li><a href="catalogo.html">Catálogo</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="suporte.html">Suporte</a></li><li><a href="conta.html">Conta</a></li></ul></div></nav>
   </header>
-
   <main id="main">
-
-    <!-- HERO -->
-    <section id="hero" class="section-hero" aria-labelledby="hero-title">
-      <div class="container hero-layout">
-        <div class="hero-content">
-          <p class="hero-eyebrow">Plataforma de ebooks em português</p>
-          <h1 id="hero-title" class="hero-title">Leitura que transforma,<br/>a partir de <span class="accent">R$&thinsp;1,00</span></h1>
-          <p class="hero-sub">Mais de 500 títulos selecionados. Download imediato após pagamento. Leia no celular, tablet ou computador — sem assinatura.</p>
-          <div class="hero-ctas">
-            <a href="#destaques" class="btn btn-primary btn-lg">Ver ebooks em destaque</a>
-            <a href="catalogo.html" class="btn btn-ghost btn-lg">Explorar catálogo</a>
+    <section class="hero-home">
+      <div class="container hero-home-grid">
+        <div>
+          <span class="eyebrow">Curadoria digital em português</span>
+          <h1 class="hero-title">Leitura clara para quem quer <span class="accent">crescer com direção</span>.</h1>
+          <p class="hero-lead">A Vita Ebooks nasce como vitrine comercial estática para apresentar catálogo, comparar compra avulsa com assinatura e preparar a próxima etapa de checkout real sem prometer o que ainda não existe.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="planos.html">Comparar planos</a><a class="btn btn-ghost" href="catalogo.html">Ver catálogo</a></div>
+          <div class="hero-notes" aria-label="Pontos principais"><span class="hero-note"><i data-lucide="shield-check" aria-hidden="true"></i>Oferta honesta</span><span class="hero-note"><i data-lucide="book-open-text" aria-hidden="true"></i>Curadoria em PT-BR</span><span class="hero-note"><i data-lucide="monitor-smartphone" aria-hidden="true"></i>Leitura em qualquer tela</span></div>
+        </div>
+        <div class="hero-poster" aria-hidden="true">
+          <div class="poster-frame">
+            <div class="book-stack">
+              <div class="book-cover-hero editorial-olive hero-book-a"><small>Hábitos</small><strong>Hábitos Atômicos</strong><span>James Clear</span></div>
+              <div class="book-cover-hero editorial-copper hero-book-b"><small>Negócios</small><strong>Comece Pelo Porquê</strong><span>Simon Sinek</span></div>
+              <div class="book-cover-hero editorial-indigo hero-book-c"><small>Tecnologia</small><strong>IA para Todos</strong><span>Carlos Eduardo</span></div>
+            </div>
+            <aside class="hero-panel"><h2>Base pronta para Hostinger</h2><p>As páginas já funcionam com arquivos `.html`, `assets/` e dados estáticos, espelhando o pacote que vai para `public_html/`.</p></aside>
           </div>
-          <ul class="hero-stats" role="list" aria-label="Números da plataforma">
-            <li><strong>+500</strong><span>títulos</span></li>
-            <li><strong>4,8★</strong><span>avaliação média</span></li>
-            <li><strong>R$1</strong><span>na 1ª compra</span></li>
-          </ul>
         </div>
-        <aside class="hero-visual" aria-hidden="true">
-          <div class="book-stack">
-            <div class="book book-1"></div>
-            <div class="book book-2"></div>
-            <div class="book book-3"></div>
-            <div class="book book-4"></div>
-          </div>
-        </aside>
       </div>
     </section>
 
-    <!-- BUSCA -->
-    <section id="busca" class="section-busca" aria-labelledby="busca-title">
+    <section class="section-tight"><div class="container proof-grid"><article class="stat-card"><strong>Compra avulsa</strong><span>Preço de referência claro para cada título, sem checkout fake.</span></article><article class="stat-card"><strong>Clube mensal</strong><span>Oferta intermediária para quem quer volume sem partir direto para o vital.</span></article><article class="stat-card"><strong>Vital premium</strong><span>Plano de longo prazo pensado para melhorar CAC e retenção, como no roadmap.</span></article><article class="stat-card"><strong>Deploy manual</strong><span>Estrutura estática, simples de versionar no GitHub e publicar na Hostinger.</span></article></div></section>
+
+    <section class="section">
       <div class="container">
-        <h2 id="busca-title" class="sr-only">Busque um ebook</h2>
-        <form class="busca-form" role="search" action="catalogo.html" method="get">
-          <div class="busca-field">
-            <label for="busca-input" class="sr-only">Buscar ebook</label>
-            <i data-lucide="search" aria-hidden="true"></i>
-            <input type="search" id="busca-input" name="q" placeholder="Busque por título, autor ou tema…" autocomplete="off" />
-          </div>
-          <div class="busca-select">
-            <label for="busca-cat" class="sr-only">Categoria</label>
-            <select id="busca-cat" name="categoria">
-              <option value="">Todas as categorias</option>
-              <option value="desenvolvimento-pessoal">Desenvolvimento Pessoal</option>
-              <option value="negocios">Negócios</option>
-              <option value="financas">Finanças</option>
-              <option value="saude">Saúde &amp; Bem-estar</option>
-              <option value="tecnologia">Tecnologia</option>
-              <option value="relacionamentos">Relacionamentos</option>
-              <option value="espiritualidade">Espiritualidade</option>
-              <option value="educacao">Educação</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary">Buscar</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- CATEGORIAS -->
-    <section id="categorias" class="section-pad" aria-labelledby="cat-title">
-      <div class="container">
-        <header class="section-header">
-          <h2 id="cat-title">Explore por categoria</h2>
-          <a href="catalogo.html" class="link-arrow">Ver todas <i data-lucide="arrow-right" aria-hidden="true"></i></a>
-        </header>
-        <div class="grid-categorias">
-          <a href="catalogo.html?categoria=desenvolvimento-pessoal" class="card-categoria">
-            <i data-lucide="trending-up" aria-hidden="true"></i>
-            <span>Desenvolvimento Pessoal</span>
-          </a>
-          <a href="catalogo.html?categoria=negocios" class="card-categoria">
-            <i data-lucide="briefcase" aria-hidden="true"></i>
-            <span>Negócios</span>
-          </a>
-          <a href="catalogo.html?categoria=financas" class="card-categoria">
-            <i data-lucide="coins" aria-hidden="true"></i>
-            <span>Finanças</span>
-          </a>
-          <a href="catalogo.html?categoria=saude" class="card-categoria">
-            <i data-lucide="heart-pulse" aria-hidden="true"></i>
-            <span>Saúde &amp; Bem-estar</span>
-          </a>
-          <a href="catalogo.html?categoria=tecnologia" class="card-categoria">
-            <i data-lucide="cpu" aria-hidden="true"></i>
-            <span>Tecnologia</span>
-          </a>
-          <a href="catalogo.html?categoria=relacionamentos" class="card-categoria">
-            <i data-lucide="users" aria-hidden="true"></i>
-            <span>Relacionamentos</span>
-          </a>
-          <a href="catalogo.html?categoria=espiritualidade" class="card-categoria">
-            <i data-lucide="sparkles" aria-hidden="true"></i>
-            <span>Espiritualidade</span>
-          </a>
-          <a href="catalogo.html?categoria=educacao" class="card-categoria">
-            <i data-lucide="graduation-cap" aria-hidden="true"></i>
-            <span>Educação</span>
-          </a>
+        <div class="section-header"><div><span class="eyebrow">Oferta comercial</span><h2>Três portas de entrada para a Vita</h2></div><a class="link-inline" href="planos.html">Abrir página de planos <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
+        <div class="plan-grid">
+          <article class="plan-card"><div class="plan-topline"><h3 class="plan-name">Compra avulsa</h3><span class="tag">Flexível</span></div><div class="plan-price"><strong>R$ 12,90</strong><span>a partir de</span></div><p class="plan-copy">Boa para quem quer testar a curadoria título por título, com decisão simples e sem compromisso.</p><ul class="plan-list"><li>Acesso individual por ebook</li><li>Preço exposto por produto</li><li>Entrada natural para primeira compra</li></ul><a class="btn btn-ghost" href="planos.html#comparacao">Comparar com assinaturas</a></article>
+          <article class="plan-card featured"><div class="plan-topline"><h3 class="plan-name">Clube mensal</h3><span class="tag">Prioridade</span></div><div class="plan-price"><strong>R$ 29,90</strong><span>por mês</span></div><p class="plan-copy">Pensado para melhorar retenção desde o mês 1, com proposta clara de valor por quantidade e frequência.</p><ul class="plan-list"><li>Melhor custo mensal para quem lê sempre</li><li>Base comercial para retenção e reengajamento</li><li>Formato mais fácil de testar antes do vital</li></ul><a class="btn btn-primary" href="suporte.html?plano=clube-mensal#contato">Quero saber mais</a></article>
+          <article class="plan-card"><div class="plan-topline"><h3 class="plan-name">Vital premium</h3><span class="tag">LTV</span></div><div class="plan-price"><strong>R$ 249</strong><span>pagamento único</span></div><p class="plan-copy">Aposta de longo prazo para aumentar valor percebido e amortização rápida de aquisição.</p><ul class="plan-list"><li>Posicionamento premium e exclusivo</li><li>Melhor custo por livro para heavy readers</li><li>Base para benefícios futuros e títulos próprios</li></ul><a class="btn btn-ghost" href="suporte.html?plano=vital-premium#contato">Falar com a equipe</a></article>
         </div>
       </div>
     </section>
 
-    <!-- DESTAQUES -->
-    <section id="destaques" class="section-pad section-alt" aria-labelledby="dest-title">
-      <div class="container">
-        <header class="section-header">
-          <h2 id="dest-title">Ebooks em destaque</h2>
-          <a href="catalogo.html" class="link-arrow">Ver catálogo completo <i data-lucide="arrow-right" aria-hidden="true"></i></a>
-        </header>
-        <div class="grid-livros" id="grid-livros">
-          <!-- Populado via JS -->
-        </div>
-      </div>
-    </section>
+    <section class="section"><div class="container"><div class="section-header"><div><span class="eyebrow">Categorias</span><h2>Curadoria organizada por intenção de leitura</h2></div><a class="link-inline" href="catalogo.html">Ver catálogo completo <i data-lucide="arrow-right" aria-hidden="true"></i></a></div><div class="category-grid" id="home-categories"></div></div></section>
 
-    <!-- COMO FUNCIONA -->
-    <section id="como-funciona" class="section-pad" aria-labelledby="cf-title">
-      <div class="container">
-        <h2 id="cf-title" class="section-title-centered">Como funciona</h2>
-        <p class="section-sub-centered">Em três passos simples você já está lendo.</p>
-        <ol class="passos" role="list">
-          <li class="passo">
-            <span class="passo-num" aria-hidden="true">1</span>
-            <h3>Escolha seu ebook</h3>
-            <p>Navegue pelo catálogo, use a busca ou explore por categoria. Mais de 500 títulos disponíveis.</p>
-          </li>
-          <li class="passo">
-            <span class="passo-num" aria-hidden="true">2</span>
-            <h3>Pague com segurança</h3>
-            <p>Cartão de crédito, Pix ou boleto. Ambiente 100% seguro com criptografia SSL.</p>
-          </li>
-          <li class="passo">
-            <span class="passo-num" aria-hidden="true">3</span>
-            <h3>Baixe e leia na hora</h3>
-            <p>Link de download enviado por e-mail imediatamente. Formato PDF compatível com qualquer dispositivo.</p>
-          </li>
-        </ol>
-        <div class="garantia-selos" aria-label="Selos de confiança">
-          <span><i data-lucide="lock" aria-hidden="true"></i> Pagamento seguro</span>
-          <span><i data-lucide="download" aria-hidden="true"></i> Download imediato</span>
-          <span><i data-lucide="refresh-cw" aria-hidden="true"></i> Garantia de 7 dias</span>
-        </div>
-      </div>
-    </section>
+    <section class="section"><div class="container"><div class="section-header"><div><span class="eyebrow">Destaques</span><h2>Títulos que já contam melhor a proposta da marca</h2></div><a class="link-inline" href="catalogo.html">Explorar todos <i data-lucide="arrow-right" aria-hidden="true"></i></a></div><div class="catalog-grid" id="home-featured"></div></div></section>
 
-    <!-- DEPOIMENTOS -->
-    <section id="depoimentos" class="section-pad section-alt" aria-labelledby="dep-title">
-      <div class="container">
-        <h2 id="dep-title" class="section-title-centered">O que dizem os leitores</h2>
-        <div class="grid-depoimentos">
-          <blockquote class="card-depoimento">
-            <p>"Comprei meu primeiro ebook com R$1,00 e fiquei surpresa com a qualidade. Já comprei mais cinco desde então. Plataforma excelente!"</p>
-            <footer>
-              <span class="dep-avatar" aria-hidden="true">M</span>
-              <div>
-                <cite class="dep-nome">Mariana Costa</cite>
-                <span class="dep-cargo">Designer, São Paulo – SP</span>
-              </div>
-              <span class="dep-stars" aria-label="5 estrelas">★★★★★</span>
-            </footer>
-          </blockquote>
-          <blockquote class="card-depoimento">
-            <p>"Finalmente uma plataforma em português com ebooks de qualidade. O processo de compra é simples e o download é instantâneo."</p>
-            <footer>
-              <span class="dep-avatar" aria-hidden="true">R</span>
-              <div>
-                <cite class="dep-nome">Rafael Mendes</cite>
-                <span class="dep-cargo">Empreendedor, Belo Horizonte – MG</span>
-              </div>
-              <span class="dep-stars" aria-label="5 estrelas">★★★★★</span>
-            </footer>
-          </blockquote>
-          <blockquote class="card-depoimento">
-            <p>"Os conteúdos de desenvolvimento pessoal são incríveis. Recomendo para quem quer aprender sem gastar muito."</p>
-            <footer>
-              <span class="dep-avatar" aria-hidden="true">A</span>
-              <div>
-                <cite class="dep-nome">Ana Beatriz Lima</cite>
-                <span class="dep-cargo">Professora, Fortaleza – CE</span>
-              </div>
-              <span class="dep-stars" aria-label="4 estrelas">★★★★☆</span>
-            </footer>
-          </blockquote>
-        </div>
-      </div>
-    </section>
+    <section class="section"><div class="container"><div class="section-header"><div><span class="eyebrow">Como funciona</span><h2>Uma vitrine estática pronta para crescer sem fricção</h2></div></div><div class="feature-grid"><article class="feature-card"><h3>1. Descoberta</h3><p>A home aponta para catálogo, planos e páginas de produto com copy clara e sem links vazios.</p></article><article class="feature-card"><h3>2. Decisão</h3><p>O usuário compara compra avulsa, clube mensal e vital premium antes de chegar ao contato comercial.</p></article><article class="feature-card"><h3>3. Próxima etapa</h3><p>Checkout e conta ficam honestamente marcados como próximos passos, sem mascarar a ausência de backend.</p></article></div></div></section>
 
-    <!-- NEWSLETTER -->
-    <section id="newsletter" class="section-pad" aria-labelledby="nl-title">
-      <div class="container container-narrow">
-        <h2 id="nl-title" class="section-title-centered">Receba lançamentos e descontos</h2>
-        <p class="section-sub-centered">Cadastre seu e-mail e seja o primeiro a saber quando novos títulos chegarem.</p>
-        <form class="newsletter-form" id="newsletter-form" novalidate>
-          <div class="newsletter-field">
-            <label for="nl-email" class="sr-only">Seu e-mail</label>
-            <input type="email" id="nl-email" name="email" placeholder="seu@email.com" required autocomplete="email" />
-            <button type="submit" class="btn btn-primary">Quero receber</button>
-          </div>
-          <p class="nl-privacidade"><i data-lucide="shield-check" aria-hidden="true"></i> Sem spam. Você pode cancelar quando quiser.</p>
-          <div id="nl-feedback" class="nl-feedback" aria-live="polite"></div>
-        </form>
-      </div>
-    </section>
+    <section class="section"><div class="container"><div class="section-header"><div><span class="eyebrow">Leitores</span><h2>Percepção de valor construída pela clareza</h2></div></div><div class="testimonial-grid" id="home-testimonials"></div></div></section>
 
-    <!-- CTA FINAL -->
-    <section id="cta-final" class="section-cta" aria-labelledby="cta-title">
-      <div class="container cta-inner">
-        <h2 id="cta-title">Comece sua biblioteca digital hoje</h2>
-        <p>Primeira compra por apenas <strong>R$&thinsp;1,00</strong>. Sem assinatura, sem compromisso.</p>
-        <div class="cta-actions">
-          <a href="catalogo.html" class="btn btn-inverse btn-lg">Explorar catálogo</a>
-          <a href="conta.html" class="btn btn-ghost-inverse btn-lg">Criar conta grátis</a>
-        </div>
-      </div>
-    </section>
-
+    <section class="section"><div class="container"><article class="surface-card" style="padding: clamp(1.5rem, 3vw, 3rem);"><span class="eyebrow">Próximo passo</span><h2 class="section-title">Quer acompanhar a abertura dos planos e do checkout?</h2><p class="section-copy">Nesta fase, o contato é direto com a equipe. Assim o site continua honesto, publicável na Hostinger e pronto para integrar pagamentos depois.</p><div class="cta-actions"><a class="btn btn-primary" href="suporte.html#contato">Falar com a equipe</a><a class="btn btn-ghost" href="sobre.html">Entender a proposta da Vita</a></div></article></div></section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
+  <footer class="footer">
     <div class="container footer-grid">
-      <div class="footer-brand">
-        <a href="/" class="logo" aria-label="Vita Ebooks">
-          <svg viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="80" height="24">
-            <text x="0" y="18" font-family="Zodiak, Georgia, serif" font-size="16" font-weight="700" fill="currentColor">vita</text>
-            <text x="36" y="18" font-family="Satoshi, sans-serif" font-size="11" font-weight="500" fill="var(--color-text-muted)">ebooks</text>
-          </svg>
-        </a>
-        <p>Ebooks de qualidade em português, acessíveis para todos.</p>
-      </div>
-      <nav aria-label="Plataforma">
-        <h3>Plataforma</h3>
-        <ul role="list">
-          <li><a href="catalogo.html">Catálogo</a></li>
-          <li><a href="#categorias">Categorias</a></li>
-          <li><a href="#como-funciona">Como funciona</a></li>
-          <li><a href="#destaques">Destaques</a></li>
-        </ul>
-      </nav>
-      <nav aria-label="Empresa">
-        <h3>Empresa</h3>
-        <ul role="list">
-          <li><a href="sobre.html">Sobre nós</a></li>
-          <li><a href="mailto:contato@vitaebooks.com.br">Contato</a></li>
-          <li><a href="#newsletter">Newsletter</a></li>
-        </ul>
-      </nav>
-      <nav aria-label="Suporte">
-        <h3>Suporte</h3>
-        <ul role="list">
-          <li><a href="suporte.html">Central de ajuda</a></li>
-          <li><a href="suporte.html#faq">FAQ</a></li>
-          <li><a href="suporte.html#reembolso">Reembolso</a></li>
-        </ul>
-      </nav>
+      <div class="footer-brand"><a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 5.5h8.5a3.5 3.5 0 0 1 0 7H6z"></path><path d="M6 13h9.5a2.5 2.5 0 0 1 0 5H6z"></path></svg></span><span class="logo-wordmark">Vita Ebooks</span></a><p>GitHub como fonte de verdade. Publicação manual na Hostinger. Estrutura estática pronta para catálogo, planos e produto.</p></div>
+      <nav class="footer-column" aria-label="Navegação"><h3>Navegação</h3><ul><li><a href="planos.html">Planos</a></li><li><a href="catalogo.html">Catálogo</a></li><li><a href="ebook.html?slug=habitos-atomicos">Exemplo de ebook</a></li></ul></nav>
+      <nav class="footer-column" aria-label="Empresa"><h3>Empresa</h3><ul><li><a href="sobre.html">Sobre a Vita</a></li><li><a href="suporte.html#faq">FAQ</a></li><li><a href="suporte.html#contato">Contato</a></li></ul></nav>
+      <nav class="footer-column" aria-label="Conta"><h3>Conta</h3><ul><li><a href="conta.html">Minha conta</a></li><li><a href="suporte.html?plano=clube-mensal#contato">Interesse comercial</a></li><li><a href="sobre.html">Proposta da marca</a></li></ul></nav>
     </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <p>&copy; 2026 Vita Ebooks. Todos os direitos reservados.</p>
-        <nav aria-label="Links legais">
-          <a href="privacidade.html">Privacidade</a>
-          <a href="termos.html">Termos de uso</a>
-        </nav>
-      </div>
-    </div>
+    <div class="footer-bottom"><div class="container"><p>&copy; <span data-year></span> Vita Ebooks. Site estático preparado para `public_html/`.</p><nav class="footer-legal" aria-label="Atalhos finais"><a href="suporte.html#reembolso">Reembolso</a><a href="suporte.html#faq">Perguntas frequentes</a></nav></div></div>
   </footer>
-
-  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

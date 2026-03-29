@@ -5,14 +5,27 @@
     "titulo": "Hábitos Atômicos",
     "autor": "James Clear",
     "categoria": "desenvolvimento-pessoal",
-    "preco": 9.90,
-    "preco_original": 19.90,
-    "capa": "assets/img/capas/habitos-atomicos.jpg",
-    "descricao": "Um método comprovado para adquirir bons hábitos e se livrar dos maus.",
-    "paginas": 320,
-    "formato": "PDF",
+    "preco": 19.9,
+    "preco_original": 39.9,
     "avaliacao": 4.9,
-    "destaque": true
+    "paginas": 320,
+    "formato": "PDF + ePub",
+    "destaque": true,
+    "badge": "Mais lido",
+    "sinopse": "Um plano prático para trocar pequenas repetições por mudanças que realmente permanecem.",
+    "descricao": "Hábitos Atômicos mostra como pequenos ajustes de ambiente, rotina e identidade podem produzir avanços consistentes sem depender de motivação infinita.",
+    "aprendizados": [
+      "Criar sistemas simples para repetir o que funciona",
+      "Eliminar atritos que sabotam novos hábitos",
+      "Medir progresso sem perder constância"
+    ],
+    "para_quem": [
+      "Quem quer construir uma rotina estável",
+      "Profissionais em busca de consistência",
+      "Leitores que gostam de aplicação prática"
+    ],
+    "atualizado_em": "Março de 2026",
+    "tom": "editorial-olive"
   },
   {
     "id": "002",
@@ -20,44 +33,83 @@
     "titulo": "Pai Rico, Pai Pobre",
     "autor": "Robert T. Kiyosaki",
     "categoria": "financas",
-    "preco": 7.90,
-    "preco_original": 15.90,
-    "capa": "assets/img/capas/pai-rico.jpg",
-    "descricao": "O que os ricos ensinam aos filhos sobre dinheiro que os pobres e a classe média não ensinam.",
+    "preco": 17.9,
+    "preco_original": 29.9,
+    "avaliacao": 4.8,
     "paginas": 268,
     "formato": "PDF",
-    "avaliacao": 4.8,
-    "destaque": true
+    "destaque": true,
+    "badge": "Essencial",
+    "sinopse": "Uma introdução direta para rever crenças sobre dinheiro, ativos e independência financeira.",
+    "descricao": "O clássico de Robert Kiyosaki ajuda a repensar o que é riqueza, como avaliar passivos e como construir uma vida financeira menos reativa.",
+    "aprendizados": [
+      "Diferenciar ativos de passivos no dia a dia",
+      "Avaliar decisões de consumo com mais clareza",
+      "Entender educação financeira como estratégia"
+    ],
+    "para_quem": [
+      "Quem está começando a organizar as finanças",
+      "Leitores interessados em patrimônio de longo prazo",
+      "Pessoas que querem linguagem simples e direta"
+    ],
+    "atualizado_em": "Março de 2026",
+    "tom": "editorial-gold"
   },
   {
     "id": "003",
-    "slug": "o-poder-do-habito",
-    "titulo": "O Poder do Hábito",
-    "autor": "Charles Duhigg",
-    "categoria": "desenvolvimento-pessoal",
-    "preco": 8.90,
-    "preco_original": 17.90,
-    "capa": "assets/img/capas/poder-habito.jpg",
-    "descricao": "Por que fazemos o que fazemos na vida e nos negócios.",
-    "paginas": 408,
-    "formato": "PDF",
-    "avaliacao": 4.7,
-    "destaque": true
+    "slug": "trabalho-profundo",
+    "titulo": "Trabalho Profundo",
+    "autor": "Cal Newport",
+    "categoria": "tecnologia",
+    "preco": 14.9,
+    "preco_original": 24.9,
+    "avaliacao": 4.8,
+    "paginas": 296,
+    "formato": "PDF + ePub",
+    "destaque": true,
+    "badge": "Oferta do mês",
+    "sinopse": "Foco e concentração como vantagem competitiva em um mundo de distrações constantes.",
+    "descricao": "Trabalho Profundo mostra como profissionais do conhecimento podem produzir mais, melhor e com menos ruído ao desenhar blocos reais de foco.",
+    "aprendizados": [
+      "Blindar horas de concentração no calendário",
+      "Reduzir interrupções sem perder comunicação",
+      "Transformar foco em entrega de alto valor"
+    ],
+    "para_quem": [
+      "Profissionais de tecnologia e criação",
+      "Equipes que vivem em reuniões e mensagens",
+      "Quem quer recuperar profundidade intelectual"
+    ],
+    "atualizado_em": "Março de 2026",
+    "tom": "editorial-slate"
   },
   {
     "id": "004",
-    "slug": "deep-work",
-    "titulo": "Trabalho Profundo",
-    "autor": "Cal Newport",
-    "categoria": "produtividade",
-    "preco": 1.00,
-    "preco_original": 14.90,
-    "capa": "assets/img/capas/deep-work.jpg",
-    "descricao": "Regras para o sucesso focado em um mundo distraído.",
-    "paginas": 296,
+    "slug": "mindset-a-psicologia-do-sucesso",
+    "titulo": "Mindset: A Psicologia do Sucesso",
+    "autor": "Carol S. Dweck",
+    "categoria": "desenvolvimento-pessoal",
+    "preco": 16.9,
+    "preco_original": 27.9,
+    "avaliacao": 4.7,
+    "paginas": 304,
     "formato": "PDF",
-    "avaliacao": 4.8,
-    "destaque": true
+    "destaque": true,
+    "badge": "Curadoria Vita",
+    "sinopse": "Um olhar claro sobre a diferença entre mentalidade fixa e mentalidade de crescimento.",
+    "descricao": "Carol Dweck conecta comportamento, aprendizado e autopercepção para mostrar por que a forma como interpretamos falhas muda resultados inteiros.",
+    "aprendizados": [
+      "Reconhecer padrões de autossabotagem",
+      "Transformar erro em feedback acionável",
+      "Cultivar progresso sem perfeccionismo"
+    ],
+    "para_quem": [
+      "Quem quer destravar aprendizado contínuo",
+      "Líderes, educadores e estudantes",
+      "Pessoas em transição de carreira"
+    ],
+    "atualizado_em": "Março de 2026",
+    "tom": "editorial-rose"
   },
   {
     "id": "005",
@@ -65,28 +117,166 @@
     "titulo": "Comece Pelo Porquê",
     "autor": "Simon Sinek",
     "categoria": "negocios",
-    "preco": 6.90,
-    "preco_original": 13.90,
-    "capa": "assets/img/capas/comece-pelo-porque.jpg",
-    "descricao": "Como grandes líderes inspiram pessoas e organizações a agir.",
-    "paginas": 256,
-    "formato": "PDF",
+    "preco": 18.9,
+    "preco_original": 31.9,
     "avaliacao": 4.7,
-    "destaque": false
+    "paginas": 256,
+    "formato": "PDF + ePub",
+    "destaque": true,
+    "badge": "Negócios",
+    "sinopse": "Um livro sobre posicionamento, liderança e clareza de propósito para negócios mais memoráveis.",
+    "descricao": "Simon Sinek mostra como empresas e profissionais criam conexão quando conseguem comunicar primeiro a intenção, depois a execução.",
+    "aprendizados": [
+      "Organizar narrativa de marca com clareza",
+      "Dar contexto antes de vender uma oferta",
+      "Criar decisões estratégicas mais coerentes"
+    ],
+    "para_quem": [
+      "Empreendedores e consultores",
+      "Equipes de marketing e vendas",
+      "Líderes que querem fortalecer cultura"
+    ],
+    "atualizado_em": "Março de 2026",
+    "tom": "editorial-copper"
   },
   {
     "id": "006",
-    "slug": "mentalidade-de-crescimento",
-    "titulo": "Mindset: A Psicologia do Sucesso",
-    "autor": "Carol S. Dweck",
-    "categoria": "desenvolvimento-pessoal",
-    "preco": 7.90,
-    "preco_original": 15.90,
-    "capa": "assets/img/capas/mindset.jpg",
-    "descricao": "Como podemos aprender a realizar nosso potencial.",
-    "paginas": 304,
-    "formato": "PDF",
+    "slug": "equilibrio-total",
+    "titulo": "Equilíbrio Total",
+    "autor": "Mariana Souza",
+    "categoria": "saude",
+    "preco": 12.9,
+    "preco_original": 21.9,
     "avaliacao": 4.6,
-    "destaque": false
+    "paginas": 214,
+    "formato": "PDF",
+    "destaque": false,
+    "badge": "Bem-estar",
+    "sinopse": "Rotina, descanso e energia alinhados para sustentar uma vida mais leve e funcional.",
+    "descricao": "Equilíbrio Total reúne hábitos de sono, movimento e presença para quem quer ganhar energia sem recorrer a soluções extremas.",
+    "aprendizados": [
+      "Montar uma rotina de autocuidado viável",
+      "Usar descanso como ferramenta de desempenho",
+      "Criar micropráticas para reduzir exaustão"
+    ],
+    "para_quem": [
+      "Quem sente cansaço constante",
+      "Leitores em busca de bem-estar sustentável",
+      "Pessoas com rotina intensa"
+    ],
+    "atualizado_em": "Março de 2026",
+    "tom": "editorial-mint"
+  },
+  {
+    "id": "007",
+    "slug": "ia-para-todos",
+    "titulo": "IA para Todos",
+    "autor": "Carlos Eduardo",
+    "categoria": "tecnologia",
+    "preco": 22.9,
+    "preco_original": 34.9,
+    "avaliacao": 4.9,
+    "paginas": 238,
+    "formato": "PDF + ePub",
+    "destaque": false,
+    "badge": "Tecnologia",
+    "sinopse": "Uma introdução objetiva a IA, automação e aplicações práticas no trabalho cotidiano.",
+    "descricao": "IA para Todos apresenta conceitos sem jargão e mostra como usar inteligência artificial com clareza estratégica, sem hype excessivo.",
+    "aprendizados": [
+      "Entender os principais conceitos de IA",
+      "Encontrar usos úteis no dia a dia profissional",
+      "Avaliar riscos e limites de automação"
+    ],
+    "para_quem": [
+      "Profissionais curiosos sobre IA",
+      "Gestores que precisam atualizar repertório",
+      "Leitores que buscam tecnologia sem tecnicismo"
+    ],
+    "atualizado_em": "Março de 2026",
+    "tom": "editorial-indigo"
+  },
+  {
+    "id": "008",
+    "slug": "conversas-que-ficam",
+    "titulo": "Conversas que Ficam",
+    "autor": "Larissa Almeida",
+    "categoria": "relacionamentos",
+    "preco": 13.9,
+    "preco_original": 23.9,
+    "avaliacao": 4.5,
+    "paginas": 192,
+    "formato": "PDF",
+    "destaque": false,
+    "badge": "Relacionamentos",
+    "sinopse": "Ferramentas simples para comunicar melhor, ouvir de verdade e reduzir ruídos nas relações.",
+    "descricao": "Conversas que Ficam trabalha escuta, presença e linguagem emocional para fortalecer vínculos familiares, afetivos e profissionais.",
+    "aprendizados": [
+      "Conduzir conversas difíceis com mais calma",
+      "Identificar gatilhos e ruídos recorrentes",
+      "Criar acordos mais claros com outras pessoas"
+    ],
+    "para_quem": [
+      "Quem quer melhorar a comunicação interpessoal",
+      "Casais e famílias em busca de reconexão",
+      "Profissionais que lideram ou atendem pessoas"
+    ],
+    "atualizado_em": "Março de 2026",
+    "tom": "editorial-clay"
+  },
+  {
+    "id": "009",
+    "slug": "caminhos-da-presenca",
+    "titulo": "Caminhos da Presença",
+    "autor": "Helena Prado",
+    "categoria": "espiritualidade",
+    "preco": 11.9,
+    "preco_original": 19.9,
+    "avaliacao": 4.6,
+    "paginas": 184,
+    "formato": "PDF",
+    "destaque": false,
+    "badge": "Espiritualidade",
+    "sinopse": "Reflexões sobre silêncio, consciência e propósito em uma rotina acelerada.",
+    "descricao": "Caminhos da Presença oferece práticas e provocações para cultivar atenção, sentido e equilíbrio interior sem promessas vazias.",
+    "aprendizados": [
+      "Inserir pausas conscientes na rotina",
+      "Refletir sobre propósito com menos pressa",
+      "Criar rituais simples de presença"
+    ],
+    "para_quem": [
+      "Quem busca mais calma e sentido",
+      "Leitores interessados em espiritualidade prática",
+      "Pessoas que querem desacelerar com intenção"
+    ],
+    "atualizado_em": "Março de 2026",
+    "tom": "editorial-lilac"
+  },
+  {
+    "id": "010",
+    "slug": "educacao-inteligente",
+    "titulo": "Educação Inteligente",
+    "autor": "Rafael Braga",
+    "categoria": "educacao",
+    "preco": 15.9,
+    "preco_original": 26.9,
+    "avaliacao": 4.7,
+    "paginas": 246,
+    "formato": "PDF + ePub",
+    "destaque": false,
+    "badge": "Educação",
+    "sinopse": "Metodologias e práticas para ensinar melhor e aprender com mais autonomia.",
+    "descricao": "Educação Inteligente reúne estratégias de ensino, engajamento e organização de aprendizagem para educadores, pais e estudantes.",
+    "aprendizados": [
+      "Planejar experiências de aprendizagem mais claras",
+      "Tornar estudo e revisão menos improvisados",
+      "Aplicar técnicas de retenção e engajamento"
+    ],
+    "para_quem": [
+      "Educadores e coordenadores",
+      "Pais que acompanham rotina de estudos",
+      "Estudantes que querem aprender melhor"
+    ],
+    "atualizado_em": "Março de 2026",
+    "tom": "editorial-sky"
   }
 ]

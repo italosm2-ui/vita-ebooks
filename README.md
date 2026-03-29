@@ -1,99 +1,82 @@
 # Vita Ebooks
 
-Plataforma brasileira de venda de ebooks digitais com entrega imediata por download. Produção editorial com pseudônimos curados, marketing orgânico e modelo de negócio escalável.
+Vitrine estática da Vita Ebooks com catálogo, comparação de planos e páginas de produto preparadas para publicação manual na Hostinger.
 
-## Visão Geral
+## Direção do projeto
 
-- **Produto:** ebooks em PDF/ePub nas categorias romance, fantasia, autoajuda, negócios e saúde
-- **Modelo:** venda direta com oferta de entrada em R$ 1,00 na 1ª compra
-- **Público:** leitores brasileiros que buscam conteúdo acessível e download imediato
-- **Meta (4 meses):** R$ 15.000/mês em receita recorrente, 500 clientes ativos
+- GitHub é a fonte de verdade do código e da documentação.
+- Hostinger é o ambiente de produção, via upload manual para `public_html/`.
+- O V1 é 100% estático: HTML, CSS, JS vanilla e dados locais em `assets/data/`.
+- Checkout, login e biblioteca real são próximos passos. Nesta versão, os CTAs são honestos e apontam para suporte ou comparação de planos.
 
-## Stack Técnica
+## Estrutura atual
 
-| Camada | Tecnologia |
-|---|---|
-| Frontend | HTML5 + CSS (custom tokens) + JS vanilla |
-| Fontes | Zodiak (Fontshare) + Satoshi (Fontshare) |
-| Ícones | Lucide Icons (CDN) |
-| Dados | JSON estático (`assets/data/`) |
-| Checkout | Integração externa (Stripe / Mercado Pago) |
-| Hosting | GitHub Pages / Vercel |
-| Analytics | Google Analytics 4 |
-
-## Estrutura de Arquivos
-
-```
+```text
 vita-ebooks/
-├── index.html                  # Home / Landing principal
-├── catalogo.html               # Catálogo com filtros
-├── ebook.html                  # Página de produto (dinâmica via JS)
-├── checkout.html               # Fluxo de compra
-├── checkout-sucesso.html       # Pós-compra / confirmação
-├── entrar.html                 # Login
-├── criar-conta.html            # Cadastro
-├── minha-biblioteca.html       # Biblioteca do leitor
-├── meus-pedidos.html           # Histórico de pedidos
-├── sobre.html                  # Institucional
-├── faq.html                    # Perguntas frequentes
-├── contato.html                # Contato
-├── termos.html                 # Termos de uso
-├── privacidade.html            # Política de privacidade
-├── admin.html                  # Painel administrativo
+├── index.html
+├── planos.html
+├── catalogo.html
+├── ebook.html
+├── sobre.html
+├── suporte.html
+├── conta.html
+├── DEPLOYMENT.md
+├── README.md
 ├── assets/
 │   ├── css/
-│   │   └── style.css           # Todos os tokens + componentes
-│   ├── js/
-│   │   ├── main.js             # Dark mode, nav, utils globais
-│   │   ├── catalogo.js         # Filtros, busca, renderização
-│   │   ├── ebook.js            # Página de produto
-│   │   ├── checkout.js         # Fluxo de compra
-│   │   ├── conta.js            # Autenticação e biblioteca
-│   │   └── admin.js            # Painel admin
-│   ├── images/
-│   │   ├── brand/              # Logo, favicon, og-image
-│   │   ├── ebooks/             # Capas dos ebooks
-│   │   └── ui/                 # Ilustrações e assets de UI
-│   └── data/
-│       ├── ebooks.json         # Catálogo de ebooks
-│       ├── categorias.json     # Lista de categorias
-│       └── depoimentos.json    # Depoimentos de leitores
+│   │   └── style.css
+│   ├── data/
+│   │   ├── categorias.json
+│   │   ├── depoimentos.json
+│   │   └── ebooks.json
+│   ├── img/
+│   │   └── .gitkeep
+│   └── js/
+│       └── main.js
 └── docs/
-    ├── ARCHITECTURE.md         # Estrutura do site e fluxos
-    ├── DATABASE.md             # Schema de dados
-    ├── ROADMAP.md              # Roadmap 4 meses
-    ├── EDITORIAL.md            # Playbook editorial
-    ├── MARKETING.md            # Playbook de marketing
-    ├── IDENTIDADE.md           # Manual de identidade dos pseudônimos
-    ├── KPIS.md                 # Dashboard de KPIs
-    ├── JURIDICO.md             # Checklist jurídico-editorial
-    └── GOVERNANCA.md           # Governança de comunidade
+    ├── ARCHITECTURE.md
+    ├── PAGES.md
+    ├── PLANS.md
+    ├── ROADMAP.md
+    └── USER-FLOWS.md
 ```
 
-## Como Rodar Localmente
+## Páginas do V1
+
+- `index.html`: home comercial com proposta da marca, planos, categorias e destaques.
+- `planos.html`: comparação entre compra avulsa, clube mensal e vital premium.
+- `catalogo.html`: busca, filtros e ordenação do catálogo estático.
+- `ebook.html`: página de produto com CTA honesto para suporte e planos.
+- `sobre.html`: posicionamento da marca e roadmap resumido.
+- `suporte.html`: FAQ e contato via e-mail preparado.
+- `conta.html`: estado “em breve”, sem login fake.
+
+## Como trabalhar localmente
+
+1. Clone o repositório.
+2. Abra os arquivos em um servidor local simples para testar os `fetch` de `assets/data/`.
+3. Faça as alterações no repositório e revise antes de subir para produção.
+
+Exemplo com Python:
 
 ```bash
-git clone git@github.com:italosm2-ui/vita-ebooks.git
-cd vita-ebooks
-# Abra index.html no browser ou use Live Server (VS Code)
+python -m http.server 8000
 ```
 
-## Deploy — GitHub Pages
+## Publicação
 
-1. **Settings → Pages**
-2. Source: `Deploy from a branch` → `main` → `/ (root)`
-3. URL: `https://italosm2-ui.github.io/vita-ebooks/`
+O fluxo de publicação está em [DEPLOYMENT.md](DEPLOYMENT.md).
+
+Resumo:
+
+1. Revisar o estado final em `main`.
+2. Enviar o conteúdo da raiz do projeto para `public_html/` na Hostinger.
+3. Confirmar que todas as rotas `.html` e `assets/` carregam corretamente.
 
 ## Documentação
 
-| Doc | Conteúdo |
-|---|---|
-| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | Rotas, fluxos, componentes |
-| [DATABASE.md](docs/DATABASE.md) | Schema JSON e modelos de dados |
-| [ROADMAP.md](docs/ROADMAP.md) | Cronograma 4 meses |
-| [EDITORIAL.md](docs/EDITORIAL.md) | Processo de criação de ebooks |
-| [MARKETING.md](docs/MARKETING.md) | Marketing orgânico por plataforma |
-| [IDENTIDADE.md](docs/IDENTIDADE.md) | Pseudônimos e identidade de marca |
-| [KPIS.md](docs/KPIS.md) | Métricas e metas |
-| [JURIDICO.md](docs/JURIDICO.md) | Checklist jurídico |
-| [GOVERNANCA.md](docs/GOVERNANCA.md) | Governança de comunidade |
+- [Arquitetura](docs/ARCHITECTURE.md)
+- [Páginas](docs/PAGES.md)
+- [Planos](docs/PLANS.md)
+- [Fluxos](docs/USER-FLOWS.md)
+- [Roadmap](docs/ROADMAP.md)
