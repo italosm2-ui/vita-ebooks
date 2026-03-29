@@ -8,7 +8,7 @@ Plataforma brasileira de venda e download de ebooks digitais.
 - **Fontes:** Zodiak (display) + Satoshi (body) via Fontshare
 - **Ícones:** Lucide Icons (CDN)
 - **Pagamentos:** Pix, Cartão de Crédito, Boleto
-- **Hospedagem:** GitHub Pages (frontend estático)
+- **Hospedagem:** Hostinguer (frontend estático)
 
 ## Estrutura do Projeto
 
