@@ -1,0 +1,58 @@
+[
+  {
+    "id": "desenvolvimento-pessoal",
+    "nome": "Desenvolvimento Pessoal",
+    "icone": "trending-up",
+    "descricao": "Autoconhecimento, hábitos, produtividade e crescimento pessoal.",
+    "total": 120
+  },
+  {
+    "id": "negocios",
+    "nome": "Negócios",
+    "icone": "briefcase",
+    "descricao": "Empreendedorismo, liderança, estratégia e gestão empresarial.",
+    "total": 95
+  },
+  {
+    "id": "financas",
+    "nome": "Finanças",
+    "icone": "coins",
+    "descricao": "Investimentos, educação financeira e independência financeira.",
+    "total": 80
+  },
+  {
+    "id": "saude",
+    "nome": "Saúde & Bem-estar",
+    "icone": "heart-pulse",
+    "descricao": "Saúde mental, alimentação, exercícios e qualidade de vida.",
+    "total": 65
+  },
+  {
+    "id": "tecnologia",
+    "nome": "Tecnologia",
+    "icone": "cpu",
+    "descricao": "Programação, inteligência artificial, startups e inovação.",
+    "total": 50
+  },
+  {
+    "id": "relacionamentos",
+    "nome": "Relacionamentos",
+    "icone": "users",
+    "descricao": "Comunicação, família, vínculos afetivos e habilidades sociais.",
+    "total": 40
+  },
+  {
+    "id": "espiritualidade",
+    "nome": "Espiritualidade",
+    "icone": "sparkles",
+    "descricao": "Mindfulness, fé, filosofia de vida e propósito.",
+    "total": 35
+  },
+  {
+    "id": "educacao",
+    "nome": "Educação",
+    "icone": "graduation-cap",
+    "descricao": "Metodologias de ensino, aprendizagem e pedagogia.",
+    "total": 30
+  }
+]
