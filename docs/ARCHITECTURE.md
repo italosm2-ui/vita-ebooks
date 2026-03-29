@@ -1,8 +1,6 @@
 # Arquitetura — Vita Ebooks
 
-## Visão Geral
-
-Site estático com HTML/CSS/JS puro no MVP, evoluindo para integração com Supabase e gateway de pagamento. Toda navegação é baseada em arquivos HTML separados, com dados carregados de arquivos JSON locais.
+Documentação da estrutura do site: páginas, rotas, fluxos de navegação e componentes reutilizáveis.
 
 ---
 
@@ -10,47 +8,38 @@ Site estático com HTML/CSS/JS puro no MVP, evoluindo para integração com Supa
 
 ### Públicas
 
-| Rota | Arquivo | Propósito |
+| Rota | Arquivo | Função |
 |---|---|---|
-| `/` | `index.html` | Landing principal + conversão |
-| `/catalogo` | `catalogo.html` | Grid de ebooks com filtros e busca |
-| `/ebook/:slug` | `ebook.html?slug=...` | Página de vendas do produto |
-| `/sobre` | `sobre.html` | Institucional + credibilidade |
-| `/faq` | `faq.html` | Dúvidas sobre compra, entrega, reembolso |
-| `/404` | `404.html` | Página de erro |
+| `/` | `index.html` | Landing principal, conversão, catálogo destaque |
+| `/catalogo` | `catalogo.html` | Grid com filtros, busca, paginação |
+| `/ebook/:slug` | `ebook.html` | Página de produto + compra |
+| `/sobre` | `sobre.html` | Institucional, proposta, equipe |
+| `/faq` | `faq.html` | Perguntas frequentes agrupadas por tópico |
+| `/contato` | `contato.html` | Formulário de contato |
+| `/termos` | `termos.html` | Termos de uso |
+| `/privacidade` | `privacidade.html` | Política de privacidade |
+
+### Conta do Leitor
+
+| Rota | Arquivo | Função |
+|---|---|---|
+| `/entrar` | `entrar.html` | Login com email/senha |
+| `/criar-conta` | `criar-conta.html` | Cadastro novo usuário |
+| `/minha-biblioteca` | `minha-biblioteca.html` | Ebooks comprados + download |
+| `/meus-pedidos` | `meus-pedidos.html` | Histórico + recibos |
 
 ### Fluxo de Compra
 
-| Rota | Arquivo | Propósito |
+| Rota | Arquivo | Função |
 |---|---|---|
 | `/checkout` | `checkout.html` | Formulário de pagamento |
-| `/sucesso` | `sucesso.html` | Confirmação + acesso à biblioteca |
+| `/checkout/sucesso` | `checkout-sucesso.html` | Confirmação + link para biblioteca |
 
-### Área do Leitor
+### Admin
 
-| Rota | Arquivo | Propósito |
+| Rota | Arquivo | Função |
 |---|---|---|
-| `/entrar` | `entrar.html` | Login |
-| `/criar-conta` | `criar-conta.html` | Cadastro |
-| `/minha-biblioteca` | `minha-biblioteca.html` | Ebooks comprados + download |
-| `/minha-conta` | `minha-conta.html` | Perfil, pedidos, configurações |
-
----
-
-## Seções da Home (`index.html`)
-
-```
-1. Header sticky (logo + nav + toggle dark/light + login/cadastro)
-2. Hero (título display, subtítulo, CTA primário, pilha de capas, 3 stats)
-3. Barra de Busca (fundo verde-floresta, campo + select categoria + botão)
-4. Categorias (grid 2×4, 8 cards com ícone, nome e seta animada)
-5. Ebooks Destaque (grid 3 colunas, 6 cards de produto)
-6. Como Funciona (3 passos: escolher → pagar → baixar)
-7. Depoimentos (3 cards com citação, nome, cidade)
-8. Newsletter (campo email + CTA + aviso privacidade)
-9. Banner CTA Final (fundo verde integral, oferta R$1 na 1ª compra)
-10. Footer (4 colunas: Plataforma, Empresa, Suporte, Links legais)
-```
+| `/admin` | `admin.html` | Dashboard com KPIs |
 
 ---
 
@@ -58,129 +47,152 @@ Site estático com HTML/CSS/JS puro no MVP, evoluindo para integração com Supa
 
 ### Fluxo de Descoberta
 ```
-Home
-  → Busca / Categoria
-    → Catálogo (filtrado)
-      → Página do Ebook
-        → Checkout
+Home → Busca / Categorias → Catálogo → Página do Ebook
 ```
 
 ### Fluxo de Compra
 ```
-Página do Ebook
-  → [Comprar agora]
-    → Checkout
-      → [Pagamento aprovado] → Sucesso → Minha Biblioteca
-      → [Pagamento recusado] → Erro inline no checkout
-      → [Pendente Pix/Boleto] → Página aguardando
+Página do Ebook → Checkout → Sucesso → Minha Biblioteca
 ```
 
-### Fluxo do Leitor Recorrente
+### Fluxo de Retorno
 ```
-Home ou e-mail
-  → Entrar
-    → Minha Biblioteca
-      → [Baixar] → Download do PDF/ePub
+Entrar → Minha Biblioteca → Download do Ebook
 ```
+
+### Fluxo de Primeira Compra (Oferta R$ 1,00)
+```
+Home (CTA) → Criar Conta → Checkout (R$ 1,00 aplicado) → Sucesso → Biblioteca
+```
+
+---
+
+## Seções da Home (`index.html`)
+
+| # | Seção | Função | Decisão de Design |
+|---|---|---|---|
+| 1 | Header sticky | Navegação + dark mode + acesso à conta | Blur backdrop, sombra no scroll |
+| 2 | Hero | Primeira impressão + CTA | Título Zodiak, pilha de capas animadas, 3 stats |
+| 3 | Barra de busca | Descoberta imediata | Fundo verde-floresta, contraste alto |
+| 4 | Categorias (8 cards) | Exploração do catálogo | Grid responsivo 2→4 cols, seta animada |
+| 5 | Destaques (6 livros) | Produtos em evidência | Cards com capa, badge, preço, rating |
+| 6 | Como Funciona | Redução de fricção | 3 passos com linha conectora |
+| 7 | Depoimentos | Prova social | 3 cards com citação, avatar, cargo |
+| 8 | Newsletter | Captação de leads | Form simples + aviso de privacidade |
+| 9 | CTA Banner | Conversão final | Fundo verde total, oferta R$ 1,00 |
+| 10 | Footer | Navegação secundária | 4 colunas de links |
 
 ---
 
 ## Componentes Reutilizáveis
 
-| Componente | Uso | Arquivo JS |
+### Componentes de UI
+
+| Componente | Classe CSS | Usado em |
 |---|---|---|
-| `BookCard` | Catálogo, Destaque, Biblioteca | `main.js` |
-| `CategoryCard` | Grid de categorias | `main.js` |
-| `SearchBar` | Home + Catálogo | `catalogo.js` |
-| `FilterToolbar` | Catálogo | `catalogo.js` |
-| `PriceBlock` | Página do ebook | `ebook.js` |
-| `TestimonialCard` | Home + Ebook | `main.js` |
-| `NewsletterForm` | Home + Footer | `main.js` |
-| `EmptyState` | Catálogo vazio, Biblioteca vazia | `main.js` |
-| `ThemeToggle` | Header | `main.js` |
-| `MobileMenu` | Header | `main.js` |
+| Book Card | `.book-card` | Home, Catálogo, Busca |
+| Category Card | `.category-card` | Home, Catálogo |
+| Testimonial Card | `.testimonial-card` | Home, Ebook |
+| Price Block | `.price-block` | Ebook, Checkout |
+| Search Bar | `.search-bar` | Home, Catálogo |
+| Newsletter Form | `.newsletter-form` | Home, Footer |
+| Badge | `.badge` | Book Card |
+| Button Primary | `.btn-primary` | Global |
+| Button Secondary | `.btn-secondary` | Global |
+| Button Ghost | `.btn-ghost` | Global |
+| Modal | `.modal` | Login, Confirmações |
+| Empty State | `.empty-state` | Biblioteca, Pedidos |
+| Skeleton Loader | `.skeleton` | Catálogo, Biblioteca |
+
+### Componentes de Layout
+
+| Componente | Classe CSS | Função |
+|---|---|---|
+| Container | `.container` | max-width centralizado |
+| Section | `.section` | Espaçamento padrão entre seções |
+| Grid | `.grid-books` | Grid responsivo de livros |
+| Grid Categories | `.grid-categories` | Grid de categorias |
 
 ---
 
-## Design Tokens
+## Design System
 
-### Paleta de Cores
+### Paleta de Cores (Vita — Verde Floresta)
 
 ```css
-/* Vita Ebooks — Verde floresta + creme aquecido */
 :root {
-  /* Superfícies */
-  --color-bg:             #f5f3ee; /* creme quente */
-  --color-surface:        #f9f7f3;
-  --color-surface-2:      #fdfcfa;
-  --color-surface-offset: #eeebe5;
+  /* Acento primário — verde-floresta */
+  --color-primary:        #1a5c3a;
+  --color-primary-hover:  #154a2f;
+  --color-primary-active: #0f3620;
+
+  /* Superfícies — creme/bege aquecido */
+  --color-bg:             #faf8f3;
+  --color-surface:        #fdf9f0;
+  --color-surface-2:      #fefcf7;
+  --color-surface-offset: #f5f1e8;
 
   /* Texto */
   --color-text:           #1c1a14;
   --color-text-muted:     #6b6860;
-  --color-text-faint:     #b0ae9e;
-  --color-text-inverse:   #f9f7f3;
-
-  /* Primário — Verde Floresta */
-  --color-primary:        #1a5c3a;
-  --color-primary-hover:  #144830;
-  --color-primary-active: #0e3422;
-  --color-primary-highlight: #d4e8dc;
-
-  /* Outros tokens em style.css */
+  --color-text-faint:     #b0ae9c;
+  --color-text-inverse:   #faf8f3;
 }
 ```
 
 ### Tipografia
 
 ```css
---font-display: 'Zodiak', Georgia, serif;   /* Títulos e headings */
---font-body:    'Satoshi', 'Inter', sans-serif; /* Corpo e UI */
+:root {
+  --font-display: 'Zodiak', 'Georgia', serif;       /* Títulos h1-h3 */
+  --font-body:    'Satoshi', 'Helvetica Neue', sans-serif; /* Corpo, UI */
+}
 ```
 
-### Breakpoints
+**Fontes via Fontshare:**
+```html
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+```
 
-| Nome | Largura | Uso |
+### Escala Tipográfica
+
+```css
+--text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+--text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+--text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+--text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+--text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+--text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+--text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+```
+
+---
+
+## Responsividade
+
+| Breakpoint | Largura | Comportamento |
 |---|---|---|
-| Mobile | 375px+ | Layout base (mobile-first) |
-| Tablet | 768px+ | Grid 2 colunas |
-| Desktop | 1024px+ | Grid completo, sidebar |
-| Wide | 1440px+ | Container máximo |
+| Mobile | 375px | 1 coluna, menu hamburger |
+| Mobile L | 480px | 2 colunas categorias |
+| Tablet | 768px | 2-3 colunas livros, nav visível |
+| Desktop | 1024px | 3-4 colunas, layout completo |
+| Wide | 1440px | Max-width 1200px centralizado |
 
 ---
 
-## Estrutura de Dados (MVP — JSON Estático)
+## Dark Mode
 
-Os dados do catálogo são carregados de `assets/data/ebooks.json` via `fetch()`. Na produção, este fetch aponta para a API do Supabase.
-
-```javascript
-// Exemplo de carregamento
-const res = await fetch('./assets/data/ebooks.json');
-const { ebooks } = await res.json();
-renderCatalog(ebooks);
-```
+- Toggle sun/moon no header com `data-theme-toggle`
+- `data-theme="dark"` no `<html>` ativa o modo escuro
+- `prefers-color-scheme` como fallback automático
+- Preferência salva em variável JS (sem localStorage — bloqueia em iframes)
 
 ---
 
-## Evolução da Arquitetura
+## Performance
 
-```
-Fase 1 (MVP):
-  HTML estático + JSON local + GitHub Pages
-
-Fase 2 (Integração pagamento):
-  Checkout → Mercado Pago / Stripe
-  Webhook → marcar pedido como pago
-  Email automático com link de download
-
-Fase 3 (Backend):
-  Supabase Auth (login/cadastro)
-  Supabase DB (ebooks, usuários, pedidos)
-  Supabase Storage (arquivos PDF/ePub)
-  Row Level Security para downloads privados
-
-Fase 4 (Escala):
-  Vercel Deploy + CDN
-  Painel admin completo
-  Analytics e KPIs em tempo real
-```
+- Imagens com `loading="lazy"` e `decoding="async"`
+- JS com `defer` em todos os scripts
+- Fontes com `font-display: swap`
+- `content-visibility: auto` nas seções fora do viewport
+- Dados carregados de JSON estático (`fetch` no client)

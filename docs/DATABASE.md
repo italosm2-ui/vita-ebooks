@@ -1,249 +1,251 @@
-# Schema do Banco de Dados — Vita Ebooks
+# Schema de Dados — Vita Ebooks
 
-Modelagem para Supabase (PostgreSQL). No MVP, os mesmos campos são usados nos arquivos JSON locais.
-
----
-
-## Tabelas
-
-### `ebooks`
-
-```sql
-CREATE TABLE ebooks (
-  id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  slug            TEXT UNIQUE NOT NULL,
-  titulo          TEXT NOT NULL,
-  subtitulo       TEXT,
-  autor           TEXT NOT NULL,           -- nome público/pseudônimo
-  pseudonimo_id   UUID REFERENCES pseudonimos(id),
-  categoria_id    UUID REFERENCES categorias(id),
-  descricao       TEXT,
-  descricao_curta TEXT,                    -- usado nos cards
-  preco           NUMERIC(10,2) NOT NULL,
-  preco_promocional NUMERIC(10,2),
-  paginas         INTEGER,
-  formatos        TEXT[] DEFAULT '{PDF}',  -- ['PDF', 'ePub']
-  destaque        BOOLEAN DEFAULT FALSE,
-  lancamento      BOOLEAN DEFAULT FALSE,
-  ativo           BOOLEAN DEFAULT TRUE,
-  avaliacao_media NUMERIC(3,2) DEFAULT 0,
-  total_vendas    INTEGER DEFAULT 0,
-  capa_url        TEXT,
-  arquivo_url     TEXT,                    -- URL privada no Storage
-  tags            TEXT[],
-  sumario         JSONB,                   -- [{capitulo, descricao}]
-  aprendizados    TEXT[],                  -- bullets "o que você vai aprender"
-  criado_em       TIMESTAMPTZ DEFAULT NOW(),
-  atualizado_em   TIMESTAMPTZ DEFAULT NOW()
-);
-```
-
-### `categorias`
-
-```sql
-CREATE TABLE categorias (
-  id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  slug        TEXT UNIQUE NOT NULL,
-  nome        TEXT NOT NULL,
-  descricao   TEXT,
-  icone       TEXT,                        -- nome do ícone Lucide
-  cor_acento  TEXT,                        -- hex para customização visual
-  ordem       INTEGER DEFAULT 0,
-  ativa       BOOLEAN DEFAULT TRUE,
-  criado_em   TIMESTAMPTZ DEFAULT NOW()
-);
-
--- Categorias iniciais:
--- 'desenvolvimento-pessoal', 'financas', 'saude-bem-estar',
--- 'relacionamentos', 'espiritualidade', 'negocios',
--- 'produtividade', 'culinaria'
-```
-
-### `pseudonimos`
-
-> Autores fictícios com identidade editorial própria, para curadoria de nichos.
-
-```sql
-CREATE TABLE pseudonimos (
-  id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  nome            TEXT NOT NULL,
-  slug            TEXT UNIQUE NOT NULL,
-  bio             TEXT,
-  especialidade   TEXT,                    -- nicho principal
-  personalidade   TEXT,                    -- tom editorial
-  avatar_url      TEXT,
-  redes           JSONB,                   -- {instagram, tiktok, etc}
-  ativo           BOOLEAN DEFAULT TRUE,
-  criado_em       TIMESTAMPTZ DEFAULT NOW()
-);
-```
-
-### `usuarios`
-
-```sql
-CREATE TABLE usuarios (
-  id              UUID PRIMARY KEY REFERENCES auth.users(id),
-  nome            TEXT,
-  email           TEXT UNIQUE NOT NULL,
-  avatar_url      TEXT,
-  newsletter      BOOLEAN DEFAULT FALSE,
-  plano           TEXT DEFAULT 'free',     -- 'free' | 'premium'
-  criado_em       TIMESTAMPTZ DEFAULT NOW(),
-  atualizado_em   TIMESTAMPTZ DEFAULT NOW()
-);
-```
-
-### `pedidos`
-
-```sql
-CREATE TABLE pedidos (
-  id                UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  usuario_id        UUID REFERENCES usuarios(id),
-  ebook_id          UUID REFERENCES ebooks(id),
-  status            TEXT DEFAULT 'pendente', -- 'pendente' | 'aprovado' | 'recusado' | 'reembolsado'
-  metodo_pagamento  TEXT,                    -- 'pix' | 'cartao' | 'boleto'
-  valor_cobrado     NUMERIC(10,2) NOT NULL,
-  valor_original    NUMERIC(10,2),
-  cupom_id          UUID REFERENCES cupons(id),
-  gateway_id        TEXT,                    -- ID da transação no gateway
-  gateway_raw       JSONB,                   -- resposta bruta do gateway
-  download_url      TEXT,                    -- URL temporária pós-aprovação
-  download_expira   TIMESTAMPTZ,
-  criado_em         TIMESTAMPTZ DEFAULT NOW(),
-  atualizado_em     TIMESTAMPTZ DEFAULT NOW()
-);
-```
-
-### `cupons`
-
-```sql
-CREATE TABLE cupons (
-  id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  codigo          TEXT UNIQUE NOT NULL,
-  tipo            TEXT DEFAULT 'percentual', -- 'percentual' | 'fixo'
-  valor           NUMERIC(10,2) NOT NULL,    -- % ou R$
-  limite_usos     INTEGER,                   -- NULL = ilimitado
-  usos_atuais     INTEGER DEFAULT 0,
-  ativo           BOOLEAN DEFAULT TRUE,
-  expira_em       TIMESTAMPTZ,
-  criado_em       TIMESTAMPTZ DEFAULT NOW()
-);
-```
-
-### `avaliacoes`
-
-```sql
-CREATE TABLE avaliacoes (
-  id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  ebook_id    UUID REFERENCES ebooks(id),
-  usuario_id  UUID REFERENCES usuarios(id),
-  nota        INTEGER CHECK (nota BETWEEN 1 AND 5),
-  comentario  TEXT,
-  aprovado    BOOLEAN DEFAULT FALSE,
-  criado_em   TIMESTAMPTZ DEFAULT NOW(),
-  UNIQUE(ebook_id, usuario_id)
-);
-```
-
-### `newsletter_leads`
-
-```sql
-CREATE TABLE newsletter_leads (
-  id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  email       TEXT UNIQUE NOT NULL,
-  nome        TEXT,
-  origem      TEXT,                        -- 'home' | 'ebook' | 'popup'
-  ativo       BOOLEAN DEFAULT TRUE,
-  criado_em   TIMESTAMPTZ DEFAULT NOW()
-);
-```
+Documentação dos modelos de dados usados no frontend estático. Os JSONs ficam em `assets/data/`. Quando houver backend, este schema serve como base para o banco de dados.
 
 ---
 
-## JSON de Exemplo (MVP estático)
+## Ebook
 
-### `assets/data/ebooks.json`
-
-```json
-{
-  "ebooks": [
-    {
-      "id": "ebook-001",
-      "slug": "habitos-de-leitura",
-      "titulo": "Hábitos de Leitura",
-      "subtitulo": "Como ler mais em menos tempo",
-      "autor": "Ana Vitale",
-      "categoria": "desenvolvimento-pessoal",
-      "descricao_curta": "Construa uma rotina de leitura sustentável em 21 dias.",
-      "preco": 19.90,
-      "preco_promocional": 1.00,
-      "paginas": 84,
-      "formatos": ["PDF", "ePub"],
-      "destaque": true,
-      "avaliacao_media": 4.8,
-      "total_vendas": 312,
-      "capa_url": "./assets/images/capas/habitos-de-leitura.jpg",
-      "tags": ["leitura", "habitos", "foco"],
-      "aprendizados": [
-        "Como criar uma rotina de leitura de 20 minutos/dia",
-        "Técnicas para absorver mais conteúdo",
-        "Como escolher os livros certos para seu objetivo"
-      ]
-    }
-  ]
-}
-```
-
-### `assets/data/categorias.json`
+**Arquivo:** `assets/data/ebooks.json`
 
 ```json
 {
-  "categorias": [
-    { "slug": "desenvolvimento-pessoal", "nome": "Desenvolvimento Pessoal", "icone": "star" },
-    { "slug": "financas", "nome": "Finanças", "icone": "trending-up" },
-    { "slug": "saude-bem-estar", "nome": "Saúde & Bem-estar", "icone": "heart" },
-    { "slug": "relacionamentos", "nome": "Relacionamentos", "icone": "users" },
-    { "slug": "espiritualidade", "nome": "Espiritualidade", "icone": "sun" },
-    { "slug": "negocios", "nome": "Negócios", "icone": "briefcase" },
-    { "slug": "produtividade", "nome": "Produtividade", "icone": "zap" },
-    { "slug": "culinaria", "nome": "Culinária", "icone": "utensils" }
-  ]
+  "id": "ebook-001",
+  "slug": "o-ultimo-horizonte",
+  "titulo": "O Último Horizonte",
+  "subtitulo": "Uma jornada além dos limites",
+  "autor": "Marina Lessa",
+  "pseudonimo_id": "pseudo-001",
+  "categoria": "romance",
+  "tags": ["aventura", "superação", "drama"],
+  "preco": 19.90,
+  "preco_promocional": 1.00,
+  "preco_original": 29.90,
+  "avaliacao": 4.8,
+  "total_avaliacoes": 142,
+  "total_vendas": 380,
+  "paginas": 184,
+  "palavras": 48000,
+  "formatos": ["PDF", "ePub"],
+  "lingua": "pt-BR",
+  "isbn": "978-65-XXXXX-XX-X",
+  "destaque": true,
+  "lancamento": false,
+  "mais_vendido": true,
+  "status": "publicado",
+  "capa": "/assets/images/ebooks/o-ultimo-horizonte.jpg",
+  "descricao_curta": "Uma mulher perdida num mundo que nunca a esperou.",
+  "descricao": "Descrição completa do ebook com benefícios e proposta de valor...",
+  "o_que_voce_vai_aprender": [
+    "Como lidar com mudanças repentinas",
+    "A importância da resiliência",
+    "Construir novos começos"
+  ],
+  "sumario": [
+    { "capitulo": 1, "titulo": "O primeiro passo" },
+    { "capitulo": 2, "titulo": "Encontros inesperados" }
+  ],
+  "arquivo_url": "/downloads/o-ultimo-horizonte.pdf",
+  "data_publicacao": "2026-01-15",
+  "data_atualizacao": "2026-03-01"
 }
 ```
 
 ---
 
-## Políticas de Segurança (RLS — Supabase)
+## Categoria
 
-```sql
--- Usuários só acessam seus próprios dados
-ALTER TABLE usuarios ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "usuarios_proprios" ON usuarios
-  FOR ALL USING (auth.uid() = id);
+**Arquivo:** `assets/data/categorias.json`
 
--- Pedidos: leitura só do próprio usuário
-ALTER TABLE pedidos ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "pedidos_proprios" ON pedidos
-  FOR SELECT USING (auth.uid() = usuario_id);
+```json
+{
+  "id": "cat-001",
+  "slug": "romance",
+  "nome": "Romance",
+  "descricao": "Histórias de amor, paixão e relacionamentos.",
+  "icone": "heart",
+  "total_ebooks": 24,
+  "destaque": true,
+  "ordem": 1
+}
+```
 
--- Arquivos de ebook: acesso só com pedido aprovado
--- (implementado via Storage Policies no Supabase)
+**Categorias previstas:**
 
--- Ebooks e categorias: leitura pública
-ALTER TABLE ebooks ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "ebooks_publicos" ON ebooks
-  FOR SELECT USING (ativo = TRUE);
+| Slug | Nome | Ícone |
+|---|---|---|
+| `romance` | Romance | heart |
+| `fantasia` | Fantasia | sparkles |
+| `autoajuda` | Autoajuda | sun |
+| `negocios` | Negócios | briefcase |
+| `saude` | Saúde & Bem-estar | leaf |
+| `suspense` | Suspense & Thriller | eye |
+| `historia` | História & Biografia | book-open |
+| `tecnologia` | Tecnologia | cpu |
+
+---
+
+## Usuário
+
+**Usado em:** `conta.js` (estado em memória / integração futura)
+
+```json
+{
+  "id": "user-001",
+  "nome": "João Silva",
+  "email": "joao@email.com",
+  "avatar_url": null,
+  "plano": "free",
+  "status": "ativo",
+  "biblioteca": ["ebook-001", "ebook-003", "ebook-007"],
+  "favoritos": ["ebook-010", "ebook-015"],
+  "total_gasto": 59.70,
+  "cupons_usados": ["PRIMEIRACOMPRA"],
+  "data_cadastro": "2026-02-10",
+  "ultimo_acesso": "2026-03-29"
+}
 ```
 
 ---
 
-## Índices Recomendados
+## Pedido
 
-```sql
-CREATE INDEX idx_ebooks_categoria ON ebooks(categoria_id);
-CREATE INDEX idx_ebooks_destaque ON ebooks(destaque) WHERE destaque = TRUE;
-CREATE INDEX idx_ebooks_ativo ON ebooks(ativo) WHERE ativo = TRUE;
-CREATE INDEX idx_pedidos_usuario ON pedidos(usuario_id);
-CREATE INDEX idx_pedidos_status ON pedidos(status);
-CREATE INDEX idx_avaliacoes_ebook ON avaliacoes(ebook_id);
+**Usado em:** `conta.js` e painel admin
+
+```json
+{
+  "id": "order-001",
+  "usuario_id": "user-001",
+  "ebook_id": "ebook-001",
+  "ebook_titulo": "O Último Horizonte",
+  "ebook_capa": "/assets/images/ebooks/o-ultimo-horizonte.jpg",
+  "valor_original": 19.90,
+  "desconto": 18.90,
+  "valor_pago": 1.00,
+  "cupom_aplicado": "PRIMEIRACOMPRA",
+  "metodo_pagamento": "pix",
+  "status": "aprovado",
+  "gateway": "mercadopago",
+  "gateway_id": "mp-txn-XXXXX",
+  "data_pedido": "2026-03-15T14:32:00Z",
+  "data_pagamento": "2026-03-15T14:32:45Z",
+  "download_disponivel": true,
+  "downloads_realizados": 2
+}
 ```
+
+**Status possíveis:** `pendente` | `aprovado` | `recusado` | `estornado` | `expirado`
+
+---
+
+## Cupom
+
+```json
+{
+  "id": "cup-001",
+  "codigo": "PRIMEIRACOMPRA",
+  "tipo": "valor_fixo",
+  "desconto": 18.90,
+  "desconto_percentual": null,
+  "valor_minimo": 19.90,
+  "usos_maximos": 1000,
+  "usos_realizados": 347,
+  "uso_por_usuario": 1,
+  "ativo": true,
+  "aplica_em": "todos",
+  "categorias_restritas": [],
+  "ebooks_restritos": [],
+  "data_inicio": "2026-01-01",
+  "data_expiracao": "2026-12-31"
+}
+```
+
+**Tipos de cupom:** `valor_fixo` | `percentual` | `frete_gratis`
+
+---
+
+## Pseudônimo
+
+**Arquivo:** `assets/data/pseudonimos.json` (uso interno)
+
+```json
+{
+  "id": "pseudo-001",
+  "nome": "Marina Lessa",
+  "genero": "feminino",
+  "genero_literario": "romance",
+  "personalidade": "empática, apaixonada, introspectiva",
+  "bio_curta": "Marina Lessa é uma escritora apaixonada por histórias de superação e amor.",
+  "bio_completa": "...",
+  "foto": "/assets/images/autores/marina-lessa.jpg",
+  "redes_sociais": {
+    "instagram": "@marinalessa.livros",
+    "tiktok": "@marinalessa"
+  },
+  "ebooks": ["ebook-001", "ebook-004"],
+  "total_vendas": 850,
+  "ativo": true
+}
+```
+
+---
+
+## Depoimento
+
+**Arquivo:** `assets/data/depoimentos.json`
+
+```json
+{
+  "id": "dep-001",
+  "nome": "Fernanda Costa",
+  "cargo": "Professora",
+  "cidade": "São Paulo – SP",
+  "avaliacao": 5,
+  "texto": "Comprei por impulso e não me arrependi. A leitura foi uma das melhores experiências que tive.",
+  "ebook_id": "ebook-001",
+  "ebook_titulo": "O Último Horizonte",
+  "data": "2026-02-20",
+  "destaque": true
+}
+```
+
+---
+
+## Relações entre Modelos
+
+```
+Categoria ←── Ebook ──→ Pseudônimo
+                │
+                ▼
+             Pedido ──→ Usuário
+                │
+               Cupom
+
+Ebook ──→ Depoimento
+Usuário ──→ Depoimento (futuro)
+```
+
+---
+
+## Exemplo: `ebooks.json` (array completo)
+
+```json
+[
+  {
+    "id": "ebook-001",
+    "slug": "o-ultimo-horizonte",
+    "titulo": "O Último Horizonte",
+    "autor": "Marina Lessa",
+    "categoria": "romance",
+    "preco": 19.90,
+    "preco_promocional": 1.00,
+    "avaliacao": 4.8,
+    "destaque": true,
+    "mais_vendido": true,
+    "capa": "/assets/images/ebooks/o-ultimo-horizonte.jpg",
+    "descricao_curta": "Uma mulher perdida num mundo que nunca a esperou."
+  }
+]
+```
+
+> **Nota:** Para o MVP, os dados são servidos por JSON estático. Quando houver backend (Node.js/Supabase), este schema define a estrutura das tabelas.

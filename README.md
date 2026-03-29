@@ -1,113 +1,99 @@
 # Vita Ebooks
 
-> Plataforma brasileira de venda e entrega de ebooks digitais. Catálogo curado, checkout simples, download imediato.
+Plataforma brasileira de venda de ebooks digitais com entrega imediata por download. Produção editorial com pseudônimos curados, marketing orgânico e modelo de negócio escalável.
 
 ## Visão Geral
 
-Vita Ebooks é uma plataforma de e-commerce focada em ebooks digitais com:
-- Catálogo navegável por categorias
-- Busca por título, autor e tema
-- Checkout com Pix, cartão e boleto
-- Entrega digital imediata pós-pagamento
-- Biblioteca pessoal do leitor com re-download ilimitado
-- Pseudônimos editoriais para curadoria de nichos
+- **Produto:** ebooks em PDF/ePub nas categorias romance, fantasia, autoajuda, negócios e saúde
+- **Modelo:** venda direta com oferta de entrada em R$ 1,00 na 1ª compra
+- **Público:** leitores brasileiros que buscam conteúdo acessível e download imediato
+- **Meta (4 meses):** R$ 15.000/mês em receita recorrente, 500 clientes ativos
 
-## Stack
+## Stack Técnica
 
 | Camada | Tecnologia |
 |---|---|
-| Frontend (MVP) | HTML5 + CSS3 + Vanilla JS |
-| Design Tokens | CSS Custom Properties (OKLCH) |
-| Tipografia | Zodiak (display) + Satoshi (corpo) via Fontshare |
+| Frontend | HTML5 + CSS (custom tokens) + JS vanilla |
+| Fontes | Zodiak (Fontshare) + Satoshi (Fontshare) |
 | Ícones | Lucide Icons (CDN) |
-| Dados (MVP) | JSON estático (`assets/data/`) |
-| Dados (produção) | Supabase (PostgreSQL) |
-| Pagamentos | Mercado Pago / Stripe |
-| Armazenamento | Supabase Storage / AWS S3 |
-| Deploy | GitHub Pages (MVP) → Vercel (produção) |
+| Dados | JSON estático (`assets/data/`) |
+| Checkout | Integração externa (Stripe / Mercado Pago) |
+| Hosting | GitHub Pages / Vercel |
+| Analytics | Google Analytics 4 |
 
-## Estrutura de Pastas
+## Estrutura de Arquivos
 
 ```
 vita-ebooks/
-├── index.html              # Home / Landing
-├── catalogo.html           # Catálogo com filtros
-├── ebook.html              # Página de produto
-├── checkout.html           # Fluxo de compra
-├── sucesso.html            # Confirmação pós-compra
-├── entrar.html             # Login
-├── criar-conta.html        # Cadastro
-├── minha-biblioteca.html   # Biblioteca do leitor
-├── minha-conta.html        # Perfil e pedidos
-├── faq.html                # Dúvidas frequentes
-├── sobre.html              # Institucional
-├── 404.html                # Página de erro
+├── index.html                  # Home / Landing principal
+├── catalogo.html               # Catálogo com filtros
+├── ebook.html                  # Página de produto (dinâmica via JS)
+├── checkout.html               # Fluxo de compra
+├── checkout-sucesso.html       # Pós-compra / confirmação
+├── entrar.html                 # Login
+├── criar-conta.html            # Cadastro
+├── minha-biblioteca.html       # Biblioteca do leitor
+├── meus-pedidos.html           # Histórico de pedidos
+├── sobre.html                  # Institucional
+├── faq.html                    # Perguntas frequentes
+├── contato.html                # Contato
+├── termos.html                 # Termos de uso
+├── privacidade.html            # Política de privacidade
+├── admin.html                  # Painel administrativo
 ├── assets/
 │   ├── css/
-│   │   └── style.css       # Design tokens + componentes
+│   │   └── style.css           # Todos os tokens + componentes
 │   ├── js/
-│   │   ├── main.js         # Dark mode, menu mobile, utils
-│   │   ├── catalogo.js     # Filtros, busca, ordenação
-│   │   ├── ebook.js        # Página de produto
-│   │   ├── checkout.js     # Fluxo de compra
-│   │   └── conta.js        # Área do leitor
+│   │   ├── main.js             # Dark mode, nav, utils globais
+│   │   ├── catalogo.js         # Filtros, busca, renderização
+│   │   ├── ebook.js            # Página de produto
+│   │   ├── checkout.js         # Fluxo de compra
+│   │   ├── conta.js            # Autenticação e biblioteca
+│   │   └── admin.js            # Painel admin
 │   ├── images/
-│   │   ├── capas/          # Capas dos ebooks
-│   │   └── ui/             # Assets da interface
+│   │   ├── brand/              # Logo, favicon, og-image
+│   │   ├── ebooks/             # Capas dos ebooks
+│   │   └── ui/                 # Ilustrações e assets de UI
 │   └── data/
-│       ├── ebooks.json     # Catálogo de ebooks
-│       ├── categorias.json # Categorias e metadados
-│       └── depoimentos.json
-└── docs/                   # Documentação técnica e estratégica
-    ├── ARCHITECTURE.md
-    ├── DATABASE.md
-    ├── ROADMAP.md
-    ├── EDITORIAL.md
-    ├── MARKETING.md
-    ├── IDENTIDADE.md
-    ├── KPIS.md
-    ├── JURIDICO.md
-    └── GOVERNANCA.md
+│       ├── ebooks.json         # Catálogo de ebooks
+│       ├── categorias.json     # Lista de categorias
+│       └── depoimentos.json    # Depoimentos de leitores
+└── docs/
+    ├── ARCHITECTURE.md         # Estrutura do site e fluxos
+    ├── DATABASE.md             # Schema de dados
+    ├── ROADMAP.md              # Roadmap 4 meses
+    ├── EDITORIAL.md            # Playbook editorial
+    ├── MARKETING.md            # Playbook de marketing
+    ├── IDENTIDADE.md           # Manual de identidade dos pseudônimos
+    ├── KPIS.md                 # Dashboard de KPIs
+    ├── JURIDICO.md             # Checklist jurídico-editorial
+    └── GOVERNANCA.md           # Governança de comunidade
 ```
 
 ## Como Rodar Localmente
 
 ```bash
-git clone https://github.com/italosm2-ui/vita-ebooks.git
+git clone git@github.com:italosm2-ui/vita-ebooks.git
 cd vita-ebooks
-# Qualquer servidor HTTP local funciona:
-npx serve .
-# ou
-python3 -m http.server 8080
+# Abra index.html no browser ou use Live Server (VS Code)
 ```
 
-Acesse `http://localhost:8080`
+## Deploy — GitHub Pages
 
-## Deploy
-
-**MVP — GitHub Pages:**
-- Settings → Pages → Source: `main` / `/ (root)`
-- URL: `https://italosm2-ui.github.io/vita-ebooks/`
-
-**Produção — Vercel:**
-```bash
-npx vercel --prod
-```
+1. **Settings → Pages**
+2. Source: `Deploy from a branch` → `main` → `/ (root)`
+3. URL: `https://italosm2-ui.github.io/vita-ebooks/`
 
 ## Documentação
 
-| Documento | Conteúdo |
+| Doc | Conteúdo |
 |---|---|
-| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | Estrutura de páginas, rotas e fluxos |
-| [DATABASE.md](docs/DATABASE.md) | Schema do banco de dados |
-| [ROADMAP.md](docs/ROADMAP.md) | Roadmap estratégico 4 meses |
-| [EDITORIAL.md](docs/EDITORIAL.md) | Playbook editorial |
-| [MARKETING.md](docs/MARKETING.md) | Estratégia de marketing orgânico |
-| [IDENTIDADE.md](docs/IDENTIDADE.md) | Manual de identidade dos pseudônimos |
-| [KPIS.md](docs/KPIS.md) | Dashboard de KPIs |
-| [JURIDICO.md](docs/JURIDICO.md) | Checklist jurídico-editorial |
+| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | Rotas, fluxos, componentes |
+| [DATABASE.md](docs/DATABASE.md) | Schema JSON e modelos de dados |
+| [ROADMAP.md](docs/ROADMAP.md) | Cronograma 4 meses |
+| [EDITORIAL.md](docs/EDITORIAL.md) | Processo de criação de ebooks |
+| [MARKETING.md](docs/MARKETING.md) | Marketing orgânico por plataforma |
+| [IDENTIDADE.md](docs/IDENTIDADE.md) | Pseudônimos e identidade de marca |
+| [KPIS.md](docs/KPIS.md) | Métricas e metas |
+| [JURIDICO.md](docs/JURIDICO.md) | Checklist jurídico |
 | [GOVERNANCA.md](docs/GOVERNANCA.md) | Governança de comunidade |
-
-## Licença
-
-Privado — todos os direitos reservados.
