@@ -2,41 +2,33 @@
   {
     "id": 1,
     "nome": "Mariana Costa",
-    "cargo": "Designer, São Paulo – SP",
+    "cargo": "Designer, São Paulo - SP",
     "inicial": "M",
-    "texto": "Comprei meu primeiro ebook com R$1,00 e fiquei surpresa com a qualidade. Já comprei mais cinco desde então. Plataforma excelente!",
+    "texto": "Entrei pela curadoria de desenvolvimento pessoal e continuei pela organização da plataforma. Dá para descobrir títulos bons sem se perder no catálogo.",
     "estrelas": 5
   },
   {
     "id": 2,
     "nome": "Rafael Mendes",
-    "cargo": "Empreendedor, Belo Horizonte – MG",
+    "cargo": "Empreendedor, Belo Horizonte - MG",
     "inicial": "R",
-    "texto": "Finalmente uma plataforma em português com ebooks de qualidade. O processo de compra é simples e o download é instantâneo.",
+    "texto": "A página de planos deixa tudo claro. Consigo comparar compra avulsa com assinatura em minutos, sem linguagem enrolada.",
     "estrelas": 5
   },
   {
     "id": 3,
     "nome": "Ana Beatriz Lima",
-    "cargo": "Professora, Fortaleza – CE",
+    "cargo": "Professora, Fortaleza - CE",
     "inicial": "A",
-    "texto": "Os conteúdos de desenvolvimento pessoal são incríveis. Recomendo para quem quer aprender sem gastar muito.",
-    "estrelas": 4
+    "texto": "Uso a Vita para montar repertório de aula e leitura pessoal. A curadoria em português me economiza muito tempo.",
+    "estrelas": 5
   },
   {
     "id": 4,
     "nome": "Carlos Eduardo",
-    "cargo": "Analista Financeiro, Curitiba – PR",
+    "cargo": "Analista financeiro, Curitiba - PR",
     "inicial": "C",
-    "texto": "A seleção de títulos de finanças é impressionante. Encontrei livros que não achava em nenhum outro lugar.",
-    "estrelas": 5
-  },
-  {
-    "id": 5,
-    "nome": "Fernanda Oliveira",
-    "cargo": "Empreendedora, Recife – PE",
-    "inicial": "F",
-    "texto": "Compro pelo menos dois ebooks por mês. A experiência de compra é rápida e os PDFs têm ótima qualidade de leitura.",
-    "estrelas": 5
+    "texto": "Gostei da forma como os ebooks são apresentados. Parece livraria de curadoria, não catálogo genérico com capa jogada.",
+    "estrelas": 4
   }
 ]
