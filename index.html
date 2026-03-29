@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vita Ebooks — sua biblioteca digital de bolso. Ebooks selecionados, pagamento seguro, download imediato. Primeira compra por R$1,00." />
+  <meta property="og:title" content="Vita Ebooks" />
+  <meta property="og:description" content="Ebooks selecionados com download imediato. Primeira compra por R$1,00." />
+  <meta property="og:type" content="website" />
+  <title>Vita Ebooks — Sua biblioteca digital de bolso</title>
+
+  <!-- Favicon SVG inline -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='4' y='6' width='18' height='22' rx='2' fill='%231a5c3a'/><rect x='8' y='6' width='18' height='22' rx='2' fill='%23246b45' opacity='.7'/><path d='M13 4 Q16 1 19 4' stroke='%231a5c3a' stroke-width='1.5' fill='none'/></svg>" />
+
+  <!-- Fonts: Zodiak (display) + Satoshi (body) -->
+  <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- Skip link -->
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+  <!-- ═══════════════════════════════════════ HEADER ══ -->
+  <header class="site-header" id="topo">
+    <div class="container header-inner">
+
+      <!-- Logo -->
+      <a href="/" class="logo" aria-label="Vita Ebooks — página inicial">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="7" width="20" height="24" rx="2.5" fill="currentColor" opacity="0.15"/>
+          <rect x="8" y="5" width="20" height="24" rx="2.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M18 5 C18 5 16 2 14 3 C12 4 13 6 13 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M18 5 C18 5 20 2 22 3 C24 4 23 6 23 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M14 13 L22 13 M14 17 L22 17 M14 21 L19 21" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-text">Vita Ebooks</span>
+      </a>
+
+      <!-- Nav desktop -->
+      <nav class="nav-desktop" aria-label="Navegação principal">
+        <ul role="list">
+          <li><a href="#categorias">Categorias</a></li>
+          <li><a href="#destaques">Destaques</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#suporte">Suporte</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header actions -->
+      <div class="header-actions">
+        <button type="button" class="btn-icon" data-theme-toggle aria-label="Alternar tema">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="#conta" class="btn btn-ghost">Entrar</a>
+        <a href="#destaques" class="btn btn-primary">Começar por R$1,00</a>
+        <!-- Hamburger mobile -->
+        <button type="button" class="btn-icon hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <nav aria-label="Navegação mobile">
+        <ul role="list">
+          <li><a href="#categorias">Categorias</a></li>
+          <li><a href="#destaques">Destaques</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#suporte">Suporte</a></li>
+          <li><a href="#conta" class="btn btn-ghost" style="display:inline-block;margin-top:var(--space-2)">Entrar</a></li>
+          <li><a href="#destaques" class="btn btn-primary" style="display:inline-block;margin-top:var(--space-2)">Começar por R$1,00</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo-principal">
+
+    <!-- ════════════════════════════════════════ HERO ══ -->
+    <section id="hero" class="section-hero" aria-labelledby="hero-title">
+      <div class="container hero-layout">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Plataforma brasileira de ebooks</p>
+          <h1 id="hero-title" class="hero-title">
+            Sua biblioteca digital,
+            <em>do jeito que você merece</em>
+          </h1>
+          <p class="hero-desc">Ebooks selecionados por tema, com download imediato e pagamento seguro. Leia no celular, tablet ou computador — quando e onde quiser.</p>
+          <div class="hero-ctas">
+            <a href="#destaques" class="btn btn-primary btn-lg">Ver ebooks em destaque</a>
+            <a href="#como-funciona" class="btn btn-ghost btn-lg">Como funciona</a>
+          </div>
+          <ul class="hero-stats" role="list" aria-label="Números da plataforma">
+            <li><strong>+1.200</strong><span>leitores ativos</span></li>
+            <li><strong>4,9/5</strong><span>média de avaliações</span></li>
+            <li><strong>R$1,00</strong><span>na 1ª compra</span></li>
+          </ul>
+        </div>
+        <div class="hero-covers" aria-hidden="true">
+          <div class="cover-stack">
+            <div class="cover cover-3"></div>
+            <div class="cover cover-2"></div>
+            <div class="cover cover-1"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════ BUSCA ══ -->
+    <section id="busca" class="section-busca" aria-labelledby="busca-label">
+      <div class="container">
+        <h2 id="busca-label" class="sr-only">Busca de ebooks</h2>
+        <form class="search-form" role="search" action="#destaques">
+          <input
+            type="search"
+            name="q"
+            id="busca-input"
+            placeholder="Busque por título, autor ou tema…"
+            aria-label="Buscar ebooks"
+            autocomplete="off"
+          />
+          <select name="categoria" aria-label="Filtrar por categoria">
+            <option value="">Todas as categorias</option>
+            <option value="desenvolvimento-pessoal">Desenvolvimento Pessoal</option>
+            <option value="financas">Finanças</option>
+            <option value="saude">Saúde &amp; Bem-estar</option>
+            <option value="tecnologia">Tecnologia</option>
+            <option value="educacao">Educação</option>
+            <option value="negocios">Negócios</option>
+            <option value="criatividade">Criatividade</option>
+            <option value="espiritualidade">Espiritualidade</option>
+          </select>
+          <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════ CATEGORIAS ══ -->
+    <section id="categorias" class="section-padded" aria-labelledby="categorias-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 id="categorias-title">Explore por categoria</h2>
+          <p>Do autoconhecimento às finanças — encontre exatamente o que você precisa.</p>
+        </header>
+        <div class="grid-categorias" id="grid-categorias"></div>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════ DESTAQUES ══ -->
+    <section id="destaques" class="section-padded section-alt" aria-labelledby="destaques-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 id="destaques-title">Ebooks em destaque</h2>
+          <p>Os títulos mais lidos e bem avaliados da semana.</p>
+        </header>
+        <div class="grid-livros" id="grid-livros"></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ COMO FUNCIONA ══ -->
+    <section id="como-funciona" class="section-padded" aria-labelledby="como-funciona-title">
+      <div class="container container-narrow">
+        <header class="section-header section-header--center">
+          <h2 id="como-funciona-title">Em 3 passos simples</h2>
+          <p>Sem cadastro complicado, sem espera. Compre e leia agora.</p>
+        </header>
+        <ol class="passos" role="list">
+          <li class="passo">
+            <span class="passo-num" aria-hidden="true">1</span>
+            <div>
+              <h3>Escolha seu ebook</h3>
+              <p>Navegue pelas categorias ou use a busca para encontrar o título ideal para você.</p>
+            </div>
+          </li>
+          <li class="passo">
+            <span class="passo-num" aria-hidden="true">2</span>
+            <div>
+              <h3>Pague com segurança</h3>
+              <p>Cartão de crédito, Pix ou boleto — ambiente 100% seguro com criptografia SSL.</p>
+            </div>
+          </li>
+          <li class="passo">
+            <span class="passo-num" aria-hidden="true">3</span>
+            <div>
+              <h3>Baixe na hora</h3>
+              <p>Receba o link de download imediato por e-mail e leia onde quiser, offline.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════ DEPOIMENTOS ══ -->
+    <section id="depoimentos" class="section-padded section-alt" aria-labelledby="depoimentos-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 id="depoimentos-title">O que dizem os leitores</h2>
+        </header>
+        <div class="grid-depoimentos">
+          <blockquote class="card-depoimento">
+            <p>"Comprei meu primeiro ebook às 23h, estava no meu celular em menos de 2 minutos. Impressionante!"</p>
+            <footer>
+              <strong>Ana Cláudia S.</strong>
+              <span>Professora — São Paulo, SP</span>
+              <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+            </footer>
+          </blockquote>
+          <blockquote class="card-depoimento">
+            <p>"A curadoria é incrível. Já comprei 4 ebooks e todos foram exatamente o que esperava. Vale muito a pena."</p>
+            <footer>
+              <strong>Rafael M.</strong>
+              <span>Empreendedor — Belo Horizonte, MG</span>
+              <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+            </footer>
+          </blockquote>
+          <blockquote class="card-depoimento">
+            <p>"Plataforma limpa, pagamento fácil e atendimento rápido quando precisei de suporte. Recomendo!"</p>
+            <footer>
+              <strong>Juliana T.</strong>
+              <span>Estudante — Recife, PE</span>
+              <div class="estrelas" aria-label="4 estrelas">★★★★☆</div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════ NEWSLETTER ══ -->
+    <section id="newsletter" class="section-padded" aria-labelledby="newsletter-title">
+      <div class="container container-narrow">
+        <div class="newsletter-card">
+          <h2 id="newsletter-title">Receba lançamentos e descontos</h2>
+          <p>Cadastre seu e-mail e seja o primeiro a saber dos novos títulos e ofertas exclusivas.</p>
+          <form class="newsletter-form" id="newsletter-form" novalidate>
+            <label for="newsletter-email" class="sr-only">Seu e-mail</label>
+            <input
+              type="email"
+              id="newsletter-email"
+              name="email"
+              placeholder="seu@email.com"
+              required
+              autocomplete="email"
+            />
+            <button type="submit" class="btn btn-primary">Quero receber</button>
+          </form>
+          <p class="newsletter-aviso">Sem spam. Cancele quando quiser.</p>
+          <div class="newsletter-feedback" id="newsletter-feedback" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════ CTA BANNER ══ -->
+    <section id="cta-final" class="section-cta" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title">Comece hoje por R$&nbsp;1,00</h2>
+        <p>Sua primeira compra na Vita Ebooks custa apenas R$1,00. Sem pegadinhas.</p>
+        <a href="#destaques" class="btn btn-inverse btn-lg">Escolher meu primeiro ebook</a>
+        <ul class="cta-selos" role="list" aria-label="Garantias">
+          <li>🔒 Pagamento seguro</li>
+          <li>⚡ Download imediato</li>
+          <li>↩️ Satisfação garantida</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════ FOOTER ══ -->
+  <footer class="site-footer" id="suporte">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="/" class="logo" aria-label="Vita Ebooks">
+          <svg width="28" height="28" viewBox="0 0 36 36" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="7" width="20" height="24" rx="2.5" fill="currentColor" opacity="0.15"/>
+            <rect x="8" y="5" width="20" height="24" rx="2.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M18 5 C18 5 16 2 14 3 C12 4 13 6 13 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M18 5 C18 5 20 2 22 3 C24 4 23 6 23 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          </svg>
+          <span class="logo-text">Vita Ebooks</span>
+        </a>
+        <p class="footer-tagline">Conhecimento que nasce e cresce com você.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Plataforma</h3>
+        <ul role="list">
+          <li><a href="#categorias">Categorias</a></li>
+          <li><a href="#destaques">Destaques</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Empresa</h3>
+        <ul role="list">
+          <li><a href="#sobre">Sobre nós</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="#autores">Para autores</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Suporte</h3>
+        <ul role="list">
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#conta">Minha conta</a></li>
+          <li><a href="#privacidade">Política de Privacidade</a></li>
+          <li><a href="#termos">Termos de Uso</a></li>
+          <li><a href="#reembolso">Reembolso</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Vita Ebooks. Todos os direitos reservados.</p>
+        <p>Feito com cuidado no Brasil 🇧🇷</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,89 +1,60 @@
-# 📚 Vita Ebooks
+# Vita Ebooks
 
-> Plataforma editorial brasileira de venda de ebooks — estética literária, conversão direta, experiência de leitura.
+Plataforma brasileira de venda de ebooks com design editorial, tema claro/escuro, totalmente responsivo e acessível.
 
-[![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)](#roadmap)
-[![License](https://img.shields.io/badge/license-MIT-green)](#)
-
----
-
-## Sobre o projeto
-
-Vita Ebooks é uma plataforma de venda de ebooks com identidade visual quente e literária. O conceito parte da palavra *vita* (vida em latim) — conhecimento que nasce e cresce. O resultado é uma estética creme/bege aquecido com verde-floresta como acento primário.
-
-## Stack
-
-| Camada | Tecnologia |
-|---|---|
-| Markup | HTML5 semântico |
-| Estilo | CSS custom properties + design tokens |
-| Tipografia | Zodiak (display) + Satoshi (corpo) via Fontshare |
-| Ícones | Lucide Icons (CDN) |
-| Animações | CSS `animation-timeline: view()` (sem JS) |
-| Deploy | GitHub Pages / Vercel |
-
-## Paleta
-
-| Token | Valor | Uso |
-|---|---|---|
-| `--color-bg` | `#f5f2ec` | Superfície principal (creme) |
-| `--color-primary` | `#1a5c3a` | Verde-floresta — acento único |
-| `--color-text` | `#1e1b15` | Texto principal |
-| `--color-text-muted` | `#6b6860` | Texto secundário |
-
-## Estrutura de pastas
+## Estrutura
 
 ```
 vita-ebooks/
-├── index.html           ← Home / Landing
-├── catalogo.html        ← Catálogo com filtros
-├── ebook.html           ← Página de vendas individual
-├── sobre.html           ← Institucional
-├── suporte.html         ← FAQ e suporte
-├── minha-conta.html     ← Login / downloads
+├── index.html              ← Landing page principal
 ├── assets/
-│   ├── css/
-│   │   ├── tokens.css   ← Design tokens (cores, tipografia, espaçamento)
-│   │   ├── base.css     ← Reset + base styles
-│   │   └── components/  ← Estilos por componente
-│   ├── js/
-│   │   └── main.js      ← Comportamentos globais (tema, mobile menu)
-│   └── img/             ← Capas de ebooks, imagens editoriais
-└── .github/
-    └── ISSUE_TEMPLATE/  ← Templates de issue
+│   ├── css/style.css       ← Design tokens + todos os componentes
+│   └── js/main.js          ← Dark mode, menu mobile, renderização dinâmica
+└── README.md
 ```
 
-## Roadmap
+## Design
 
-Veja as [Issues](../../issues) organizadas por milestone para o roadmap completo detalhado.
+- **Tipografia:** Zodiak (display/títulos) + Satoshi (corpo) — via Fontshare CDN
+- **Paleta:** Creme/bege aquecido + Verde-floresta `#1a5c3a` como acento único
+- **Modo escuro:** Automático via `prefers-color-scheme` + toggle manual
+- **Responsivo:** 375px → 1440px+
+- **Acessível:** HTML semântico, hierarquia de headings, `aria-label`, foco visível, reduced-motion
 
-### Milestones
+## Seções
 
-1. **M1 — Fundação** — Design system, tokens, componentes base
-2. **M2 — Home** — Todas as seções da landing page
-3. **M3 — Catálogo** — Listagem com filtros e busca
-4. **M4 — Produto** — Página de vendas do ebook
-5. **M5 — Páginas de suporte** — FAQ, Sobre, Minha Conta
-6. **M6 — Qualidade** — Acessibilidade, performance, dark mode, mobile QA
-7. **M7 — Deploy** — GitHub Pages / domínio customizado
+| Seção | Função |
+|---|---|
+| Header sticky | Navegação + dark mode toggle + menu mobile |
+| Hero | Título display, pilha de capas, 3 stats de prova social |
+| Busca | Campo + filtro de categoria em fundo verde |
+| Categorias | 8 cards com ícone e contagem |
+| Destaques | 6 cards de ebook com badge, preço e avaliação |
+| Como funciona | 3 passos com numeração circular |
+| Depoimentos | 3 cards com citação e avaliação |
+| Newsletter | Formulário com feedback inline |
+| CTA Banner | Fundo verde, oferta R$1,00 na 1ª compra |
+| Footer | 4 colunas + links legais |
 
-## Como contribuir
+## Próximas páginas
+
+- `catalogo.html` — Grid com filtros e paginação
+- `ebook.html` — Página de produto individual
+- `suporte.html` — FAQ por tópicos
+- `sobre.html` — Institucional
+- `conta.html` — Login + biblioteca do leitor
+
+## GitHub Pages
+
+1. **Settings → Pages**
+2. Source: `Deploy from a branch` → `main` → `/ (root)`
+3. URL: `https://italosm2-ui.github.io/vita-ebooks/`
+
+## Desenvolvimento local
 
 ```bash
-# Clone o repositório
-git clone https://github.com/italosm2-ui/vita-ebooks.git
-cd vita-ebooks
-
-# Abra com Live Server ou qualquer servidor HTTP estático
-# Não há dependências de build — HTML/CSS/JS puro
+# Qualquer servidor estático funciona, ex:
+npx serve .
+# ou
+python3 -m http.server 8080
 ```
-
-Siga o fluxo de branches:
-- `main` — código em produção
-- `develop` — branch de integração
-- `feat/nome-da-feature` — novas funcionalidades
-- `fix/nome-do-bug` — correções
-
----
-
-*Vita Ebooks © 2026 — Conhecimento que nasce e cresce.*
