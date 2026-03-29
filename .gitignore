@@ -1,7 +1,35 @@
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
 Thumbs.db
-.env
-*.log
-node_modules/
+ehthumbs.db
+Desktop.ini
+
+# Editor
 .vscode/
 .idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Node
+node_modules/
+npm-debug.log*
+.npm
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Build
+dist/
+build/
+
+# Logs
+*.log
+logs/
