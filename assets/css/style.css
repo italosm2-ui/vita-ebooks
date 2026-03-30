@@ -144,17 +144,8 @@ h1,h2,h3,h4,h5,h6{margin:0;font-family:var(--font-display);line-height:1.02;lett
 
 main{display:block;padding-top:var(--header-height)}
 .home-main{padding-bottom:var(--space-14)}
-.home-shell{display:grid;grid-template-columns:220px minmax(0,1fr);gap:var(--space-8);align-items:start;padding-top:var(--space-8)}
-.home-feed{display:grid;gap:var(--space-6)}
+.home-feed{display:grid;gap:var(--space-6);padding-top:var(--space-8)}
 .home-row{padding-block:0}
-.home-rail{position:sticky;top:calc(var(--header-height) + 1.25rem);display:grid;gap:1.2rem;padding:1.25rem 1rem;border-radius:1.9rem;background:color-mix(in srgb,var(--surface-glass) 88%,transparent);border:1px solid var(--line);backdrop-filter:blur(24px)}
-.home-rail-group{display:grid;gap:.95rem}
-.home-rail-nav{display:grid;gap:.45rem}
-.home-rail-link{display:flex;align-items:center;gap:.75rem;padding:.88rem .95rem;border-radius:1rem;color:var(--text-muted);font-size:var(--text-sm);font-weight:700;transition:background 160ms ease,color 160ms ease,transform 160ms ease}
-.home-rail-link svg{width:1rem;height:1rem}
-.home-rail-link:hover,.home-rail-link.is-current{background:linear-gradient(135deg,var(--primary-soft),var(--secondary-soft));color:var(--text);transform:translateX(2px)}
-.home-rail-card{display:grid;gap:.8rem;padding:1rem;border-radius:1.4rem;background:linear-gradient(180deg,rgba(255,255,255,.06),transparent 55%),color-mix(in srgb,var(--surface-solid) 82%,transparent);border:1px solid var(--line)}
-.home-rail-card strong{font-size:1.02rem;line-height:1.2}
 .site-header{position:fixed;top:0;left:0;right:0;z-index:50;background:color-mix(in srgb,var(--bg) 72%,transparent);backdrop-filter:blur(22px);border-bottom:1px solid transparent;transition:border-color 180ms ease,box-shadow 180ms ease}
 .site-header.scrolled{border-bottom-color:var(--line);box-shadow:0 14px 36px rgba(0,0,0,.08)}
 .header-inner{display:flex;align-items:center;gap:var(--space-5);min-height:var(--header-height)}
@@ -270,8 +261,7 @@ main{display:block;padding-top:var(--header-height)}
   .hero-cinematic .poster-stack{padding-top:0}
   .editorial-split,.catalog-hero-grid,.product-decision-grid,.product-story-panels{grid-template-columns:1fr}
   .product-buy-card{position:static}
-  .home-shell,.premium-home-band{grid-template-columns:1fr}
-  .home-rail{display:none}
+  .premium-home-band{grid-template-columns:1fr}
   .hero-billboard{min-height:auto}
   .home-category-grid,.home-continue-track,.home-premium-track{grid-template-columns:repeat(2,minmax(0,1fr))}
   .hero-cinematic .hero-card-d{display:none}
