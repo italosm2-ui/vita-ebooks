@@ -528,8 +528,6 @@ function renderHomeHero() {
 
   target.innerHTML = `
     <div class="poster-stack">
-      <div class="hero-stage-glow"></div>
-      <div class="hero-stage-shell"></div>
       ${renderHeroPoster(spotlight, "hero-card-a")}
       ${renderHeroPoster(supportB, "hero-card-b")}
       ${renderHeroPoster(supportA, "hero-card-c")}
@@ -644,7 +642,6 @@ function renderHome() {
   const categories = qs("#home-categories");
   const featured = qs("#home-featured");
   const spotlight = qs("#home-spotlight");
-  const premium = qs("#home-premium");
   const quotes = qs("#home-testimonials");
 
   renderHomeHero();
@@ -662,10 +659,6 @@ function renderHome() {
       const label = index === 0 ? "Abrir agora" : index === 1 ? "Seguir lendo" : "Vale ver";
       return renderContinueCard(book, label);
     }).join("");
-  }
-
-  if (premium) {
-    premium.innerHTML = sortBooks(state.ebooks, "avaliacao").slice(0, 2).map(renderShelfCard).join("");
   }
 
   if (quotes) {
