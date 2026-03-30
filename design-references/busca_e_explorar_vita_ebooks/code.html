@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Explorar | NeonBooks</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary": "#340090",
+              "on-primary-container": "#280072",
+              "error-container": "#a70138",
+              "error-dim": "#d73357",
+              "background": "#0e0e0e",
+              "on-secondary-container": "#e8fbff",
+              "on-error-container": "#ffb2b9",
+              "on-surface": "#ffffff",
+              "on-tertiary-fixed": "#380019",
+              "on-secondary-fixed-variant": "#005964",
+              "outline-variant": "#484847",
+              "secondary-container": "#006875",
+              "primary-fixed-dim": "#9c7eff",
+              "tertiary-fixed": "#ff8db2",
+              "on-error": "#490013",
+              "on-tertiary-container": "#59002b",
+              "surface-bright": "#2c2c2c",
+              "on-background": "#ffffff",
+              "on-secondary-fixed": "#003a42",
+              "primary-dim": "#7e51ff",
+              "on-primary-fixed": "#000000",
+              "surface-container-lowest": "#000000",
+              "surface-container-high": "#201f1f",
+              "tertiary-container": "#fc81ab",
+              "inverse-on-surface": "#565555",
+              "primary": "#b6a0ff",
+              "tertiary-dim": "#ef77a0",
+              "secondary-fixed-dim": "#00d7f0",
+              "on-secondary": "#004d57",
+              "secondary-dim": "#00d4ec",
+              "tertiary": "#ff97b8",
+              "inverse-primary": "#6834eb",
+              "surface-dim": "#0e0e0e",
+              "error": "#ff6e84",
+              "surface": "#0e0e0e",
+              "on-tertiary-fixed-variant": "#70103b",
+              "outline": "#767575",
+              "secondary-fixed": "#26e6ff",
+              "surface-container-highest": "#262626",
+              "on-tertiary": "#6a0936",
+              "surface-container-low": "#131313",
+              "tertiary-fixed-dim": "#f57ca5",
+              "primary-container": "#a98fff",
+              "on-surface-variant": "#adaaaa",
+              "on-primary-fixed-variant": "#32008a",
+              "surface-variant": "#262626",
+              "primary-fixed": "#a98fff",
+              "secondary": "#00e3fd",
+              "surface-container": "#1a1919",
+              "inverse-surface": "#fcf9f8",
+              "surface-tint": "#b6a0ff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      body { font-family: 'Inter', sans-serif; background-color: #0e0e0e; color: #ffffff; }
+      h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+      .glass { background: rgba(26, 25, 25, 0.6); backdrop-filter: blur(20px); }
+      .text-glow { text-shadow: 0 0 10px rgba(182, 160, 255, 0.4); }
+      .hide-scrollbar::-webkit-scrollbar { display: none; }
+      .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 w-full bg-[#0e0e0e]/60 backdrop-blur-xl shadow-2xl shadow-black/40">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-black tracking-tighter text-white">NeonBooks</span>
+<div class="hidden lg:flex items-center gap-8">
+<a class="text-white font-bold border-b-2 border-[#b6a0ff] pb-1 font-body text-sm" href="#">Explorar</a>
+<a class="text-[#adaaaa] hover:text-white transition-colors font-body text-sm" href="#">Minha Biblioteca</a>
+<a class="text-[#adaaaa] hover:text-white transition-colors font-body text-sm" href="#">Premium</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-white/10 rounded-full transition-all text-[#adaaaa] hover:text-white">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-white/10 rounded-full transition-all text-[#adaaaa] hover:text-white">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden ring-2 ring-primary/20">
+<img alt="Avatar do usuário" data-alt="Portrait of a stylish young man with professional lighting in a modern creative studio setting, high-end photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4i9ypmKxLbgct5jSME4ssN1ZwGm9B1FjfgP0nEag-xvwG9KOhxuL7bxS_b4kgxsBLk6UShXQiGi3zwpClvczxZAdk0khitam_H-gQdXZeYiLlFfaa0kWIzcMB8Cl4u_9MDxRbdgwDUD4bkNF6zYNeefyNmt1PhBiNFEyWwS5_dqcD6qztjVBz0txyA6jnx4XYHDHLlK13CYBenUKdwPe0Zc6WZkW_ElwWlIkdxTQ8nzu4pTBc22dQKGdfIewq5NddjfQ32rSNOA"/>
+</div>
+</div>
+</nav>
+<div class="flex min-h-screen pt-20">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-20 bottom-0 py-6 h-full w-64 hidden md:flex flex-col bg-[#131313] z-40">
+<div class="px-6 mb-8">
+<h3 class="text-white font-bold font-headline text-lg">Categorias</h3>
+<p class="text-on-surface-variant text-xs font-body">Curadoria Premium</p>
+</div>
+<div class="flex flex-col gap-1 flex-1">
+<a class="text-[#adaaaa] hover:text-white px-4 py-3 mx-2 flex items-center gap-3 hover:bg-[#262626] rounded-full transition-all duration-300" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-body text-sm">Início</span>
+</a>
+<a class="bg-gradient-to-r from-[#b6a0ff] to-[#7e51ff] text-white rounded-full mx-2 px-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<span class="font-body text-sm">Tendências</span>
+</a>
+<a class="text-[#adaaaa] hover:text-white px-4 py-3 mx-2 flex items-center gap-3 hover:bg-[#262626] rounded-full transition-all duration-300" href="#">
+<span class="material-symbols-outlined">restaurant</span>
+<span class="font-body text-sm">Nutrição</span>
+</a>
+<a class="text-[#adaaaa] hover:text-white px-4 py-3 mx-2 flex items-center gap-3 hover:bg-[#262626] rounded-full transition-all duration-300" href="#">
+<span class="material-symbols-outlined">self_improvement</span>
+<span class="font-body text-sm">Mindfulness</span>
+</a>
+<a class="text-[#adaaaa] hover:text-white px-4 py-3 mx-2 flex items-center gap-3 hover:bg-[#262626] rounded-full transition-all duration-300" href="#">
+<span class="material-symbols-outlined">architecture</span>
+<span class="font-body text-sm">UI/UX</span>
+</a>
+</div>
+<div class="px-4 mt-auto">
+<button class="w-full py-4 bg-gradient-to-br from-primary to-primary-dim rounded-full text-on-primary font-bold text-sm shadow-lg shadow-primary/20 hover:brightness-110 active:scale-95 transition-all">
+                    Assinar Plano Pro
+                </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 p-8 lg:p-12 bg-surface overflow-x-hidden">
+<!-- Hero Search Section -->
+<section class="max-w-4xl mx-auto mb-16 text-center">
+<h1 class="text-4xl lg:text-6xl font-black mb-8 tracking-tighter leading-tight">Encontre seu próximo <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Conhecimento</span></h1>
+<div class="relative group max-w-2xl mx-auto mb-8">
+<div class="absolute inset-0 bg-primary/20 blur-3xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"></div>
+<div class="relative flex items-center bg-surface-container-high rounded-xl p-2 ring-1 ring-outline-variant/20 group-focus-within:ring-primary/50 transition-all shadow-2xl">
+<span class="material-symbols-outlined ml-4 text-on-surface-variant">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 px-4 text-on-surface placeholder:text-on-surface-variant py-4 font-body" placeholder="Busque por títulos, autores ou nichos..." type="text"/>
+<button class="bg-primary text-on-primary font-bold px-8 py-3 rounded-md hover:bg-primary-fixed-dim transition-colors">Buscar</button>
+</div>
+</div>
+<!-- Fast Category Chips -->
+<div class="flex flex-wrap justify-center gap-3">
+<span class="px-5 py-2 bg-surface-container-highest rounded-full text-xs font-semibold text-on-surface hover:bg-surface-variant cursor-pointer transition-colors border border-outline-variant/10">Nutrição</span>
+<span class="px-5 py-2 bg-surface-container-highest rounded-full text-xs font-semibold text-on-surface hover:bg-surface-variant cursor-pointer transition-colors border border-outline-variant/10">Mindfulness</span>
+<span class="px-5 py-2 bg-surface-container-highest rounded-full text-xs font-semibold text-on-surface hover:bg-surface-variant cursor-pointer transition-colors border border-outline-variant/10">UX Design</span>
+<span class="px-5 py-2 bg-surface-container-highest rounded-full text-xs font-semibold text-on-surface hover:bg-surface-variant cursor-pointer transition-colors border border-outline-variant/10">Marketing Digital</span>
+<span class="px-5 py-2 bg-surface-container-highest rounded-full text-xs font-semibold text-on-surface hover:bg-surface-variant cursor-pointer transition-colors border border-outline-variant/10">Finanças</span>
+<span class="px-5 py-2 bg-surface-container-highest rounded-full text-xs font-semibold text-on-surface hover:bg-surface-variant cursor-pointer transition-colors border border-outline-variant/10">Product Management</span>
+</div>
+</section>
+<!-- Trending Shelf -->
+<section class="mb-20">
+<div class="flex justify-between items-end mb-8">
+<div>
+<span class="text-secondary font-bold text-xs uppercase tracking-widest mb-2 block">Top Pick</span>
+<h2 class="text-3xl font-bold font-headline">Tendências da Semana</h2>
+</div>
+<a class="text-primary font-semibold text-sm hover:underline flex items-center gap-2" href="#">Ver tudo <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<div class="flex overflow-x-auto gap-8 pb-8 hide-scrollbar snap-x snap-mandatory">
+<!-- Trending Card 1 -->
+<div class="min-w-[400px] lg:min-w-[450px] aspect-[16/9] glass rounded-xl relative group snap-start cursor-pointer overflow-hidden transition-transform duration-500 hover:scale-[1.02]">
+<img alt="Ebook Cover" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" data-alt="Cinematic book cover design with neon abstract lighting, dark aesthetic, professional digital art style for a modern tech book" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPDTb9BI94HwzEB7xYL6ZkZhJnR_VYTEivqA0A_nNZHJeUC2XEWawBB2YZi9sUKnRcgPSy58hV6qKs9HRAOnejVJZ58WqvYIM7Cfq0wOUN9MSRwuos6mlzFmERPRftbo54y7FZud2xW-7N6CUZ4zDB7I3HDd3qMYm0kbg9XzzXOBXc2mT_UyatG7lLXW2gRhzUUV5ziXbqBaqid1zqK8pV-YMA0m7ucIn9ZyGAk8yFrqlQ1IKzZNQEBb-MZZ_D_exm59Pvy1n1qA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<div class="flex items-center gap-2 mb-3">
+<span class="px-2 py-0.5 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold rounded uppercase tracking-tighter">New Release</span>
+<span class="text-xs text-on-surface-variant">45 min de leitura</span>
+</div>
+<h3 class="text-2xl font-bold mb-2">A Nova Era do Design</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2 max-w-sm">Descubra como a IA está transformando o fluxo criativo global.</p>
+</div>
+</div>
+<!-- Trending Card 2 -->
+<div class="min-w-[400px] lg:min-w-[450px] aspect-[16/9] glass rounded-xl relative group snap-start cursor-pointer overflow-hidden transition-transform duration-500 hover:scale-[1.02]">
+<img alt="Ebook Cover" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" data-alt="Overhead shot of a minimalist workspace with a laptop, notebook, and coffee, moody dark lighting with purple neon highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiOG3BTCbeNV0rdFaIxMzQCTQ8OT0Xkl0Knf26b7F9CcIms4IxXdTOLwz0SEc5uW_4sB760Nm8NDI2Hjn_woXSFh_rQeqMy2ogLFxz_6ewcNLKZcNJ5WN0GLeSroi5b0Yzz7zkxaa0FeYttN4Lsj9Lpgcshtr062lZrKzE9gbz1kcOmNFe-iY1Mab3oklA-pzG6Wroyvaqnn_fZquzg0-rQO9PWrAu3PP2UQFaLeGZATrwa2tzS-HKl8Qmuzj3bSaoCAk2_9MKlA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<div class="flex items-center gap-2 mb-3">
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded uppercase tracking-tighter">Bestseller</span>
+<span class="text-xs text-on-surface-variant">1h 20 min de leitura</span>
+</div>
+<h3 class="text-2xl font-bold mb-2">Hábitos de Elite</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2 max-w-sm">A ciência por trás da alta performance em ambientes competitivos.</p>
+</div>
+</div>
+<!-- Trending Card 3 -->
+<div class="min-w-[400px] lg:min-w-[450px] aspect-[16/9] glass rounded-xl relative group snap-start cursor-pointer overflow-hidden transition-transform duration-500 hover:scale-[1.02]">
+<img alt="Ebook Cover" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" data-alt="Abstract vibrant digital flow of colors representing creative energy, purple and cyan neon palette, high contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsklWZZPveMCb_LEmRLANZFK_I3ui3NGnxJGYrtyh4l6rx46wa9mQPWz3O_PyhVBSKRaU0uFrO7IZSMEwurTflN3zr5OKlWMiO-ICvybkqDlY6ydNNxneeZ2J1-d9KHlF4XIx_ieJi0ZW2YWefU1-Ipn2ua9ACUzNEnjNnFXFVtRgWzkTm9WZp39YE7UtTFVQAFPFQ7807G_-BdAI-HYmaXlht06thpbpZFK1_PY82vEHhYmpWYiIqj-UGhSELLZ4S4Qs09KByeQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<div class="flex items-center gap-2 mb-3">
+<span class="px-2 py-0.5 bg-primary-container text-on-primary-container text-[10px] font-bold rounded uppercase tracking-tighter">Editor's Pick</span>
+<span class="text-xs text-on-surface-variant">32 min de leitura</span>
+</div>
+<h3 class="text-2xl font-bold mb-2">Mindset Minimalista</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2 max-w-sm">Como simplificar sua vida digital e focar no que realmente importa.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Grid Catalog -->
+<section>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+<h2 class="text-3xl font-bold font-headline">Explorar Todo o Catálogo</h2>
+<div class="flex items-center gap-4">
+<div class="px-4 py-2 bg-surface-container-high rounded-full border border-outline-variant/20 flex items-center gap-2 cursor-pointer hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span class="text-sm font-medium">Filtrar</span>
+</div>
+<div class="px-4 py-2 bg-surface-container-high rounded-full border border-outline-variant/20 flex items-center gap-2 cursor-pointer hover:bg-surface-variant transition-colors">
+<span class="text-sm font-medium">Mais Recentes</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-y-12 gap-x-8">
+<!-- Book Card 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden mb-4 bg-surface-container-high shadow-lg transition-transform duration-300 group-hover:-translate-y-2">
+<img alt="Book Cover" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Modern book cover layout with professional typography, sleek tech aesthetic, deep violet and teal color scheme" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8A5Y4UOlbn5u_h6uATy1p58aTxkuUQH4z_qkiSIMdQQQiSW9NNYJaDoQNvt6zarb2SmDlgN0v5rfxFTTNqZVkWBkjhAQNFVAa0LI-G42revv230KrkpeBdtkLs3NO8Aq82a8nfthQ0G2ziAyZUpcUs-VfLpGZsh0JQa56dMrDw7Igrnk4pxep0nluwR4SAMEuq9vvDXzamKKDm3GQbBH3zTEoejd4Ny5Zq25-l7i-b3QHy1PdP3CWoc3Vi49KR9asqunBA0Amtg"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+<div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:bg-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-secondary shadow-[0_0_10px_rgba(0,227,253,0.6)]"></div>
+</div>
+<h4 class="font-bold text-lg leading-tight mb-1 group-hover:text-primary transition-colors">Fundamentos de UI</h4>
+<p class="text-on-surface-variant text-sm mb-2">Sarah Drasner</p>
+<div class="flex items-center gap-2">
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">star_half</span>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">(4.8)</span>
+</div>
+</div>
+<!-- Book Card 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden mb-4 bg-surface-container-high shadow-lg transition-transform duration-300 group-hover:-translate-y-2">
+<img alt="Book Cover" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Elegant literary book cover with artistic illustration, high-end production value, rich textures and subtle neon accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7QaD0nRILhn0cp4_KWY1q-7F8LlnfPJKQbfnvEhwDpOEPJyN0m7VXN4tOw5FNRxLhKe62H4ZUn6D8-ab2oCAe27wHfExHXXxitKbvOmJ4H9osWpzbHb-71fio2wpjIGB7Fns7nyMRS63qHNYL3ZL4PbzKJQlkHVfwn5p_BT0xUKtOvOZzrBN7oM4x4DksOPTiErHmX3CPbhlzt6JiFVX0Kenwv3deGwyxgJBh4BiDNNcnTTCrRHZe4zNbLX_rHFdgniJRdhfcuw"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+<div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:bg-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+</div>
+<h4 class="font-bold text-lg leading-tight mb-1 group-hover:text-primary transition-colors">Biohacking Diário</h4>
+<p class="text-on-surface-variant text-sm mb-2">Dr. Aris Oxford</p>
+<div class="flex items-center gap-2">
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">(5.0)</span>
+</div>
+</div>
+<!-- Book Card 3 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden mb-4 bg-surface-container-high shadow-lg transition-transform duration-300 group-hover:-translate-y-2">
+<img alt="Book Cover" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Clean minimal book cover with bold typography and abstract geometry, modern publishing style, neon purple highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIbGD-ruem4Si27-ER5L4uf5UW_eaFJ90CfvTbwLlmojj9UOWe2C97q3iVllKb0A-pa-XaEmUwEUxOKL8yusTOAxBz02QAEZhTov2bQ3SlpeSSWAy-dvqIWfdHDiL68SIdN5m0E12kn63mQbUCgkf9Un5NbeB_jlxSBRuNlRH8YKRNO06DEch_i1A-gP_h8eq8bKyMRaPkZhlxApUje_IOGuXN-tPIBHXAnc0mFvfzjKyygcINpo_Josjf_26XouPTz_5ijsM_TQ"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+<div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:bg-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-secondary shadow-[0_0_10px_rgba(0,227,253,0.6)]"></div>
+</div>
+<h4 class="font-bold text-lg leading-tight mb-1 group-hover:text-primary transition-colors">SaaS Mastery</h4>
+<p class="text-on-surface-variant text-sm mb-2">Marcus V. Silva</p>
+<div class="flex items-center gap-2">
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">(4.2)</span>
+</div>
+</div>
+<!-- Book Card 4 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden mb-4 bg-surface-container-high shadow-lg transition-transform duration-300 group-hover:-translate-y-2">
+<img alt="Book Cover" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Dark dramatic book cover with a focused light source, mystical atmospheric design, premium print quality look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjFlL_EhwXEcPDkk_7T4F2qpfuuniBKOFgdexiL7acSCTHVokNtUB0BobhvD4OHKti2xsvp9XKTye4lNACxPNgGIeEFCl8gE6oFjUowosWOzIYfmNEnD23ekkRtP0DhlYTt-3knaifVq3GPKjIMHOjEwNe32TuoNBYMsQ0PfrfCxG9GocAjiq2KorbXRt9fYpMHuYJT5bEETqgUuU6hxfK6qdMRBQZ80FtCGwcZ0-4HhE67sr-g9Oxl1P1RVDO2YeD2PUHIQN4Ag"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+<div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:bg-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+</div>
+<h4 class="font-bold text-lg leading-tight mb-1 group-hover:text-primary transition-colors">Copywriting Oculto</h4>
+<p class="text-on-surface-variant text-sm mb-2">Letícia Costa</p>
+<div class="flex items-center gap-2">
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">(4.9)</span>
+</div>
+</div>
+<!-- Book Card 5 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden mb-4 bg-surface-container-high shadow-lg transition-transform duration-300 group-hover:-translate-y-2">
+<img alt="Book Cover" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Colorful modern book cover for a nutrition guide, vibrant healthy visuals, clean and energetic design language" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIK6jO1H9aVHqKvzcoGtnvTRGPVxsE8WKcq3-xFu7pCNZTH1yEXfaxZXURMtUG25-z91RfRGRUaIvkGs8jmKAgl7u7k2gb5oBEBC8B4lcfPRkct-Z0PHjo3PyITUi5SvgkJP-LOl20AvIoX2iMh5r37HgAGxtbIliHvSKQbxbjuSNehQmNajaXtOR_dUr66of4lm30dTfYGo1-YgnDZLh3h-S6moRsbXq-bcsB0qT6QR9hUNLYHc-UkLciuPINnPoxW2eChecpiQ"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+<div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:bg-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+</div>
+<h4 class="font-bold text-lg leading-tight mb-1 group-hover:text-primary transition-colors">Nutrição Estética</h4>
+<p class="text-on-surface-variant text-sm mb-2">Dra. Beatriz Luz</p>
+<div class="flex items-center gap-2">
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">(4.5)</span>
+</div>
+</div>
+</div>
+<div class="mt-20 flex justify-center">
+<button class="px-12 py-4 rounded-full border border-primary/30 hover:border-primary text-primary font-bold transition-all hover:bg-primary/5 active:scale-95">Carregar mais ebooks</button>
+</div>
+</section>
+</main>
+</div>
+<!-- Mobile Navigation -->
+<div class="md:hidden fixed bottom-0 left-0 w-full glass z-50 px-6 py-3 flex justify-between items-center border-t border-outline-variant/10">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="text-[10px] font-bold">Explorar</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#adaaaa]">
+<span class="material-symbols-outlined">library_books</span>
+<span class="text-[10px] font-medium">Biblioteca</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#adaaaa]">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-[10px] font-medium">Alta</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#adaaaa]">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Perfil</span>
+</div>
+</div>
+</body></html>

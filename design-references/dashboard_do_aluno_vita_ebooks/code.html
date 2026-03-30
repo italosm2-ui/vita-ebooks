@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#131313",
+              "on-primary-container": "#280072",
+              "surface-dim": "#0e0e0e",
+              "on-primary-fixed": "#000000",
+              "on-surface-variant": "#adaaaa",
+              "primary-container": "#a98fff",
+              "surface-bright": "#2c2c2c",
+              "surface-tint": "#b6a0ff",
+              "surface-container": "#1a1919",
+              "on-secondary-fixed-variant": "#005964",
+              "secondary": "#00e3fd",
+              "secondary-container": "#006875",
+              "on-tertiary": "#6a0936",
+              "primary-fixed-dim": "#9c7eff",
+              "surface-container-highest": "#262626",
+              "on-primary": "#340090",
+              "secondary-fixed-dim": "#00d7f0",
+              "error-container": "#a70138",
+              "tertiary": "#ff97b8",
+              "inverse-on-surface": "#565555",
+              "error-dim": "#d73357",
+              "on-tertiary-fixed": "#380019",
+              "on-tertiary-container": "#59002b",
+              "on-secondary-fixed": "#003a42",
+              "on-surface": "#ffffff",
+              "surface-variant": "#262626",
+              "on-error": "#490013",
+              "on-secondary": "#004d57",
+              "tertiary-fixed-dim": "#f57ca5",
+              "surface": "#0e0e0e",
+              "inverse-surface": "#fcf9f8",
+              "background": "#0e0e0e",
+              "outline": "#767575",
+              "surface-container-high": "#201f1f",
+              "on-secondary-container": "#e8fbff",
+              "inverse-primary": "#6834eb",
+              "outline-variant": "#484847",
+              "primary-dim": "#7e51ff",
+              "surface-container-lowest": "#000000",
+              "primary": "#b6a0ff",
+              "on-tertiary-fixed-variant": "#70103b",
+              "tertiary-container": "#fc81ab",
+              "secondary-fixed": "#26e6ff",
+              "secondary-dim": "#00d4ec",
+              "on-background": "#ffffff",
+              "tertiary-dim": "#ef77a0",
+              "primary-fixed": "#a98fff",
+              "on-error-container": "#ffb2b9",
+              "error": "#ff6e84",
+              "tertiary-fixed": "#ff8db2",
+              "on-primary-fixed-variant": "#32008a"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(26, 25, 25, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #b6a0ff 0%, #7e51ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-gradient {
+            background: linear-gradient(135deg, #b6a0ff 0%, #7e51ff 100%);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#131313] shadow-[4px_0px_20px_rgba(0,0,0,0.5)] flex flex-col p-6 z-50 hidden md:flex">
+<div class="mb-10">
+<h1 class="text-2xl font-black text-white tracking-tighter font-headline">Vita Ebooks</h1>
+<p class="text-on-surface-variant text-xs mt-1">Student Portal</p>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Active Tab: Meus Cursos -->
+<a class="flex items-center gap-3 px-4 py-3 text-[#b6a0ff] font-bold bg-[#262626] rounded-full scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">library_books</span>
+<span>Meus Cursos</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#adaaaa] hover:text-white transition-colors hover:bg-[#201f1f] rounded-full" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span>Favoritos</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#adaaaa] hover:text-white transition-colors hover:bg-[#201f1f] rounded-full" href="#">
+<span class="material-symbols-outlined">workspace_premium</span>
+<span>Certificados</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#adaaaa] hover:text-white transition-colors hover:bg-[#201f1f] rounded-full" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span>Comunidade</span>
+</a>
+</nav>
+<div class="mt-auto pt-6">
+<button class="w-full btn-gradient text-on-primary-fixed font-bold py-3 rounded-full hover:brightness-110 transition-all active:scale-95">
+                Upgrade Plan
+            </button>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 bg-[#0e0e0e]/60 backdrop-blur-xl z-40 flex items-center justify-between px-8">
+<div class="flex items-center bg-surface-container-lowest rounded-full px-4 py-1.5 w-72 outline-variant/20 border border-outline-variant/10 focus-within:ring-2 focus-within:ring-primary-dim transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-on-surface-variant" placeholder="Search your library..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-white transition-opacity">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="flex items-center gap-3">
+<span class="text-sm font-medium hidden sm:inline">Alex Johnson</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/20">
+<img alt="Alex Johnson Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a young man with a modern haircut in a stylish studio setting with soft atmospheric lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdcTtq8TJxWA-MtvFrFqPx0CNxXL7HigdlG2W21dnrh3mmgBnwZ07U1Uk7vuZRRDpvjcwYL38uByvICktFFwIM8v4VDfFWmEyX7EQvRxYPM4k4mC3kOfQgHVCOXLgour5iXuIGfJeIoLkEiUsd9aG5WcfI-MndTIuQ5FPu-FJpv_QM1bGtFrQQdxRyDnAnQs0gAuvlNJG9E7UKXT7gq1E2t_pN2TpG6X2iBCRudY7Kv-tqzPFUa4C0wUkdClqz9oY08u6dpcbQxA"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-24 pb-12 px-8 min-h-screen">
+<!-- Welcome Header -->
+<section class="mb-12">
+<h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tight mb-2">
+                Welcome back, <span class="text-gradient">Alex.</span>
+</h2>
+<p class="text-on-surface-variant text-lg">You have completed 4 ebooks this month. Keep it up!</p>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Center Column: Primary Tasks -->
+<div class="lg:col-span-8 space-y-16">
+<!-- Continue Reading Section (Hero Style) -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xl font-headline font-bold">Continue Reading</h3>
+<a class="text-primary text-sm font-semibold flex items-center gap-1 hover:underline" href="#">
+                            View All <span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+<div class="relative group aspect-[21/9] w-full rounded-xl overflow-hidden shadow-2xl bg-surface-container-high">
+<img alt="Featured Ebook" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="cinematic shot of futuristic technology and retro hardware on a desk with purple and cyan neon ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5OBDlk6WeUOf3aw4c4VlQv4C5FVjWrWmII3-xQqCi0yfG5ua4ghZy03R_0FAo30hfcyivVWIVReeyC382uMPxfcC-F-n1mgOvG679AnIQ2k_mSoZDV-bMg6_QiycXwqDKMSjpkAYXdYcPBq9yoQuIJrZs4v3unsL4chvs85gDeFmbdMsvIrdsl0XIEBbJ_Gcpb-g49TM8PTvyg7JbfdyOxf36H2o2zVgpCAALGuw1yMSDLkxZ0dGW4sEr9whFnXFexzTTxY5mjg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<span class="inline-block px-3 py-1 rounded-full bg-tertiary-container text-on-tertiary-container text-[10px] font-bold uppercase tracking-wider mb-4 animate-pulse">
+                                Currently Reading
+                            </span>
+<h4 class="text-3xl font-headline font-extrabold mb-2">The Digital Architect's Handbook</h4>
+<p class="text-on-surface-variant mb-6 max-w-lg">Chapter 4: Master the art of modularity in complex system design...</p>
+<div class="flex items-center gap-6">
+<button class="btn-gradient text-on-primary-fixed px-8 py-3 rounded-full font-bold flex items-center gap-2 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                                    Resume Reading
+                                </button>
+<div class="flex-1 max-w-xs">
+<div class="flex justify-between text-xs mb-2 text-on-surface-variant">
+<span>74% Complete</span>
+<span>12m left</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[74%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Your Library Grid -->
+<section>
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-xl font-headline font-bold">Your Library</h3>
+<div class="flex gap-2">
+<button class="p-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-white"><span class="material-symbols-outlined">grid_view</span></button>
+<button class="p-2 rounded-full text-on-surface-variant hover:text-white"><span class="material-symbols-outlined">list</span></button>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+<!-- Book Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] rounded-xl overflow-hidden bg-surface-container-highest mb-4 relative">
+<img alt="Book Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="abstract flowing liquid metal textures with vibrant violet and magenta gradients creating a modern art cover design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRgLHmN5_uzMG0wUExl7Ljgetnsk5JKZ-4c45UwpzGdsV_MqEiT-ffl2u_4_a9XJ5rSvsBYV6aC7b8PLLt3tKV1wWaDkv8MMeII4Pp-bmSIQFXLPb9rwVTisCBTgZMcEEpJJkRYiRBWQ4ZlX11ybM8Ja8rFus3Bj2vebQnruZ6YVwIO15oiinN5C7YpASL1I4ccapg-Qe_R9rJsfgO9fdZhmwpom2mBbdtyAJqmMquy0MCrEU5k4KWQgphgA4T_ZRFeTqov6eVNA"/>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-surface-container">
+<div class="h-full bg-secondary w-[45%]"></div>
+</div>
+</div>
+<h5 class="font-bold text-sm mb-1 line-clamp-1">Visual Storytelling Masterclass</h5>
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant">
+<span>45% Complete</span>
+<span>Design</span>
+</div>
+</div>
+<!-- Book Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] rounded-xl overflow-hidden bg-surface-container-highest mb-4 relative">
+<img alt="Book Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="glowing neural network visualization with complex lines and light particles representing artificial intelligence and data" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAADKIXp-DRk8dHdwEapmschTEYsYyHKtgzc0oT_CiBcCHnupSLMesSAwH-E-FoP8w6cT6_yx6_aP5GYGEHmkpbdzbNOVYYq-Xnn6pX3fcFKIyQx2uUdY2K5ynvLno8hjN4UOofPjzW1X-0mT_JJ5EUh8DiLIRHNbIkzquPll3gdiUb5S10AakrCKD3nLQFpubknpK_4TTTdzNys817tz46jM_dqvkteHxrrQv9IqFqPcE_Z4aNzYcy-7k5MA_Z7my375zLlKLzjQ"/>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-surface-container">
+<div class="h-full bg-secondary w-[100%]"></div>
+</div>
+<div class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-secondary text-on-secondary-fixed text-[10px] font-bold">FINISHED</div>
+</div>
+<h5 class="font-bold text-sm mb-1 line-clamp-1">Algorithmic Thinking</h5>
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant">
+<span>Completed</span>
+<span>Logic</span>
+</div>
+</div>
+<!-- Book Card 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] rounded-xl overflow-hidden bg-surface-container-highest mb-4 relative">
+<img alt="Book Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="clean minimalist abstract geometry with soft shadows and pastel tones reflecting modern architectural aesthetics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjWYOeFSnlIBme7dkOyX8At4ig8hxhkLTwITx8_RuXVykySi_DFXGcKa_HWZeYcq6IEaA29CeKX24a8IvWHSenb-okW2RuO_wQjrgOjGKVorPRxwmhvA_OWZkyHhJj1i1u6tiKqvqG-KJTPb9r6w9mvQ_iRoRyRwRGU6HQA0sn-n9AWTamB423aUZPAsoZNMi_vVL_oeKQ8tVWxOtlJs5bhBugoJdI7oUDB5XjvcxXg3YtmcqJSpMsfy0naOHnrn9m7ayXDsm8Vg"/>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-surface-container">
+<div class="h-full bg-secondary w-[12%]"></div>
+</div>
+</div>
+<h5 class="font-bold text-sm mb-1 line-clamp-1">Minimalism in UI Design</h5>
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant">
+<span>12% Complete</span>
+<span>UI/UX</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Sidebar: Activity & Announcements -->
+<aside class="lg:col-span-4 space-y-8">
+<!-- Announcements Module -->
+<div class="glass-panel p-8 rounded-xl ring-1 ring-outline-variant/20">
+<div class="flex items-center gap-2 mb-6 text-primary">
+<span class="material-symbols-outlined">campaign</span>
+<h4 class="font-headline font-bold text-lg">Announcements</h4>
+</div>
+<div class="space-y-6">
+<div class="relative pl-6 border-l border-primary/30">
+<span class="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="block text-[10px] font-bold text-on-surface-variant mb-1 uppercase tracking-widest">Today</span>
+<h6 class="text-sm font-bold mb-1">New Ebook: Advanced Rust Patterns</h6>
+<p class="text-xs text-on-surface-variant line-clamp-2">The latest installment in our systems programming series is now live...</p>
+</div>
+<div class="relative pl-6 border-l border-outline-variant/30">
+<span class="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-outline-variant"></span>
+<span class="block text-[10px] font-bold text-on-surface-variant mb-1 uppercase tracking-widest">Yesterday</span>
+<h6 class="text-sm font-bold mb-1">Live Q&amp;A Session Recording</h6>
+<p class="text-xs text-on-surface-variant line-clamp-2">Watch the replay of our session with Sarah Drasner on SVG animations.</p>
+</div>
+</div>
+</div>
+<!-- Community Activity Module -->
+<div class="bg-surface-container-low p-8 rounded-xl">
+<h4 class="font-headline font-bold text-lg mb-6">Community Activity</h4>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+<img alt="User" class="w-full h-full object-cover" data-alt="portrait of a confident woman with curly hair smiling in a bright professional setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlZ5qSRxgmdQTQJ9R9OGQdBdTf8xuh6eAKF3rC7ec1FMvl9bh_ZSr-OBB04WgU_lMwmkT0ott4KaRcpJiFOhH9NorXKtaEHHM2gWtKJXUP__fOkWKPzyIiFVkO6VydEvPfgcMtxndNvNc3CgCW_b5LLAmcbqhufxqXVY_sM00_AOnOYW0Pnj3zM5oPkdcNcgoktNLBX37mINakIEhaIxElTaiCATsFuF5JgenAFaB51fNW_8-BmrK8-rxrHaf4kD3hyKItLEgxqQ"/>
+</div>
+<div class="flex-1">
+<p class="text-xs">
+<span class="font-bold text-white">Maria Silva</span>
+<span class="text-on-surface-variant">commented on</span>
+<span class="text-primary font-medium italic">Chapter 2: Color Theory</span>
+</p>
+<p class="text-[11px] text-on-surface-variant mt-1 italic">"This explanation of HSL vs RGB really cleared things up!"</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+<img alt="User" class="w-full h-full object-cover" data-alt="close-up portrait of a man with spectacles looking thoughtfully at the camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9s1AUeH0EsRdgO4y4JF9i9R8Ykhy6sfOcCPASc03-IpZf-g83Ej61hJr5ypqpuopShNne8FIJsr6P_AEJzOGwqrYWmCalxz5nci6JlalSPGVzdiHbcfBEpCDupXx5f2cEJ0veUZlE6A02Kf0R1H3BmDr2NjwJvmEaZKhy5J1gyhTgeH6-qqxfPiKd52GTArPrwsTL2YcRvG6LeXgSWWlcQU-emaqA_h1tVidenFI51Bf5BNIqZ_DkWQOChVmYQK-2gaJG4J4Q4A"/>
+</div>
+<div class="flex-1">
+<p class="text-xs">
+<span class="font-bold text-white">David Chen</span>
+<span class="text-on-surface-variant">earned a badge</span>
+</p>
+<div class="flex items-center gap-2 mt-2">
+<div class="px-2 py-0.5 rounded bg-primary/10 border border-primary/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary">workspace_premium</span>
+<span class="text-[9px] font-bold text-primary">Fast Learner</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-2.5 rounded-full border border-outline-variant hover:bg-surface-container-high transition-colors text-xs font-bold">
+                        Open Community
+                    </button>
+</div>
+<!-- Stats/Gamification -->
+<div class="grid grid-cols-2 gap-4">
+<div class="p-6 bg-surface-container-highest rounded-xl text-center">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Total Hours</p>
+<p class="text-2xl font-headline font-black text-secondary">128</p>
+</div>
+<div class="p-6 bg-surface-container-highest rounded-xl text-center">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Rank</p>
+<p class="text-2xl font-headline font-black text-tertiary">#42</p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full h-16 glass-panel border-t border-outline-variant/10 z-50 flex items-center justify-around px-4">
+<a class="flex flex-col items-center gap-1 text-[#b6a0ff]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">library_books</span>
+<span class="text-[10px] font-bold">Cursos</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="text-[10px]">Salvos</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-[10px]">Comunidade</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px]">Perfil</span>
+</a>
+</nav>
+</body></html>

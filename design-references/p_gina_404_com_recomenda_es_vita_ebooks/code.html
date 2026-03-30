@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>404 - Vita Ebooks</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed": "#000000",
+              "on-surface-variant": "#adaaaa",
+              "inverse-primary": "#6834eb",
+              "on-tertiary-fixed": "#380019",
+              "on-secondary-fixed": "#003a42",
+              "on-error-container": "#ffb2b9",
+              "on-tertiary": "#6a0936",
+              "surface-variant": "#262626",
+              "tertiary-fixed": "#ff8db2",
+              "inverse-on-surface": "#565555",
+              "surface-tint": "#b6a0ff",
+              "error-dim": "#d73357",
+              "surface-container": "#1a1919",
+              "on-secondary-container": "#e8fbff",
+              "secondary-dim": "#00d4ec",
+              "outline-variant": "#484847",
+              "primary-fixed-dim": "#9c7eff",
+              "on-surface": "#ffffff",
+              "inverse-surface": "#fcf9f8",
+              "secondary-fixed-dim": "#00d7f0",
+              "surface-container-highest": "#262626",
+              "surface-bright": "#2c2c2c",
+              "secondary": "#00e3fd",
+              "on-error": "#490013",
+              "on-tertiary-fixed-variant": "#70103b",
+              "on-background": "#ffffff",
+              "secondary-container": "#006875",
+              "error": "#ff6e84",
+              "tertiary": "#ff97b8",
+              "background": "#0e0e0e",
+              "primary-container": "#a98fff",
+              "surface-container-high": "#201f1f",
+              "on-primary-fixed-variant": "#32008a",
+              "on-secondary": "#004d57",
+              "on-primary": "#340090",
+              "surface-dim": "#0e0e0e",
+              "primary": "#b6a0ff",
+              "surface": "#0e0e0e",
+              "on-primary-container": "#280072",
+              "tertiary-container": "#fc81ab",
+              "outline": "#767575",
+              "error-container": "#a70138",
+              "on-tertiary-container": "#59002b",
+              "secondary-fixed": "#26e6ff",
+              "primary-dim": "#7e51ff",
+              "on-secondary-fixed-variant": "#005964",
+              "tertiary-fixed-dim": "#f57ca5",
+              "tertiary-dim": "#ef77a0",
+              "primary-fixed": "#a98fff",
+              "surface-container-lowest": "#000000",
+              "surface-container-low": "#131313"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .neon-glow-primary {
+            text-shadow: 0 0 20px rgba(182, 160, 255, 0.5), 0 0 40px rgba(182, 160, 255, 0.3);
+        }
+        .glass-panel {
+            background: rgba(26, 25, 25, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/60 backdrop-blur-xl shadow-[0_20_40px_rgba(0,0,0,0.4)] flex justify-between items-center px-8 h-20 w-full font-['Manrope'] tracking-tight">
+<div class="text-2xl font-black tracking-tighter text-white uppercase">Vita Ebooks</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#adaaaa] hover:text-white transition-colors" href="#">Home</a>
+<a class="text-[#adaaaa] hover:text-white transition-colors" href="#">Library</a>
+<a class="text-[#adaaaa] hover:text-white transition-colors" href="#">Dashboard</a>
+<a class="text-[#adaaaa] hover:text-white transition-colors" href="#">Community</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-[#262626] rounded-full transition-all duration-300 active:scale-95 text-[#b6a0ff]">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#262626] rounded-full transition-all duration-300 active:scale-95 text-[#b6a0ff]">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="relative min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-24 overflow-hidden">
+<!-- Background Visual Element: Floating Book/Black Hole Particles -->
+<div class="absolute inset-0 z-0 flex items-center justify-center opacity-40 pointer-events-none">
+<div class="relative w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary-dim/20 to-secondary/10 blur-[100px] animate-pulse"></div>
+<div class="absolute w-[300px] h-[400px] rounded-xl overflow-hidden shadow-[0_0_80px_rgba(182,160,255,0.2)] transform -rotate-12 border border-outline-variant/20 bg-surface-container-low">
+<img alt="Futuristic floating book" class="w-full h-full object-cover mix-blend-lighten opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMI8cHlndEhoXSTI54sRgqBrT_ZdPwPKsRlK7dti-Rbkf4SG4graZnUWblnoho8gJu79AJYN-IquR0LHM6atacLukh3jpj8rj8bBTSGT4vr8JlLqwe7JcoQ548FDujKcO9R3ka17NTO_RQuxe45bIB2F__IBUWCqv5t-56_ngJqdzDO4hNvzcsP3mPQmEYGwtrspjhhQI0K0hclUC9qm69NBoC78Qqkl7uxmoTpyI7EtAiMz3zmssPyaBG2bVdvtD6emq6kJd7SQ"/>
+</div>
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_#0e0e0e_70%)]"></div>
+</div>
+<!-- Content Content -->
+<div class="relative z-10 flex flex-col items-center text-center max-w-5xl w-full">
+<!-- 404 Display -->
+<h1 class="font-headline text-[10rem] md:text-[14rem] font-extrabold leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-primary to-primary-dim/20 neon-glow-primary">
+                404
+            </h1>
+<p class="font-headline text-2xl md:text-3xl font-light text-on-surface-variant mb-12 max-w-lg">
+                O livro que você procura ainda não foi escrito
+            </p>
+<!-- Search Glassmorphism -->
+<div class="w-full max-w-2xl mb-16 group">
+<div class="glass-panel p-1 rounded-full border border-outline-variant/15 flex items-center gap-3 pr-2 focus-within:border-primary/50 transition-all duration-500">
+<div class="pl-5 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</div>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface w-full font-body py-3" placeholder="Tente buscar por título, autor ou gênero..." type="text"/>
+<button class="bg-surface-container-highest hover:bg-surface-bright text-on-surface px-6 py-2 rounded-full font-semibold transition-all">
+                        Buscar
+                    </button>
+</div>
+</div>
+<!-- Recommendations Section -->
+<section class="w-full mb-16">
+<h2 class="font-headline text-xl text-left mb-8 text-on-surface/80 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="auto_stories">auto_stories</span>
+                    Recomendações para você
+                </h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="group relative flex flex-col items-start gap-4 p-4 rounded-2xl glass-panel border border-white/5 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2">
+<div class="relative aspect-[3/4] w-full rounded-xl overflow-hidden shadow-2xl">
+<img alt="Cyberpunk Dreams" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy0wh2yqJAL-aDVpe9Dgh8AHn5RYHYnIg3cd32FeebO1kSUqtYD4GHpH797_xy4JiO08rBBuXFCBf7CvQ9IJE_T0CjQdZwysGcOTwcmMFBurMKVhS-NTU3s56pNsa6fhmSN4k0WK_Dl7MW2BuSidtZBY0M_l1FAzso-GPXa9KTowO3MzrFHcL0tClE8wjsUC0GflN1KIN9F1r92VH85DzE06AMqmbl5psUOSE2YpXxcIjrYA7pOJ8oWFrA6Gen-ZRGX0asMOOG0A"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="text-left">
+<h3 class="font-bold text-on-surface line-clamp-1 group-hover:text-primary transition-colors">Cyberpunk Dreams</h3>
+<p class="text-xs text-on-surface-variant">Aris Thorne</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative flex flex-col items-start gap-4 p-4 rounded-2xl glass-panel border border-white/5 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2">
+<div class="relative aspect-[3/4] w-full rounded-xl overflow-hidden shadow-2xl">
+<img alt="The Digital Void" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrS78F38WtF_hIb93nPeHvwqj6iobylMZzMu_vBSlpnPlrdBKRfgBUhcXAlzTffzMJX9wWoHboSYdk5M-enwXHOPB9sMYxstKoUWZc8MOZpOtRmyt-LQSP6l9LH0YDvdhYLC4eKskfB52_4sU_zZsYHPunYAXV4Wlkqb6gvG_BO2_cZUBhgEtORRPlDK8Nx2rK3u1t5w0EOPuxJ7ynCQWN2-kpPfiMB-XfVIcIlDUVU8Apf_RrvHEliuP9eXdq2_hkUTaM4I2AWA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="text-left">
+<h3 class="font-bold text-on-surface line-clamp-1 group-hover:text-primary transition-colors">The Digital Void</h3>
+<p class="text-xs text-on-surface-variant">Nova Star</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative flex flex-col items-start gap-4 p-4 rounded-2xl glass-panel border border-white/5 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2">
+<div class="relative aspect-[3/4] w-full rounded-xl overflow-hidden shadow-2xl">
+<img alt="Neon Nights" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFGqlNBKyqeso43ohH4YxUjPeHPl_0F572c7OzDpZPM56lGwavY6ULaj8OYGYIyS9-bU-gIIxzg0_sGwiv8N7WQawEGmGOpbuAiAyNcXdnezZN-P9x2vn64Yh9bIHqY8gwfktRUyxaBPXMEswggjiUkE3ybc1P8kgzF6lZYiEk-9enFimXKQMZWnBsHjeYB1zBjgN2zNfu9MIzhA2YAU5WhthYNiLYsW_WEeVwW69XcjJq9-e2y2RG_CcPKSbq0KOOi68c9O4qxA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="text-left">
+<h3 class="font-bold text-on-surface line-clamp-1 group-hover:text-primary transition-colors">Neon Nights</h3>
+<p class="text-xs text-on-surface-variant">L. J. Vance</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group relative flex flex-col items-start gap-4 p-4 rounded-2xl glass-panel border border-white/5 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2">
+<div class="relative aspect-[3/4] w-full rounded-xl overflow-hidden shadow-2xl">
+<img alt="Data Streams" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArCkCYntIoh7sYfMQNuBui_M6BL3N0Q2RGV3fPAwQ1z-a_WKnXFbI1XH0UCW_kOZTXCXWAVAXHq2WBjyfxI_lj3XLkLL_7pCKsXpylfHFBAI5tyTvtTUuvut56-lUb3CLwAbIOY_LnYMwtPU2_VyrUvxi2tKUcE_GyhH4SrtFKz4zL8iCCoGOs5lr5dJbIV9PLmikQ3XU10fgcs1qeArFiON4IJ-ND3BF8fP87yjl8unrw2EUNYng8Az8Fd4ToiE-L1Y0BYRSMtA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="text-left">
+<h3 class="font-bold text-on-surface line-clamp-1 group-hover:text-primary transition-colors">Data Streams</h3>
+<p class="text-xs text-on-surface-variant">Marcus Vane</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Button -->
+<div class="flex flex-col sm:flex-row gap-4 items-center">
+<a class="bg-gradient-to-r from-primary to-primary-dim text-on-primary-container px-10 py-4 rounded-full font-headline font-bold text-lg shadow-[0_0_30px_rgba(182,160,255,0.4)] hover:shadow-[0_0_50px_rgba(182,160,255,0.6)] hover:scale-105 active:scale-95 transition-all duration-300" href="#">
+                    Voltar para a Home
+                </a>
+<a class="text-on-surface-variant hover:text-white px-8 py-4 rounded-full font-body font-medium transition-colors border border-outline-variant/20 hover:bg-surface-container-highest" href="#">
+                    Ver biblioteca
+                </a>
+</div>
+</div>
+<!-- Status Micro-Badge -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2 rounded-full bg-tertiary-container/10 border border-tertiary-container/20">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="text-xs font-label uppercase tracking-widest text-tertiary font-bold">Lost in digital ether</span>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 border-t border-[#262626]/20 bg-[#0e0e0e] font-['Inter'] text-sm">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-lg font-bold text-white">Vita Ebooks</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-[#adaaaa] hover:text-[#00e3fd] transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="text-[#adaaaa] hover:text-[#00e3fd] transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="text-[#adaaaa] hover:text-[#00e3fd] transition-colors opacity-80 hover:opacity-100" href="#">Support</a>
+<a class="text-[#adaaaa] hover:text-[#00e3fd] transition-colors opacity-80 hover:opacity-100" href="#">Status</a>
+</div>
+<p class="text-[#adaaaa] text-center md:text-right">
+                © 2024 Vita Ebooks. The Neon Curator Experience.
+            </p>
+</div>
+</footer>
+</body></html>

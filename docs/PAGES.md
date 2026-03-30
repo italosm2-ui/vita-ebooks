@@ -2,13 +2,14 @@
 
 ## 1. Home (`index.html`)
 
-- Hero com proposta da marca
-- Preview dos três formatos de oferta
+- Hero cinematográfico com proposta da marca
+- Oferta comercial resumida na própria home
 - Categorias e destaques puxados dos JSONs
-- Bloco explicando o estágio real do produto
+- Prova social e CTA final
 
 ## 2. Planos (`planos.html`)
 
+- Hero comercial com contexto do V1
 - Compra avulsa
 - Clube mensal
 - Vital premium
@@ -17,9 +18,11 @@
 
 ## 3. Catálogo (`catalogo.html`)
 
+- Hero de descoberta
+- Rail lateral de categorias no desktop
 - Busca por título, autor e categoria
-- Filtro por categoria
 - Ordenação por destaque, preço, avaliação e nome
+- Shelf editorial de destaques
 - Cards com link para `ebook.html`
 
 ## 4. Produto (`ebook.html`)
@@ -48,5 +51,5 @@
 
 - Estado “em breve”
 - Sem login fake
-- Sem biblioteca fake
+- Preview visual da direção futura
 - Explicação do que a conta real precisa entregar depois

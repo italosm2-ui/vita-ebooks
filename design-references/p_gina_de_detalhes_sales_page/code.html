@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Domine o Design de Sistemas com o Guia Obsidian Neon</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container": "#1a1919",
+                        "primary-container": "#a98fff",
+                        "primary-fixed": "#a98fff",
+                        "outline": "#767575",
+                        "surface-container-lowest": "#000000",
+                        "inverse-primary": "#6834eb",
+                        "tertiary-fixed": "#ff8db2",
+                        "background": "#0e0e0e",
+                        "secondary-fixed": "#26e6ff",
+                        "on-primary-fixed-variant": "#32008a",
+                        "on-secondary": "#004d57",
+                        "outline-variant": "#484847",
+                        "on-primary-container": "#280072",
+                        "surface-container-highest": "#262626",
+                        "secondary-fixed-dim": "#00d7f0",
+                        "on-tertiary-fixed": "#380019",
+                        "error": "#ff6e84",
+                        "surface": "#0e0e0e",
+                        "on-surface": "#ffffff",
+                        "tertiary-dim": "#ef77a0",
+                        "on-primary-fixed": "#000000",
+                        "error-dim": "#d73357",
+                        "on-background": "#ffffff",
+                        "on-surface-variant": "#adaaaa",
+                        "on-secondary-fixed-variant": "#005964",
+                        "surface-variant": "#262626",
+                        "on-tertiary": "#6a0936",
+                        "on-error": "#490013",
+                        "on-error-container": "#ffb2b9",
+                        "tertiary-fixed-dim": "#f57ca5",
+                        "primary-dim": "#7e51ff",
+                        "secondary-dim": "#00d4ec",
+                        "on-tertiary-container": "#59002b",
+                        "primary-fixed-dim": "#9c7eff",
+                        "tertiary": "#ff97b8",
+                        "tertiary-container": "#fc81ab",
+                        "secondary-container": "#006875",
+                        "surface-tint": "#b6a0ff",
+                        "on-secondary-fixed": "#003a42",
+                        "secondary": "#00e3fd",
+                        "surface-dim": "#0e0e0e",
+                        "surface-container-high": "#201f1f",
+                        "error-container": "#a70138",
+                        "primary": "#b6a0ff",
+                        "on-tertiary-fixed-variant": "#70103b",
+                        "inverse-surface": "#fcf9f8",
+                        "surface-container-low": "#131313",
+                        "on-secondary-container": "#e8fbff",
+                        "on-primary": "#340090",
+                        "inverse-on-surface": "#565555",
+                        "surface-bright": "#2c2c2c"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(38, 38, 38, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 50% -20%, rgba(182, 160, 255, 0.15) 0%, rgba(14, 14, 14, 0) 70%);
+        }
+        .glow-button {
+            box-shadow: 0 0 20px rgba(182, 160, 255, 0.4);
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 40px rgba(182, 160, 255, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/60 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+<div class="flex justify-between items-center px-8 h-20 max-w-7xl mx-auto font-['Manrope'] tracking-tight">
+<div class="text-2xl font-black tracking-tighter text-white bg-clip-text bg-gradient-to-br from-[#b6a0ff] to-[#7e51ff]">
+                Mastering Digital Sales
+            </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-[#adaaaa] hover:text-white transition-colors hover:scale-105 hover:brightness-125 duration-300" href="#beneficios">Benefícios</a>
+<a class="text-[#adaaaa] hover:text-white transition-colors hover:scale-105 hover:brightness-125 duration-300" href="#conteudo">Conteúdo</a>
+<a class="text-[#adaaaa] hover:text-white transition-colors hover:scale-105 hover:brightness-125 duration-300" href="#bonus">Bônus</a>
+<a class="text-[#adaaaa] hover:text-white transition-colors hover:scale-105 hover:brightness-125 duration-300" href="#depoimentos">Depoimentos</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#adaaaa] cursor-pointer hover:text-white">shopping_cart</span>
+<button class="bg-gradient-to-br from-[#b6a0ff] to-[#7e51ff] text-on-primary-container px-6 py-2 rounded-full font-bold text-sm hover:scale-105 transition-all duration-300 active:scale-95">
+                    Comprar Agora
+                </button>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative hero-gradient min-h-[921px] flex items-center justify-center px-6 py-20 overflow-hidden">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-2 bg-surface-container-highest px-4 py-1.5 rounded-full border border-outline-variant/20">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="text-xs font-label uppercase tracking-widest text-secondary">Lançamento Exclusivo</span>
+</div>
+<h1 class="text-5xl lg:text-7xl font-headline font-extrabold tracking-tighter leading-tight text-white">
+                        Domine o Design de Sistemas com o <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Guia Obsidian Neon</span>
+</h1>
+<p class="text-xl text-on-surface-variant leading-relaxed max-w-xl">
+                        Aprenda a arquitetar interfaces escaláveis e sistemas visuais de alta performance com a metodologia utilizada pelas maiores Big Techs do mundo.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="glow-button bg-gradient-to-br from-primary to-primary-dim text-on-primary px-8 py-5 rounded-full font-headline font-bold text-lg hover:brightness-110 transition-all active:scale-95">
+                            Quero meu Acesso Agora
+                        </button>
+<div class="flex items-center gap-3 px-4">
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-background object-cover" data-alt="close-up portrait of professional woman smiling with modern office background in soft focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUj8wOiAKN4XMBX0jYCgXjicFTNypjkYYBAKJe7Fj-nBzc6L2nYxCFxcTk0ZQKG19PCneie4eslpkPBHZZL2edJl4MopCHxcTvpImatDz3HC-yHI0XcgWolLag67Y45JsV6X-R1sfyTyEvxv-6djGsKc0s04JE1mtdwlaKBlQpwX_OrNh7e8PW3PdadiVMTghvVMJE7n7G_RRD_HX1eDKXduXEZj91YKfwLTDGJ0FnFFp0CdziGeZDvWXmsqaOSr-cRRHcc1iceQ"/>
+<img class="w-10 h-10 rounded-full border-2 border-background object-cover" data-alt="portrait of creative male professional with artistic glasses and soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn3flp5K7D_MdPf7ijPAgp9KWbBb9a2z3r00V2h4hqzuDdJKpbtPQ_wrLSIEnCbEp_EF0WzFgx11B5fMEoQKVb70QP_z3WRQYWq1KdVP2dCWhfaahqvFvJ6ZA6WAE3Ul2DRdH6FHB9teVvLiBA0my9X7yiKw6pORt8AbMsbwH0bjV4TNj0wt44p9iVQj_hfbXtGAUOOc3pWX_Pl_m1Not90DiOtfRv7pcBOI3ffQBl3uoVE0i1IQ30HyfsZ7EL0a_NQLblpB2NWA"/>
+<img class="w-10 h-10 rounded-full border-2 border-background object-cover" data-alt="profile of young professional smiling in contemporary tech workspace with natural window light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA87GzjEk1XcNKv1hAcqgZTvs3_HdvMd16JKLdz3tAuBvcBVmJu71Ft4Gb0PyWzr4J5P50MXnCjvAq9-DGhpjcZgWi6Dy5VAQb7n_0nEX1z5KjwQ0v-DRIIaGC3iKEFG2pVwKh1LpNKZojyVsGU804VpFjmymHZdySo97LjgD6X1QYUIyMOZmZuO7tdrLSQSbcmcw3CItTV1z9_yw8QZ1Wjxc0ZZbjKypbcagI1nNy3FlwwSA67onbBeI8PwZvyW3SVyVirUdVaLQ"/>
+</div>
+<span class="text-sm text-on-surface-variant"><strong class="text-white">+2.4k</strong> alunos ativos</span>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/20 blur-3xl rounded-full group-hover:bg-primary/30 transition-colors"></div>
+<div class="relative glass-card rounded-xl p-4 overflow-hidden shadow-2xl rotate-2 group-hover:rotate-0 transition-transform duration-500">
+<img class="w-full h-auto rounded-lg shadow-inner" data-alt="premium ebook cover mockup displaying a sleek black minimalist design with glowing neon violet typography and futuristic patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAssJQYY5ZbQnM5SKBrqCGtklzrSlB_WFpZPDBqbTOxaumpwybTRJtiDt80H3YJEZF2_52lbZ5sNQOi0AMikoppTMbB0vy_kVqnSP-W0dtEGBH2bphXrDGD-abZKELYAoTw7nhwGxdrlPxmfZT0MPpZjY56zHKUk8Q64NMm2Kf36fZI3TLCfDJNyWF_cJ3Sk7UHKEGdq_3Vssyxi0Dpm0ABqR9SstFpH1TFgvNVof6wPpAIlCrp-5-KkzCrVoZWRSpkPjHnXa-5Q"/>
+</div>
+</div>
+</div>
+</section>
+<!-- O que você vai aprender -->
+<section class="py-24 bg-surface-container-low" id="conteudo">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-20">
+<h2 class="text-4xl font-headline font-bold mb-4">O que você vai <span class="text-primary">aprender</span></h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Um currículo completo desenhado para transformar você em um arquiteto de design systems profissional.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Learn Cards -->
+<div class="glass-card p-8 rounded-xl border border-outline-variant/10 hover:border-primary/40 transition-colors group">
+<div class="w-14 h-14 bg-surface-container-highest rounded-2xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">architecture</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-3">Fundamentos Sólidos</h3>
+<p class="text-on-surface-variant leading-relaxed">Entenda a base teórica e os princípios de design que sustentam sistemas de escala global.</p>
+</div>
+<div class="glass-card p-8 rounded-xl border border-outline-variant/10 hover:border-primary/40 transition-colors group">
+<div class="w-14 h-14 bg-surface-container-highest rounded-2xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">token</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-3">Tokens de Design</h3>
+<p class="text-on-surface-variant leading-relaxed">Aprenda a criar e gerenciar a "Single Source of Truth" usando tokens semânticos avançados.</p>
+</div>
+<div class="glass-card p-8 rounded-xl border border-outline-variant/10 hover:border-primary/40 transition-colors group">
+<div class="w-14 h-14 bg-surface-container-highest rounded-2xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">dynamic_feed</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-3">Escalabilidade</h3>
+<p class="text-on-surface-variant leading-relaxed">Como estruturar bibliotecas que funcionam para equipes de 10 ou 1000 desenvolvedores.</p>
+</div>
+<div class="glass-card p-8 rounded-xl border border-outline-variant/10 hover:border-primary/40 transition-colors group">
+<div class="w-14 h-14 bg-surface-container-highest rounded-2xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">palette</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-3">Visual Imersivo</h3>
+<p class="text-on-surface-variant leading-relaxed">Técnicas de glassmorphism, luz e sombra para interfaces modernas estilo SaaS.</p>
+</div>
+<div class="glass-card p-8 rounded-xl border border-outline-variant/10 hover:border-primary/40 transition-colors group">
+<div class="w-14 h-14 bg-surface-container-highest rounded-2xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">settings_input_component</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-3">Componentização</h3>
+<p class="text-on-surface-variant leading-relaxed">Patterns de componentes atômicos com estados complexos e acessibilidade nativa.</p>
+</div>
+<div class="glass-card p-8 rounded-xl border border-outline-variant/10 hover:border-primary/40 transition-colors group">
+<div class="w-14 h-14 bg-surface-container-highest rounded-2xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">auto_fix_high</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-3">Workflow Ágil</h3>
+<p class="text-on-surface-variant leading-relaxed">Como integrar design e código de forma fluida sem perder tempo com handoffs.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bônus Exclusivos -->
+<section class="py-24" id="bonus">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-20">
+<span class="text-tertiary-dim font-label text-sm uppercase tracking-[0.3em] font-bold">Acelere seus resultados</span>
+<h2 class="text-4xl font-headline font-bold mt-2">Bônus <span class="text-tertiary">Exclusivos</span> Gratuitos</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Bonus Card 1 -->
+<div class="relative overflow-hidden group rounded-xl bg-surface-container-highest p-8">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-tertiary/20 text-tertiary text-xs font-bold px-3 py-1 rounded-full border border-tertiary/30">GRÁTIS</span>
+</div>
+<div class="text-tertiary mb-6">
+<span class="material-symbols-outlined text-5xl">table_chart</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-4">Planilha de Audit de UI</h3>
+<p class="text-on-surface-variant mb-6 text-sm">Ferramenta completa para mapear inconsistências em produtos legados antes de iniciar o sistema.</p>
+<div class="text-on-surface font-bold">R$ 147,00 <span class="line-through text-on-surface-variant font-normal text-xs">R$ 197,00</span></div>
+</div>
+<!-- Bonus Card 2 -->
+<div class="relative overflow-hidden group rounded-xl bg-surface-container-highest p-8">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-tertiary/20 text-tertiary text-xs font-bold px-3 py-1 rounded-full border border-tertiary/30">GRÁTIS</span>
+</div>
+<div class="text-tertiary mb-6">
+<span class="material-symbols-outlined text-5xl">groups</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-4">Comunidade VIP no Discord</h3>
+<p class="text-on-surface-variant mb-6 text-sm">Acesso vitalício ao nosso canal privado para networking e feedback direto nos seus projetos.</p>
+<div class="text-on-surface font-bold">R$ 497,00 <span class="line-through text-on-surface-variant font-normal text-xs">R$ 497,00</span></div>
+</div>
+<!-- Bonus Card 3 -->
+<div class="relative overflow-hidden group rounded-xl bg-surface-container-highest p-8">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-tertiary/20 text-tertiary text-xs font-bold px-3 py-1 rounded-full border border-tertiary/30">GRÁTIS</span>
+</div>
+<div class="text-tertiary mb-6">
+<span class="material-symbols-outlined text-5xl">video_library</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-4">Aulas Extras: Auto-Layout</h3>
+<p class="text-on-surface-variant mb-6 text-sm">Série de vídeos práticos dominando as funções mais avançadas do Figma para sistemas.</p>
+<div class="text-on-surface font-bold">R$ 297,00 <span class="line-through text-on-surface-variant font-normal text-xs">R$ 297,00</span></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Prova Social -->
+<section class="py-24 bg-surface-container-low overflow-hidden" id="depoimentos">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-4xl font-headline font-bold mb-16 text-center">O que dizem os <span class="text-secondary">experts</span></h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="glass-card p-8 rounded-xl border border-outline-variant/10">
+<div class="flex gap-1 mb-6 text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface italic mb-8">"O Guia Obsidian Neon mudou completamente minha forma de documentar componentes. O capítulo sobre tokens é simplesmente brilhante."</p>
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="professional portrait of a male product designer in a minimalist studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnaFjQKbi5ZKmfrFoojtYvI2jJ2AT1lPOmaSvHtJMqqcSeyei-FKc2QYq3TEwAiEA6PAtom44_mogX6_EYuGyG9gGiIkiStR5J_Z5eew4IPe-LLViRt52NhI7IDPIsAisBY6SotdywFcRRj5u0N8qsZUL3oim44gvK3sIgXCnbAYSMly0gpJmHT2Fqyk_nO3Dv0ttSelY1cFJgBHiU3yEhuNlxMgIYXPoTQiXj9GrL-MzA3uZhPvBV1hRyIQNB6TBgf65ic8uB4Q"/>
+<div>
+<h4 class="font-bold text-sm">Marcos Vinícius</h4>
+<p class="text-xs text-on-surface-variant">Senior Product Designer @ Nubank</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="glass-card p-8 rounded-xl border border-outline-variant/10">
+<div class="flex gap-1 mb-6 text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface italic mb-8">"Raro encontrar um material tão profundo e ao mesmo tempo tão visual. O estilo neon é inspirador e as técnicas são 100% práticas."</p>
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="vibrant portrait of a female UI developer smiling with colorful office lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3FcAvBO0gurH3PiPOaDW_7A9VLiX-8wV0Wqq4rujpleX_ePxaEtPp-iKKSCAbqUanwXTArgyKqjisSPiyEArZBoJ0jstMhgzSlBgnWvp9bwRuGGeM5s7p00kqlPcqdZt0rTAPXPOkZBNKJFZHArXam7w4yIz9zXRZcFs-czukUfSFwCUPWoQqB9z5T5jfv96YHfRU7q4LRYCHBZG-2PlVTllR3XuVBi9kh4zFTbRFMHlE0lVwmLecYvKMNXhPzmCxF3oFqabsyA"/>
+<div>
+<h4 class="font-bold text-sm">Ana Clara Rocha</h4>
+<p class="text-xs text-on-surface-variant">Lead UI Engineer @ Google</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="glass-card p-8 rounded-xl border border-outline-variant/10">
+<div class="flex gap-1 mb-6 text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface italic mb-8">"Finalmente entendi como fazer a ponte entre design e desenvolvimento de forma eficiente. Vale cada centavo investido."</p>
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="close-up portrait of a male technology consultant with professional urban background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRe3tvoXOZ0meXrGjLLzZqRZyH65x4pSTkmCuvO-i4dH-cjwpVBzUgZOyb41sOm64BBfbear2P1GbAdop77PzJ7eAEd-PhLX0el3-W-utYKlE_lMxwBqXSQiOSZNMN4k6rzbDGyreQ8Tzv0hPhiba-JgDeFzPN1dnWlek8dR2h1MecIl8JX0dEbvoZJZkezCRx_iJ2SqjQu8hKzoJz99Z5kc5OsjXgNiVBwh3eQg3jHBSSRppvMlRY-Abjwl50wSTHAfukhPyfVQ"/>
+<div>
+<h4 class="font-bold text-sm">Ricardo Mendes</h4>
+<p class="text-xs text-on-surface-variant">Front-end Arch @ TechFlow</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Garantia -->
+<section class="py-24">
+<div class="max-w-3xl mx-auto px-6 text-center glass-card p-12 rounded-xl border border-outline-variant/10">
+<div class="w-24 h-24 mx-auto mb-8 bg-surface-container-highest rounded-full flex items-center justify-center border-4 border-primary/20">
+<span class="material-symbols-outlined text-5xl text-primary">verified_user</span>
+</div>
+<h2 class="text-3xl font-headline font-bold mb-6">Risco Zero: Garantia Incondicional de 7 Dias</h2>
+<p class="text-on-surface-variant leading-relaxed text-lg mb-8">
+                    Eu confio tanto na qualidade deste material que te ofereço 7 dias para testar. Se por qualquer motivo você achar que o Guia não é para você, devolvemos 100% do seu dinheiro sem perguntas.
+                </p>
+<div class="inline-flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined">verified</span>
+                    Sua satisfação ou seu dinheiro de volta.
+                </div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-3xl mx-auto px-6">
+<h2 class="text-4xl font-headline font-bold mb-12 text-center">Perguntas <span class="text-primary">Frequentes</span></h2>
+<div class="space-y-4">
+<div class="bg-surface-container-highest rounded-xl p-6 border border-outline-variant/10">
+<h4 class="font-bold text-lg mb-2">Como recebo o acesso ao ebook?</h4>
+<p class="text-on-surface-variant">Imediatamente após a confirmação do pagamento, você receberá um e-mail com o link para download e acesso à área de bônus.</p>
+</div>
+<div class="bg-surface-container-highest rounded-xl p-6 border border-outline-variant/10">
+<h4 class="font-bold text-lg mb-2">O conteúdo é para iniciantes?</h4>
+<p class="text-on-surface-variant">Sim! Começamos dos fundamentos e evoluímos até o nível avançado de arquitetura de sistemas complexos.</p>
+</div>
+<div class="bg-surface-container-highest rounded-xl p-6 border border-outline-variant/10">
+<h4 class="font-bold text-lg mb-2">Quais ferramentas vou precisar?</h4>
+<p class="text-on-surface-variant">O foco principal é Figma para o design, mas os conceitos de lógica e tokens são universais e aplicáveis a qualquer ferramenta.</p>
+</div>
+<div class="bg-surface-container-highest rounded-xl p-6 border border-outline-variant/10">
+<h4 class="font-bold text-lg mb-2">O acesso aos bônus é vitalício?</h4>
+<p class="text-on-surface-variant">Sim, tanto o ebook quanto os bônus e o acesso à comunidade são vitalícios para você consultar quando quiser.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Final -->
+<section class="py-32 relative overflow-hidden">
+<div class="absolute inset-0 bg-primary/5 blur-[120px]"></div>
+<div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+<h2 class="text-5xl md:text-6xl font-headline font-extrabold mb-8 tracking-tighter">Pronto para elevar seu <span class="text-secondary">nível profissional?</span></h2>
+<p class="text-xl text-on-surface-variant mb-12">Não perca a oportunidade de aprender a metodologia que está definindo o futuro do design digital.</p>
+<div class="bg-surface-container-highest p-8 md:p-12 rounded-xl inline-block border border-outline-variant/20 shadow-2xl">
+<div class="text-on-surface-variant text-sm line-through mb-1">De R$ 297,00 por apenas</div>
+<div class="text-6xl font-headline font-extrabold text-white mb-8">12x R$ 19,70</div>
+<button class="glow-button w-full bg-gradient-to-br from-primary to-primary-dim text-on-primary px-10 py-6 rounded-full font-headline font-bold text-xl hover:scale-105 transition-all">
+                        Quero meu Acesso Agora
+                    </button>
+<div class="mt-6 flex items-center justify-center gap-4 text-xs text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">lock</span> Compra segura</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">download</span> Download imediato</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0e0e0e] w-full py-12 px-8">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-[#484847]/20 gap-6">
+<div class="text-lg font-bold text-white">Mastering Digital Sales</div>
+<div class="font-['Inter'] text-sm uppercase tracking-widest text-[#adaaaa] text-center">
+                © 2024 Neon Curator Digital. Todos os direitos reservados.
+            </div>
+<div class="flex gap-6 font-['Inter'] text-sm uppercase tracking-widest">
+<a class="text-[#adaaaa] hover:text-[#00e3fd] transition-colors" href="#">Termos de Uso</a>
+<a class="text-[#adaaaa] hover:text-[#00e3fd] transition-colors" href="#">Políticas de Privacidade</a>
+<a class="text-[#adaaaa] hover:text-[#00e3fd] transition-colors" href="#">Suporte</a>
+</div>
+</div>
+</footer>
+</body></html>

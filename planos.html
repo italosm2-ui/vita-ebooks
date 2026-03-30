@@ -4,23 +4,245 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Planos | Vita Ebooks</title>
-  <meta name="description" content="Compare compra avulsa, clube mensal e vital premium na Vita Ebooks.">
-  <link rel="preconnect" href="https://api.fontshare.com">
-  <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <meta name="description" content="Compare compra avulsa, clube mensal e vital premium na nova linguagem visual da Vita Ebooks.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="https://unpkg.com/lucide@latest" defer></script>
   <script src="assets/js/main.js" defer></script>
 </head>
 <body data-page="planos">
   <a class="sr-only skip-link" href="#main">Pular para o conteúdo</a>
-  <header class="site-header" id="site-header"><div class="container header-inner"><a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 5.5h8.5a3.5 3.5 0 0 1 0 7H6z"></path><path d="M6 13h9.5a2.5 2.5 0 0 1 0 5H6z"></path></svg></span><span class="logo-wordmark">Vita Ebooks</span></a><nav class="nav-desktop" aria-label="Navegação principal"><ul><li><a href="index.html">Início</a></li><li><a href="planos.html" aria-current="page">Planos</a></li><li><a href="catalogo.html">Catálogo</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="suporte.html">Suporte</a></li><li><a href="conta.html">Conta</a></li></ul></nav><div class="header-actions"><button class="btn-icon" type="button" data-theme-toggle aria-label="Alternar tema"></button><a class="btn btn-primary desktop-only" href="catalogo.html">Ver catálogo</a><button class="btn-icon menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button></div></div><nav class="mobile-menu" id="mobile-menu" hidden><div class="container"><ul><li><a href="index.html">Início</a></li><li><a href="planos.html">Planos</a></li><li><a href="catalogo.html">Catálogo</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="suporte.html">Suporte</a></li><li><a href="conta.html">Conta</a></li></ul></div></nav></header>
+  <header class="site-header" id="site-header">
+    <div class="container-wide header-inner">
+      <a class="logo" href="index.html" aria-label="Vita Ebooks">
+        <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 5.5h8.5a3.5 3.5 0 0 1 0 7H6z"></path><path d="M6 13h9.5a2.5 2.5 0 0 1 0 5H6z"></path></svg></span>
+        <span class="logo-wordmark">Vita Ebooks</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="planos.html" aria-current="page">Planos</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="suporte.html">Suporte</a></li>
+          <li><a href="conta.html">Conta</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="btn-icon" type="button" data-theme-toggle aria-label="Alternar tema"></button>
+        <a class="btn btn-soft desktop-only" href="suporte.html?plano=clube-mensal#contato">Falar com a equipe</a>
+        <a class="btn btn-primary desktop-only" href="catalogo.html">Explorar catálogo</a>
+        <button class="btn-icon menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+      </div>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Menu mobile" hidden>
+      <div class="container-wide">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="planos.html">Planos</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="suporte.html">Suporte</a></li>
+          <li><a href="conta.html">Conta</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
   <main id="main">
-    <section class="page-hero"><div class="container page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">Mês 1 do roadmap</span><h1>Uma comparação clara entre compra avulsa, mensal e vital premium.</h1><p>Esta página assume o papel comercial do V1: explicar a lógica de cada oferta, mostrar valor por leitura e direcionar o usuário para o suporte enquanto o checkout ainda é a próxima etapa.</p><div class="page-hero-actions"><a class="btn btn-primary" href="#comparacao">Ver comparação</a><a class="btn btn-ghost" href="suporte.html?plano=clube-mensal#contato">Conversar sobre planos</a></div></div><aside class="page-hero-aside surface-card"><div class="summary-chip"><i data-lucide="circle-dollar-sign" aria-hidden="true"></i><span>Compra avulsa para entrada simples</span></div><div class="summary-chip"><i data-lucide="calendar-range" aria-hidden="true"></i><span>Mensal para recorrência e retenção</span></div><div class="summary-chip"><i data-lucide="gem" aria-hidden="true"></i><span>Vital premium para aumentar LTV</span></div></aside></div></section>
-    <section class="section"><div class="container plan-grid"><article class="plan-card"><div class="plan-topline"><h2 class="plan-name">Compra avulsa</h2><span class="tag">Entrada</span></div><div class="plan-price"><strong>R$ 12,90</strong><span>a partir de</span></div><p class="plan-copy">Para quem quer experimentar a curadoria título por título, com decisão rápida e sem vínculo recorrente.</p><ul class="plan-list"><li>Bom ponto de entrada para primeira compra</li><li>Preço de vitrine exibido em cada ebook</li><li>Útil para testar temas e autores antes de assinar</li></ul><p class="plan-note">Ideal para tráfego frio e para visitantes que ainda não sabem se a recorrência faz sentido.</p><a class="btn btn-ghost" href="suporte.html?plano=compra-avulsa#contato">Tenho interesse</a></article><article class="plan-card featured"><div class="plan-topline"><h2 class="plan-name">Clube mensal</h2><span class="tag">Prioridade</span></div><div class="plan-price"><strong>R$ 29,90</strong><span>por mês</span></div><p class="plan-copy">Oferta de maior equilíbrio entre acessibilidade e recorrência, com argumento claro de custo por leitura.</p><ul class="plan-list"><li>Melhor custo mensal para quem lê sempre</li><li>Base comercial para retenção e reengajamento</li><li>Formato mais fácil de testar antes do vital</li></ul><p class="plan-note">Recomendado como plano de foco da comunicação no V1.</p><a class="btn btn-primary" href="suporte.html?plano=clube-mensal#contato">Quero este plano</a></article><article class="plan-card"><div class="plan-topline"><h2 class="plan-name">Vital premium</h2><span class="tag">LTV</span></div><div class="plan-price"><strong>R$ 249</strong><span>pagamento único</span></div><p class="plan-copy">Oferta desenhada para leitores intensos e para elevar valor percebido com um compromisso de longo prazo.</p><ul class="plan-list"><li>Âncora premium para a página de comparação</li><li>Melhor custo por livro para uso recorrente</li><li>Base para benefícios e títulos proprietários futuros</li></ul><p class="plan-note">Posicionamento comercial forte para amortizar CAC com mais velocidade.</p><a class="btn btn-ghost" href="suporte.html?plano=vital-premium#contato">Conversar sobre o vital</a></article></div></section>
-    <section class="section" id="comparacao"><div class="container"><div class="section-header"><div><span class="eyebrow">Comparação</span><h2>O que muda entre cada formato</h2></div></div><div class="comparison-table-wrapper"><table class="comparison-table"><thead><tr><th>Critério</th><th>Compra avulsa</th><th>Clube mensal</th><th>Vital premium</th></tr></thead><tbody><tr><td>Compromisso</td><td>Sem recorrência</td><td data-emphasis="true">Mensal</td><td>Pagamento único</td></tr><tr><td>Argumento de venda</td><td>Experimentação</td><td data-emphasis="true">Custo por leitura</td><td>Valor de longo prazo</td></tr><tr><td>Ideal para</td><td>Primeira compra</td><td data-emphasis="true">Leitor recorrente</td><td>Heavy reader</td></tr><tr><td>Papel no funil</td><td>Entrada</td><td data-emphasis="true">Retenção</td><td>LTV e premiumização</td></tr><tr><td>Próximo passo no V1</td><td>Suporte comercial</td><td data-emphasis="true">Suporte comercial</td><td>Suporte comercial</td></tr></tbody></table></div></div></section>
-    <section class="section"><div class="container feature-grid"><article class="feature-card"><h3>Por que esta comparação existe</h3><p>O roadmap do Mês 1 pede uma página de planos clara, focada em reduzir atrito de decisão e aproximar o valor do plano vital do custo por livro.</p></article><article class="feature-card"><h3>O que não estamos simulando</h3><p>Nenhum botão finge checkout. Nesta fase, todos os CTAs levam para suporte comercial ou para páginas de produto e catálogo.</p></article><article class="feature-card"><h3>Como isso evolui depois</h3><p>Quando o checkout entrar, esta estrutura já estará pronta para acoplar pagamento real sem trocar a narrativa de venda.</p></article></div></section>
-    <section class="section"><div class="container"><div class="section-header"><div><span class="eyebrow">FAQ</span><h2>Perguntas que destravam a decisão</h2></div></div><div class="faq-list"><details class="faq-item"><summary>Os planos já cobram online neste V1?<span>+</span></summary><p>Ainda não. O site foi estruturado para apresentar a oferta com honestidade e direcionar o usuário para suporte comercial enquanto a integração de pagamento não entra.</p></details><details class="faq-item"><summary>Por que o clube mensal é o plano recomendado?<span>+</span></summary><p>Porque ele equilibra preço de entrada, retenção e clareza comercial. É a melhor aposta para sustentar recorrência sem exigir compromisso máximo logo na primeira decisão.</p></details><details class="faq-item"><summary>O vital premium vale a pena antes do checkout real?<span>+</span></summary><p>Vale como âncora de valor e posicionamento. Mesmo sem pagamento online, ele ajuda a comunicar o potencial do produto e a lógica de longo prazo da marca.</p></details></div></div></section>
+    <section class="page-hero section-tight">
+      <div class="container-wide page-hero-grid">
+        <div class="page-hero-copy">
+          <span class="eyebrow">Oferta comercial do V1</span>
+          <h1 class="hero-title">Uma página de planos com mais presença, sem abandonar a clareza.</h1>
+          <p>A Vita agora apresenta avulso, mensal e vital premium em uma linguagem visual mais confiante, mas continua transparente sobre o estágio atual: comparar, decidir e entrar em contato, sem checkout simulado.</p>
+          <div class="page-actions">
+            <a class="btn btn-primary" href="#comparacao">Ver comparação</a>
+            <a class="btn btn-ghost" href="suporte.html?plano=clube-mensal#contato">Conversar sobre planos</a>
+          </div>
+        </div>
+        <aside class="glass-panel" style="padding:1.3rem;">
+          <h2>O que esta página resolve agora</h2>
+          <ul class="signal-list">
+            <li><span>Avulso</span><strong>Entrada rápida</strong></li>
+            <li><span>Mensal</span><strong>Plano principal</strong></li>
+            <li><span>Vital</span><strong>Âncora de LTV</strong></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container-wide offer-layout">
+        <article class="stream-banner offer-copy">
+          <span class="eyebrow">Decisão</span>
+          <h2 class="section-title">A comparação existe para reduzir atrito e aumentar confiança.</h2>
+          <p>No mês 1, o objetivo não é automatizar tudo. É comunicar melhor o valor da Vita, deixar o visitante entender as portas de entrada e preparar o terreno para o checkout real.</p>
+          <div class="metric-row">
+            <span class="metric-chip"><i data-lucide="circle-dollar-sign" aria-hidden="true"></i>Preço de referência visível</span>
+            <span class="metric-chip"><i data-lucide="repeat-2" aria-hidden="true"></i>Recorrência com clareza</span>
+            <span class="metric-chip"><i data-lucide="gem" aria-hidden="true"></i>Premiumização sem exagero</span>
+          </div>
+        </article>
+        <article class="stream-banner offer-panel">
+          <span class="mini-label">Resumo rápido</span>
+          <p>O clube mensal segue como destaque principal da comunicação, o avulso mantém a entrada simples e o vital premium sustenta a visão de longo prazo da marca.</p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="suporte.html?plano=clube-mensal#contato">Quero o mensal</a>
+            <a class="btn btn-ghost" href="suporte.html?plano=vital-premium#contato">Falar sobre o vital</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container-wide plan-grid">
+        <article class="plan-card">
+          <div class="plan-topline"><h2 class="plan-name">Compra avulsa</h2><span class="tag">Entrada</span></div>
+          <div class="plan-price"><strong>R$ 12,90</strong><span>a partir de</span></div>
+          <p>Boa para experimentar a curadoria título por título, com decisão rápida e sem vínculo recorrente.</p>
+          <ul class="plan-list">
+            <li>Preço exposto em cada página de ebook</li>
+            <li>Ideal para primeira compra</li>
+            <li>Funciona como teste de categoria e autor</li>
+          </ul>
+          <a class="btn btn-ghost" href="suporte.html?plano=compra-avulsa#contato">Tenho interesse</a>
+        </article>
+        <article class="plan-card featured">
+          <div class="plan-topline"><h2 class="plan-name">Clube mensal</h2><span class="tag">Prioridade</span></div>
+          <div class="plan-price"><strong>R$ 29,90</strong><span>por mês</span></div>
+          <p>A melhor combinação entre custo por leitura, recorrência e facilidade de comunicação para o início da operação.</p>
+          <ul class="plan-list">
+            <li>Plano principal da narrativa comercial</li>
+            <li>Melhor custo mensal para leitura frequente</li>
+            <li>Base para retenção e reengajamento futuros</li>
+          </ul>
+          <a class="btn btn-primary" href="suporte.html?plano=clube-mensal#contato">Quero este plano</a>
+        </article>
+        <article class="plan-card">
+          <div class="plan-topline"><h2 class="plan-name">Vital premium</h2><span class="tag">LTV</span></div>
+          <div class="plan-price"><strong>R$ 249</strong><span>pagamento único</span></div>
+          <p>Oferta desenhada para leitores intensos e para elevar a percepção de valor da marca no longo prazo.</p>
+          <ul class="plan-list">
+            <li>Âncora premium da comparação</li>
+            <li>Melhor custo por livro no uso contínuo</li>
+            <li>Espaço para benefícios exclusivos depois</li>
+          </ul>
+          <a class="btn btn-ghost" href="suporte.html?plano=vital-premium#contato">Conversar sobre o vital</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="comparacao">
+      <div class="container-wide">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Comparação</span>
+            <h2 class="section-title">O que realmente muda entre cada oferta</h2>
+          </div>
+        </div>
+        <div class="comparison-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr><th>Critério</th><th>Compra avulsa</th><th>Clube mensal</th><th>Vital premium</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Compromisso</td><td>Sem recorrência</td><td data-emphasis="true">Mensal</td><td>Pagamento único</td></tr>
+              <tr><td>Argumento de venda</td><td>Experimentação</td><td data-emphasis="true">Custo por leitura</td><td>Valor de longo prazo</td></tr>
+              <tr><td>Ideal para</td><td>Primeira compra</td><td data-emphasis="true">Leitor recorrente</td><td>Heavy reader</td></tr>
+              <tr><td>Papel no funil</td><td>Entrada</td><td data-emphasis="true">Retenção</td><td>LTV e premiumização</td></tr>
+              <tr><td>Próximo passo no V1</td><td>Suporte comercial</td><td data-emphasis="true">Suporte comercial</td><td>Suporte comercial</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container-wide detail-grid">
+        <article class="detail-card">
+          <h3>Por que o mensal aparece em destaque</h3>
+          <p>Porque ele equilibra entrada acessível, recorrência saudável e clareza comercial no primeiro ciclo da Vita.</p>
+        </article>
+        <article class="detail-card">
+          <h3>O que o site ainda não está fingindo</h3>
+          <p>Nenhum botão encerra compra online. O usuário continua indo para suporte comercial enquanto o checkout real não entra.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Como essa página evolui depois</h3>
+          <p>Quando o pagamento estiver pronto, a estrutura atual já terá narrativa, comparação e CTAs posicionados para conversão real.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container-wide">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">FAQ</span>
+            <h2 class="section-title">Perguntas que destravam a decisão</h2>
+          </div>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Os planos já cobram online nesta fase?<span>+</span></summary>
+            <p>Ainda não. O site foi desenhado para apresentar a oferta com honestidade e direcionar o visitante para o suporte comercial enquanto a integração de pagamento não entra.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Por que o clube mensal é o recomendado?<span>+</span></summary>
+            <p>Porque ele organiza melhor a comunicação do valor recorrente sem exigir o compromisso máximo logo na primeira decisão.</p>
+          </details>
+          <details class="faq-item">
+            <summary>O vital premium já faz sentido sem checkout real?<span>+</span></summary>
+            <p>Sim, como âncora de valor e posicionamento. Ele ajuda a comunicar visão de marca, exclusividade e potencial de longo prazo.</p>
+          </details>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer class="footer"><div class="container footer-grid"><div class="footer-brand"><a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 5.5h8.5a3.5 3.5 0 0 1 0 7H6z"></path><path d="M6 13h9.5a2.5 2.5 0 0 1 0 5H6z"></path></svg></span><span class="logo-wordmark">Vita Ebooks</span></a><p>Página de comparação alinhada ao roadmap comercial do projeto.</p></div><nav class="footer-column" aria-label="Fluxos"><h3>Fluxos</h3><ul><li><a href="catalogo.html">Explorar catálogo</a></li><li><a href="suporte.html?plano=clube-mensal#contato">Interesse no mensal</a></li><li><a href="suporte.html?plano=vital-premium#contato">Interesse no vital</a></li></ul></nav><nav class="footer-column" aria-label="Empresa"><h3>Empresa</h3><ul><li><a href="sobre.html">Sobre a Vita</a></li><li><a href="suporte.html">Suporte</a></li><li><a href="index.html">Página inicial</a></li></ul></nav><nav class="footer-column" aria-label="Conta"><h3>Conta</h3><ul><li><a href="conta.html">Conta em breve</a></li><li><a href="index.html">Página inicial</a></li><li><a href="catalogo.html">Catálogo</a></li></ul></nav></div><div class="footer-bottom"><div class="container"><p>&copy; <span data-year></span> Vita Ebooks.</p><nav class="footer-legal"><a href="suporte.html#faq">FAQ</a><a href="suporte.html#contato">Contato</a></nav></div></div></footer>
+
+  <footer class="footer">
+    <div class="container-wide footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">
+          <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 5.5h8.5a3.5 3.5 0 0 1 0 7H6z"></path><path d="M6 13h9.5a2.5 2.5 0 0 1 0 5H6z"></path></svg></span>
+          <span class="logo-wordmark">Vita Ebooks</span>
+        </a>
+        <p>Página de comparação alinhada ao roadmap comercial e à nova direção visual cinematográfica da marca.</p>
+      </div>
+      <nav class="footer-column" aria-label="Fluxos">
+        <h3>Fluxos</h3>
+        <ul>
+          <li><a href="catalogo.html">Explorar catálogo</a></li>
+          <li><a href="suporte.html?plano=clube-mensal#contato">Interesse no mensal</a></li>
+          <li><a href="suporte.html?plano=vital-premium#contato">Interesse no vital</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-column" aria-label="Empresa">
+        <h3>Empresa</h3>
+        <ul>
+          <li><a href="sobre.html">Sobre a Vita</a></li>
+          <li><a href="suporte.html">Suporte</a></li>
+          <li><a href="index.html">Página inicial</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-column" aria-label="Conta">
+        <h3>Conta</h3>
+        <ul>
+          <li><a href="conta.html">Conta em breve</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="planos.html">Planos</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container-wide">
+        <p>&copy; <span data-year></span> Vita Ebooks.</p>
+        <nav class="footer-legal" aria-label="Atalhos finais"><a href="suporte.html#faq">FAQ</a><a href="suporte.html#contato">Contato</a></nav>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

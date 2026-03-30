@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vita Ebooks | Sua Biblioteca Digital Infinita</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed-dim": "#00d7f0",
+              "surface-container-low": "#131313",
+              "on-secondary-container": "#e8fbff",
+              "inverse-surface": "#fcf9f8",
+              "tertiary-container": "#fc81ab",
+              "on-secondary-fixed": "#003a42",
+              "primary": "#b6a0ff",
+              "on-primary": "#340090",
+              "surface-tint": "#b6a0ff",
+              "surface-dim": "#0e0e0e",
+              "surface-container-highest": "#262626",
+              "primary-fixed-dim": "#9c7eff",
+              "inverse-on-surface": "#565555",
+              "surface-variant": "#262626",
+              "secondary-fixed": "#26e6ff",
+              "on-tertiary-container": "#59002b",
+              "on-primary-fixed-variant": "#32008a",
+              "secondary-dim": "#00d4ec",
+              "on-secondary": "#004d57",
+              "on-primary-container": "#280072",
+              "secondary": "#00e3fd",
+              "secondary-container": "#006875",
+              "on-error": "#490013",
+              "outline-variant": "#484847",
+              "primary-container": "#a98fff",
+              "tertiary": "#ff97b8",
+              "on-surface-variant": "#adaaaa",
+              "on-tertiary": "#6a0936",
+              "tertiary-fixed-dim": "#f57ca5",
+              "tertiary-dim": "#ef77a0",
+              "primary-fixed": "#a98fff",
+              "error-container": "#a70138",
+              "tertiary-fixed": "#ff8db2",
+              "on-primary-fixed": "#000000",
+              "error-dim": "#d73357",
+              "surface-container-lowest": "#000000",
+              "on-tertiary-fixed-variant": "#70103b",
+              "on-background": "#ffffff",
+              "outline": "#767575",
+              "surface-container": "#1a1919",
+              "on-tertiary-fixed": "#380019",
+              "on-secondary-fixed-variant": "#005964",
+              "surface-bright": "#2c2c2c",
+              "inverse-primary": "#6834eb",
+              "error": "#ff6e84",
+              "on-error-container": "#ffb2b9",
+              "primary-dim": "#7e51ff",
+              "surface": "#0e0e0e",
+              "surface-container-high": "#201f1f",
+              "on-surface": "#ffffff",
+              "background": "#0e0e0e"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #0e0e0e; color: #ffffff; }
+        .font-manrope { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-card { backdrop-filter: blur(20px); background: rgba(26, 25, 25, 0.6); }
+        .primary-gradient { background: linear-gradient(135deg, #b6a0ff 0%, #7e51ff 100%); }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-zinc-950/60 backdrop-blur-xl shadow-2xl shadow-black/50 flex justify-between items-center px-8 h-20">
+<div class="flex items-center gap-12 flex-1">
+<span class="text-2xl font-black tracking-tighter text-white font-headline">Vita Ebooks</span>
+<div class="hidden md:flex items-center bg-surface-container-lowest rounded-full px-4 py-2 w-96 outline outline-1 outline-outline-variant/20 focus-within:outline-primary/50 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full text-on-surface" placeholder="Search" type="text"/>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8 font-body font-medium">
+<a class="text-violet-400 font-bold border-b-2 border-violet-500 pb-1" href="#">Browse</a>
+<a class="text-zinc-400 hover:text-white transition-colors" href="#">Categories</a>
+<a class="text-zinc-400 hover:text-white transition-colors" href="#">Premium</a>
+</div>
+<div class="flex items-center gap-4 ml-8">
+<button class="material-symbols-outlined p-2 text-zinc-400 hover:bg-white/5 rounded-full transition-all" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined p-2 text-zinc-400 hover:bg-white/5 rounded-full transition-all" data-icon="account_circle">account_circle</button>
+<button class="primary-gradient text-on-primary-fixed font-bold px-6 py-2.5 rounded-full text-sm hover:brightness-110 active:scale-90 transition-all">Subscribe</button>
+</div>
+</nav>
+<div class="flex">
+<!-- SideNavBar -->
+<aside class="w-64 fixed left-0 flex flex-col py-6 bg-zinc-900/40 backdrop-blur-md rounded-r-3xl h-[calc(100vh-5rem)] mt-20 z-40 shadow-right-xl">
+<div class="px-6 mb-8">
+<h3 class="text-violet-400 font-bold font-manrope text-lg">Library</h3>
+<p class="text-zinc-500 text-xs font-semibold uppercase tracking-widest">Your Collection</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="bg-violet-600/20 text-violet-400 rounded-full mx-2 flex items-center px-4 py-3 gap-3 font-manrope text-sm font-semibold transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+                    Home
+                </a>
+<a class="text-zinc-500 hover:text-zinc-200 px-4 py-3 mx-2 rounded-full flex items-center gap-3 font-manrope text-sm font-semibold transition-transform hover:translate-x-1 hover:bg-white/5" href="#">
+<span class="material-symbols-outlined" data-icon="local_library">local_library</span>
+                    My Library
+                </a>
+<a class="text-zinc-500 hover:text-zinc-200 px-4 py-3 mx-2 rounded-full flex items-center gap-3 font-manrope text-sm font-semibold transition-transform hover:translate-x-1 hover:bg-white/5" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+                    Purchased
+                </a>
+<a class="text-zinc-500 hover:text-zinc-200 px-4 py-3 mx-2 rounded-full flex items-center gap-3 font-manrope text-sm font-semibold transition-transform hover:translate-x-1 hover:bg-white/5" href="#">
+<span class="material-symbols-outlined" data-icon="download_for_offline">download_for_offline</span>
+                    Downloads
+                </a>
+<a class="text-zinc-500 hover:text-zinc-200 px-4 py-3 mx-2 rounded-full flex items-center gap-3 font-manrope text-sm font-semibold transition-transform hover:translate-x-1 hover:bg-white/5" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Settings
+                </a>
+</nav>
+<div class="px-4 mt-auto">
+<div class="p-4 rounded-3xl bg-surface-container-highest/50 border border-white/5">
+<p class="text-xs font-bold text-white mb-2">Unlock all features</p>
+<button class="w-full py-2 bg-white text-black font-bold rounded-full text-xs hover:bg-violet-400 transition-colors">Go Premium</button>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 mt-20 w-full min-h-screen pb-20 overflow-x-hidden">
+<!-- Hero Billboard -->
+<section class="relative h-[819px] w-full px-8 pt-8">
+<div class="relative h-full w-full rounded-xl overflow-hidden shadow-2xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105" data-alt="Young professional woman reading on a tablet in a moody modern library with neon purple accent lighting and sleek furniture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDeMVYseMQNGq5bGs_CFdkDYyxB-0Pq8BiZ2KQrxBHSzvpz_riXsRnf-Enk3RmVKw_XFww_tSMvjOsB9akBu9BkaPfgLBWOsrGRJHceV8Qj4minyvYy5BEqBa6JAN2xZ8lc7quTnYX8EWfnLv2_c3wmeTq2Ej4nRns9JzDEqVnfhoPfNWDXnL838fapUsRfnzmku4SZlCH-tMCge1Qg2NUNFQ584YCrD5_Q2vOMcrgQVgQ88MZ3Jd4tedK7K_qN1_sNEbmvuT0bOw');">
+<div class="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="absolute inset-0 flex flex-col justify-center px-16 max-w-2xl">
+<span class="inline-flex items-center gap-2 px-3 py-1 bg-tertiary-container/20 text-tertiary rounded-full text-xs font-bold w-fit mb-6 border border-tertiary/20">
+<span class="material-symbols-outlined text-[14px]" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                            DESTAQUE DA SEMANA
+                        </span>
+<h1 class="font-headline text-6xl font-extrabold text-white tracking-tighter mb-4 leading-none">
+                            O Futuro da Leitura <br/><span class="text-primary">Chegou.</span>
+</h1>
+<p class="font-body text-zinc-300 text-lg mb-8 max-w-md">
+                            Milhares de títulos, audiolivros e exclusivos Vita Originals. Leia em qualquer lugar, a qualquer momento.
+                        </p>
+<div class="flex items-center gap-4">
+<button class="primary-gradient text-black font-extrabold px-10 py-4 rounded-full text-base hover:scale-105 transition-transform flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                                Experimentar Grátis
+                            </button>
+<button class="bg-white/10 backdrop-blur-md border border-white/10 text-white font-bold px-8 py-4 rounded-full text-base hover:bg-white/20 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+                                Saiba Mais
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Horizontal Rows -->
+<div class="px-8 space-y-16 mt-16">
+<!-- Continue Lendo -->
+<section>
+<h2 class="font-headline text-2xl font-bold mb-6 flex items-center gap-3">
+                        Continue Lendo
+                        <span class="text-secondary text-sm font-normal">Ver Tudo</span>
+</h2>
+<div class="flex gap-6 overflow-x-auto no-scrollbar pb-4 -mx-2 px-2">
+<!-- Card 1 -->
+<div class="group relative flex-none w-80 aspect-[16/9] rounded-xl bg-surface-container-high overflow-hidden hover:z-10 transition-all cursor-pointer">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Cover of a mystery novel with dark aesthetics sitting on a sleek workspace with blue light reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-9PUCZCMe3OYHyR2hQnK4q6Vgqm1KhTeRyIZsH6XfImNxvfVhGCxPrBR-jv9zdfN-XJTTeIlZxYHmh8jRHi9EUMueZzXGgNfsHhifTDZQSrgTp32_wKnC5lKGeWjv6KGZ9X04OdoQLtOguBOJEkKE-woD_TuVns4Sn_27eL1zcPyphq6LZDUeR-F9V-bltDkrUL6ZNynVrsGZgPE9fz_Gp1hDZiO_vHk6cKrg0fnJtvbiuFWdDLp7BYbWEGj3iRSXTfzgj4RYGQ"/>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+<h4 class="font-bold text-white">A Sombra do Amanhã</h4>
+<p class="text-zinc-400 text-xs">Capítulo 12 • 65% concluído</p>
+</div>
+<div class="absolute bottom-0 left-0 h-1 bg-secondary transition-all w-[65%]"></div>
+</div>
+<!-- Card 2 -->
+<div class="group relative flex-none w-80 aspect-[16/9] rounded-xl bg-surface-container-high overflow-hidden transition-all cursor-pointer">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Stylized book cover for a business psychology book with vibrant neon orange and teal abstract design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXGktQ5wkW3Kq_wD6NQV9HijL7oOY-wvUUF7BZhi5tBGgQDGHHwyHQD4XhqexaguG22kMki7_PeULo3xH_NxHomcHVMEp7GuDqS_aliqICJCRTtPTF_Qw2axGEZI49FaQXo7ti8qgw9FiUN7lwSeG-7YxxxqWXnEXZT4M2liSdz-R-zMHDG-xsEZVpLCgWHWIgpp78gjoFVDlE9O7ZSXKwdHnCZt-GO4OEXtV-TDA9ReZOhDR8WJq21M495Iw0wL2HoXV52HtLfA"/>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+<h4 class="font-bold text-white">Psicologia do Sucesso</h4>
+<p class="text-zinc-400 text-xs">Capítulo 4 • 22% concluído</p>
+</div>
+<div class="absolute bottom-0 left-0 h-1 bg-secondary transition-all w-[22%]"></div>
+</div>
+<!-- Card 3 -->
+<div class="group relative flex-none w-80 aspect-[16/9] rounded-xl bg-surface-container-high overflow-hidden transition-all cursor-pointer">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A clean minimalist white book cover with bold black typography titled Code Mastery on a neutral concrete background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwjcxnFjxMIGJ57qA-0mbZag5f5cpvubdM1zBMvCcskJFrFjC40A4F6pSB-ZZm5RcUYj-oS44ssKGcz_XN8SwWb4cHH9aujiNAzoT7ljs1sgUeeF-Sjdo3D5xVGtpmLcuWbgFNrO9SY4UzALE8JqOAZuAPYpD8Sf4PWq6jnkIllOwMNxwDoyeA0MqGP7a89EMXyPJTf9684F-asCIOX77FZrMdzwLdLb8R1oCfa7xtLjfW5cdvh_RBzIpg2rBJJc2qoMKos8WpKA"/>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+<h4 class="font-bold text-white">Mastering Code</h4>
+<p class="text-zinc-400 text-xs">Capítulo 1 • 5% concluído</p>
+</div>
+<div class="absolute bottom-0 left-0 h-1 bg-secondary transition-all w-[5%]"></div>
+</div>
+</div>
+</section>
+<!-- Destaques / Top 10 -->
+<section>
+<h2 class="font-headline text-2xl font-bold mb-6">Mais Vendidos da Semana</h2>
+<div class="flex gap-4 overflow-x-auto no-scrollbar">
+<!-- Book Items -->
+<div class="flex-none w-48 group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-2xl overflow-hidden mb-3 shadow-lg group-hover:translate-y-[-8px] transition-transform duration-300">
+<img class="w-full h-full object-cover" data-alt="Cover of an architectural design book with sleek modern line art and golden accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTayuE4a67NcJopNb8EUfbO9fATH-ajdZar4DU1hFmOEeLro000Rr7r8D1QvbrrSUsJDpdKG1a2bCzJ73LN5xkLX3WIDI1XlS4FolovwS_UzqPz_D05tdDduZ0wgl7iD-2KWu4zKuxM54xFCdRPtxos1_qQT2vEFBpo78LxUdLzIgXCAD9A58_Y9MELYRPpfSX8d8Y0qlINxlDVSMvqW9_WnN2PYhiSuInMa-N-HsrRfrnlIgr_FUwZB3mkL9q9A7DqG95FA2Srg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
+<button class="bg-primary text-black p-2 rounded-full w-fit ml-auto shadow-lg"><span class="material-symbols-outlined text-[20px]" data-icon="add">add</span></button>
+</div>
+<div class="absolute top-2 left-2 px-2 py-1 bg-black/60 backdrop-blur-md rounded-lg text-[10px] font-bold text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-yellow-400" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    4.9
+                                </div>
+</div>
+<h3 class="font-bold text-sm text-white line-clamp-1">Design Systems</h3>
+<p class="text-zinc-500 text-xs">Arquitetura</p>
+</div>
+<div class="flex-none w-48 group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-2xl overflow-hidden mb-3 shadow-lg group-hover:translate-y-[-8px] transition-transform duration-300">
+<img class="w-full h-full object-cover" data-alt="Book cover for a cookbook featuring vibrant professional food photography and modern bold typography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW9fieFRKVzDxsi9qI_juMJ1U4h6DlSzpQQeQbIlbNzStTLtIhtMnxjqO_BJ-cGO3BJ14Vtgu1kHFVMYNDv8MhShWVkdTiagU-7jtc8zGgAVPmNSof5BZSBSnWET0p64B7MiCamGfgcnBe0_cOJoq1ewkRWYuh0zNbi102eSsuGkjWVfWyD_KF_QKYosqxEJvjb54kPXDJNkQRSTogkhYCjkQpB6TTi7cGCMnZp_agS_ux6pnFGDvHnPcQKYIa8MeMVJz6mRp0rA"/>
+<div class="absolute top-2 left-2 px-2 py-1 bg-black/60 backdrop-blur-md rounded-lg text-[10px] font-bold text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-yellow-400" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    4.7
+                                </div>
+</div>
+<h3 class="font-bold text-sm text-white line-clamp-1">Gastronomia Molecular</h3>
+<p class="text-zinc-500 text-xs">Culinária</p>
+</div>
+<div class="flex-none w-48 group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-2xl overflow-hidden mb-3 shadow-lg group-hover:translate-y-[-8px] transition-transform duration-300">
+<img class="w-full h-full object-cover" data-alt="Deep blue abstract book cover with glowing constellations representing a science fiction space opera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_3u54tZKdROsmug3_9GuduvXgZiFmkeyZo2Jvm1W9vdPRIDjd3QTjNR62KuBNMoYA4HrMNOzX1lUI-4gwv9vanuJ3psAY719LRyIF9uDQtgnrqrHoYxstAwUusB8fzm64QLl0Ug7JsBapEAGN7HpZptOVTGuMkD_espWNqxKV55o1b4rG-cVfuGvhf7iMul9mFWmH5FgbwTdTHli5q33r59HmbzG4m7jdfkRqJA6AYcsC2su0aoqkMIF0L5ZMTHtbEkgRd-dKUQ"/>
+<div class="absolute top-2 left-2 px-2 py-1 bg-black/60 backdrop-blur-md rounded-lg text-[10px] font-bold text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-yellow-400" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    5.0
+                                </div>
+</div>
+<h3 class="font-bold text-sm text-white line-clamp-1">Nebulosa Zero</h3>
+<p class="text-zinc-500 text-xs">Ficção Científica</p>
+</div>
+<div class="flex-none w-48 group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-2xl overflow-hidden mb-3 shadow-lg group-hover:translate-y-[-8px] transition-transform duration-300">
+<img class="w-full h-full object-cover" data-alt="Professional development book cover with minimalist geometric shapes in pastel colors and clean black text" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDftmj1juaFPI7pzYwUV_Dx-vf-MdOn38g-5ZIBLa8zKC1GtSjiAv22522gjYoi3dV8GfM0PIlCAUdwdodBu7f5fV06P7eOsPm-4CSjif16_82dBjUkHDidEbKPxshNojJ2-KNtjU8y2R8lBUVb5q6O1ws2LHAvSPMBjzHVDSd6wadSKw0KQk_GMbP7qzaHNY7yqj0-kAQMRfeeHFMK4TiU8sTha7REzYq0vTsPNthNIZRZcqjVfy3gUQaeOcdIOB3bm1lZYT2fKA"/>
+<div class="absolute top-2 left-2 px-2 py-1 bg-black/60 backdrop-blur-md rounded-lg text-[10px] font-bold text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-yellow-400" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    4.5
+                                </div>
+</div>
+<h3 class="font-bold text-sm text-white line-clamp-1">Alta Performance</h3>
+<p class="text-zinc-500 text-xs">Negócios</p>
+</div>
+<div class="flex-none w-48 group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-2xl overflow-hidden mb-3 shadow-lg group-hover:translate-y-[-8px] transition-transform duration-300">
+<img class="w-full h-full object-cover" data-alt="Classic style book cover with intricate gold leaf patterns on a dark leather texture background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD95q1mE3Zx2KpkfwzMsU6fHVpgzb12W-9bj_BBnce71Ri9V2mi1VlVRdqrAzXyXkqI6OEE2wEtxVFVzl4tR7Y9_zTI42WLfrWPYD1rD8r0a_LNKBjSlGN-luzuoQr16SfwF1VyW25OmjB6-VH80eGzj_AQ7GQAZ2gLPR4akyX8L7TPiOKJQd5HHOUo661OR0vwiUYigR5M7247HA9rmWzZ9-mkDluym5KuJsFy02vwkf6-CSl_pPOjGTOaBz03W1t72u7M7aoTUg"/>
+<div class="absolute top-2 left-2 px-2 py-1 bg-black/60 backdrop-blur-md rounded-lg text-[10px] font-bold text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-yellow-400" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    4.8
+                                </div>
+</div>
+<h3 class="font-bold text-sm text-white line-clamp-1">Ouro e Glória</h3>
+<p class="text-zinc-500 text-xs">Fantasia</p>
+</div>
+<div class="flex-none w-48 group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-2xl overflow-hidden mb-3 shadow-lg group-hover:translate-y-[-8px] transition-transform duration-300">
+<img class="w-full h-full object-cover" data-alt="Scientific research book with high resolution macro photograph of a cell on the cover with white overlay text" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1z0OW16aPiCstLu42yFOPTc5AN0_pXyUj7Dbm0MEYBuGkv6HNkm0SoYOvIUaV32ETwkodeaLPzU8puJkkdLRyXxsTWS2AJseTYMHhLXGO66oFwVpxYdSH9ep-5h9uENV2BHaotyQk_jhZkFvtk0zWmeCy0dxuMUnDJAM2zOtIVfRDAfHv3kcGuPLBccp5VVYgLUfNEeAmbpOCf8jTfrCC97WskCp94StBJhC_K_eN2N-cDbvfdxcvShfPW91FqNvk0UK1caKf-w"/>
+<div class="absolute top-2 left-2 px-2 py-1 bg-black/60 backdrop-blur-md rounded-lg text-[10px] font-bold text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-yellow-400" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    4.6
+                                </div>
+</div>
+<h3 class="font-bold text-sm text-white line-clamp-1">Biohacking</h3>
+<p class="text-zinc-500 text-xs">Saúde</p>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-12">
+<div class="max-w-4xl mx-auto rounded-3xl p-1 bg-gradient-to-br from-primary via-secondary to-tertiary shadow-2xl">
+<div class="bg-surface-dim rounded-[calc(1.5rem-2px)] p-12 flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1">
+<h2 class="font-headline text-4xl font-extrabold text-white mb-6">Plano Premium</h2>
+<p class="text-zinc-400 mb-8">O melhor da leitura sem limites. Por que escolher o básico se você pode ter o extraordinário?</p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-zinc-200">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+                                        Acesso ilimitado a +50.000 títulos
+                                    </li>
+<li class="flex items-center gap-3 text-zinc-200">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+                                        Leitura Offline e Sincronização em Nuvem
+                                    </li>
+<li class="flex items-center gap-3 text-zinc-200">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+                                        Audiolivros com áudio espacial 3D
+                                    </li>
+<li class="flex items-center gap-3 text-zinc-200">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+                                        Sem anúncios e conteúdos exclusivos
+                                    </li>
+</ul>
+</div>
+<div class="flex-none bg-surface-container-highest p-8 rounded-3xl w-full md:w-80 text-center border border-white/5 shadow-xl">
+<p class="text-zinc-400 text-sm font-bold uppercase mb-2">Mensal</p>
+<h3 class="text-5xl font-black text-white mb-6 tracking-tighter">R$ 29<span class="text-xl font-medium text-zinc-500">,90</span></h3>
+<button class="w-full primary-gradient py-4 rounded-full font-extrabold text-black hover:brightness-110 shadow-lg mb-4 transition-all">Assinar Agora</button>
+<p class="text-zinc-500 text-xs">Cancele quando quiser.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Categorias Populares -->
+<section>
+<h2 class="font-headline text-2xl font-bold mb-6">Categorias Populares</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+<div class="group relative aspect-video rounded-2xl overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Abstract vibrant galaxy with deep purples and blues representing the science fiction category" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8M787cxGq06SAw_gKGUTXO9_nVXPEltYeZxKXjRvRmWUhMggwZkcBfTFS-OtdZgGPoYXEolMCQi30rmvotts3z7WATHv9YIdT0AsSevxiDFDakct623OpWkRU7q3HAhMtPadBmMTlsye74Zx_8N5LKO0W0ha9Sw0Zc3xAfo3zCwM8k9DkCgPRF1DDWD8hAYLNIq7Z85JjKaFhOrhTbAGIlOFzeZoWayyLw415H3zRCFZhnE9HuiUltKBkDBYgqRD-gdi8AcT4IA"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center font-manrope font-bold text-lg">Ficção</div>
+</div>
+<div class="group relative aspect-video rounded-2xl overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Modern high-tech workspace with dual monitors and code on screen representing the technology category" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAr64XTGZagWwHH3wBcsbKiXvcyH_bM0hNxYGASvhCgUXACtrWadOtW5L-pcXXVd4kAj2y1VTBZ1s0I-b0IdVGH4Bm0mpHn_TiYYkGWS1Awussvovk3SI78ZUgDte8VOUGZecpQonpnoDh6nuOvMV_UwZw2Hpbf2vWAj-hYlPGe6QUi4Sf3rMk8neP6K3soCQof8XgZHadV-e_SXJTjzyDwoEfmyFay6IRdkOEymUj3rlTBpa0F7Crzg0FsEC1pVREeJ9e3kZT2g"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center font-manrope font-bold text-lg">Tecnologia</div>
+</div>
+<div class="group relative aspect-video rounded-2xl overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Sophisticated man in a business suit holding a leather folder representing the business category" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgPfQsHUb5rHiGuOmnGO97CTFrwDj70E_AGew5ULs_gvOUx3vn--U4SZz2R0ezrPixakTlJVOZmIQWk34KarvjLdYWq9Pm7Y_XhB-RLv9VYN4N7ehaqGbsfQBT3q_DQZYoJTOaK0wXR_MefHorh5hR7RKhuQqRUazbS82FHbpCwZwNY_2yZJeFwXR7iNUQ6voCHY9_SJxVEkwBrDA7PJiBwbX3Bh9FnOVXd5H5TAgCqoft_SIxQxXPI88AJcyW4miWUChgyOTMpQ"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center font-manrope font-bold text-lg">Negócios</div>
+</div>
+<div class="group relative aspect-video rounded-2xl overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Zen office space with succulents and soft lighting representing the self-help and development category" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7oSaj_bC7AAccjaKV8KJVy8_aHwj9Yg3tmvsnLm7vv9as8ghg1U0hz-PBHHq4XYpLh-Yhoh3TaR2NCmMST_Rf23IkS-eyHoPtF00ytuZUyn3tD349f8OAjh-p_mJ9uXXAXlQulpAS7cqSTe9-O0eoXZxMJ9XfZUN_XF9_SiDhAuc8TtXnGV79LIn9uMrC-YUUTl40erUyrVC7jVfErsOic-1rmFbon0LV3fx7FeSlNtmZqSmChBjrxiZH-HZEJfKqqCkkJ2LnMQ"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center font-manrope font-bold text-lg">Autoajuda</div>
+</div>
+<div class="group relative aspect-video rounded-2xl overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Dark dramatic thriller setting with foggy street lights representing the mystery and thriller category" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATaSTrnI7RPsHAcfp6ak84heSo6st7feCBLJSGRR_cCDV-3tTFjhDV9aZl3NJZuu-72HKjdw2f-pa_ddD6BABktu3zCT99cGOMTuLkPTDMQGQWelWsHiNJ553Dcf7dckh5SboqJ5VQ-tQe8e8WmgFO9d2Z3pzGBLxKUX8dAPCAHGBL6_hOmpNnRftdqiOFFQxMM_z4OupQDmpLcvdMSb4cTU90qo3L44TYiDcrD_blEvfPcX5k26Iv-ECDE18vta6tjU4EdRT38Q"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center font-manrope font-bold text-lg">Suspense</div>
+</div>
+<div class="group relative aspect-video rounded-2xl overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Top view of fresh colorful organic ingredients on a table representing the cooking and culinary category" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPEaFAiff5DO9gL6IgIq0RNGsXGOeRiCWx6JKzL6sjsfC3yj9TonMIN5rNvqL_bbwEB9zyok-1BzLX4K7xyW3F4E4OKHrX0Imos-VoPM91fMeHZ851S2tWdb2VfinxYduqMLbvnI7Zgf2vNKDanfcJdKQ2M8nIEmPWQruJeklkok0rrCpQjp4ZWhCvl1RL7r1Z4cWSxTEKWliPN1GLdLfrssoAWKUujYKdfCNaHQLnSU0-vYzMnPmEE0rIWTWDLbnvEovlpnvqqQ"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center font-manrope font-bold text-lg">Culinária</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="w-full py-12 border-t border-white/5 bg-zinc-950 flex flex-col md:flex-row justify-between items-center px-12 mt-20 gap-8">
+<div class="text-zinc-600 text-xs font-inter tracking-wide">
+                    © 2024 Vita Ebooks. All rights reserved.
+                </div>
+<div class="flex gap-8">
+<a class="text-zinc-600 hover:text-violet-400 transition-colors text-xs font-inter tracking-wide" href="#">Support</a>
+<a class="text-zinc-600 hover:text-violet-400 transition-colors text-xs font-inter tracking-wide" href="#">Privacy Policy</a>
+<a class="text-zinc-600 hover:text-violet-400 transition-colors text-xs font-inter tracking-wide" href="#">Terms of Service</a>
+</div>
+<div class="flex gap-4">
+<a class="text-zinc-400 hover:text-white transition-all" href="#"><span class="material-symbols-outlined" data-icon="language">language</span></a>
+<a class="text-zinc-400 hover:text-white transition-all" href="#"><span class="material-symbols-outlined" data-icon="help">help</span></a>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vita Ebooks - Online Reader</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface": "#0e0e0e",
+              "secondary-fixed-dim": "#00d7f0",
+              "inverse-primary": "#6834eb",
+              "tertiary-dim": "#ef77a0",
+              "surface-bright": "#2c2c2c",
+              "on-tertiary": "#6a0936",
+              "error-dim": "#d73357",
+              "on-tertiary-container": "#59002b",
+              "on-primary": "#340090",
+              "secondary-dim": "#00d4ec",
+              "primary": "#b6a0ff",
+              "error-container": "#a70138",
+              "on-error": "#490013",
+              "surface-tint": "#b6a0ff",
+              "surface-container-lowest": "#000000",
+              "secondary-container": "#006875",
+              "on-primary-fixed": "#000000",
+              "on-secondary-container": "#e8fbff",
+              "on-error-container": "#ffb2b9",
+              "on-tertiary-fixed-variant": "#70103b",
+              "on-secondary-fixed": "#003a42",
+              "primary-fixed-dim": "#9c7eff",
+              "outline-variant": "#484847",
+              "error": "#ff6e84",
+              "on-secondary-fixed-variant": "#005964",
+              "on-primary-container": "#280072",
+              "surface-container-highest": "#262626",
+              "secondary": "#00e3fd",
+              "on-surface-variant": "#adaaaa",
+              "primary-dim": "#7e51ff",
+              "tertiary-container": "#fc81ab",
+              "surface-dim": "#0e0e0e",
+              "tertiary": "#ff97b8",
+              "surface-container-high": "#201f1f",
+              "on-background": "#ffffff",
+              "on-secondary": "#004d57",
+              "inverse-surface": "#fcf9f8",
+              "tertiary-fixed-dim": "#f57ca5",
+              "inverse-on-surface": "#565555",
+              "secondary-fixed": "#26e6ff",
+              "tertiary-fixed": "#ff8db2",
+              "background": "#0e0e0e",
+              "on-primary-fixed-variant": "#32008a",
+              "surface-container-low": "#131313",
+              "surface-container": "#1a1919",
+              "on-surface": "#ffffff",
+              "surface-variant": "#262626",
+              "primary-fixed": "#a98fff",
+              "primary-container": "#a98fff",
+              "outline": "#767575",
+              "on-tertiary-fixed": "#380019"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0e0e0e;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-neutral-950/60 backdrop-blur-xl shadow-2xl shadow-black/40 flex justify-between items-center px-6 h-16 w-full font-manrope tracking-tight">
+<div class="flex items-center gap-6">
+<span class="text-xl font-bold bg-gradient-to-br from-violet-400 to-violet-600 bg-clip-text text-transparent">Vita Ebooks</span>
+<div class="hidden md:flex gap-6 text-sm">
+<a class="text-neutral-400 hover:text-violet-300 transition-colors duration-300 active:scale-95 transition-transform" href="#">Library</a>
+<a class="text-neutral-400 hover:text-violet-300 transition-colors duration-300 active:scale-95 transition-transform" href="#">Store</a>
+</div>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-full max-w-xs px-4">
+<span class="text-xs font-semibold text-violet-400 mb-1">Guia Obsidian Neon</span>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[74%]"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant mt-1">74% completed</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-neutral-400 hover:text-violet-300 transition-colors duration-300 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="p-2 text-neutral-400 hover:text-violet-300 transition-colors duration-300 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">auto_stories</span>
+</button>
+<button class="p-2 text-neutral-400 hover:text-violet-300 transition-colors duration-300 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</nav>
+<div class="flex pt-16 h-screen overflow-hidden">
+<!-- SideNavBar (Left) -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-neutral-900/80 backdrop-blur-lg shadow-[10px_0_30px_rgba(0,0,0,0.5)] flex flex-col py-6 gap-2 font-manrope text-sm hidden lg:flex">
+<div class="px-6 mb-6">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-14 bg-surface-container-highest rounded-md overflow-hidden shadow-lg flex-shrink-0">
+<img alt="Book cover" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYcziMVxMBUDDVrAHMcifoIVC2XYmxEUiz0iX2nWOKQmYzkUp7mr5KBxLTHxq3CtV62UKlg5OFeyZLdAC7GxvqBHgIPz4lIq-0Tl06m7AL7faEbXBCLHQBUCy3ogKCKJIUn2uXWnwPb7vndz-12dHilZ-EuzAogY3WyzzjA7tV80RWEpd1PRWegEEIpT5_dHDLKgwYb7atsZYVBMyqw7cV6ddQPyCWThIcp7PV7KJJ5YvX3AJQ-eSUXWDdcxuYXHz78ZwQ3sXPhw"/>
+</div>
+<div class="min-w-0">
+<p class="font-bold text-on-surface truncate">Current Read</p>
+<p class="text-[10px] text-on-surface-variant truncate">Chapter 4: The Void</p>
+</div>
+</div>
+<button class="w-full py-2 px-4 rounded-full bg-surface-container-highest text-primary text-xs font-semibold hover:bg-surface-bright transition-all active:scale-95">
+                Typography Settings
+            </button>
+</div>
+<div class="flex flex-col gap-1 flex-1 overflow-y-auto hide-scrollbar">
+<!-- Contents (Active) -->
+<div class="bg-violet-500/10 text-violet-400 rounded-full mx-2 px-4 py-3 flex items-center gap-3 transition-all">
+<span class="material-symbols-outlined">menu_book</span>
+<span>Contents</span>
+</div>
+<!-- Bookmarks -->
+<div class="text-neutral-500 mx-2 px-4 py-3 flex items-center gap-3 hover:bg-neutral-800/50 rounded-full transition-all hover:translate-x-1 duration-200">
+<span class="material-symbols-outlined">bookmark</span>
+<span>Bookmarks</span>
+</div>
+<!-- Notes -->
+<div class="text-neutral-500 mx-2 px-4 py-3 flex items-center gap-3 hover:bg-neutral-800/50 rounded-full transition-all hover:translate-x-1 duration-200">
+<span class="material-symbols-outlined">sticky_note_2</span>
+<span>Notes</span>
+</div>
+<!-- History -->
+<div class="text-neutral-500 mx-2 px-4 py-3 flex items-center gap-3 hover:bg-neutral-800/50 rounded-full transition-all hover:translate-x-1 duration-200">
+<span class="material-symbols-outlined">history</span>
+<span>History</span>
+</div>
+<div class="mt-8 px-6">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-4">Table of Contents</p>
+<ul class="space-y-4">
+<li class="text-[11px] text-on-surface-variant flex items-center gap-2">
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+                        Chapter 1: The First Glow
+                    </li>
+<li class="text-[11px] text-on-surface-variant flex items-center gap-2">
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+                        Chapter 2: Digital Echoes
+                    </li>
+<li class="text-[11px] text-on-surface-variant flex items-center gap-2">
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+                        Chapter 3: Synapse Bridge
+                    </li>
+<li class="text-[11px] text-violet-400 font-bold flex items-center gap-2">
+<span class="w-1 h-1 bg-violet-400 rounded-full"></span>
+                        Chapter 4: The Void
+                    </li>
+<li class="text-[11px] text-on-surface-variant flex items-center gap-2">
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+                        Chapter 5: Absolute Zero
+                    </li>
+</ul>
+</div>
+</div>
+</aside>
+<!-- Central Reading Area -->
+<main class="flex-1 lg:ml-64 xl:mr-80 flex flex-col items-center overflow-y-auto px-6 py-12 hide-scrollbar">
+<article class="max-w-2xl w-full">
+<header class="mb-16">
+<h1 class="font-headline text-5xl font-extrabold tracking-tight text-on-surface mb-4">Chapter 4: The Void</h1>
+<div class="h-1 w-24 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+</header>
+<div class="font-body text-lg leading-relaxed text-neutral-300 space-y-8">
+<p>
+                    To move beyond the generic SaaS template, we break the rigid grid through <span class="bg-violet-500/20 text-violet-300 px-1 rounded-sm border-b-2 border-violet-500/40">Layered Depth</span> and Vibrant Accents. We do not use lines to separate ideas; we use light, shadow, and glassmorphism to create an interface that feels like it’s floating in a digital ether. It is high-contrast, unapologetically bold, and hyper-modern.
+                </p>
+<!-- Interactive Highlight Tooltip Simulation -->
+<div class="relative py-4">
+<p class="relative z-10">
+                        The "No-Line" Rule is fundamental to our architecture. Designers are prohibited from using 1px solid borders for sectioning or containers. Instead, boundaries are felt through value shifts. The void is not empty; it is the structure itself.
+                    </p>
+<!-- Tooltip Overlay -->
+<div class="absolute -top-12 left-1/4 glass-panel bg-surface-bright/80 px-4 py-2 rounded-lg border border-outline-variant/20 shadow-xl flex items-center gap-4 z-20">
+<button class="flex items-center gap-1 text-xs text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">format_paint</span>
+                            Highlight
+                        </button>
+<div class="w-px h-4 bg-outline-variant/30"></div>
+<button class="flex items-center gap-1 text-xs text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">sticky_note_2</span>
+                            Add Note
+                        </button>
+<div class="w-px h-4 bg-outline-variant/30"></div>
+<button class="flex items-center gap-1 text-xs text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">share</span>
+</button>
+</div>
+</div>
+<p>
+                    Treat the UI as a physical stack of semi-translucent materials. Base Layer starts at the foundation, building up through surface-container-low and components that lift off the page using surface-container-highest. Floating Elements are the brightest, commanding attention with modals and popovers that utilize surface-bright tokens.
+                </p>
+<!-- Decorative Card in Text -->
+<div class="my-12 p-8 bg-surface-container-low rounded-xl border border-outline-variant/10 shadow-inner">
+<h3 class="font-headline text-xl font-bold text-secondary mb-4">Architectural Principle</h3>
+<p class="text-sm italic text-on-surface-variant">
+                        "If you feel the need for a divider, increase the spacing token instead. Let the void be the separator."
+                    </p>
+</div>
+<p>
+                    Traditional drop shadows are too "Web 2.0." We use Ambient Shadows and Tonal Stacking. Depth is achieved by placing a lighter surface on a darker one. A surface-container-highest card sitting on a surface-dim background provides all the "lift" required.
+                </p>
+<p>
+                    The "Glass &amp; Gradient" Rule: To achieve the premium feel, use Glassmorphism for overlays. Main CTAs should not be flat. Apply a linear gradient from primary to primary-dim at a 135-degree angle to provide a "lit from within" glow. This is the heartbeat of Obsidian Neon.
+                </p>
+</div>
+<footer class="mt-24 pt-8 border-t border-outline-variant/10 flex justify-between items-center text-on-surface-variant text-sm">
+<button class="flex items-center gap-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+                    Previous Chapter
+                </button>
+<span>Page 142 of 192</span>
+<button class="flex items-center gap-2 hover:text-primary transition-colors">
+                    Next Chapter
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</footer>
+</article>
+</main>
+<!-- Right Sidebar: Notes (New) -->
+<aside class="fixed right-0 top-16 h-[calc(100vh-64px)] w-80 bg-neutral-900/40 backdrop-blur-xl border-l border-white/5 flex flex-col font-manrope hidden xl:flex">
+<div class="p-6 flex items-center justify-between border-b border-white/5">
+<h2 class="text-lg font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-violet-400">edit_note</span>
+                Minhas Anotações
+            </h2>
+<button class="text-neutral-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Notes List -->
+<div class="flex-1 overflow-y-auto p-4 space-y-4 hide-scrollbar">
+<!-- Note Item 1 -->
+<div class="p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-violet-400 uppercase tracking-widest">Pág. 142</span>
+<span class="text-[10px] text-neutral-500">14:20</span>
+</div>
+<p class="text-sm text-neutral-300 line-clamp-2 italic">"O vazio não está vazio; é a própria estrutura." — Conceito interessante sobre design minimalista.</p>
+<div class="mt-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-xs text-neutral-500 hover:text-violet-400">edit</span>
+<span class="material-symbols-outlined text-xs text-neutral-500 hover:text-error-dim">delete</span>
+</div>
+</div>
+<!-- Note Item 2 -->
+<div class="p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-violet-400 uppercase tracking-widest">Pág. 138</span>
+<span class="text-[10px] text-neutral-500">Ontem</span>
+</div>
+<p class="text-sm text-neutral-300 line-clamp-2">Revisar a regra de No-Line para o próximo projeto de Dashboard.</p>
+<div class="mt-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-xs text-neutral-500 hover:text-violet-400">edit</span>
+<span class="material-symbols-outlined text-xs text-neutral-500 hover:text-error-dim">delete</span>
+</div>
+</div>
+</div>
+<!-- Add New Note -->
+<div class="p-6 bg-surface-container-low/50 backdrop-blur-md border-t border-white/5">
+<label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-3">Adicionar nova nota</label>
+<div class="relative">
+<textarea class="w-full bg-neutral-950/50 border border-white/10 rounded-xl p-3 text-sm text-on-surface focus:ring-1 focus:ring-violet-500/50 focus:border-violet-500/50 transition-all outline-none resize-none placeholder:text-neutral-600" placeholder="Escreva aqui..." rows="4"></textarea>
+</div>
+<button class="w-full mt-4 py-3 bg-gradient-to-r from-violet-600 to-violet-500 hover:from-violet-500 hover:to-violet-400 text-white rounded-full text-sm font-bold shadow-lg shadow-violet-900/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">save</span>
+                Salvar
+            </button>
+</div>
+</aside>
+<!-- Right Toolbelt (Floating Contextual Actions) -->
+<div class="fixed right-6 bottom-20 xl:right-[340px] flex flex-col gap-3 transition-all">
+<button class="w-12 h-12 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="w-12 h-12 bg-surface-container-highest text-on-surface rounded-full flex items-center justify-center shadow-lg hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined">translate</span>
+</button>
+<button class="w-12 h-12 bg-surface-container-highest text-on-surface rounded-full flex items-center justify-center shadow-lg hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined">format_size</span>
+</button>
+</div>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full h-16 bg-surface-container-low border-t border-outline-variant/10 md:hidden flex justify-around items-center z-50">
+<button class="flex flex-col items-center gap-1 text-violet-400">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="text-[10px]">Contents</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="text-[10px]">Bookmarks</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sticky_note_2</span>
+<span class="text-[10px]">Notes</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px]">Reader</span>
+</button>
+</nav>
+</body></html>

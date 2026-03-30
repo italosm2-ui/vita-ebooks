@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vita Ebooks | Community Forum</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#32008a",
+              "tertiary-dim": "#ef77a0",
+              "surface-variant": "#262626",
+              "secondary-dim": "#00d4ec",
+              "surface-dim": "#0e0e0e",
+              "surface-container-lowest": "#000000",
+              "on-tertiary": "#6a0936",
+              "outline": "#767575",
+              "secondary-fixed-dim": "#00d7f0",
+              "surface-container-highest": "#262626",
+              "inverse-surface": "#fcf9f8",
+              "on-error-container": "#ffb2b9",
+              "surface": "#0e0e0e",
+              "surface-container": "#1a1919",
+              "on-primary": "#340090",
+              "tertiary-fixed": "#ff8db2",
+              "surface-container-low": "#131313",
+              "surface-bright": "#2c2c2c",
+              "on-secondary-fixed-variant": "#005964",
+              "on-primary-fixed": "#000000",
+              "tertiary-fixed-dim": "#f57ca5",
+              "surface-container-high": "#201f1f",
+              "primary-container": "#a98fff",
+              "on-primary-container": "#280072",
+              "on-background": "#ffffff",
+              "on-secondary": "#004d57",
+              "on-surface-variant": "#adaaaa",
+              "tertiary": "#ff97b8",
+              "secondary": "#00e3fd",
+              "primary-fixed-dim": "#9c7eff",
+              "on-tertiary-fixed-variant": "#70103b",
+              "on-tertiary-container": "#59002b",
+              "error-dim": "#d73357",
+              "error": "#ff6e84",
+              "primary-dim": "#7e51ff",
+              "secondary-fixed": "#26e6ff",
+              "on-surface": "#ffffff",
+              "primary": "#b6a0ff",
+              "inverse-on-surface": "#565555",
+              "on-secondary-container": "#e8fbff",
+              "inverse-primary": "#6834eb",
+              "secondary-container": "#006875",
+              "on-error": "#490013",
+              "on-secondary-fixed": "#003a42",
+              "surface-tint": "#b6a0ff",
+              "tertiary-container": "#fc81ab",
+              "outline-variant": "#484847",
+              "background": "#0e0e0e",
+              "error-container": "#a70138",
+              "primary-fixed": "#a98fff",
+              "on-tertiary-fixed": "#380019"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background-color: #0e0e0e;
+        color: #ffffff;
+      }
+      .glass-card {
+        background: rgba(26, 25, 25, 0.6);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(72, 72, 71, 0.15);
+      }
+      .neon-glow-primary {
+        box-shadow: 0 0 15px rgba(182, 160, 255, 0.3);
+      }
+      .neon-glow-secondary {
+        box-shadow: 0 0 15px rgba(0, 227, 253, 0.3);
+      }
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0e0e0e;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #262626;
+        border-radius: 10px;
+      }
+    </style>
+</head>
+<body class="font-body selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar Shell -->
+<nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/60 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full shadow-[0_20_40px_rgba(0,0,0,0.4)]">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tight text-white font-headline">Vita Ebooks</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-[#adaaaa] hover:text-white transition-colors font-manrope text-sm" href="#">Library</a>
+<a class="text-[#b6a0ff] font-bold border-b-2 border-[#b6a0ff] pb-1 font-manrope text-sm" href="#">Channels</a>
+<a class="text-[#adaaaa] hover:text-white transition-colors font-manrope text-sm" href="#">Roadmap</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-container-low border-none rounded-full pl-10 pr-4 py-1.5 text-sm focus:ring-1 focus:ring-primary w-64 text-on-surface" placeholder="Search insights..." type="text"/>
+</div>
+<button class="p-2 hover:bg-[#262626] rounded-full transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined text-white">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#262626] rounded-full transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined text-white">forum</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30">
+<img alt="User profile avatar" data-alt="close-up portrait of a young man with a focused expression in a dimly lit studio with subtle purple rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP7Z9Dx6cm3QSOyoaD1ndE4oKdE9KJ4Mft21szN7AUtM2-j010Pbl8C9BNZsVtx94XiECvlYwbyWZRMtsKw9xkXfAOHf5qjFLdMeF0teOArt0QN1I0V4P4G7QNeWvel9jPf1sb7G0zwvY2eHW80Z037O4QDYr1ZilqD3YzZA7C6T_0UvtsigLgHwSSDY9SeU4GF-QLJej50igCeROcYOl3UdeJJdSyoUsJwbTKHb_pG-X3H-f-7Cojqvl6mgs2IJhdoYQdojwfTg"/>
+</div>
+</div>
+</nav>
+<div class="flex pt-16 min-h-screen">
+<!-- SideNavBar Shell (Left Sidebar) -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex flex-col p-4 z-40 bg-[#0e0e0e] border-r border-[#484847]/20 font-manrope text-sm">
+<div class="flex items-center gap-3 mb-8 px-2">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-dim flex items-center justify-center shadow-lg neon-glow-primary">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div>
+<h2 class="text-white font-bold leading-tight">Vita Community</h2>
+<p class="text-on-surface-variant text-[10px] uppercase tracking-widest">The Neon Curator</p>
+</div>
+</div>
+<nav class="space-y-1 mb-8">
+<a class="flex items-center gap-3 px-4 py-3 text-[#adaaaa] hover:text-white hover:bg-[#262626] rounded-full transition-all active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined">home</span> Home
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#adaaaa] hover:text-white hover:bg-[#262626] rounded-full transition-all active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined">bolt</span> Trending
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#adaaaa] hover:text-white hover:bg-[#262626] rounded-full transition-all active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined">menu_book</span> Ebooks
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-[#b6a0ff]/20 to-transparent text-[#b6a0ff] rounded-full transition-all active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span> Channels
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#adaaaa] hover:text-white hover:bg-[#262626] rounded-full transition-all active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined">group</span> Members
+                </a>
+</nav>
+<div class="mb-4 px-4 text-[11px] font-bold text-on-surface-variant tracking-widest uppercase">My Communities</div>
+<div class="space-y-2 overflow-y-auto pr-2">
+<div class="group flex items-center justify-between p-2 rounded-xl hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-secondary neon-glow-secondary"></div>
+<span class="text-on-surface-variant group-hover:text-white truncate max-w-[120px]">Digital Architect</span>
+</div>
+<span class="text-[10px] bg-primary/20 text-primary px-1.5 py-0.5 rounded-md">12</span>
+</div>
+<div class="group flex items-center justify-between p-2 rounded-xl hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-outline-variant"></div>
+<span class="text-on-surface-variant group-hover:text-white truncate max-w-[120px]">Algorithmic Thinking</span>
+</div>
+</div>
+<div class="group flex items-center justify-between p-2 rounded-xl hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-tertiary neon-glow-primary"></div>
+<span class="text-on-surface-variant group-hover:text-white truncate max-w-[120px]">Minimalism in UI</span>
+</div>
+<span class="text-[10px] bg-tertiary/20 text-tertiary px-1.5 py-0.5 rounded-md">5</span>
+</div>
+</div>
+<div class="mt-auto space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-[#adaaaa] hover:text-white hover:bg-[#262626] rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#adaaaa] hover:text-white hover:bg-[#262626] rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">help_outline</span> Help
+                </a>
+</div>
+</aside>
+<!-- Main Feed Section -->
+<main class="ml-64 mr-80 flex-1 p-8 space-y-8">
+<header class="flex items-end justify-between border-b border-outline-variant/10 pb-6">
+<div>
+<h1 class="text-4xl font-black font-headline tracking-tighter text-white">The Digital Architect</h1>
+<p class="text-on-surface-variant mt-2 max-w-lg">Mastering the intersection of structural engineering and modern digital interfaces. Share your blueprints here.</p>
+</div>
+<div class="flex gap-4">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-surface-container-high overflow-hidden">
+<img alt="member" data-alt="portrait of a bearded man smiling in soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-2iF_s2DgAlu05m4b-Y2RL8eztCYhw2s_VZ_icuXvEtxpMvZeNqpnEeDPsnrKtXGnRatMSkHvqfw9QV3V3gNvsaBPyrhRA4sexhpMU3oBn2LzFlD2YszEqaMR3NqbzAuHkwjJoiIE59p9ccYqgi5LYOZRPk-BEWcKDVn-1KfqFYFhUls5S-BjAOLQ6B_rdmwb3gxgP6kCxZ67Z_4alFif7abgTnmAudW0_L0zxCRya36Uxam9ZPtuq98PAstLcn3MYVjN91MHWQ"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-surface-container-high overflow-hidden">
+<img alt="member" data-alt="close-up of a smiling woman with dark hair against a soft studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCELPBI3JyAuOeZA_Y9mFWY30pqxsiNXWEFAbQkly55Y2k0tU0E4R3W2dpn0oLGIYcOmEzSlDUgJFZaKJFl-XkgKoQfxdVlXt9OtAzJGoMFC7r6mF0Ny7rY22Oh_KJ-K3K3a7-zEDEYjaMRxTrsWhE-FywFA4utMiJpjw-6SFIa7K5tyvLDjKqbt6oyfFbM4DSQU_b47DNJp5cFvflnTlovEKd2aeVJsiUfYrIIdhpKAx6b1IKFDZBTyc0-H5JGR7qKLuRVhdQwaA"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-surface-container-high overflow-hidden">
+<img alt="member" data-alt="professional portrait of a man in a dark shirt with subtle rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7oAQfpNvpLjf_e3PoPQ6UdEH0O-OtOUv54pivuvM9Yuxr2UAQJX2gHeMGm8yQiYlgVMFDAIZdyuaiOX3EVe5LQKeJpCY8i98fnavpzKG-GzI-z9DOy3vgUDILUGFKbNrqwa2XPryAUi_QnSd1wkuwdLdpqP99rO9RFU_7AaR_dRDFrDmLCVci0GX5s_iqA6PlEkaEZgEj53Ls3h1EiRWsxTKo3Y_Bhm7FoA6BZ5-cSjIQwfc-qhtLm-WwmUx8EPvPC81pJsqhLQ"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-surface-container-high flex items-center justify-center text-[10px] font-bold text-primary bg-primary/10">
+                            +42
+                        </div>
+</div>
+</div>
+</header>
+<!-- Post Creation Area -->
+<div class="glass-card rounded-xl p-4 flex gap-4 items-start shadow-xl">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex-shrink-0 border border-outline-variant/30 overflow-hidden">
+<img alt="avatar" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDT6eoG_ggaVPJw1Khf_TjG86U4p4HjQ4lwYBElD8A2rEBYzTOwuesHP3-XVkxfOge0UV32D2yMqqzO6GtYlORtjkSbObOhxAR3uq1X3hko11fiJNjea26CDa3_Jn59AoSRMnt2rC9w64G8gPv7mLrMu9IOAKcvsbnywTi3Ko0gQRMKpNhbgDyJr9pwKzi0HkCvf_bd9hDsZfHw7Iaz8FOfRosh4lBnFQAe9N_McDptTTKE-2VA4fdcC-9rrvB6sKwzElhouqDTQ"/>
+</div>
+<div class="flex-1">
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-white placeholder-on-surface-variant resize-none h-12 py-2" placeholder="Share an insight or ask a question..."></textarea>
+<div class="flex justify-between items-center mt-2 pt-2 border-t border-outline-variant/5">
+<div class="flex gap-2">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">image</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">link</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">poll</span>
+</button>
+</div>
+<button class="px-6 py-2 bg-gradient-to-r from-primary to-primary-dim text-on-primary-container font-bold rounded-full text-sm active:scale-95 transition-all shadow-lg neon-glow-primary">
+                            Post
+                        </button>
+</div>
+</div>
+</div>
+<!-- Feed -->
+<div class="space-y-6">
+<!-- Post 1 (Hot) -->
+<article class="glass-card rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4">
+<span class="flex items-center gap-1 bg-error-container/20 text-error-dim px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider animate-pulse">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+                            Hot Thread
+                        </span>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/30">
+<img alt="user" data-alt="portrait of a stylish man looking thoughtfully into the camera with moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnb6nf_0v35dOSuEFpGMG6pcGrsfErQA1r45V3qU9kVpZyKgmxY2-GUDsk4XLjngimtGdI9tEP3WKVC1wprHt7tlTYsu5zoAxGqeDldZSEPzx85Sr7-CkbcjwfRAJsqbP3lE-BhR8k411777W9nKyRB3Xs6gSt5gmQhY1HjNwU23F8XigMY2G7ZZU2PneDA5YclF67K_z7ialcRFxthsp3nOcoRyJRmxnsp3OK5GM_63-E7vIwc7RyJakpYjErtVnaCqYU7SRoKQ"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-bold text-white text-base">Marcus Aurel</h3>
+<span class="text-on-surface-variant text-xs">• 2h ago</span>
+<span class="text-[10px] bg-secondary/10 text-secondary px-2 py-0.5 rounded border border-secondary/20 uppercase font-black">Pro Member</span>
+</div>
+<h2 class="text-xl font-bold font-headline text-white mb-3 group-hover:text-primary transition-colors cursor-pointer">The Golden Ratio in Micro-Interactions</h2>
+<p class="text-on-surface-variant leading-relaxed mb-6">
+                                I've been experimenting with Fibonacci sequences for timing curves in CSS transitions. The results are surprisingly more "natural" than standard cubic-beziers. Here is the blueprint for the navigation drawer I'm working on...
+                            </p>
+<div class="rounded-2xl overflow-hidden mb-6 border border-outline-variant/10 aspect-video relative">
+<img class="w-full h-full object-cover" data-alt="abstract 3d geometric shapes in shades of purple and black with soft neon lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl2k2trQDxJSwn0UTO3XAUm4C983xUCEVm1z3q2mGYRhwPMZSymEi6iN3WgP74CFNwkTpNhCurauhnIAwmTzOa9YtCizFVXYqTGTfA-OsfSbWEu_6YlZNj-T65FBglWkVHxjM2GzXGvgupt-J2mzTllsRt5e5Qe2--xAejX5yp70hBOk9PSQ4ywjxj_JXa5sv-go8T6qZZVVcT-wxBQJ1I31YLc8y2D2hHV-YLnSTuwR3wIeMES7Y2q6Q0Y6lEedUkodfhKd7PLg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+<span class="text-xs text-white/80 font-medium">blueprint_v4_draft.png</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors group/btn">
+<div class="p-2 group-hover/btn:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</div>
+<span class="text-xs font-bold">1.2k</span>
+</button>
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-secondary transition-colors group/btn">
+<div class="p-2 group-hover/btn:bg-secondary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-xl">chat_bubble</span>
+</div>
+<span class="text-xs font-bold">84</span>
+</button>
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-tertiary transition-colors group/btn">
+<div class="p-2 group-hover/btn:bg-tertiary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-xl">share</span>
+</div>
+<span class="text-xs font-bold">12</span>
+</button>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Post 2 -->
+<article class="glass-card rounded-xl p-6">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-secondary/30">
+<img alt="user" data-alt="casual portrait of a woman with a bright smile in a sunlit environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7SmeAeDrcgonzLseSmcnZCC2I8d4orFg0LYZFRGnrOvHviADzEpMB6h_XWyeeWl0f_nPCvBMWozEgPrem9-w3acZdLXl7D2JeCc3JtSPH-G-LEVWdIHO6WurJYXPVJ6IQa-auN0Gm6TEtaIqm-vrwklF03hTk_-evTvGOYkb5CmyI91RPPLWQN90MH71LY-Cm5oGC_cA3tnMV88pPfQoCWGFmNFY7jqOQMZTst9YoYl-vlweQ05QqRyAnOWYF0M15Ol-nZm2pZQ"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-bold text-white text-base">Sarah Chen</h3>
+<span class="text-on-surface-variant text-xs">• 5h ago</span>
+</div>
+<h2 class="text-lg font-bold font-headline text-white mb-2">How do you handle contrast accessibility on neon themes?</h2>
+<p class="text-on-surface-variant leading-relaxed">
+                                I love the "Obsidian Neon" aesthetic we are building here, but I'm struggling with AA standards for small text on deep black backgrounds when using pure cyan accents. Any tips for balancing vibe and legibility?
+                            </p>
+<div class="flex items-center gap-4 mt-6">
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors group/btn">
+<div class="p-2 group-hover/btn:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</div>
+<span class="text-xs font-bold">428</span>
+</button>
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-secondary transition-colors group/btn">
+<div class="p-2 group-hover/btn:bg-secondary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-xl">chat_bubble</span>
+</div>
+<span class="text-xs font-bold">156</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Right Sidebar (Members & Leaderboard) -->
+<aside class="fixed right-0 top-16 h-[calc(100vh-64px)] w-80 p-6 flex flex-col gap-8 bg-surface-container-low/50 backdrop-blur-sm">
+<button class="w-full py-4 bg-white text-black font-black font-headline text-lg rounded-2xl flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-95 transition-all shadow-2xl">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+                New Insight
+            </button>
+<section>
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-xs font-black uppercase tracking-widest text-white/50">Online Students</h3>
+<span class="flex items-center gap-1.5 text-[10px] text-secondary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary neon-glow-secondary animate-pulse"></span>
+                        1,204 Active
+                    </span>
+</div>
+<div class="grid grid-cols-5 gap-3">
+<div class="relative group cursor-pointer">
+<img class="w-10 h-10 rounded-full border border-outline-variant/30 grayscale hover:grayscale-0 transition-all" data-alt="profile photo of a man in a modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbvgjDN_JIS5pK_tEQxD0tFvcpxPa35gKp-6wdU9cGW-Ms_7YKnqhXEoxMIajoyjaq9VHLIj_qCf0NQO_T4T3Rtnq7RJPD4pPvdV0NAhtZ4RkExIPQENijRrFtC6RFSL7vSEfLjMf5-abvwRmv0s73XmLPTz4VxeiJAFbdURJUeVa0cv_XNHrX-Sk2f_yJt9kHEUigak0kL4uvySaX-YqJdIhUepCZEqPrjw2frF910XGhV_vi0hnrPRpbgBYL9jvRCJlcZy3hmg"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-secondary rounded-full border-2 border-surface-container-low"></span>
+</div>
+<div class="relative group cursor-pointer">
+<img class="w-10 h-10 rounded-full border border-outline-variant/30 grayscale hover:grayscale-0 transition-all" data-alt="natural light portrait of a woman looking away" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0nTqWmdeE-sz9klxR-L4EI3bsG3goF9qq7EUx1TbR9K8DAVG8j7VOobvb3oy5eQSxcLNFBTxow4s89V5GfKE9jXr0qUSxGe1b93kYcswG7EZ15RtGvNapp7L4hGlIjw-lTW4UB2IvWkwgxG0kOqvmIVhlF7cFo5kIdvzFsDNp5gubRqmmpL8nE3uUguCS4Oy4NmBSyycY6PaAT_dzPTKBGGMffUCZzA0sDWKrUC1fOfET4XFGSwsxD1PRuhNwqPMvQJncCTV21g"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-secondary rounded-full border-2 border-surface-container-low"></span>
+</div>
+<div class="relative group cursor-pointer">
+<img class="w-10 h-10 rounded-full border border-outline-variant/30 grayscale hover:grayscale-0 transition-all" data-alt="minimalist studio portrait of a man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3RtnyegFvqrjLiFDG-ZVcC0IBxZqcpxaCIfWTiVmBoSiTs11l2I9qAUHlQHRuzaA_wZRsyQulb9IfZs8e1Ris9FK0uZpdXh89GJMTpRK6pnPzb43kA3rXqVFerdP7WSBYApj4S3SeoJ_zys7NJPZoD5QpqgudRVhzH50DfABSGHBqpdlVm8fsrMM7UuK8vCUdp6LvO6uj42vl2IgR83NhhzlvNQGytzAe_3WRZjeEXBSoJ-INu0iBC02loqA6AnTBfbNxHQmg4Q"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-secondary rounded-full border-2 border-surface-container-low"></span>
+</div>
+<div class="relative group cursor-pointer">
+<img class="w-10 h-10 rounded-full border border-outline-variant/30 grayscale hover:grayscale-0 transition-all" data-alt="studio headshot of a person with colorful lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVtvKe5Pc3ScdrYIW4vR6s5Wn7qhyhusRtWip10ey_bI2-ZXu8qGCNfNmeg_MZMuZWIaqXIke2pYvchyM_9n3A_N1Xi57H6xTtYmcxZGJbxCTtx-wOUbztHDHEld9n3z7K4RKbigteTEkpjX7RCppn8SL91PJmcsMUsr-kVYBsBOzwBFvdUEHucChZMuHdUU2meRKYTlPIP_W-ekZ6rJ9mmFcZZd7GGxK-wSSnWv5tFc9WpQZsPuSltAypwfX3Kth3nbR1O593Qg"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-outline rounded-full border-2 border-surface-container-low"></span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant/30 flex items-center justify-center text-[10px] text-on-surface-variant font-bold">
+                        +1K
+                    </div>
+</div>
+</section>
+<section class="flex-1">
+<h3 class="text-xs font-black uppercase tracking-widest text-white/50 mb-6">Top Contributors</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4 group cursor-pointer">
+<span class="text-primary font-black italic text-xl w-6">01</span>
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img alt="user" data-alt="professional smiling man in a suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzI6z-gyeRTckiXxI52M8unXmupNnGhzWbwhpmovw3At2ttdGeU1xjclIyH3b2f7ux7CQ5xFlfa5p7vynChNgbkEwwYJ3ZBiPZffwG_XaP_EwqND3J-1QhAHfG8euyZ6lQFXqGrlGxOOzpZsFQR4UplB2YjAVfbA0D-6BScUyRnDXKEXgcvB289KpI3HNsI-1Ylx1zVHT5QDmS7L1k8J2Ye_79gLAAJ12Oq2p8uXKE5APgAY1-47sX6Hou7BSzLx3t6LsCmsP4qQ"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-white group-hover:text-primary transition-colors">Alex Rivers</p>
+<p class="text-[10px] text-on-surface-variant">2.4k Karma</p>
+</div>
+<span class="material-symbols-outlined text-tertiary text-lg">military_tech</span>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<span class="text-on-surface-variant font-black italic text-xl w-6">02</span>
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img alt="user" data-alt="portrait of a woman in natural outdoor light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9fsJkc1Dpqp5AJ300pPBPy0-OJVrJOSWi1I_zspn7nkWBiy4Q6inD2im-lJRfQ7f0HK8bINAzMKEQ4i_hSJri4oHo1zVZpWs9trJcHqE3kZLxhK18D-yJIJL2Pdk8CI0CoIAMZYq8wrQlWF-q1rDQbGePbUsbjZrpU0BaNeI1qdqPP2TZayeUTokPOzXdADQpo-yLxIWudUkS7wVXAQruAh8uQyxKjqKMSR8YanXjwMjax4eOWo-Bd8-esEpo4TxNKUfJz4OdrA"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-white group-hover:text-primary transition-colors">Elena K.</p>
+<p class="text-[10px] text-on-surface-variant">1.9k Karma</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<span class="text-on-surface-variant font-black italic text-xl w-6">03</span>
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img alt="user" data-alt="portrait of a man with expressive features" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlItumTqPPhPZWxOxVKCet5He9xjHYlYKsuDyEwt3oDy7K6zTDI4U5muyH4a5ougCKXGOy3aQ8gq_bkJ0TYMapm3poyige9OqGk9G3YxzNaTms0FYcbua1I8T0zLCg4XnY4xirdCqs99bBrAvwUbBOk_hhyTJQ981TPrmdSsOOGYkxNwzA30FaqGCyePbRWM08PZlNfLIxqEWO30km3VhtlHA-2QHPwpoCbbJnSRdNyN5tUgdtr-1qvqgELBFvUvzMeGIHEadeiw"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-white group-hover:text-primary transition-colors">Jaxon Storm</p>
+<p class="text-[10px] text-on-surface-variant">1.2k Karma</p>
+</div>
+</div>
+</div>
+</section>
+<section class="mt-auto glass-card rounded-2xl p-4 border border-primary/20 bg-primary/5">
+<h4 class="text-primary font-bold text-xs mb-2">Weekly Challenge</h4>
+<p class="text-xs text-white/70 leading-relaxed mb-4">Design a glassmorphism card that uses ONLY CSS filters for depth.</p>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border border-surface bg-gray-500"></div>
+<div class="w-6 h-6 rounded-full border border-surface bg-gray-600"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant font-bold">12 Entries</span>
+</div>
+</section>
+</aside>
+</div>
+</body></html>

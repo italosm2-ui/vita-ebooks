@@ -1,15 +1,17 @@
 # Vita Ebooks
 
-Vitrine estática da Vita Ebooks com catálogo, comparação de planos e páginas de produto preparadas para publicação manual na Hostinger.
+Vitrine estática da Vita Ebooks com catálogo, páginas de produto, comparação de planos e suporte comercial, pronta para publicação manual na Hostinger.
 
-## Direção do projeto
+## Direção atual
 
-- GitHub é a fonte de verdade do código e da documentação.
-- Hostinger é o ambiente de produção, via upload manual para `public_html/`.
-- O V1 é 100% estático: HTML, CSS, JS vanilla e dados locais em `assets/data/`.
-- Checkout, login e biblioteca real são próximos passos. Nesta versão, os CTAs são honestos e apontam para suporte ou comparação de planos.
+- GitHub é a fonte de verdade do código, da documentação e das referências visuais.
+- Hostinger é o ambiente de produção via upload manual para `public_html/`.
+- O V1 continua 100% estático: HTML, CSS, JS vanilla e dados locais em `assets/data/`.
+- O visual oficial agora segue `DESIGN-SYSTEM.md`, na direção **Cinematic Reader**.
+- `design-references/` guarda as telas de referência usadas para compor o redesign, mas não faz parte das rotas produtivas.
+- Checkout, login e biblioteca real continuam fora do escopo desta fase. Os CTAs seguem honestos e apontam para produto, planos, catálogo ou suporte.
 
-## Estrutura atual
+## Estrutura principal
 
 ```text
 vita-ebooks/
@@ -20,44 +22,29 @@ vita-ebooks/
 ├── sobre.html
 ├── suporte.html
 ├── conta.html
+├── DESIGN-SYSTEM.md
 ├── DEPLOYMENT.md
-├── README.md
+├── design-references/
 ├── assets/
-│   ├── css/
-│   │   └── style.css
-│   ├── data/
-│   │   ├── categorias.json
-│   │   ├── depoimentos.json
-│   │   └── ebooks.json
-│   ├── img/
-│   │   └── .gitkeep
-│   └── js/
-│       └── main.js
+│   ├── css/style.css
+│   ├── js/main.js
+│   └── data/
 └── docs/
-    ├── ARCHITECTURE.md
-    ├── PAGES.md
-    ├── PLANS.md
-    ├── ROADMAP.md
-    └── USER-FLOWS.md
 ```
 
 ## Páginas do V1
 
-- `index.html`: home comercial com proposta da marca, planos, categorias e destaques.
+- `index.html`: home comercial com hero cinematográfico, categorias, destaques e ofertas.
 - `planos.html`: comparação entre compra avulsa, clube mensal e vital premium.
-- `catalogo.html`: busca, filtros e ordenação do catálogo estático.
-- `ebook.html`: página de produto com CTA honesto para suporte e planos.
-- `sobre.html`: posicionamento da marca e roadmap resumido.
-- `suporte.html`: FAQ e contato via e-mail preparado.
-- `conta.html`: estado “em breve”, sem login fake.
+- `catalogo.html`: busca, filtros, rail de categorias e grade de títulos.
+- `ebook.html`: produto renderizado por `slug`, com CTA honesto para suporte e planos.
+- `sobre.html`: manifesto da marca, pilares e roadmap resumido.
+- `suporte.html`: FAQ do V1 e contato via `mailto`.
+- `conta.html`: página “em breve”, sem login fake.
 
-## Como trabalhar localmente
+## Como testar localmente
 
-1. Clone o repositório.
-2. Abra os arquivos em um servidor local simples para testar os `fetch` de `assets/data/`.
-3. Faça as alterações no repositório e revise antes de subir para produção.
-
-Exemplo com Python:
+Use um servidor local simples para evitar restrições de `fetch` nos JSONs:
 
 ```bash
 python -m http.server 8000
@@ -70,7 +57,7 @@ O fluxo de publicação está em [DEPLOYMENT.md](DEPLOYMENT.md).
 Resumo:
 
 1. Revisar o estado final em `main`.
-2. Enviar o conteúdo da raiz do projeto para `public_html/` na Hostinger.
+2. Enviar o conteúdo da raiz para `public_html/` na Hostinger.
 3. Confirmar que todas as rotas `.html` e `assets/` carregam corretamente.
 
 ## Documentação

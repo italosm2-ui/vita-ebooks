@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#484847",
+              "on-primary-container": "#280072",
+              "on-secondary": "#004d57",
+              "surface-container-highest": "#262626",
+              "secondary-fixed-dim": "#00d7f0",
+              "surface-container-lowest": "#000000",
+              "outline": "#767575",
+              "surface-container": "#1a1919",
+              "primary-container": "#a98fff",
+              "primary-fixed": "#a98fff",
+              "secondary-fixed": "#26e6ff",
+              "on-primary-fixed-variant": "#32008a",
+              "inverse-primary": "#6834eb",
+              "tertiary-fixed": "#ff8db2",
+              "background": "#0e0e0e",
+              "tertiary-fixed-dim": "#f57ca5",
+              "on-error": "#490013",
+              "on-error-container": "#ffb2b9",
+              "primary-dim": "#7e51ff",
+              "tertiary-dim": "#ef77a0",
+              "on-primary-fixed": "#000000",
+              "surface": "#0e0e0e",
+              "on-surface": "#ffffff",
+              "on-tertiary-fixed": "#380019",
+              "error": "#ff6e84",
+              "on-tertiary": "#6a0936",
+              "on-surface-variant": "#adaaaa",
+              "on-secondary-fixed-variant": "#005964",
+              "surface-variant": "#262626",
+              "on-background": "#ffffff",
+              "error-dim": "#d73357",
+              "secondary": "#00e3fd",
+              "on-secondary-fixed": "#003a42",
+              "surface-dim": "#0e0e0e",
+              "surface-container-high": "#201f1f",
+              "on-tertiary-container": "#59002b",
+              "secondary-dim": "#00d4ec",
+              "surface-tint": "#b6a0ff",
+              "secondary-container": "#006875",
+              "tertiary": "#ff97b8",
+              "tertiary-container": "#fc81ab",
+              "primary-fixed-dim": "#9c7eff",
+              "on-primary": "#340090",
+              "inverse-on-surface": "#565555",
+              "surface-container-low": "#131313",
+              "on-secondary-container": "#e8fbff",
+              "surface-bright": "#2c2c2c",
+              "on-tertiary-fixed-variant": "#70103b",
+              "primary": "#b6a0ff",
+              "error-container": "#a70138",
+              "inverse-surface": "#fcf9f8"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(26, 25, 25, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .primary-gradient {
+        background: linear-gradient(135deg, #b6a0ff 0%, #7e51ff 100%);
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/60 backdrop-blur-xl flex justify-between items-center px-8 py-4 w-full shadow-[0_20_40px_rgba(0,0,0,0.4)]">
+<div class="text-2xl font-bold tracking-tight text-white font-headline">
+            Vita Ebooks
+        </div>
+<div class="flex items-center gap-8">
+<a class="text-[#adaaaa] font-medium hover:text-white transition-colors duration-300" href="#">Explorar</a>
+<a class="text-[#adaaaa] font-medium hover:text-white transition-colors duration-300" href="#">Categorias</a>
+<button class="bg-surface-container-highest px-6 py-2 rounded-full text-white font-bold hover:text-[#b6a0ff] transition-colors duration-300 active:scale-95 duration-200">
+                Login
+            </button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex items-center justify-center pt-24 pb-12 px-6 relative overflow-hidden">
+<!-- Background Ambient Glow -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none"></div>
+<!-- Forgot Password Card -->
+<div class="glass-card w-full max-w-md p-10 rounded-xl border border-outline-variant/20 shadow-2xl z-10 text-center">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-surface-container-high mb-6">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+<h1 class="font-headline text-3xl font-extrabold text-white mb-3 tracking-tight">Recuperar Senha</h1>
+<p class="text-on-surface-variant text-sm mb-8 leading-relaxed">
+                Insira o e-mail cadastrado abaixo e enviaremos um link seguro para você redefinir sua senha de acesso.
+            </p>
+<form class="space-y-6 text-left">
+<div>
+<label class="block text-xs font-medium text-on-surface-variant uppercase tracking-widest mb-2 ml-1" for="email">E-mail de Cadastro</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-md py-4 px-5 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all duration-300" id="email" placeholder="nome@exemplo.com" type="email"/>
+</div>
+<button class="w-full primary-gradient py-4 rounded-full font-headline font-bold text-on-primary-fixed shadow-[0_10px_30px_rgba(182,160,255,0.3)] hover:brightness-110 active:scale-[0.98] transition-all duration-200" type="submit">
+                    Enviar link de recuperação
+                </button>
+</form>
+<div class="mt-8">
+<a class="inline-flex items-center gap-2 text-on-surface-variant text-sm font-medium hover:text-white transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined text-sm group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                    Voltar ao Login
+                </a>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-[#0e0e0e] flex flex-col items-center gap-6 w-full mt-auto border-t border-[#484847]/20">
+<div class="text-lg font-bold text-white font-headline">Vita Ebooks</div>
+<div class="flex gap-8">
+<a class="text-xs font-medium Inter tracking-wide text-[#adaaaa] hover:text-[#00e3fd] transition-all opacity-80 hover:opacity-100" href="#">Terms</a>
+<a class="text-xs font-medium Inter tracking-wide text-[#adaaaa] hover:text-[#00e3fd] transition-all opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a class="text-xs font-medium Inter tracking-wide text-[#adaaaa] hover:text-[#00e3fd] transition-all opacity-80 hover:opacity-100" href="#">Support</a>
+</div>
+<div class="text-xs font-medium Inter tracking-wide text-[#adaaaa]">
+            © 2024 Vita Ebooks. The Neon Curator Experience.
+        </div>
+</footer>
+</body></html>

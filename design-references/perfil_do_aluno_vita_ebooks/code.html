@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vita Ebooks | Student Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-lowest": "#000000",
+                        "on-primary-fixed-variant": "#32008a",
+                        "tertiary-dim": "#ef77a0",
+                        "surface-container-high": "#201f1f",
+                        "surface": "#0e0e0e",
+                        "outline": "#767575",
+                        "secondary-fixed": "#26e6ff",
+                        "surface-container": "#1a1919",
+                        "background": "#0e0e0e",
+                        "on-tertiary": "#6a0936",
+                        "on-primary-fixed": "#000000",
+                        "inverse-surface": "#fcf9f8",
+                        "on-primary-container": "#280072",
+                        "secondary": "#00e3fd",
+                        "on-error": "#490013",
+                        "outline-variant": "#484847",
+                        "on-error-container": "#ffb2b9",
+                        "tertiary": "#ff97b8",
+                        "on-surface": "#ffffff",
+                        "surface-container-low": "#131313",
+                        "tertiary-fixed": "#ff8db2",
+                        "on-background": "#ffffff",
+                        "error": "#ff6e84",
+                        "surface-tint": "#b6a0ff",
+                        "on-secondary-fixed": "#003a42",
+                        "surface-bright": "#2c2c2c",
+                        "secondary-fixed-dim": "#00d7f0",
+                        "on-secondary-fixed-variant": "#005964",
+                        "on-tertiary-container": "#59002b",
+                        "on-tertiary-fixed-variant": "#70103b",
+                        "tertiary-fixed-dim": "#f57ca5",
+                        "surface-dim": "#0e0e0e",
+                        "primary-fixed-dim": "#9c7eff",
+                        "surface-container-highest": "#262626",
+                        "primary-fixed": "#a98fff",
+                        "on-tertiary-fixed": "#380019",
+                        "on-surface-variant": "#adaaaa",
+                        "on-primary": "#340090",
+                        "error-dim": "#d73357",
+                        "on-secondary-container": "#e8fbff",
+                        "primary": "#b6a0ff",
+                        "error-container": "#a70138",
+                        "on-secondary": "#004d57",
+                        "tertiary-container": "#fc81ab",
+                        "surface-variant": "#262626",
+                        "inverse-on-surface": "#565555",
+                        "primary-container": "#a98fff",
+                        "secondary-container": "#006875",
+                        "secondary-dim": "#00d4ec",
+                        "primary-dim": "#7e51ff",
+                        "inverse-primary": "#6834eb"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .inner-glow {
+            box-shadow: inset 0 0 20px rgba(182, 160, 255, 0.05);
+        }
+        .glass-card {
+            background: rgba(38, 38, 38, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar Shell -->
+<nav class="fixed top-0 w-full flex justify-between items-center px-8 h-20 bg-[#0e0e0e]/60 backdrop-blur-xl z-50 shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-black tracking-tighter text-white bg-clip-text bg-gradient-to-br from-[#b6a0ff] to-[#7e51ff]">Vita Ebooks</span>
+<div class="hidden md:flex gap-8 font-manrope text-sm font-medium tracking-tight">
+<a class="text-[#adaaaa] hover:text-white transition-colors" href="#">Library</a>
+<a class="text-[#adaaaa] hover:text-white transition-colors" href="#">Store</a>
+<a class="text-[#adaaaa] hover:text-white transition-colors" href="#">Achievements</a>
+<a class="text-[#adaaaa] hover:text-white transition-colors" href="#">Community</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center bg-surface-container-highest px-4 py-2 rounded-full outline-variant/15 border border-outline-variant/15">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 text-on-surface" placeholder="Search library..." type="text"/>
+</div>
+<button class="p-2 hover:bg-[#262626] rounded-full transition-all text-[#adaaaa] hover:text-white">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#262626] rounded-full transition-all text-[#adaaaa] hover:text-white">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/20">
+<img alt="User profile avatar" data-alt="close-up portrait of Sarah Chen, a professional woman with a warm expression and stylish short hair in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhvaAfJNlXhn4y_47WE-LmrrYMzjlgPV7RxV2OR8nDcndOUpe-KJ8JnGkUrvnN7tA4_RQ9qEYJ6ppmDhVHaDzUB1FpT5HRv8GqiVHQvra2yy9E3ikZ9erZWtSALH5UfYCQkVidJ0slQMBiOKY8fU2BhRctOlUgn-kcJibNPJIMiKvc9sSB1SK2hW3y9U6ouztfD-xNnilbD7kmwcsVsT40IXe4X3WKQRG_5KzVjRyQtp9kmV_D4OPm0ok4Gw6QiJKRH2l0awsRDw"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-6 gap-2 bg-[#131313] w-64 pt-24 z-40 hidden md:flex shadow-2xl">
+<div class="mb-8 px-4">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary">
+<img alt="User profile avatar" data-alt="headshot of Sarah Chen, a digital interface designer with a modern, professional look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCad11Fq72rApiZM5PkhlUN_DAq58_xguAl9rF2dW0wAGqnZHIYSv4JkAjFBCstlLQWcjiJQwcv5AGonjv-nRJ2cCkcyZYtDDASPPiEFXOcVkJJW63Z9kRCM5Vp-ZZkcH-VKPFeYqIF0TfJOHSAJrnboO0rktPk_J_ZZOZnNFb9xidy_88N6dtBtupoPy7YKPfeRRVDkuRSEy3vKf6huBtv4YQEtm2-wHJ6X0AOD5CYFf6gEfc4yR88dHP-KgCnWpQKBQtNgwYTHw"/>
+</div>
+<div>
+<p class="text-[#b6a0ff] font-bold text-sm">Student Profile</p>
+<p class="text-on-surface-variant text-xs">Premium Member</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 text-[#adaaaa] px-4 py-3 hover:bg-[#201f1f] hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-manrope text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-[#adaaaa] px-4 py-3 hover:bg-[#201f1f] hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-manrope text-sm">My Books</span>
+</a>
+<a class="flex items-center gap-3 text-[#adaaaa] px-4 py-3 hover:bg-[#201f1f] hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="font-manrope text-sm">Reading Stats</span>
+</a>
+<a class="flex items-center gap-3 text-[#adaaaa] px-4 py-3 hover:bg-[#201f1f] hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span class="font-manrope text-sm">Badges</span>
+</a>
+<a class="flex items-center gap-3 bg-[#262626] text-[#b6a0ff] rounded-full px-4 py-3 shadow-[0_0_15px_rgba(182,160,255,0.1)] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="manage_accounts">manage_accounts</span>
+<span class="font-manrope text-sm font-semibold">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-surface-container-highest rounded-xl">
+<p class="text-xs text-on-surface-variant mb-3 leading-relaxed">Unlock advanced analytics and exclusive library access.</p>
+<button class="w-full py-2 bg-gradient-to-br from-primary to-primary-dim text-on-primary-fixed font-bold text-xs rounded-full shadow-lg shadow-primary/20">Upgrade to Pro</button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-20 min-h-screen bg-background">
+<!-- Hero Header -->
+<section class="relative w-full h-[400px] overflow-hidden">
+<div class="absolute inset-0">
+<img class="w-full h-full object-cover opacity-60" data-alt="cinematic digital abstract background with flowing purple and blue waves, soft glow, and grainy texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcH7NVaiiskPGbSHX4QwOVPdsieV-SE2TsrqczOdi8DQ-m9QhZAFzYgt69MnG2vP2UVZ7XyDNEAzk5HqXzt_Gn_dBIWw3vZNcuE8uT8tHlcBY5t0NSRQRPsJhQ910j5WPYz3S_alkIofepz28Xm77JUVPry-YFxdUFjsUI1bpv8wHD7YSNbu8d0iUQkk6yNvJXmTMjp_MfhYZv_fXGCo2HW93zOza8buOqnKTQAKPlFTEFhCegMoDZ5gPAwHdmewi-rxRiq6D-Yw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+</div>
+<div class="relative h-full flex items-end px-12 pb-12">
+<div class="flex flex-col md:flex-row items-center md:items-end gap-8 w-full">
+<div class="relative">
+<div class="w-40 h-40 rounded-full border-4 border-primary p-1 bg-background shadow-2xl shadow-primary/30">
+<img class="w-full h-full rounded-full object-cover" data-alt="high resolution portrait of Sarah Chen with focused and professional expression, warm lighting on face, blurred high-end office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2hSoTi7pZneM6uew8CVumCNA6gvpCwitSEy3PdU4jL-LNeO6DvKHhjuy_O0Gs2kz0aUTObY4CXK8GEJiImAX06RQEZH94zd-iydUDx7qu4ETKG8QyCJtauqu_Z-9d3xriyX-Ekr7Eutr9DfYXa3h8c7TDm45Rb-XG6tqWImtJjbHwX8YTuvzJaLzG3MHGOOB46mYNmb5_FJjyRLDCJSpfyYZIhrdIwcWd2R_kzsbwX78K89kEEYlG-2r1wi6lJjOZiA7WSp6jZQ"/>
+</div>
+<div class="absolute bottom-2 right-2 bg-secondary w-8 h-8 rounded-full border-4 border-background flex items-center justify-center">
+<span class="material-symbols-outlined text-background text-sm" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex-1 text-center md:text-left">
+<div class="flex flex-col md:flex-row md:items-center gap-4 mb-2">
+<h1 class="text-4xl md:text-5xl font-extrabold font-headline tracking-tighter">Sarah Chen</h1>
+<span class="inline-flex items-center px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-xs font-bold uppercase tracking-widest">Pro Member</span>
+</div>
+<p class="text-on-surface-variant max-w-xl text-lg mb-6 leading-relaxed">Mastering the art of digital interfaces through layered depth.</p>
+<div class="flex gap-4 justify-center md:justify-start">
+<button class="px-8 py-3 bg-white text-background font-bold rounded-full hover:bg-primary transition-all flex items-center gap-2 group">
+<span class="material-symbols-outlined group-hover:rotate-12 transition-transform" data-icon="edit">edit</span>
+                                Edit Profile
+                            </button>
+<button class="px-8 py-3 bg-surface-container-highest text-white font-bold rounded-full border border-outline-variant/20 hover:bg-surface-bright transition-all">
+                                Share Profile
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Content Sections Container -->
+<div class="px-12 py-16 space-y-20 max-w-[1400px] mx-auto">
+<!-- Learning Statistics Bento -->
+<section>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="glass-card p-8 rounded-xl border border-outline-variant/10 flex items-center gap-6 group hover:bg-surface-container-highest transition-all">
+<div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="menu_book" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+</div>
+<div>
+<p class="text-3xl font-black font-headline tracking-tighter">14</p>
+<p class="text-on-surface-variant text-sm font-medium">Books Completed</p>
+</div>
+</div>
+<div class="glass-card p-8 rounded-xl border border-outline-variant/10 flex items-center gap-6 group hover:bg-surface-container-highest transition-all">
+<div class="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="schedule" style="font-variation-settings: 'FILL' 1;">schedule</span>
+</div>
+<div>
+<p class="text-3xl font-black font-headline tracking-tighter">82h</p>
+<p class="text-on-surface-variant text-sm font-medium">Reading Time</p>
+</div>
+</div>
+<div class="glass-card p-8 rounded-xl border border-outline-variant/10 flex items-center gap-6 group hover:bg-surface-container-highest transition-all">
+<div class="w-16 h-16 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="military_tech" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<div>
+<p class="text-3xl font-black font-headline tracking-tighter">28</p>
+<p class="text-on-surface-variant text-sm font-medium">Achievement Badges</p>
+</div>
+</div>
+</div>
+</section>
+<!-- My Library Section -->
+<section>
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-2xl font-bold font-headline mb-2">My Library</h2>
+<p class="text-on-surface-variant">Your current and recently finished titles</p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 bg-surface-container-highest rounded-full border border-outline-variant/10 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="p-2 bg-surface-container-highest rounded-full border border-outline-variant/10 text-white">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Currently Reading -->
+<div class="space-y-4 group">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="minimalist modern book cover with typography design and abstract shapes, dark professional aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkjAURH06tN-KYieGMqFkjhanaEZ94_sVg72in1_GLmG2kI4Dxe055C7j5x7EcFZbcAWusa_8MYNb9Pi1XDJAIROfwhcPpjse8PiqZMNY22jx8IOgJSKwcKS-jZKz07MHm32Ie-1Ye_CQP5OG59zY3mPDwkaRJHgvfWLUpVCr0bIXC0yMZgnhPxwrY2xnwciqNPMCXQiUOymAhiNOZvOb5OKoWkfqCpXJkAMesPbyZ6WRL1j4UyNRDm9oGAImxhNzljd1FGla71Q"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-xl shadow-primary/40 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+<span class="material-symbols-outlined text-background text-3xl" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-surface-container-highest">
+<div class="h-full bg-secondary w-3/4 shadow-[0_0_10px_#00e3fd]"></div>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-lg leading-tight">Digital Architecture</h3>
+<p class="text-on-surface-variant text-sm">Marcus Aurelius Vol. II</p>
+</div>
+</div>
+<div class="space-y-4 group">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="clean elegant book cover featuring architectural line art and sophisticated white-space layout" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0a89JcEvTJ29H9DBSrAwogCWZosMZKcRVxoxnXOLO_r1MEPH-4zm8choDrcT38pUIV0e6er6VQduFn84_Kchr8MsDVE4goDrufDi4N6XoLYc264Sb66kcsWh86EBLl1fDrnGNWfL8Nyn2UfOahLT6xP8DEkQhkUZz02SEkbGWOWSMnLTUlN0ZgUssGBemYzJlLYZ56MZSqlnBD6-9MsUPq2dY5fTo34JJfzRmpMXdYcH14UGAE_zHahL1-M-_ngBMNgeWyf2Ilw"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-xl shadow-primary/40 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+<span class="material-symbols-outlined text-background text-3xl" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-surface-container-highest">
+<div class="h-full bg-secondary w-1/4 shadow-[0_0_10px_#00e3fd]"></div>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-lg leading-tight">The Aesthetic Human</h3>
+<p class="text-on-surface-variant text-sm">Elena Petrova</p>
+</div>
+</div>
+<!-- Completed Titles -->
+<div class="space-y-4 group">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="vibrant neon colored book cover with dark high-contrast typography, cyberpunk style aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATSaZU0sE_kmPakFaB947I6WOTqmOCIYoGMQtxkDkD97q_hddWDNgdw9QE4kUSMQ_CC4XMR3ZsPNL3nVVSTauSFUeAx56uDJJd_mG3hNDGckTBqdRwhzaqEeGwQO_38dinjL9Z8IxRIG3aBLOk95N27X9UUATHWPn3pHOrpTXSyCmaAy_As0zOX0qpg_sD4b_HvTNqxQI6LlrfK-u23JK2ywXfasLb4mU0TaB1JHCVt7q99fy5lfXnnZXymZtlupHOjkvV5KGc5Q"/>
+<div class="absolute top-4 right-4 bg-tertiary text-background px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter">Completed</div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="w-16 h-16 bg-surface-bright rounded-full flex items-center justify-center shadow-xl transition-transform">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-lg leading-tight">Interface Psychology</h3>
+<p class="text-on-surface-variant text-sm">Dr. Simon K.</p>
+</div>
+</div>
+<div class="space-y-4 group">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="dark textured book cover with gold foil accents and classic serif typography, luxury editorial feel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABpHXTWz63DqydHVtGV9bexBBxeBxpyqJC3WhHFLeLyhjCnHgVSbZYPKXc9rSlQuN07sKAZiAJhstJTIVgMA1EpBviZ7Ptpyr1Y83SPykImIfXFMe5ZQL2QNvdN9cxZbB-Uj58X4BaespY5xRJZIl0hEdbcUK4frBo4xiKRIlaoy_wMWX1WmhcAYz-973zECm6DAzYxN7d0TJUKQZjz8xTLaaxdpqmvyPVdhNWLRGaLJ8m10xumkP4aSC9kkXJqgXb1ZlfloPltw"/>
+<div class="absolute top-4 right-4 bg-tertiary text-background px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter">Completed</div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="w-16 h-16 bg-surface-bright rounded-full flex items-center justify-center shadow-xl transition-transform">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-lg leading-tight">Mastering Shadows</h3>
+<p class="text-on-surface-variant text-sm">Lucas Grey</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Achievement Gallery Section -->
+<section class="bg-surface-container-low rounded-[3rem] p-12 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 blur-[120px] rounded-full -mr-48 -mt-48"></div>
+<div class="relative z-10 flex flex-col lg:flex-row gap-16">
+<div class="lg:w-1/3">
+<h2 class="text-3xl font-black font-headline tracking-tighter mb-4">My Badges</h2>
+<p class="text-on-surface-variant mb-8 leading-relaxed">Showcasing your dedication and milestones within the Vita ecosystem. Keep reading to unlock more.</p>
+<button class="text-primary font-bold flex items-center gap-2 hover:translate-x-1 transition-transform">
+                            View all achievements
+                            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-8">
+<div class="flex flex-col items-center text-center group">
+<div class="w-24 h-24 rounded-full bg-surface-container-highest border border-primary/20 flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(182,160,255,0.1)] group-hover:shadow-primary/30 transition-all">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="wb_twilight" style="font-variation-settings: 'FILL' 1;">wb_twilight</span>
+</div>
+<h4 class="font-bold text-sm mb-1">Early Bird</h4>
+<p class="text-xs text-on-surface-variant">5am reader</p>
+</div>
+<div class="flex flex-col items-center text-center group">
+<div class="w-24 h-24 rounded-full bg-surface-container-highest border border-secondary/20 flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(0,227,253,0.1)] group-hover:shadow-secondary/30 transition-all">
+<span class="material-symbols-outlined text-4xl text-secondary" data-icon="auto_stories" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+</div>
+<h4 class="font-bold text-sm mb-1">Reader Master</h4>
+<p class="text-xs text-on-surface-variant">100+ chapters</p>
+</div>
+<div class="flex flex-col items-center text-center group">
+<div class="w-24 h-24 rounded-full bg-surface-container-highest border border-tertiary/20 flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(252,129,171,0.1)] group-hover:shadow-tertiary/30 transition-all">
+<span class="material-symbols-outlined text-4xl text-tertiary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h4 class="font-bold text-sm mb-1">Community Star</h4>
+<p class="text-xs text-on-surface-variant">Top reviewer</p>
+</div>
+<div class="flex flex-col items-center text-center opacity-40 grayscale group cursor-not-allowed">
+<div class="w-24 h-24 rounded-full bg-surface-container-highest border border-outline/10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl text-outline" data-icon="local_fire_department">local_fire_department</span>
+</div>
+<h4 class="font-bold text-sm mb-1 text-outline">30 Day Streak</h4>
+<p class="text-xs text-outline/60">Locked</p>
+</div>
+<div class="flex flex-col items-center text-center opacity-40 grayscale group cursor-not-allowed">
+<div class="w-24 h-24 rounded-full bg-surface-container-highest border border-outline/10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl text-outline" data-icon="psychology">psychology</span>
+</div>
+<h4 class="font-bold text-sm mb-1 text-outline">Speed Reader</h4>
+<p class="text-xs text-outline/60">Locked</p>
+</div>
+<div class="flex flex-col items-center text-center opacity-40 grayscale group cursor-not-allowed">
+<div class="w-24 h-24 rounded-full bg-surface-container-highest border border-outline/10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl text-outline" data-icon="diversity_3">diversity_3</span>
+</div>
+<h4 class="font-bold text-sm mb-1 text-outline">Socialite</h4>
+<p class="text-xs text-outline/60">Locked</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Account Settings & Utility Section -->
+<section class="border-t border-outline-variant/10 pt-16 grid grid-cols-1 md:grid-cols-4 gap-12">
+<div>
+<h3 class="text-xl font-bold font-headline mb-4">Account</h3>
+<ul class="space-y-3">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#">Payment History <span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span></a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#">Subscription Plan <span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span></a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#">Gift Cards <span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span></a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-xl font-bold font-headline mb-4">Preferences</h3>
+<ul class="space-y-3">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#">Notification Settings <span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span></a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#">Reader Customization <span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span></a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#">App Appearance <span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span></a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-xl font-bold font-headline mb-4">Privacy</h3>
+<ul class="space-y-3">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#">Security <span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span></a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#">Manage Data <span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span></a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#">Privacy Policy <span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span></a></li>
+</ul>
+</div>
+<div class="bg-surface-container-high rounded-3xl p-6 border border-outline-variant/10">
+<h3 class="font-bold mb-4">Need Help?</h3>
+<p class="text-xs text-on-surface-variant mb-4 leading-relaxed">Our support team is available 24/7 to help you with your reading experience.</p>
+<button class="w-full py-2 bg-surface-bright rounded-full text-sm font-bold flex items-center justify-center gap-2 hover:bg-white hover:text-background transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="chat_bubble">chat_bubble</span>
+                        Contact Support
+                    </button>
+</div>
+</section>
+</div>
+<footer class="px-12 py-12 text-center">
+<p class="text-on-surface-variant/40 text-xs font-manrope tracking-widest uppercase">© 2024 Vita Ebooks Ecosystem. Designed for depth.</p>
+</footer>
+</main>
+<!-- Mobile Navigation Shell (Responsive Pivot) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full h-20 bg-background/80 backdrop-blur-2xl border-t border-outline-variant/10 flex items-center justify-around px-4 z-50">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="text-[10px]">Books</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center -mt-8 border-4 border-background">
+<span class="material-symbols-outlined text-primary" data-icon="add" style="font-variation-settings: 'wght' 700;">add</span>
+</div>
+<span class="text-[10px]">Store</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="text-[10px]">Stats</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="manage_accounts">manage_accounts</span>
+<span class="text-[10px]">Profile</span>
+</a>
+</nav>
+</body></html>
