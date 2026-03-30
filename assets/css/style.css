@@ -168,6 +168,16 @@ main{display:block;padding-top:var(--header-height)}
 .hero-actions .btn,.page-actions .btn{min-height:2.85rem;padding:.82rem 1.16rem}
 .card-actions .btn,.plan-card>.btn,.catalog-toolbar .btn,.support-actions .btn,.spotlight-panel .btn,.offer-panel .btn,.account-card .btn,.product-cta .btn{min-height:2.45rem;padding:.68rem .98rem;font-size:.82rem}
 
+@media (min-width:1181px){
+  .hero-cinematic{overflow:visible}
+  .hero-cinematic .poster-stage{min-height:45rem}
+  .hero-cinematic .poster-stack{padding-top:0;transform:translateY(3.5rem)}
+  .hero-cinematic .hero-card-a{top:20%;left:4%}
+  .hero-cinematic .hero-card-b{top:27%;right:10%}
+  .hero-cinematic .hero-card-c{top:12%;left:33%;bottom:auto}
+  .hero-cinematic .floating-panel{top:15%;right:4%;bottom:auto}
+}
+
 @media (max-width:1180px){
   .shell-search{max-width:20rem}
   .hero-cinematic .hero-grid{align-items:center}
