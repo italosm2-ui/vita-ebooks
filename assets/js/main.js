@@ -834,99 +834,196 @@ function renderProduct() {
     return;
   }
 
+  const category = categoryName(book.categoria);
   const related = state.ebooks.filter((item) => item.slug !== book.slug && item.categoria === book.categoria).slice(0, 3);
+  const testimonials = state.testimonials.slice(0, 3);
+  const faqItems = [
+    {
+      title: "Como recebo este ebook depois do contato?",
+      body: "Nossa equipe orienta o melhor formato para leitura, confirma o título escolhido e responde as dúvidas de acesso antes de finalizar a compra."
+    },
+    {
+      title: "Este título funciona melhor para quem?",
+      body: book.para_quem[0] || `Leitores que querem avançar com mais clareza dentro do tema ${category.toLowerCase()}.`
+    },
+    {
+      title: "Quais formatos estão disponíveis?",
+      body: `${book.formato} para você abrir a leitura no fluxo que fizer mais sentido, com ritmo mais confortável entre computador, tablet ou celular.`
+    },
+    {
+      title: "Vale mais comprar avulso ou ir para o Premium?",
+      body: `Se você quer começar por ${book.titulo}, a compra avulsa resolve. Se quiser continuar descobrindo novos títulos depois desta leitura, o Premium costuma entregar mais repertório.`
+    }
+  ];
 
   target.innerHTML = `
-    <section class="section product-page-shell">
-      <div class="container-wide product-shell">
-        <div class="product-layout product-hero-layout">
-          <aside class="product-cover product-cover-stage">
-            <div class="glass-panel product-cover-panel">
-              ${renderCover(book, "product-cover-art", { loading: "eager" })}
-            </div>
-            <div class="product-proof-strip glass-panel">
-              <span>${book.paginas} páginas</span>
-              <span>${book.formato}</span>
-              <span>${book.avaliacao.toFixed(1)} de 5</span>
-            </div>
-          </aside>
-          <article class="product-summary">
-            <div class="product-summary-head">
-              <span class="eyebrow">${categoryName(book.categoria)}</span>
+    <section class="product-billboard-section">
+      <div class="container-wide product-billboard">
+        <div class="product-hero-grid">
+          <article class="product-hero-copy">
+            <span class="eyebrow">${category}</span>
+            <div class="product-headline-stack">
+              <p class="mini-label">Curadoria Vita</p>
               <h1>${book.titulo}</h1>
               <p class="product-lead">${book.sinopse}</p>
-              <div class="product-meta">
-                <span>${book.autor}</span>
-                <span>${book.atualizado_em}</span>
+              <p class="product-hero-body">${book.descricao}</p>
+            </div>
+
+            <div class="product-proof-row">
+              <span class="product-proof-item"><i data-lucide="star" aria-hidden="true"></i>${book.avaliacao.toFixed(1)} de 5</span>
+              <span class="product-proof-item"><i data-lucide="book-open-text" aria-hidden="true"></i>${book.paginas} páginas</span>
+              <span class="product-proof-item"><i data-lucide="download" aria-hidden="true"></i>${book.formato}</span>
+              <span class="product-proof-item"><i data-lucide="badge-check" aria-hidden="true"></i>${book.badge || "Escolha da curadoria"}</span>
+            </div>
+
+            <div class="product-hero-purchase">
+              <div class="product-price-lockup">
+                <span class="mini-label">Compra avulsa</span>
+                <div class="product-price-row">
+                  <strong>${price(book.preco)}</strong>
+                  <span>${price(book.preco_original)}</span>
+                </div>
+              </div>
+              <div class="hero-actions product-hero-actions">
+                <a class="btn btn-primary" href="suporte.html?interesse=${book.slug}#contato">Quero este ebook</a>
+                <a class="btn btn-ghost" href="#produto-conteudo">Ver conteúdo</a>
+              </div>
+              <p class="product-hero-note">Perfeito para entrar por um título forte, entender o tema com mais clareza e decidir o próximo passo dentro da sua rotina de leitura.</p>
+            </div>
+          </article>
+
+          <aside class="product-hero-visual">
+            <div class="product-cover-showcase">
+              <div class="product-cover-halo" aria-hidden="true"></div>
+              <div class="product-cover-frame glass-panel">
+                ${renderCover(book, "product-billboard-cover", { loading: "eager" })}
+              </div>
+              <div class="product-cover-caption">
                 <span>${book.badge || "Curadoria Vita"}</span>
+                <strong>${book.autor}</strong>
+                <p>${book.paginas} páginas • ${book.formato}</p>
               </div>
             </div>
+          </aside>
+        </div>
+      </div>
+    </section>
 
-            <div class="product-decision-grid">
-              <div class="product-story-stack">
-                <p class="section-copy product-story-copy">${book.descricao}</p>
-                <div class="product-story-panels">
-                  <article class="detail-card product-story-card">
-                    <h3>O que você encontra nesta leitura</h3>
-                    <p>Uma leitura clara, de aplicação rápida e com força suficiente para abrir novas decisões no tema ${categoryName(book.categoria).toLowerCase()}.</p>
-                  </article>
-                  <article class="detail-card product-story-card">
-                    <h3>O que você leva desta leitura</h3>
-                    <ul class="detail-list">${book.aprendizados.map((item) => `<li>${item}</li>`).join("")}</ul>
-                  </article>
-                </div>
-              </div>
-
-              <aside class="product-buy-card glass-panel">
-                <div class="product-buy-top">
-                  <span class="mini-label">Compra avulsa</span>
-                  <div class="product-price-row">
-                    <strong>${price(book.preco)}</strong>
-                    <span>${price(book.preco_original)}</span>
-                  </div>
-                  <p>Ideal para entrar por um título e decidir com calma como continuar dentro da curadoria.</p>
-                </div>
-                <div class="summary-chips">
-                  <span class="summary-chip"><i data-lucide="download" aria-hidden="true"></i>${book.formato}</span>
-                  <span class="summary-chip"><i data-lucide="badge-check" aria-hidden="true"></i>${book.badge || "Curadoria Vita"}</span>
-                  <span class="summary-chip"><i data-lucide="star" aria-hidden="true"></i>${book.avaliacao.toFixed(1)} de 5</span>
-                </div>
-                <div class="cta-actions">
-                  <a class="btn btn-primary" href="suporte.html?interesse=${book.slug}#contato">Quero este ebook</a>
-                  <a class="btn btn-ghost" href="planos.html">Ver Premium</a>
-                </div>
-                <p class="product-support-note">Receba detalhes de acesso, formatos e a melhor opção para leitura com o apoio da equipe Vita.</p>
-              </aside>
+    <section class="section section-tight" id="produto-conteudo">
+      <div class="container-wide">
+        <section class="stream-section">
+          <div class="stream-head">
+            <div>
+              <span class="eyebrow">O que você vai encontrar</span>
+              <h2>Uma leitura que entra rápido, organiza o tema e deixa aplicação clara</h2>
             </div>
+            <p>${book.descricao}</p>
+          </div>
+          <div class="product-learning-grid">
+            ${book.aprendizados.map((item, index) => `
+              <article class="detail-card product-learn-card">
+                <span class="product-learning-index">0${index + 1}</span>
+                <h3>${item}</h3>
+                <p>${index === 0
+                  ? `Uma porta de entrada mais clara para avançar no tema ${category.toLowerCase()} sem excesso de teoria.`
+                  : index === 1
+                    ? "Estrutura prática para transformar leitura em decisão, não só em repertório guardado."
+                    : "Uma forma mais madura de aplicar o conteúdo no trabalho, na rotina e nas próximas escolhas."}</p>
+              </article>
+            `).join("")}
+          </div>
+        </section>
+      </div>
+    </section>
 
-            <div class="detail-grid product-detail-grid">
-              <article class="detail-card">
-                <h3>Para quem este título funciona melhor</h3>
-                <ul class="detail-list">${book.para_quem.map((item) => `<li>${item}</li>`).join("")}</ul>
-              </article>
-              <article class="detail-card">
-                <h3>Por que ele entrou na curadoria</h3>
-                <ul class="detail-list">
-                  <li>Leitura clara, aplicável e fácil de recomendar</li>
-                  <li>Boa porta de entrada para o tema ${categoryName(book.categoria).toLowerCase()}</li>
-                  <li>Ótimo equilíbrio entre profundidade e ritmo</li>
-                </ul>
-              </article>
-              <article class="detail-card">
-                <h3>Formato e contexto de leitura</h3>
-                <ul class="detail-list">
-                  <li>${book.paginas} páginas para avançar com ritmo constante</li>
-                  <li>${book.formato} para abrir no formato mais confortável</li>
-                  <li>Atualizado em ${book.atualizado_em}</li>
-                </ul>
-              </article>
-            </div>
+    <section class="section-tight product-depth-section">
+      <div class="container-wide">
+        <div class="product-depth-grid">
+          <article class="surface-card product-depth-card">
+            <span class="mini-label">Para quem</span>
+            <h3>Este título funciona melhor para leitores que querem direção rápida.</h3>
+            <ul class="detail-list">${book.para_quem.map((item) => `<li>${item}</li>`).join("")}</ul>
+          </article>
+          <article class="surface-card product-depth-card">
+            <span class="mini-label">Por que entrou na curadoria</span>
+            <ul class="detail-list">
+              <li>Leitura clara, aplicável e fácil de recomendar</li>
+              <li>Boa porta de entrada para o tema ${category.toLowerCase()}</li>
+              <li>Equilíbrio forte entre ritmo, profundidade e retenção</li>
+            </ul>
+          </article>
+          <article class="surface-card product-depth-card">
+            <span class="mini-label">Formato de leitura</span>
+            <ul class="detail-list">
+              <li>${book.paginas} páginas para avançar com constância</li>
+              <li>${book.formato} para abrir no fluxo mais confortável</li>
+              <li>Atualizado em ${book.atualizado_em}</li>
+            </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section-tight product-proof-section">
+      <div class="container-wide">
+        <div class="stream-head">
+          <div>
+            <span class="eyebrow">Leitura com contexto</span>
+            <h2>Quem entra na Vita costuma procurar clareza, seleção forte e menos ruído na escolha.</h2>
+          </div>
+          <p>O objetivo aqui é te dar contexto suficiente para escolher rápido, com mais convicção e menos dúvida no próximo passo.</p>
+        </div>
+        <div class="quote-grid product-quote-grid">
+          ${testimonials.map(renderQuote).join("")}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight product-confidence-section">
+      <div class="container-wide product-confidence-grid">
+        <article class="glass-panel product-guarantee-panel">
+          <span class="eyebrow">Acesso orientado</span>
+          <h2>Você entra neste título com formato claro, contexto certo e ajuda humana quando precisar.</h2>
+          <p>Se a dúvida for sobre melhor formato, forma de acesso ou o que combina mais com o seu momento de leitura, a equipe Vita te orienta antes de você seguir.</p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="suporte.html?interesse=${book.slug}#contato">Falar com a Vita</a>
+            <a class="btn btn-ghost" href="planos.html">Ver Premium</a>
+          </div>
+        </article>
+        <div class="faq-list product-faq-stack">
+          ${faqItems.map((item) => `
+            <details class="faq-item"${item === faqItems[0] ? " open" : ""}>
+              <summary>${item.title}</summary>
+              <p>${item.body}</p>
+            </details>
+          `).join("")}
+        </div>
+      </div>
+    </section>
+
+    <section class="section product-final-section">
+      <div class="container-wide">
+        <article class="stream-banner product-final-banner">
+          <div class="product-final-copy">
+            <span class="eyebrow">Pronto para abrir este título?</span>
+            <h2>${book.titulo}</h2>
+            <p>${book.sinopse}</p>
+          </div>
+          <div class="product-final-purchase">
+            <div class="product-price-row">
+              <strong>${price(book.preco)}</strong>
+              <span>${price(book.preco_original)}</span>
+            </div>
+            <div class="cta-actions">
+              <a class="btn btn-primary" href="suporte.html?interesse=${book.slug}#contato">Quero este ebook</a>
+              <a class="btn btn-ghost" href="planos.html">Comparar com o Premium</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-tight">
       <div class="container-wide">
         <section class="stream-section">
           <div class="stream-head">
@@ -940,7 +1037,7 @@ function renderProduct() {
             ${related.length ? related.map(renderShelfCard).join("") : `
               <article class="detail-card">
                 <h3>Mais títulos chegando</h3>
-                <p>Esta categoria segue crescendo com novas páginas de produto e novas leituras da curadoria.</p>
+                <p>Esta frente segue crescendo com novas recomendações e leituras escolhidas pela curadoria.</p>
               </article>
             `}
           </div>
