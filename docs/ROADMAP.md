@@ -12,10 +12,10 @@
 
 ## Próxima fase
 
-- Integrar checkout real
-- Definir política de entrega pós-compra
-- Instrumentar conversão e análise básica
-- Estruturar o início da conta do leitor
+- Elevar home, catálogo e produto para um padrão mais próximo das referências visuais
+- Consolidar o hero desktop para caber no primeiro viewport sem cortes
+- Popular o site com capas locais por slug e render image-first
+- Refinar planos, suporte, sobre e conta na mesma linguagem depois da rodada principal
 
 ## Depois disso
 

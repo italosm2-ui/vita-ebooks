@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 840" role="img" aria-labelledby="title desc">
+  <title id="title">Comece Pelo Porque</title>
+  <desc id="desc">Capa editorial criada para o acervo Vita Ebooks.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111320"/>
+      <stop offset="50%" stop-color="#3a3653"/>
+      <stop offset="100%" stop-color="#b8835f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.7" cy="0.76" r="0.8">
+      <stop offset="0%" stop-color="#ffd7b2" stop-opacity="0.72"/>
+      <stop offset="50%" stop-color="#ffb47f" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#ffb47f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="840" rx="42" fill="url(#bg)"/>
+  <rect x="34" y="34" width="532" height="772" rx="36" fill="none" stroke="rgba(255,255,255,0.14)"/>
+  <circle cx="424" cy="640" r="176" fill="url(#glow)"/>
+  <g opacity="0.17" fill="none" stroke="#ffe5ce" stroke-width="2">
+    <circle cx="428" cy="640" r="130"/>
+    <circle cx="428" cy="640" r="94"/>
+  </g>
+  <text x="60" y="96" fill="#f5ddcb" font-size="20" font-family="Manrope, Arial, sans-serif" font-weight="800" letter-spacing="4">NEGOCIOS</text>
+  <text x="60" y="404" fill="#fff7ef" font-size="84" font-family="Manrope, Arial, sans-serif" font-weight="800" letter-spacing="-3">Comece</text>
+  <text x="60" y="486" fill="#fff7ef" font-size="84" font-family="Manrope, Arial, sans-serif" font-weight="800" letter-spacing="-3">Pelo</text>
+  <text x="60" y="568" fill="#fff7ef" font-size="84" font-family="Manrope, Arial, sans-serif" font-weight="800" letter-spacing="-3">Porque</text>
+  <text x="60" y="632" fill="#f1d9c6" font-size="24" font-family="Manrope, Arial, sans-serif" font-weight="600">Proposito, clareza e lideranca.</text>
+  <rect x="60" y="696" width="222" height="10" rx="5" fill="#ffd6b0" opacity="0.64"/>
+  <text x="60" y="770" fill="#fff7ef" font-size="26" font-family="Manrope, Arial, sans-serif" font-weight="700">Simon Sinek</text>
+  <text x="60" y="798" fill="#e6d0c4" font-size="16" font-family="Manrope, Arial, sans-serif" letter-spacing="3">VITA EBOOKS</text>
+</svg>

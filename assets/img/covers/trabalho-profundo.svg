@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 840" role="img" aria-labelledby="title desc">
+  <title id="title">Trabalho Profundo</title>
+  <desc id="desc">Capa editorial criada para o acervo Vita Ebooks.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c1221"/>
+      <stop offset="48%" stop-color="#203660"/>
+      <stop offset="100%" stop-color="#4b72ff"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.22" r="0.72">
+      <stop offset="0%" stop-color="#d6e0ff" stop-opacity="0.8"/>
+      <stop offset="48%" stop-color="#9ec3ff" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#9ec3ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="840" rx="42" fill="url(#bg)"/>
+  <rect x="34" y="34" width="532" height="772" rx="36" fill="none" stroke="rgba(255,255,255,0.14)"/>
+  <circle cx="462" cy="198" r="156" fill="url(#glow)"/>
+  <g opacity="0.18" fill="none" stroke="#d8e6ff" stroke-width="3">
+    <path d="M74 188h232"/>
+    <path d="M74 232h264"/>
+    <path d="M74 276h210"/>
+  </g>
+  <text x="76" y="104" fill="#d7e8ff" font-size="20" font-family="Manrope, Arial, sans-serif" font-weight="800" letter-spacing="4">TECNOLOGIA</text>
+  <text x="76" y="486" fill="#f5f8ff" font-size="88" font-family="Manrope, Arial, sans-serif" font-weight="800" letter-spacing="-4">Trabalho</text>
+  <text x="76" y="570" fill="#f5f8ff" font-size="88" font-family="Manrope, Arial, sans-serif" font-weight="800" letter-spacing="-4">Profundo</text>
+  <text x="76" y="638" fill="#d7e8ff" font-size="24" font-family="Manrope, Arial, sans-serif" font-weight="600">Foco como vantagem competitiva.</text>
+  <rect x="76" y="690" width="210" height="10" rx="5" fill="#cbd9ff" opacity="0.6"/>
+  <rect x="76" y="716" width="162" height="10" rx="5" fill="#cbd9ff" opacity="0.26"/>
+  <text x="76" y="770" fill="#f5f8ff" font-size="26" font-family="Manrope, Arial, sans-serif" font-weight="700">Cal Newport</text>
+  <text x="76" y="798" fill="#ccd5f2" font-size="16" font-family="Manrope, Arial, sans-serif" letter-spacing="3">VITA EBOOKS</text>
+</svg>

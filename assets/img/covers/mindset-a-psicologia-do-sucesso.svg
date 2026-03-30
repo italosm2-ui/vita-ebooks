@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 840" role="img" aria-labelledby="title desc">
+  <title id="title">Mindset A Psicologia do Sucesso</title>
+  <desc id="desc">Capa editorial criada para o acervo Vita Ebooks.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#121321"/>
+      <stop offset="52%" stop-color="#45275c"/>
+      <stop offset="100%" stop-color="#a24da0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.18" r="0.68">
+      <stop offset="0%" stop-color="#f0c3ff" stop-opacity="0.84"/>
+      <stop offset="44%" stop-color="#d08dff" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#d08dff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="840" rx="42" fill="url(#bg)"/>
+  <rect x="34" y="34" width="532" height="772" rx="36" fill="none" stroke="rgba(255,255,255,0.14)"/>
+  <circle cx="452" cy="164" r="164" fill="url(#glow)"/>
+  <g opacity="0.2" fill="#f6dcff">
+    <circle cx="368" cy="214" r="8"/>
+    <circle cx="392" cy="214" r="8"/>
+    <circle cx="416" cy="214" r="8"/>
+    <circle cx="440" cy="214" r="8"/>
+    <circle cx="464" cy="214" r="8"/>
+    <circle cx="488" cy="214" r="8"/>
+  </g>
+  <text x="56" y="94" fill="#f5d8ff" font-size="20" font-family="Manrope, Arial, sans-serif" font-weight="800" letter-spacing="4">DESENVOLVIMENTO</text>
+  <text x="56" y="392" fill="#fff5ff" font-size="92" font-family="Manrope, Arial, sans-serif" font-weight="800" letter-spacing="-4">Mindset</text>
+  <text x="56" y="466" fill="#efd8ff" font-size="28" font-family="Manrope, Arial, sans-serif" font-weight="700">A psicologia do sucesso</text>
+  <text x="56" y="558" fill="#f3ddff" font-size="24" font-family="Manrope, Arial, sans-serif" font-weight="600">Crescimento, aprendizado e visao de futuro.</text>
+  <rect x="56" y="616" width="248" height="10" rx="5" fill="#f0c2ff" opacity="0.7"/>
+  <rect x="56" y="642" width="182" height="10" rx="5" fill="#f0c2ff" opacity="0.3"/>
+  <text x="56" y="770" fill="#fff5ff" font-size="26" font-family="Manrope, Arial, sans-serif" font-weight="700">Carol S. Dweck</text>
+  <text x="56" y="798" fill="#ead4e8" font-size="16" font-family="Manrope, Arial, sans-serif" letter-spacing="3">VITA EBOOKS</text>
+</svg>

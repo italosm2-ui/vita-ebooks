@@ -2,6 +2,8 @@
   {
     "id": "001",
     "slug": "habitos-atomicos",
+    "capa": "assets/img/covers/habitos-atomicos.svg",
+    "capa_alt": "Capa do ebook Habitos Atomicos",
     "titulo": "Hábitos Atômicos",
     "autor": "James Clear",
     "categoria": "desenvolvimento-pessoal",
@@ -30,6 +32,8 @@
   {
     "id": "002",
     "slug": "pai-rico-pai-pobre",
+    "capa": "assets/img/covers/pai-rico-pai-pobre.svg",
+    "capa_alt": "Capa do ebook Pai Rico, Pai Pobre",
     "titulo": "Pai Rico, Pai Pobre",
     "autor": "Robert T. Kiyosaki",
     "categoria": "financas",
@@ -58,6 +62,8 @@
   {
     "id": "003",
     "slug": "trabalho-profundo",
+    "capa": "assets/img/covers/trabalho-profundo.svg",
+    "capa_alt": "Capa do ebook Trabalho Profundo",
     "titulo": "Trabalho Profundo",
     "autor": "Cal Newport",
     "categoria": "tecnologia",
@@ -86,6 +92,8 @@
   {
     "id": "004",
     "slug": "mindset-a-psicologia-do-sucesso",
+    "capa": "assets/img/covers/mindset-a-psicologia-do-sucesso.svg",
+    "capa_alt": "Capa do ebook Mindset: A Psicologia do Sucesso",
     "titulo": "Mindset: A Psicologia do Sucesso",
     "autor": "Carol S. Dweck",
     "categoria": "desenvolvimento-pessoal",
@@ -114,6 +122,8 @@
   {
     "id": "005",
     "slug": "comece-pelo-porque",
+    "capa": "assets/img/covers/comece-pelo-porque.svg",
+    "capa_alt": "Capa do ebook Comece Pelo Porque",
     "titulo": "Comece Pelo Porquê",
     "autor": "Simon Sinek",
     "categoria": "negocios",

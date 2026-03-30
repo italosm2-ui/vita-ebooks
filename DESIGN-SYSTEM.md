@@ -112,3 +112,14 @@ Public copy must speak to the reader, never to the repository owner or the build
 
 ### Tone rule
 If a sentence sounds like release notes, project management, or implementation commentary, it does not belong in the public UI. Rewrite it until it sounds like a real reading platform talking to a real customer.
+
+---
+
+## 9. Image-First Editorial Rule
+The public Vita experience must now default to real media before synthetic UI decoration.
+
+- Hero, shelves, top picks, and product pages should prefer local cover assets organized by `slug`.
+- The same primary cover must be reused across home, catalog, and product for a given ebook.
+- CSS-generated covers may remain only as fallback when a title has no assigned media yet.
+- The first viewport on the home page should feel like a poster led by covers, not a stack of generic cards.
+- Product pages should open on the ebook itself, with the cover as a dominant visual anchor.

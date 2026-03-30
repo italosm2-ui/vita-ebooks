@@ -2,6 +2,8 @@ const FALLBACK_EBOOKS = [
   {
     id: "001",
     slug: "habitos-atomicos",
+    capa: "assets/img/covers/habitos-atomicos.svg",
+    capa_alt: "Capa do ebook Habitos Atomicos",
     titulo: "Hábitos Atômicos",
     autor: "James Clear",
     categoria: "desenvolvimento-pessoal",
@@ -30,6 +32,8 @@ const FALLBACK_EBOOKS = [
   {
     id: "002",
     slug: "pai-rico-pai-pobre",
+    capa: "assets/img/covers/pai-rico-pai-pobre.svg",
+    capa_alt: "Capa do ebook Pai Rico, Pai Pobre",
     titulo: "Pai Rico, Pai Pobre",
     autor: "Robert T. Kiyosaki",
     categoria: "financas",
@@ -58,6 +62,8 @@ const FALLBACK_EBOOKS = [
   {
     id: "003",
     slug: "trabalho-profundo",
+    capa: "assets/img/covers/trabalho-profundo.svg",
+    capa_alt: "Capa do ebook Trabalho Profundo",
     titulo: "Trabalho Profundo",
     autor: "Cal Newport",
     categoria: "tecnologia",
@@ -86,6 +92,8 @@ const FALLBACK_EBOOKS = [
   {
     id: "004",
     slug: "mindset-a-psicologia-do-sucesso",
+    capa: "assets/img/covers/mindset-a-psicologia-do-sucesso.svg",
+    capa_alt: "Capa do ebook Mindset: A Psicologia do Sucesso",
     titulo: "Mindset: A Psicologia do Sucesso",
     autor: "Carol S. Dweck",
     categoria: "desenvolvimento-pessoal",
@@ -110,6 +118,36 @@ const FALLBACK_EBOOKS = [
     ],
     atualizado_em: "Março de 2026",
     tom: "editorial-rose"
+  },
+  {
+    id: "005",
+    slug: "comece-pelo-porque",
+    capa: "assets/img/covers/comece-pelo-porque.svg",
+    capa_alt: "Capa do ebook Comece Pelo Porque",
+    titulo: "Comece Pelo Porquê",
+    autor: "Simon Sinek",
+    categoria: "negocios",
+    preco: 18.9,
+    preco_original: 31.9,
+    avaliacao: 4.7,
+    paginas: 256,
+    formato: "PDF + ePub",
+    destaque: true,
+    badge: "Negócios",
+    sinopse: "Um livro sobre posicionamento, liderança e clareza de propósito para negócios mais memoráveis.",
+    descricao: "Simon Sinek mostra como empresas e profissionais criam conexão quando conseguem comunicar primeiro a intenção, depois a execução.",
+    aprendizados: [
+      "Organizar narrativa de marca com clareza",
+      "Dar contexto antes de vender uma oferta",
+      "Criar decisões estratégicas mais coerentes"
+    ],
+    para_quem: [
+      "Empreendedores e consultores",
+      "Equipes de marketing e vendas",
+      "Líderes que querem fortalecer cultura"
+    ],
+    atualizado_em: "Março de 2026",
+    tom: "editorial-copper"
   }
 ];
 
@@ -441,12 +479,68 @@ function bySlugOrId(value) {
   return state.ebooks.find((book) => book.slug === value || book.id === value);
 }
 
-function renderCover(book, extraClass = "") {
+function bookCoverSrc(book) {
+  return typeof book?.capa === "string" ? book.capa : "";
+}
+
+function bookCoverAlt(book) {
+  return book?.capa_alt || `Capa do ebook ${book?.titulo || "Vita Ebooks"}`;
+}
+
+function renderCover(book, extraClass = "", options = {}) {
+  const classes = ["cover-art", book.tom || "editorial-indigo", extraClass].filter(Boolean).join(" ");
+  if (bookCoverSrc(book)) {
+    const alt = options.decorative ? "" : escapeHtml(bookCoverAlt(book));
+    const loading = options.loading || "lazy";
+    return `
+      <div class="${classes} is-image">
+        <img class="cover-image" src="${escapeHtml(bookCoverSrc(book))}" alt="${alt}" loading="${loading}" decoding="async">
+      </div>
+    `;
+  }
+
   return `
-    <div class="cover-art ${book.tom || "editorial-indigo"} ${extraClass}">
+    <div class="${classes}">
       <small>${categoryName(book.categoria)}</small>
       <strong>${book.titulo}</strong>
       <span>${book.autor}</span>
+    </div>
+  `;
+}
+
+function renderHeroPoster(book, positionClass) {
+  return `
+    <a class="hero-poster ${positionClass}" href="ebook.html?slug=${book.slug}" aria-label="Abrir ${book.titulo}">
+      ${renderCover(book, "book-cover-hero", { decorative: true, loading: "eager" })}
+    </a>
+  `;
+}
+
+function renderHomeHero() {
+  const target = qs("#home-hero-stage");
+  if (!target) return;
+
+  const spotlight = bySlugOrId("trabalho-profundo") || state.ebooks[0];
+  const supportA = bySlugOrId("habitos-atomicos") || state.ebooks[1] || spotlight;
+  const supportB = bySlugOrId("comece-pelo-porque") || state.ebooks[2] || spotlight;
+  if (!spotlight) return;
+
+  target.innerHTML = `
+    <div class="poster-stack">
+      ${renderHeroPoster(spotlight, "hero-card-a")}
+      ${renderHeroPoster(supportB, "hero-card-b")}
+      ${renderHeroPoster(supportA, "hero-card-c")}
+      <aside class="floating-panel spotlight-panel">
+        <span class="mini-label">Destaque da semana</span>
+        <h2>${spotlight.titulo}</h2>
+        <p>${spotlight.sinopse}</p>
+        <ul class="signal-list">
+          <li><span>Autor</span><strong>${spotlight.autor}</strong></li>
+          <li><span>Formato</span><strong>${spotlight.formato}</strong></li>
+          <li><span>Avaliação</span><strong>${spotlight.avaliacao.toFixed(1)} de 5</strong></li>
+        </ul>
+        <a class="btn btn-primary" href="ebook.html?slug=${spotlight.slug}">Abrir destaque</a>
+      </aside>
     </div>
   `;
 }
@@ -487,11 +581,7 @@ function renderShelfCard(book) {
 function renderTopPick(book, label) {
   return `
     <article class="top-pick-card">
-      <div class="cover-art ${book.tom || "editorial-indigo"}">
-        <small>${categoryName(book.categoria)}</small>
-        <strong>${book.titulo}</strong>
-        <span>${book.autor}</span>
-      </div>
+      ${renderCover(book, "top-pick-cover", { decorative: true })}
       <div class="pick-content">
         <span class="mini-label">${label}</span>
         <h3>${book.titulo}</h3>
@@ -524,6 +614,8 @@ function renderHome() {
   const spotlight = qs("#home-spotlight");
   const premium = qs("#home-premium");
   const quotes = qs("#home-testimonials");
+
+  renderHomeHero();
 
   if (categories) {
     categories.innerHTML = state.categories.map((category) => `
@@ -679,10 +771,14 @@ function renderProduct() {
 
   if (!book) {
     target.innerHTML = `
-      <section class="empty-state glass-panel">
-        <h2>Ebook não encontrado</h2>
-        <p>Volte ao catálogo para continuar explorando a curadoria da Vita.</p>
-        <div class="cta-actions"><a class="btn btn-primary" href="catalogo.html">Voltar ao catálogo</a></div>
+      <section class="section">
+        <div class="container-wide">
+          <section class="empty-state glass-panel">
+            <h2>Ebook não encontrado</h2>
+            <p>Volte ao catálogo para continuar explorando a curadoria da Vita.</p>
+            <div class="cta-actions"><a class="btn btn-primary" href="catalogo.html">Voltar ao catálogo</a></div>
+          </section>
+        </div>
       </section>
     `;
     return;
@@ -691,74 +787,88 @@ function renderProduct() {
   const related = state.ebooks.filter((item) => item.slug !== book.slug && item.categoria === book.categoria).slice(0, 3);
 
   target.innerHTML = `
-    <section class="product-shell">
-      <div class="product-layout">
-        <aside class="product-cover glass-panel">${renderCover(book)}</aside>
-        <article class="product-summary">
-          <span class="eyebrow">${categoryName(book.categoria)}</span>
-          <h1>${book.titulo}</h1>
-          <p class="section-copy">${book.descricao}</p>
-          <div class="product-meta">
-            <span>${book.autor}</span>
-            <span>${book.paginas} páginas</span>
-            <span>${book.formato}</span>
-            <span>${book.atualizado_em}</span>
-            <span>${book.avaliacao.toFixed(1)} de 5</span>
-          </div>
-          <div class="product-price-row">
-            <strong>${price(book.preco)}</strong>
-            <span>${price(book.preco_original)}</span>
-          </div>
-          <div class="summary-chips">
-            <span class="summary-chip"><i data-lucide="download" aria-hidden="true"></i>${book.formato}</span>
-            <span class="summary-chip"><i data-lucide="badge-check" aria-hidden="true"></i>${book.badge || "Curadoria Vita"}</span>
-            <span class="summary-chip"><i data-lucide="star" aria-hidden="true"></i>Leitura muito bem avaliada</span>
-          </div>
-          <div class="product-cta glass-panel">
-            <div class="cta-actions">
-              <a class="btn btn-primary" href="suporte.html?interesse=${book.slug}#contato">Quero este ebook</a>
-              <a class="btn btn-ghost" href="planos.html">Ver Premium</a>
+    <section class="section product-page-shell">
+      <div class="container-wide product-shell">
+        <div class="product-layout product-hero-layout">
+          <aside class="product-cover product-cover-stage">
+            <div class="glass-panel product-cover-panel">
+              ${renderCover(book, "product-cover-art", { loading: "eager" })}
             </div>
-            <p>Receba detalhes de acesso, formatos e melhores opções para leitura com o apoio da equipe Vita.</p>
-          </div>
-          <div class="detail-grid">
-            <article class="detail-card">
-              <h3>O que você leva desta leitura</h3>
-              <ul class="detail-list">${book.aprendizados.map((item) => `<li>${item}</li>`).join("")}</ul>
-            </article>
-            <article class="detail-card">
-              <h3>Para quem este título funciona melhor</h3>
-              <ul class="detail-list">${book.para_quem.map((item) => `<li>${item}</li>`).join("")}</ul>
-            </article>
-            <article class="detail-card">
-              <h3>Por que ele entrou na curadoria</h3>
-              <ul class="detail-list">
-                <li>Leitura clara, aplicável e fácil de recomendar</li>
-                <li>Boa porta de entrada para o tema ${categoryName(book.categoria).toLowerCase()}</li>
-                <li>Ótimo equilíbrio entre profundidade e ritmo</li>
-              </ul>
-            </article>
-          </div>
-        </article>
+            <div class="product-proof-strip glass-panel">
+              <span>${book.paginas} páginas</span>
+              <span>${book.formato}</span>
+              <span>${book.avaliacao.toFixed(1)} de 5</span>
+            </div>
+          </aside>
+          <article class="product-summary">
+            <span class="eyebrow">${categoryName(book.categoria)}</span>
+            <h1>${book.titulo}</h1>
+            <p class="product-lead">${book.sinopse}</p>
+            <p class="section-copy">${book.descricao}</p>
+            <div class="product-meta">
+              <span>${book.autor}</span>
+              <span>${book.atualizado_em}</span>
+              <span>${book.badge || "Curadoria Vita"}</span>
+            </div>
+            <div class="product-price-row">
+              <strong>${price(book.preco)}</strong>
+              <span>${price(book.preco_original)}</span>
+            </div>
+            <div class="summary-chips">
+              <span class="summary-chip"><i data-lucide="download" aria-hidden="true"></i>${book.formato}</span>
+              <span class="summary-chip"><i data-lucide="badge-check" aria-hidden="true"></i>${book.badge || "Curadoria Vita"}</span>
+              <span class="summary-chip"><i data-lucide="star" aria-hidden="true"></i>Leitura muito bem avaliada</span>
+            </div>
+            <div class="product-cta glass-panel">
+              <div class="cta-actions">
+                <a class="btn btn-primary" href="suporte.html?interesse=${book.slug}#contato">Quero este ebook</a>
+                <a class="btn btn-ghost" href="planos.html">Ver Premium</a>
+              </div>
+              <p>Receba detalhes de acesso, formatos e melhores opções para leitura com o apoio da equipe Vita.</p>
+            </div>
+            <div class="detail-grid">
+              <article class="detail-card">
+                <h3>O que você leva desta leitura</h3>
+                <ul class="detail-list">${book.aprendizados.map((item) => `<li>${item}</li>`).join("")}</ul>
+              </article>
+              <article class="detail-card">
+                <h3>Para quem este título funciona melhor</h3>
+                <ul class="detail-list">${book.para_quem.map((item) => `<li>${item}</li>`).join("")}</ul>
+              </article>
+              <article class="detail-card">
+                <h3>Por que ele entrou na curadoria</h3>
+                <ul class="detail-list">
+                  <li>Leitura clara, aplicável e fácil de recomendar</li>
+                  <li>Boa porta de entrada para o tema ${categoryName(book.categoria).toLowerCase()}</li>
+                  <li>Ótimo equilíbrio entre profundidade e ritmo</li>
+                </ul>
+              </article>
+            </div>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <section class="stream-section">
-        <div class="stream-head">
-          <div>
-            <span class="eyebrow">Relacionados</span>
-            <h2>Continue nesta mesma frente</h2>
+    <section class="section">
+      <div class="container-wide">
+        <section class="stream-section">
+          <div class="stream-head">
+            <div>
+              <span class="eyebrow">Relacionados</span>
+              <h2>Continue nesta mesma frente</h2>
+            </div>
+            <a class="text-link" href="catalogo.html?categoria=${book.categoria}">Explorar categoria</a>
           </div>
-          <a class="text-link" href="catalogo.html?categoria=${book.categoria}">Explorar categoria</a>
-        </div>
-        <div class="related-grid">
-          ${related.length ? related.map(renderShelfCard).join("") : `
-            <article class="detail-card">
-              <h3>Mais títulos chegando</h3>
-              <p>Esta categoria segue crescendo com novas páginas de produto e novas leituras da curadoria.</p>
-            </article>
-          `}
-        </div>
-      </section>
+          <div class="related-grid">
+            ${related.length ? related.map(renderShelfCard).join("") : `
+              <article class="detail-card">
+                <h3>Mais títulos chegando</h3>
+                <p>Esta categoria segue crescendo com novas páginas de produto e novas leituras da curadoria.</p>
+              </article>
+            `}
+          </div>
+        </section>
+      </div>
     </section>
   `;
 }
