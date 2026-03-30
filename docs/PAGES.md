@@ -19,7 +19,7 @@
 ## 3. Catálogo (`catalogo.html`)
 
 - Hero de descoberta
-- Rail lateral de categorias no desktop
+- Busca central com chips e filtros compactos
 - Busca por título, autor e categoria
 - Ordenação por destaque, preço, avaliação e nome
 - Shelf editorial de destaques
@@ -36,20 +36,49 @@
 ## 5. Sobre (`sobre.html`)
 
 - Manifesto da marca
-- Pilares do projeto
-- Roadmap resumido
-- Decisão operacional GitHub + Hostinger
+- Pilares da curadoria
+- Blocos editoriais da marca
+- Fechamento institucional
 
 ## 6. Suporte (`suporte.html`)
 
-- FAQ do V1
-- Explicação do estágio atual
+- FAQ comercial e operacional
+- Trilhas de ajuda por interesse
 - Montagem de e-mail via `mailto:`
 - Recebimento de contexto por query string (`interesse`, `plano`)
 
 ## 7. Conta (`conta.html`)
 
-- Estado “em breve”
+- Preview pública da área do assinante
 - Sem login fake
-- Preview visual da direção futura
-- Explicação do que a conta real precisa entregar depois
+- Ponte honesta para a futura camada interna
+
+## 8. Dashboard (`aluno/dashboard.html`)
+
+- Visão geral da área do assinante
+- Métricas, retomadas e atalhos
+- Destaque claro do Premium
+
+## 9. Biblioteca (`aluno/biblioteca.html`)
+
+- Prateleiras de continuar, favoritos e salvos
+- Vínculo direto com `ebook.html?slug=...`
+- Estrutura pensada para retorno rápido
+
+## 10. Perfil (`aluno/perfil.html`)
+
+- Identidade do assinante
+- Estatísticas semanais
+- Ritmo de leitura e continuidade
+
+## 11. Configurações (`aluno/configuracoes.html`)
+
+- Preferências de leitura e curadoria
+- Segurança e acesso em modo estrutural
+- Sem simulação de salvamento persistido
+
+## 12. Recuperação de acesso (`aluno/esqueci-senha.html`)
+
+- Tela de apoio para retomada da conta
+- Saída honesta para suporte
+- Sem reset automático fake

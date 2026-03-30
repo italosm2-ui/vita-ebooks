@@ -5,6 +5,7 @@
 - Estrutura estática multipágina concluída
 - Redesign público alinhado ao `DESIGN-SYSTEM.md`
 - Home, planos, catálogo, produto, sobre, suporte e conta atualizados
+- Camada interna estrutural criada em `/aluno/`
 - Modo claro e escuro preservado no novo sistema visual
 - Referências visuais versionadas em `design-references/`
 - Deploy ajustado para Hostinger
@@ -12,14 +13,14 @@
 
 ## Próxima fase
 
-- Elevar home, catálogo e produto para um padrão mais próximo das referências visuais
-- Consolidar o hero desktop para caber no primeiro viewport sem cortes
-- Popular o site com capas locais por slug e render image-first
-- Refinar planos, suporte, sobre e conta na mesma linguagem depois da rodada principal
+- Elevar dashboard, biblioteca e perfil para ainda mais profundidade visual
+- Abrir a próxima camada do produto: leitor online, anotações e exportação
+- Estruturar comunidade, conquistas e 404 na mesma linguagem
+- Decidir o momento certo de transformar a conta em entrada de acesso real
 
 ## Depois disso
 
-- Ativar área da conta
-- Biblioteca e histórico do leitor
-- Benefícios reais do clube mensal e do vital premium
-- Relacionamento contínuo e retenção
+- Ativar autenticação real
+- Persistir biblioteca, histórico e preferências
+- Destravar benefícios reais do clube mensal e do vital premium
+- Fechar retenção, relacionamento contínuo e experiência de leitura completa

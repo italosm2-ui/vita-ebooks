@@ -9,7 +9,7 @@ Vitrine estática da Vita Ebooks com catálogo, páginas de produto, comparaçã
 - O V1 continua 100% estático: HTML, CSS, JS vanilla e dados locais em `assets/data/`.
 - O visual oficial agora segue `DESIGN-SYSTEM.md`, na direção **Cinematic Reader**.
 - `design-references/` guarda as telas de referência usadas para compor o redesign, mas não faz parte das rotas produtivas.
-- Checkout, login e biblioteca real continuam fora do escopo desta fase. Os CTAs seguem honestos e apontam para produto, planos, catálogo ou suporte.
+- Checkout, login real e persistência real de biblioteca continuam fora do escopo desta fase. Os CTAs seguem honestos e apontam para produto, planos, catálogo, suporte ou para a camada estrutural em `/aluno/`.
 
 ## Estrutura principal
 
@@ -40,7 +40,8 @@ vita-ebooks/
 - `ebook.html`: produto renderizado por `slug`, com CTA honesto para suporte e planos.
 - `sobre.html`: manifesto da marca, pilares e roadmap resumido.
 - `suporte.html`: FAQ do V1 e contato via `mailto`.
-- `conta.html`: página “em breve”, sem login fake.
+- `conta.html`: preview pública da área do assinante, sem login fake.
+- `aluno/`: camada estrutural da área interna com dashboard, biblioteca, perfil, configurações e recuperação de acesso.
 
 ## Como testar localmente
 

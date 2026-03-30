@@ -18,8 +18,16 @@
 
 ## Fluxo 5: futuro da conta
 
-`Home -> conta (em breve) -> suporte`
+`Home -> conta -> aluno/dashboard`
+
+## Fluxo 6: camada interna estrutural
+
+`Conta -> aluno/dashboard -> aluno/biblioteca -> ebook`
+
+## Fluxo 7: apoio de acesso
+
+`Conta -> aluno/esqueci-senha -> suporte`
 
 ## Regra central
 
-Enquanto não houver checkout e autenticação reais, todos os fluxos terminam em navegação informativa ou contato honesto.
+Enquanto não houver checkout e autenticação reais, todos os fluxos terminam em navegação informativa, visualização de contexto ou contato honesto.

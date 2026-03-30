@@ -237,7 +237,115 @@ const FALLBACK_TESTIMONIALS = [
   }
 ];
 
-const state = { ebooks: [], categories: [], testimonials: [] };
+const FALLBACK_MEMBER = {
+  perfil: {
+    nome: "Clara Ribeiro",
+    iniciais: "CR",
+    cargo: "Estratégia de marca",
+    cidade: "São Paulo - SP",
+    membro_desde: "Janeiro de 2026",
+    bio: "Leitora que usa a Vita para manter repertório de trabalho, salvar títulos de volta e construir um ritmo semanal mais consistente."
+  },
+  plano: {
+    nome: "Clube mensal",
+    status: "Ativo",
+    descricao: "Acesso recorrente à curadoria com mais continuidade de leitura.",
+    renovacao: "12 de abril de 2026"
+  },
+  metricas: [
+    { rotulo: "Dias seguidos", valor: "8" },
+    { rotulo: "Sessões na semana", valor: "4" },
+    { rotulo: "Ebooks concluídos", valor: "12" },
+    { rotulo: "Favoritos salvos", valor: "18" }
+  ],
+  rotina: [
+    {
+      titulo: "Janela de leitura mais estável",
+      descricao: "Manhãs curtas com 20 a 30 minutos antes de abrir o fluxo do trabalho."
+    },
+    {
+      titulo: "Tema dominante da semana",
+      descricao: "Foco, hábitos e clareza para aprofundar leitura aplicada ao trabalho."
+    },
+    {
+      titulo: "Melhor próximo passo",
+      descricao: "Retomar um título salvo e abrir um novo livro da mesma trilha sem perder contexto."
+    }
+  ],
+  atalhos: [
+    {
+      titulo: "Retomar Trabalho Profundo",
+      descricao: "Voltar para um título forte que já está puxando sua semana.",
+      href: "ebook.html?slug=trabalho-profundo",
+      label: "Abrir ebook",
+      icon: "book-open"
+    },
+    {
+      titulo: "Explorar sua biblioteca",
+      descricao: "Ver favoritos, recentes e os salvos para depois.",
+      href: "aluno/biblioteca.html",
+      label: "Ir para biblioteca",
+      icon: "library-big"
+    },
+    {
+      titulo: "Comparar seu plano",
+      descricao: "Rever benefícios do Clube mensal com a Vita.",
+      href: "planos.html",
+      label: "Ver Premium",
+      icon: "badge-check"
+    }
+  ],
+  insights: [
+    {
+      titulo: "Sua semana está consistente",
+      descricao: "Você voltou à Vita em quatro sessões e manteve a leitura concentrada em produtividade e rotina."
+    },
+    {
+      titulo: "Um título está pedindo continuidade",
+      descricao: "Trabalho Profundo já virou o centro da sua trilha. Vale manter esse eixo antes de abrir muitos temas."
+    }
+  ],
+  biblioteca: {
+    continuar: ["trabalho-profundo", "habitos-atomicos"],
+    favoritos: ["comece-pelo-porque", "mindset-a-psicologia-do-sucesso", "trabalho-profundo"],
+    salvos: ["pai-rico-pai-pobre", "habitos-atomicos", "comece-pelo-porque", "mindset-a-psicologia-do-sucesso"],
+    recentes: ["trabalho-profundo", "habitos-atomicos", "pai-rico-pai-pobre"]
+  },
+  preferencias: [
+    {
+      titulo: "Curadoria semanal",
+      descricao: "Receber seleções e destaques novos por e-mail.",
+      status: "Ativa",
+      apoio: "Toda sexta-feira"
+    },
+    {
+      titulo: "Formato preferido",
+      descricao: "Prioridade para títulos com leitura confortável entre PDF e ePub.",
+      status: "PDF + ePub",
+      apoio: "Ajustado ao seu ritmo atual"
+    },
+    {
+      titulo: "Avisos de continuidade",
+      descricao: "Lembretes suaves para voltar aos livros salvos e manter sequência.",
+      status: "Ligados",
+      apoio: "Sem pressão, só retomada"
+    }
+  ],
+  seguranca: [
+    {
+      titulo: "E-mail principal",
+      descricao: "clara@vitaebooks.com.br",
+      status: "Verificado"
+    },
+    {
+      titulo: "Recuperação de acesso",
+      descricao: "Apoio assistido pela equipe Vita quando você precisar retomar sua conta.",
+      status: "Suporte humano"
+    }
+  ]
+};
+
+const state = { ebooks: [], categories: [], testimonials: [], member: null };
 
 const ICON_SUN = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
 const ICON_MOON = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
@@ -257,7 +365,30 @@ const MOBILE_NAV = [
   { page: "conta", href: "conta.html", label: "Conta" }
 ];
 
+const APP_NAV = [
+  { page: "dashboard", href: "aluno/dashboard.html", label: "Dashboard", icon: "layout-dashboard" },
+  { page: "biblioteca", href: "aluno/biblioteca.html", label: "Biblioteca", icon: "library-big" },
+  { page: "perfil", href: "aluno/perfil.html", label: "Perfil", icon: "circle-user-round" },
+  { page: "configuracoes", href: "aluno/configuracoes.html", label: "Configuracoes", icon: "settings-2" }
+];
+
 const qs = (selector, parent = document) => parent.querySelector(selector);
+
+function isAppShell() {
+  return document.body.dataset.shell === "app";
+}
+
+function relativeToRoot(path = "") {
+  const prefix = isAppShell() ? "../" : "";
+  return `${prefix}${path}`;
+}
+
+function hrefWithQuery(path, params = {}, hash = "") {
+  const query = new URLSearchParams(
+    Object.entries(params).filter(([, value]) => value !== undefined && value !== null && value !== "")
+  ).toString();
+  return `${relativeToRoot(path)}${query ? `?${query}` : ""}${hash}`;
+}
 
 function escapeHtml(value) {
   return String(value)
@@ -303,20 +434,20 @@ function buildHeader(page) {
   const currentPrimary = pageForPrimaryNav(page);
   const query = escapeHtml(currentSearchQuery());
   const desktopNav = PRIMARY_NAV.map((item) => `
-    <li><a class="shell-link" href="${item.href}"${currentPrimary === item.page ? ' aria-current="page"' : ""}>${item.label}</a></li>
+    <li><a class="shell-link" href="${relativeToRoot(item.href)}"${currentPrimary === item.page ? ' aria-current="page"' : ""}>${item.label}</a></li>
   `).join("");
   const mobileNav = MOBILE_NAV.map((item) => `
-    <li><a href="${item.href}"${page === item.page ? ' aria-current="page"' : ""}>${item.label}</a></li>
+    <li><a href="${relativeToRoot(item.href)}"${page === item.page ? ' aria-current="page"' : ""}>${item.label}</a></li>
   `).join("");
 
   return `
     <div class="container-wide header-inner">
-      <a class="logo" href="index.html" aria-label="Vita Ebooks">
+      <a class="logo" href="${relativeToRoot("index.html")}" aria-label="Vita Ebooks">
         <span class="logo-mark" aria-hidden="true">${LOGO_MARK}</span>
         <span class="logo-wordmark">Vita Ebooks</span>
       </a>
 
-      <form class="shell-search" action="catalogo.html" method="get" role="search" aria-label="Buscar ebooks">
+      <form class="shell-search" action="${relativeToRoot("catalogo.html")}" method="get" role="search" aria-label="Buscar ebooks">
         <label class="shell-search-field" for="site-search">
           <i data-lucide="search" aria-hidden="true"></i>
           <input id="site-search" name="q" type="search" value="${query}" placeholder="Buscar títulos, autores ou temas">
@@ -329,16 +460,16 @@ function buildHeader(page) {
 
       <div class="header-actions">
         <button class="btn-icon" type="button" data-theme-toggle aria-label="Alternar tema"></button>
-        <a class="btn-icon header-account${page === "conta" ? " is-current" : ""}" href="conta.html" aria-label="Minha conta">
+        <a class="btn-icon header-account${page === "conta" ? " is-current" : ""}" href="${relativeToRoot("conta.html")}" aria-label="Minha conta">
           <i data-lucide="circle-user-round" aria-hidden="true"></i>
         </a>
-        <a class="btn btn-primary header-cta desktop-only" href="planos.html">Assinar Premium</a>
+        <a class="btn btn-primary header-cta desktop-only" href="${relativeToRoot("planos.html")}">Assinar Premium</a>
         <button class="btn-icon menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false">${MENU_ICON}</button>
       </div>
     </div>
     <nav class="mobile-menu" id="mobile-menu" aria-label="Menu mobile" hidden>
       <div class="container-wide">
-        <form class="mobile-search" action="catalogo.html" method="get" role="search" aria-label="Buscar ebooks">
+        <form class="mobile-search" action="${relativeToRoot("catalogo.html")}" method="get" role="search" aria-label="Buscar ebooks">
           <label class="shell-search-field" for="mobile-search">
             <i data-lucide="search" aria-hidden="true"></i>
             <input id="mobile-search" name="q" type="search" value="${query}" placeholder="Buscar no catálogo">
@@ -354,7 +485,7 @@ function buildFooter() {
   return `
     <div class="container-wide footer-grid">
       <div class="footer-brand">
-        <a class="logo" href="index.html" aria-label="Vita Ebooks">
+        <a class="logo" href="${relativeToRoot("index.html")}" aria-label="Vita Ebooks">
           <span class="logo-mark" aria-hidden="true">${LOGO_MARK}</span>
           <span class="logo-wordmark">Vita Ebooks</span>
         </a>
@@ -363,25 +494,25 @@ function buildFooter() {
       <nav class="footer-column" aria-label="Explorar">
         <h3>Explorar</h3>
         <ul>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="catalogo.html">Catálogo</a></li>
-          <li><a href="planos.html">Premium</a></li>
+          <li><a href="${relativeToRoot("index.html")}">Início</a></li>
+          <li><a href="${relativeToRoot("catalogo.html")}">Catálogo</a></li>
+          <li><a href="${relativeToRoot("planos.html")}">Premium</a></li>
         </ul>
       </nav>
       <nav class="footer-column" aria-label="Institucional">
         <h3>Institucional</h3>
         <ul>
-          <li><a href="sobre.html">Sobre</a></li>
-          <li><a href="suporte.html">Suporte</a></li>
-          <li><a href="conta.html">Conta</a></li>
+          <li><a href="${relativeToRoot("sobre.html")}">Sobre</a></li>
+          <li><a href="${relativeToRoot("suporte.html")}">Suporte</a></li>
+          <li><a href="${relativeToRoot("conta.html")}">Conta</a></li>
         </ul>
       </nav>
       <nav class="footer-column" aria-label="Destaques">
         <h3>Destaques</h3>
         <ul>
-          <li><a href="ebook.html?slug=trabalho-profundo">Trabalho Profundo</a></li>
-          <li><a href="ebook.html?slug=habitos-atomicos">Hábitos Atômicos</a></li>
-          <li><a href="catalogo.html?categoria=negocios">Negócios</a></li>
+          <li><a href="${hrefWithQuery("ebook.html", { slug: "trabalho-profundo" })}">Trabalho Profundo</a></li>
+          <li><a href="${hrefWithQuery("ebook.html", { slug: "habitos-atomicos" })}">Hábitos Atômicos</a></li>
+          <li><a href="${hrefWithQuery("catalogo.html", { categoria: "negocios" })}">Negócios</a></li>
         </ul>
       </nav>
     </div>
@@ -389,9 +520,71 @@ function buildFooter() {
       <div class="container-wide">
         <p>&copy; <span data-year></span> Vita Ebooks.</p>
         <nav class="footer-legal" aria-label="Atalhos finais">
-          <a href="suporte.html#faq">FAQ</a>
-          <a href="suporte.html#contato">Contato</a>
+          <a href="${relativeToRoot("suporte.html")}#faq">FAQ</a>
+          <a href="${relativeToRoot("suporte.html")}#contato">Contato</a>
         </nav>
+      </div>
+    </div>
+  `;
+}
+
+function buildAppSidebar(page) {
+  const profile = state.member?.perfil || FALLBACK_MEMBER.perfil;
+  const nav = APP_NAV.map((item) => `
+    <li>
+      <a class="app-nav-link${page === item.page ? " is-current" : ""}" href="${relativeToRoot(item.href)}"${page === item.page ? ' aria-current="page"' : ""}>
+        <i data-lucide="${item.icon}" aria-hidden="true"></i>
+        <span>${item.label}</span>
+      </a>
+    </li>
+  `).join("");
+
+  return `
+    <div class="app-sidebar-inner">
+      <a class="app-brand" href="${relativeToRoot("index.html")}" aria-label="Vita Ebooks">
+        <span class="logo-mark" aria-hidden="true">${LOGO_MARK}</span>
+        <span class="logo-wordmark">Vita Ebooks</span>
+      </a>
+
+      <section class="app-profile-card glass-panel">
+        <span class="app-avatar" aria-hidden="true">${escapeHtml(profile.iniciais)}</span>
+        <div>
+          <strong>${escapeHtml(profile.nome)}</strong>
+          <p>${escapeHtml(profile.cargo)}</p>
+        </div>
+      </section>
+
+      <nav class="app-nav" aria-label="Área do assinante">
+        <ul>${nav}</ul>
+      </nav>
+
+      <section class="app-sidebar-card surface-card">
+        <span class="mini-label">Continuidade</span>
+        <h2>Seu ritmo de leitura agora tem um lugar próprio.</h2>
+        <p>Biblioteca, progresso e Premium organizados no mesmo fluxo.</p>
+      </section>
+    </div>
+  `;
+}
+
+function buildAppTopbar() {
+  const plan = state.member?.plano || FALLBACK_MEMBER.plano;
+  return `
+    <div class="app-topbar-inner">
+      <div class="app-topbar-group">
+        <button class="btn-icon app-menu-toggle" id="app-menu-toggle" type="button" aria-label="Abrir navegação interna" aria-controls="app-sidebar" aria-expanded="false">${MENU_ICON}</button>
+        <form class="app-search" action="${relativeToRoot("catalogo.html")}" method="get" role="search" aria-label="Buscar no catálogo">
+          <label class="shell-search-field" for="app-search">
+            <i data-lucide="search" aria-hidden="true"></i>
+            <input id="app-search" name="q" type="search" placeholder="Buscar títulos, autores ou temas">
+          </label>
+        </form>
+      </div>
+
+      <div class="app-topbar-actions">
+        <span class="app-plan-pill"><i data-lucide="sparkles" aria-hidden="true"></i>${escapeHtml(plan.nome)} · ${escapeHtml(plan.status)}</span>
+        <a class="btn btn-ghost app-support-link" href="${relativeToRoot("suporte.html")}#contato">Falar com a Vita</a>
+        <button class="btn-icon" type="button" data-theme-toggle aria-label="Alternar tema"></button>
       </div>
     </div>
   `;
@@ -399,6 +592,14 @@ function buildFooter() {
 
 function renderShell() {
   const page = document.body.dataset.page || "home";
+  if (isAppShell()) {
+    const sidebar = qs("#app-sidebar");
+    const topbar = qs("#app-topbar");
+    if (sidebar) sidebar.innerHTML = buildAppSidebar(page);
+    if (topbar) topbar.innerHTML = buildAppTopbar();
+    return;
+  }
+
   const header = qs("#site-header");
   const footer = qs("#site-footer");
   if (header) header.innerHTML = buildHeader(page);
@@ -446,6 +647,23 @@ function setupHeader() {
   });
 }
 
+function setupAppChrome() {
+  const shell = qs(".app-shell");
+  const sidebar = qs("#app-sidebar");
+  const toggle = qs("#app-menu-toggle");
+  if (!shell || !sidebar || !toggle) return;
+  toggle.addEventListener("click", () => {
+    const open = shell.classList.toggle("is-sidebar-open");
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+  sidebar.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      shell.classList.remove("is-sidebar-open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
 function setYear() {
   document.querySelectorAll("[data-year]").forEach((node) => {
     node.textContent = String(new Date().getFullYear());
@@ -454,7 +672,7 @@ function setYear() {
 
 async function loadJson(path, fallback) {
   try {
-    const response = await fetch(path, { cache: "no-store" });
+    const response = await fetch(relativeToRoot(path), { cache: "no-store" });
     if (!response.ok) throw new Error("fetch failed");
     return await response.json();
   } catch {
@@ -479,8 +697,12 @@ function bySlugOrId(value) {
   return state.ebooks.find((book) => book.slug === value || book.id === value);
 }
 
+function booksFromSlugs(values = []) {
+  return values.map((value) => bySlugOrId(value)).filter(Boolean);
+}
+
 function bookCoverSrc(book) {
-  return typeof book?.capa === "string" ? book.capa : "";
+  return typeof book?.capa === "string" ? relativeToRoot(book.capa) : "";
 }
 
 function bookCoverAlt(book) {
@@ -510,7 +732,7 @@ function renderCover(book, extraClass = "", options = {}) {
 
 function renderHeroPoster(book, positionClass) {
   return `
-    <a class="hero-poster ${positionClass}" href="ebook.html?slug=${book.slug}" aria-label="Abrir ${book.titulo}">
+    <a class="hero-poster ${positionClass}" href="${hrefWithQuery("ebook.html", { slug: book.slug })}" aria-label="Abrir ${book.titulo}">
       ${renderCover(book, "book-cover-hero", { decorative: true, loading: "eager" })}
     </a>
   `;
@@ -541,7 +763,7 @@ function renderHomeHero() {
           <li><span>Formato</span><strong>${spotlight.formato}</strong></li>
           <li><span>Avaliação</span><strong>${spotlight.avaliacao.toFixed(1)} de 5</strong></li>
         </ul>
-        <a class="btn btn-primary" href="ebook.html?slug=${spotlight.slug}">Abrir destaque</a>
+        <a class="btn btn-primary" href="${hrefWithQuery("ebook.html", { slug: spotlight.slug })}">Abrir destaque</a>
       </aside>
     </div>
   `;
@@ -550,7 +772,7 @@ function renderHomeHero() {
 function renderShelfCard(book) {
   return `
     <article class="book-card">
-      <a href="ebook.html?slug=${book.slug}" aria-label="Ver ${book.titulo}">
+      <a href="${hrefWithQuery("ebook.html", { slug: book.slug })}" aria-label="Ver ${book.titulo}">
         <div class="cover-shell">
           ${book.badge ? `<span class="tag book-badge">${book.badge}</span>` : ""}
           ${renderCover(book)}
@@ -572,7 +794,7 @@ function renderShelfCard(book) {
         </div>
         <div class="book-footline">
           <span class="rating" aria-label="Avaliação ${book.avaliacao}">${stars(book.avaliacao)} ${book.avaliacao.toFixed(1)}</span>
-          <a class="text-link" href="ebook.html?slug=${book.slug}">Abrir detalhes</a>
+          <a class="text-link" href="${hrefWithQuery("ebook.html", { slug: book.slug })}">Abrir detalhes</a>
         </div>
       </div>
     </article>
@@ -582,7 +804,7 @@ function renderShelfCard(book) {
 function renderCatalogCard(book) {
   return `
     <article class="catalog-book-card">
-      <a class="catalog-book-link" href="ebook.html?slug=${book.slug}" aria-label="Ver ${book.titulo}">
+      <a class="catalog-book-link" href="${hrefWithQuery("ebook.html", { slug: book.slug })}" aria-label="Ver ${book.titulo}">
         <div class="cover-shell">
           ${book.badge ? `<span class="tag book-badge">${book.badge}</span>` : ""}
           ${renderCover(book)}
@@ -614,7 +836,7 @@ function renderCatalogCard(book) {
 function renderContinueCard(book, label) {
   return `
     <article class="continue-card">
-      <a class="continue-card-link" href="ebook.html?slug=${book.slug}" aria-label="Abrir ${book.titulo}">
+      <a class="continue-card-link" href="${hrefWithQuery("ebook.html", { slug: book.slug })}" aria-label="Abrir ${book.titulo}">
         <div class="continue-cover-shell">
           ${renderCover(book, "continue-cover", { decorative: true })}
         </div>
@@ -630,7 +852,7 @@ function renderContinueCard(book, label) {
 
 function renderHomeCategory(category) {
   return `
-    <a class="genre-card home-category-card" href="catalogo.html?categoria=${category.id}">
+    <a class="genre-card home-category-card" href="${hrefWithQuery("catalogo.html", { categoria: category.id })}">
       <span class="genre-icon"><i data-lucide="${category.icone}" aria-hidden="true"></i></span>
       <div>
         <h3>${category.nome}</h3>
@@ -648,7 +870,7 @@ function renderTopPick(book, label) {
         <span class="mini-label">${label}</span>
         <h3>${book.titulo}</h3>
         <p>${book.sinopse}</p>
-        <a class="text-link" href="ebook.html?slug=${book.slug}">Abrir detalhes</a>
+        <a class="text-link" href="${hrefWithQuery("ebook.html", { slug: book.slug })}">Abrir detalhes</a>
       </div>
     </article>
   `;
@@ -1047,6 +1269,392 @@ function renderProduct() {
   `;
 }
 
+function renderMemberShortcut(item) {
+  const href = item.href.includes("?") ? relativeToRoot(item.href) : relativeToRoot(item.href);
+  return `
+    <article class="surface-card app-shortcut-card">
+      <span class="app-shortcut-icon"><i data-lucide="${item.icon}" aria-hidden="true"></i></span>
+      <div class="app-shortcut-copy">
+        <h3>${item.titulo}</h3>
+        <p>${item.descricao}</p>
+      </div>
+      <a class="text-link" href="${href}">${item.label}</a>
+    </article>
+  `;
+}
+
+function renderMemberMetric(item) {
+  return `
+    <article class="surface-card app-metric-card">
+      <strong>${item.valor}</strong>
+      <span>${item.rotulo}</span>
+    </article>
+  `;
+}
+
+function renderMemberInsight(item) {
+  return `
+    <article class="surface-card app-insight-card">
+      <h3>${item.titulo}</h3>
+      <p>${item.descricao}</p>
+    </article>
+  `;
+}
+
+function renderMemberSetting(item) {
+  return `
+    <article class="surface-card app-setting-card">
+      <div class="app-setting-copy">
+        <span class="mini-label">${item.status}</span>
+        <h3>${item.titulo}</h3>
+        <p>${item.descricao}</p>
+      </div>
+      ${item.apoio ? `<small>${item.apoio}</small>` : ""}
+    </article>
+  `;
+}
+
+function renderDashboard() {
+  const target = qs("#app-page-root");
+  const member = state.member || FALLBACK_MEMBER;
+  if (!target) return;
+
+  const continueBooks = booksFromSlugs(member.biblioteca?.continuar).slice(0, 2);
+  const favoriteBooks = booksFromSlugs(member.biblioteca?.favoritos).slice(0, 3);
+  const plan = member.plano;
+
+  target.innerHTML = `
+    <section class="app-hero-section">
+      <div class="app-hero-grid">
+        <article class="app-hero-copy">
+          <span class="eyebrow">Dashboard do leitor</span>
+          <h1>Uma visão limpa para retomar leitura, repertório e seu Premium sem perder contexto.</h1>
+          <p>O dashboard organiza o que merece volta rápida: progresso recente, atalhos do momento e o melhor próximo passo dentro da curadoria.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="${relativeToRoot("aluno/biblioteca.html")}">Abrir biblioteca</a>
+            <a class="btn btn-ghost" href="${relativeToRoot("catalogo.html")}">Explorar catálogo</a>
+          </div>
+        </article>
+
+        <aside class="glass-panel app-hero-panel">
+          <span class="mini-label">Seu acesso agora</span>
+          <h2>${plan.nome}</h2>
+          <p>${plan.descricao}</p>
+          <ul class="signal-list">
+            <li><span>Status</span><strong>${plan.status}</strong></li>
+            <li><span>Renovação</span><strong>${plan.renovacao}</strong></li>
+            <li><span>Biblioteca</span><strong>${member.biblioteca.salvos.length} títulos salvos</strong></li>
+          </ul>
+          <a class="btn btn-primary" href="${relativeToRoot("planos.html")}">Ver Premium</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="app-metric-grid">
+        ${member.metricas.map(renderMemberMetric).join("")}
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="app-duo-grid">
+        <div class="app-section-stack">
+          <div class="stream-head">
+            <div>
+              <span class="eyebrow">Retome sem atrito</span>
+              <h2>Os livros mais próximos do seu momento.</h2>
+            </div>
+            <p>Dois títulos fortes para voltar hoje, antes de abrir outras frentes.</p>
+          </div>
+          <div class="shelf-track app-shelf-grid">
+            ${continueBooks.map(renderShelfCard).join("")}
+          </div>
+        </div>
+
+        <div class="app-section-stack">
+          <div class="stream-head">
+            <div>
+              <span class="eyebrow">Atalhos de hoje</span>
+              <h2>O que vale abrir agora.</h2>
+            </div>
+          </div>
+          <div class="app-shortcut-grid">
+            ${member.atalhos.map(renderMemberShortcut).join("")}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="app-duo-grid app-duo-grid-wide">
+        <div class="app-section-stack">
+          <div class="stream-head">
+            <div>
+              <span class="eyebrow">Favoritos em rotação</span>
+              <h2>Uma base para continuar construindo repertório.</h2>
+            </div>
+          </div>
+          <div class="shelf-track app-shelf-grid app-shelf-grid-compact">
+            ${favoriteBooks.map(renderShelfCard).join("")}
+          </div>
+        </div>
+
+        <div class="app-section-stack">
+          <div class="stream-head">
+            <div>
+              <span class="eyebrow">Leitura da semana</span>
+              <h2>Clareza sobre seu ritmo atual.</h2>
+            </div>
+          </div>
+          <div class="app-insight-grid">
+            ${member.insights.map(renderMemberInsight).join("")}
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderLibrary() {
+  const target = qs("#app-page-root");
+  const member = state.member || FALLBACK_MEMBER;
+  if (!target) return;
+
+  const continuar = booksFromSlugs(member.biblioteca?.continuar);
+  const favoritos = booksFromSlugs(member.biblioteca?.favoritos);
+  const salvos = booksFromSlugs(member.biblioteca?.salvos);
+
+  target.innerHTML = `
+    <section class="app-hero-section app-page-hero">
+      <div class="stream-head">
+        <div>
+          <span class="eyebrow">Biblioteca</span>
+          <h1>Sua coleção organizada para retomar, salvar e revisitar sem ruído.</h1>
+        </div>
+        <p>Uma prateleira viva para continuar leitura, guardar ideias fortes e manter o catálogo mais perto da sua rotina.</p>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="stream-head">
+        <div>
+          <span class="eyebrow">Continuar lendo</span>
+          <h2>Os títulos com mais tração neste momento.</h2>
+        </div>
+      </div>
+      <div class="shelf-track app-shelf-grid">
+        ${continuar.map(renderShelfCard).join("")}
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="stream-head">
+        <div>
+          <span class="eyebrow">Favoritos</span>
+          <h2>Livros que valem revisita.</h2>
+        </div>
+      </div>
+      <div class="shelf-track app-shelf-grid app-shelf-grid-compact">
+        ${favoritos.map(renderShelfCard).join("")}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="stream-head">
+        <div>
+          <span class="eyebrow">Salvos para depois</span>
+          <h2>Uma fila mais clara para não perder bons títulos.</h2>
+        </div>
+        <p>${salvos.length} títulos esperando o melhor momento de entrada.</p>
+      </div>
+      <div class="catalog-grid app-library-grid">
+        ${salvos.map(renderCatalogCard).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderProfile() {
+  const target = qs("#app-page-root");
+  const member = state.member || FALLBACK_MEMBER;
+  if (!target) return;
+
+  const recent = booksFromSlugs(member.biblioteca?.recentes).slice(0, 3);
+  const profile = member.perfil;
+
+  target.innerHTML = `
+    <section class="app-hero-section app-profile-hero">
+      <div class="app-profile-grid">
+        <article class="glass-panel app-profile-card-large">
+          <div class="app-profile-heading">
+            <span class="app-avatar app-avatar-large" aria-hidden="true">${escapeHtml(profile.iniciais)}</span>
+            <div>
+              <span class="eyebrow">Perfil</span>
+              <h1>${profile.nome}</h1>
+              <p class="section-copy">${profile.cargo} · ${profile.cidade}</p>
+            </div>
+          </div>
+          <p>${profile.bio}</p>
+          <div class="summary-chips">
+            <span class="summary-chip"><i data-lucide="calendar-range" aria-hidden="true"></i>Membro desde ${profile.membro_desde}</span>
+            <span class="summary-chip"><i data-lucide="badge-check" aria-hidden="true"></i>${member.plano.nome}</span>
+          </div>
+        </article>
+
+        <article class="surface-card app-profile-side">
+          <span class="mini-label">Leitura da semana</span>
+          <h2>Seu padrão atual está consistente e favorece profundidade.</h2>
+          <p>O perfil mostra ritmo, intenção e continuidade para você decidir o próximo livro com mais consciência.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="app-metric-grid">
+        ${member.metricas.map(renderMemberMetric).join("")}
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="app-duo-grid">
+        <div class="app-section-stack">
+          <div class="stream-head">
+            <div>
+              <span class="eyebrow">Hábitos e contexto</span>
+              <h2>O que está sustentando sua rotina.</h2>
+            </div>
+          </div>
+          <div class="app-routine-grid">
+            ${member.rotina.map((item) => `
+              <article class="surface-card app-routine-card">
+                <h3>${item.titulo}</h3>
+                <p>${item.descricao}</p>
+              </article>
+            `).join("")}
+          </div>
+        </div>
+
+        <div class="app-section-stack">
+          <div class="stream-head">
+            <div>
+              <span class="eyebrow">Retomadas recentes</span>
+              <h2>Livros que ajudam a manter o eixo.</h2>
+            </div>
+          </div>
+          <div class="shelf-track app-shelf-grid app-shelf-grid-compact">
+            ${recent.map(renderShelfCard).join("")}
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderSettings() {
+  const target = qs("#app-page-root");
+  const member = state.member || FALLBACK_MEMBER;
+  if (!target) return;
+
+  target.innerHTML = `
+    <section class="app-hero-section app-page-hero">
+      <div class="stream-head">
+        <div>
+          <span class="eyebrow">Configuracoes</span>
+          <h1>Um lugar para entender preferências, acesso e segurança sem perder clareza.</h1>
+        </div>
+        <p>Esta camada organiza o que importa na conta sem prometer ações persistidas antes da hora. O foco aqui é leitura clara, status e apoio humano quando necessário.</p>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="app-settings-layout">
+        <div class="app-section-stack">
+          <div class="stream-head">
+            <div>
+              <span class="eyebrow">Preferências</span>
+              <h2>Os principais ajustes do seu ritmo.</h2>
+            </div>
+          </div>
+          <div class="app-settings-grid">
+            ${member.preferencias.map(renderMemberSetting).join("")}
+          </div>
+        </div>
+
+        <aside class="app-section-stack">
+          <div class="stream-head">
+            <div>
+              <span class="eyebrow">Segurança e acesso</span>
+              <h2>Estado atual da conta.</h2>
+            </div>
+          </div>
+          <div class="app-settings-grid">
+            ${member.seguranca.map(renderMemberSetting).join("")}
+          </div>
+          <article class="glass-panel app-support-panel">
+            <span class="mini-label">Ajustes assistidos</span>
+            <p>Quando a conta precisar de ajuda real, a saída correta continua sendo o suporte da Vita. Nada aqui simula uma alteração já salva.</p>
+            <div class="cta-actions">
+              <a class="btn btn-primary" href="${relativeToRoot("suporte.html")}#contato">Falar com a Vita</a>
+              <a class="btn btn-ghost" href="${relativeToRoot("aluno/esqueci-senha.html")}">Recuperar acesso</a>
+            </div>
+          </article>
+        </aside>
+      </div>
+    </section>
+  `;
+}
+
+function renderRecoveryPage() {
+  const target = qs("#app-page-root");
+  if (!target) return;
+
+  target.innerHTML = `
+    <section class="app-hero-section app-recovery-section">
+      <div class="app-recovery-grid">
+        <article class="app-hero-copy">
+          <span class="eyebrow">Recuperacao de acesso</span>
+          <h1>Se você perdeu o caminho da conta, a Vita te ajuda a retomar com clareza.</h1>
+          <p>Esta página não finge um reset automático. Ela organiza o pedido certo para a equipe te orientar de forma humana e sem ruído.</p>
+          <ul class="roadmap-list">
+            <li>Informe o e-mail que você usa na Vita</li>
+            <li>Monte um pedido de apoio claro para o suporte</li>
+            <li>Receba a orientação correta para retomar seu acesso</li>
+          </ul>
+        </article>
+
+        <aside class="glass-panel app-recovery-panel">
+          <span class="mini-label">Montar pedido</span>
+          <label class="app-field" for="recovery-email">
+            <span>E-mail principal</span>
+            <input id="recovery-email" type="email" placeholder="voce@email.com">
+          </label>
+          <p>Ao seguir, a Vita abre um contato preparado para recuperação de acesso. O retorno continua humano e honesto.</p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" id="recovery-mailto" href="${relativeToRoot("suporte.html")}#contato">Abrir suporte</a>
+            <a class="btn btn-ghost" href="${relativeToRoot("conta.html")}">Voltar para conta</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  `;
+}
+
+function setupRecoveryForm() {
+  const field = qs("#recovery-email");
+  const button = qs("#recovery-mailto");
+  if (!field || !button) return;
+
+  const update = () => {
+    const email = field.value.trim() || "meu e-mail de acesso";
+    const subject = encodeURIComponent("Recuperacao de acesso - Vita Ebooks");
+    const body = encodeURIComponent(`Olá, equipe Vita.\n\nPreciso de ajuda para retomar meu acesso à conta.\n\nE-mail principal: ${email}\n\nPodem me orientar com o próximo passo?`);
+    button.href = `mailto:contato@vitaebooks.com.br?subject=${subject}&body=${body}`;
+  };
+
+  field.addEventListener("input", update);
+  update();
+}
+
 function setupSupportForm() {
   const button = qs("#support-mailto");
   const name = qs("#support-name");
@@ -1085,21 +1693,34 @@ function setupSupportForm() {
 }
 
 async function boot() {
-  renderShell();
-  setupTheme();
-  setupHeader();
-  setYear();
-
-  [state.ebooks, state.categories, state.testimonials] = await Promise.all([
+  [state.ebooks, state.categories, state.testimonials, state.member] = await Promise.all([
     loadJson("assets/data/ebooks.json", FALLBACK_EBOOKS),
     loadJson("assets/data/categorias.json", FALLBACK_CATEGORIES),
-    loadJson("assets/data/depoimentos.json", FALLBACK_TESTIMONIALS)
+    loadJson("assets/data/depoimentos.json", FALLBACK_TESTIMONIALS),
+    loadJson("assets/data/aluno.json", FALLBACK_MEMBER)
   ]);
+
+  renderShell();
+  setupTheme();
+  if (isAppShell()) {
+    setupAppChrome();
+  } else {
+    setupHeader();
+    setYear();
+  }
 
   const page = document.body.dataset.page || "home";
   if (page === "home") renderHome();
   if (page === "catalogo") renderCatalog();
   if (page === "ebook") renderProduct();
+  if (page === "dashboard") renderDashboard();
+  if (page === "biblioteca") renderLibrary();
+  if (page === "perfil") renderProfile();
+  if (page === "configuracoes") renderSettings();
+  if (page === "esqueci-senha") {
+    renderRecoveryPage();
+    setupRecoveryForm();
+  }
   if (page === "suporte") setupSupportForm();
 
   createIcons();
