@@ -522,14 +522,18 @@ function renderHomeHero() {
 
   const spotlight = bySlugOrId("trabalho-profundo") || state.ebooks[0];
   const supportA = bySlugOrId("habitos-atomicos") || state.ebooks[1] || spotlight;
+  const supportC = bySlugOrId("pai-rico-pai-pobre") || state.ebooks[3] || spotlight;
   const supportB = bySlugOrId("comece-pelo-porque") || state.ebooks[2] || spotlight;
   if (!spotlight) return;
 
   target.innerHTML = `
     <div class="poster-stack">
+      <div class="hero-stage-glow"></div>
+      <div class="hero-stage-shell"></div>
       ${renderHeroPoster(spotlight, "hero-card-a")}
       ${renderHeroPoster(supportB, "hero-card-b")}
       ${renderHeroPoster(supportA, "hero-card-c")}
+      ${renderHeroPoster(supportC, "hero-card-d")}
       <aside class="floating-panel spotlight-panel">
         <span class="mini-label">Destaque da semana</span>
         <h2>${spotlight.titulo}</h2>
@@ -577,6 +581,35 @@ function renderShelfCard(book) {
   `;
 }
 
+function renderContinueCard(book, label) {
+  return `
+    <article class="continue-card">
+      <a class="continue-card-link" href="ebook.html?slug=${book.slug}" aria-label="Abrir ${book.titulo}">
+        <div class="continue-cover-shell">
+          ${renderCover(book, "continue-cover", { decorative: true })}
+        </div>
+        <div class="continue-content">
+          <span class="mini-label">${label}</span>
+          <h3>${book.titulo}</h3>
+          <p>${book.autor}</p>
+        </div>
+      </a>
+    </article>
+  `;
+}
+
+function renderHomeCategory(category) {
+  return `
+    <a class="genre-card home-category-card" href="catalogo.html?categoria=${category.id}">
+      <span class="genre-icon"><i data-lucide="${category.icone}" aria-hidden="true"></i></span>
+      <div>
+        <h3>${category.nome}</h3>
+        <p>${category.descricao}</p>
+      </div>
+    </a>
+  `;
+}
+
 function renderTopPick(book, label) {
   return `
     <article class="top-pick-card">
@@ -617,14 +650,7 @@ function renderHome() {
   renderHomeHero();
 
   if (categories) {
-    categories.innerHTML = state.categories.slice(0, 4).map((category) => `
-      <a class="genre-card" href="catalogo.html?categoria=${category.id}">
-        <span class="genre-icon"><i data-lucide="${category.icone}" aria-hidden="true"></i></span>
-        <h3>${category.nome}</h3>
-        <p>${category.descricao}</p>
-        <strong>${category.total} títulos</strong>
-      </a>
-    `).join("");
+    categories.innerHTML = state.categories.slice(0, 4).map(renderHomeCategory).join("");
   }
 
   if (featured) {
@@ -633,13 +659,13 @@ function renderHome() {
 
   if (spotlight) {
     spotlight.innerHTML = state.ebooks.filter((book) => book.destaque).slice(0, 3).map((book, index) => {
-      const label = index === 0 ? "Destaque da semana" : index === 1 ? "Mais desejado" : "Curadoria Vita";
-      return renderTopPick(book, label);
+      const label = index === 0 ? "Abrir agora" : index === 1 ? "Seguir lendo" : "Vale ver";
+      return renderContinueCard(book, label);
     }).join("");
   }
 
   if (premium) {
-    premium.innerHTML = sortBooks(state.ebooks, "avaliacao").slice(0, 3).map(renderShelfCard).join("");
+    premium.innerHTML = sortBooks(state.ebooks, "avaliacao").slice(0, 2).map(renderShelfCard).join("");
   }
 
   if (quotes) {
