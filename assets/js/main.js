@@ -579,6 +579,38 @@ function renderShelfCard(book) {
   `;
 }
 
+function renderCatalogCard(book) {
+  return `
+    <article class="catalog-book-card">
+      <a class="catalog-book-link" href="ebook.html?slug=${book.slug}" aria-label="Ver ${book.titulo}">
+        <div class="cover-shell">
+          ${book.badge ? `<span class="tag book-badge">${book.badge}</span>` : ""}
+          ${renderCover(book)}
+        </div>
+        <div class="catalog-book-copy">
+          <div class="book-meta">
+            <span>${categoryName(book.categoria)}</span>
+            <span>${book.formato}</span>
+          </div>
+          <h3 class="book-title">${book.titulo}</h3>
+          <p class="book-author">${book.autor}</p>
+          <p class="book-description">${book.sinopse}</p>
+          <div class="catalog-card-footer">
+            <div class="price-row">
+              <strong class="book-price">${price(book.preco)}</strong>
+              <span class="book-price-old">${price(book.preco_original)}</span>
+            </div>
+            <div class="catalog-card-tail">
+              <span class="rating" aria-label="Avaliação ${book.avaliacao}">${stars(book.avaliacao)} ${book.avaliacao.toFixed(1)}</span>
+              <span class="catalog-card-action">Abrir</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </article>
+  `;
+}
+
 function renderContinueCard(book, label) {
   return `
     <article class="continue-card">
@@ -695,7 +727,7 @@ function renderCatalog() {
 
   if (controls) {
     controls.innerHTML = [
-      '<button type="button" class="catalog-chip is-active" data-category-pill=""><i data-lucide="sparkles"></i><span>Todos os temas</span></button>',
+      '<button type="button" class="catalog-chip is-active" data-category-pill=""><i data-lucide="sparkles"></i><span>Todos</span></button>',
       ...state.categories.map((item) => `
         <button type="button" class="catalog-chip" data-category-pill="${item.id}">
           <i data-lucide="${item.icone}"></i>
@@ -706,7 +738,6 @@ function renderCatalog() {
   }
 
   if (topPicks) {
-    topPicks.classList.add("editorial-track");
     topPicks.innerHTML = state.ebooks.filter((book) => book.destaque).slice(0, 3).map((book, index) => {
       const label = index === 0 ? "Escolha da semana" : index === 1 ? "Mais lido" : "Vale conhecer";
       return renderTopPick(book, label);
@@ -730,7 +761,7 @@ function renderCatalog() {
 
     grid.classList.toggle("is-empty", filtered.length === 0);
     grid.innerHTML = filtered.length
-      ? filtered.map(renderShelfCard).join("")
+      ? filtered.map(renderCatalogCard).join("")
       : `
         <section class="empty-state glass-panel">
           <h2>Nenhum ebook encontrado</h2>

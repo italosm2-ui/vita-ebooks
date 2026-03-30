@@ -16,57 +16,29 @@
   <a class="sr-only skip-link" href="#main">Pular para o conteúdo</a>
   <header class="site-header" id="site-header"></header>
 
-  <main id="main">
-    <section class="catalog-hero catalog-cinematic">
-      <div class="container-wide catalog-hero-grid">
-        <div class="catalog-hero-copy">
-          <span class="eyebrow">Explorar o catálogo</span>
-          <h1 class="hero-title">Encontre o próximo ebook sem sair do clima da curadoria.</h1>
-          <p class="hero-subtitle">Uma navegação feita para descobrir rápido, comparar bem e continuar olhando para capas, temas e intenções que fazem sentido juntas.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#catalog-form">Começar pela busca</a>
-            <a class="btn btn-ghost" href="#catalog-top-picks">Ver destaques</a>
-          </div>
-        </div>
+  <main id="main" class="catalog-page-main">
+    <section class="catalog-hero catalog-public-hero">
+      <div class="container-wide catalog-hero-stack">
+        <span class="eyebrow">Explorar o catálogo</span>
+        <h1 class="hero-title">Encontre seu próximo ebook sem sair do ritmo da curadoria.</h1>
+        <p class="hero-subtitle">Busca rápida, destaques fortes e uma grade feita para comparar capas, tema e proposta sem cair em uma navegação burocrática.</p>
 
-        <aside class="catalog-hero-note glass-panel">
-          <span class="mini-label">Como navegar</span>
-          <h2 class="section-title">Use busca, categoria e destaque editorial no mesmo fluxo.</h2>
-          <div class="offer-stack compact">
-            <div class="offer-item">
-              <strong>Busque pelo que já está em mente</strong>
-              <p>Título, autor ou tema entram na mesma barra.</p>
+        <form class="catalog-search-stage catalog-search-hero glass-panel" id="catalog-form">
+          <label class="search-field catalog-hero-field" for="catalog-search">
+            <i data-lucide="search" aria-hidden="true"></i>
+            <input id="catalog-search" name="q" type="search" placeholder="Busque por títulos, autores ou temas">
+          </label>
+
+          <select id="catalog-category" name="categoria" aria-label="Filtrar por categoria" hidden></select>
+
+          <div class="catalog-chip-row" id="catalog-quick-filters"></div>
+
+          <div class="catalog-toolbar">
+            <div class="catalog-toolbar-copy">
+              <span class="mini-label">Curadoria rápida</span>
+              <p>Troque de frente, reordene a grade e limpe filtros sem perder o ponto da descoberta.</p>
             </div>
-            <div class="offer-item">
-              <strong>Troque de categoria sem reiniciar a navegação</strong>
-              <p>O catálogo mantém contexto para comparar melhor.</p>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section-tight">
-      <div class="container-wide catalog-layout">
-        <aside class="catalog-rail">
-          <span class="eyebrow">Categorias</span>
-          <h2>Navegue pela curadoria</h2>
-          <p>Troque de tema sem sair do ritmo, descubra novas frentes de leitura e volte sempre para o que mais combina com o seu momento.</p>
-          <div class="catalog-rail-list" id="catalog-quick-filters"></div>
-          <div class="stream-banner">
-            <span class="mini-label">Premium</span>
-            <p>Assinantes encontram uma forma mais contínua de acompanhar a curadoria e explorar novos títulos com liberdade.</p>
-          </div>
-        </aside>
-
-        <div class="catalog-main">
-          <form class="catalog-search-stage glass-panel" id="catalog-form">
-            <label class="search-field" for="catalog-search">
-              <i data-lucide="search" aria-hidden="true"></i>
-              <input id="catalog-search" name="q" type="search" placeholder="Busque por títulos, autores ou temas">
-            </label>
-            <div class="catalog-toolbar">
-              <select id="catalog-category" name="categoria" aria-label="Filtrar por categoria"></select>
+            <div class="catalog-toolbar-actions">
               <select id="catalog-sort" name="ordem" aria-label="Ordenar catálogo">
                 <option value="destaque">Ordenar por destaque</option>
                 <option value="avaliacao">Melhor avaliação</option>
@@ -76,33 +48,38 @@
               </select>
               <button class="btn btn-ghost" id="catalog-reset" type="button">Limpar filtros</button>
             </div>
-          </form>
+          </div>
+        </form>
+      </div>
+    </section>
 
-          <section class="stream-section catalog-feature-band">
-            <div class="stream-head">
-              <div>
-                <span class="eyebrow">Vale começar aqui</span>
-                <h2>Títulos que já entram fortes na primeira passada</h2>
-              </div>
-              <p>Um recorte curto para abrir a navegação por destaque antes de mergulhar na grade completa.</p>
-            </div>
-            <div class="top-pick-track" id="catalog-top-picks"></div>
-          </section>
-
-          <section class="stream-section">
-            <div class="stream-head">
-              <div>
-                <span class="eyebrow">Todos os títulos</span>
-                <h2>Continue pela grade completa</h2>
-              </div>
-            </div>
-            <div class="catalog-summary">
-              <p><strong id="catalog-count">0 resultados</strong> disponíveis para explorar agora.</p>
-              <a class="text-link" href="planos.html">Conhecer o Premium</a>
-            </div>
-            <div class="catalog-grid" id="catalog-grid"></div>
-          </section>
+    <section class="section-tight stream-section catalog-feature-band">
+      <div class="container-wide">
+        <div class="stream-head">
+          <div>
+            <span class="eyebrow">Top pick</span>
+            <h2>Destaques que já entram fortes na primeira passada</h2>
+          </div>
+          <a class="text-link" href="#catalog-grid">Ir para a grade completa</a>
         </div>
+        <div class="top-pick-track catalog-top-pick-track" id="catalog-top-picks"></div>
+      </div>
+    </section>
+
+    <section class="section-tight stream-section catalog-collection">
+      <div class="container-wide">
+        <div class="stream-head">
+          <div>
+            <span class="eyebrow">Todos os títulos</span>
+            <h2>Continue pela grade completa</h2>
+          </div>
+          <p>Uma leitura mais editorial de capa, tema e proposta para decidir mais rápido o que abrir depois.</p>
+        </div>
+        <div class="catalog-summary">
+          <p><strong id="catalog-count">0 resultados</strong> disponíveis para explorar agora.</p>
+          <a class="text-link" href="planos.html">Conhecer o Premium</a>
+        </div>
+        <div class="catalog-grid" id="catalog-grid"></div>
       </div>
     </section>
   </main>
