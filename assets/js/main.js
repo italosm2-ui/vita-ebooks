@@ -801,6 +801,63 @@ function renderShelfCard(book) {
   `;
 }
 
+function renderHomeMemberBridge() {
+  const target = qs("#home-member-bridge");
+  const member = state.member || FALLBACK_MEMBER;
+  if (!target) return;
+
+  const continueBook = booksFromSlugs(member.biblioteca?.continuar).find(Boolean) || bySlugOrId("trabalho-profundo") || state.ebooks[0];
+  const stats = [
+    { label: "Plano", value: member.plano?.nome || "Clube mensal" },
+    { label: "Salvos", value: `${member.biblioteca?.salvos?.length || 0} títulos` },
+    { label: "Ritmo", value: member.metricas?.[0]?.valor ? `${member.metricas[0].valor} dias` : "Constante" }
+  ];
+
+  target.innerHTML = `
+    <div class="home-member-grid">
+      <div class="home-member-copy">
+        <span class="eyebrow">Área do assinante</span>
+        <h2>Continue a experiência em uma área feita para retomar leitura, biblioteca e ritmo semanal.</h2>
+        <p>O ambiente interno organiza sua trilha de leitura com o mesmo cuidado visual da vitrine, mas em uma navegação mais focada no que você já salvou e quer aprofundar.</p>
+        <div class="home-member-actions">
+          <a class="btn btn-primary" href="${relativeToRoot("aluno/dashboard.html")}">Ver dashboard</a>
+          <a class="btn btn-ghost" href="${relativeToRoot("aluno/biblioteca.html")}">Abrir biblioteca</a>
+        </div>
+      </div>
+
+      <article class="home-member-preview" aria-label="Prévia da área do assinante">
+        <div class="home-member-preview-top">
+          <div>
+            <strong>${member.plano?.nome || "Clube mensal"}</strong>
+            <span>${member.plano?.status || "Ativo"}</span>
+          </div>
+          <span class="mini-label">Aluno</span>
+        </div>
+        ${continueBook ? `
+          <a class="home-member-preview-book" href="${hrefWithQuery("ebook.html", { slug: continueBook.slug })}">
+            <div class="continue-cover-shell">
+              ${renderCover(continueBook, "continue-cover", { decorative: true })}
+            </div>
+            <div class="home-member-preview-copy">
+              <span class="mini-label">Retomar</span>
+              <h3>${continueBook.titulo}</h3>
+              <p>${continueBook.autor}</p>
+            </div>
+          </a>
+        ` : ""}
+        <div class="home-member-stats">
+          ${stats.map((item) => `
+            <div class="home-member-stat">
+              <strong>${item.value}</strong>
+              <span>${item.label}</span>
+            </div>
+          `).join("")}
+        </div>
+      </article>
+    </div>
+  `;
+}
+
 function renderCatalogCard(book) {
   return `
     <article class="catalog-book-card">
@@ -899,6 +956,7 @@ function renderHome() {
   const quotes = qs("#home-testimonials");
 
   renderHomeHero();
+  renderHomeMemberBridge();
 
   if (categories) {
     categories.innerHTML = state.categories.slice(0, 4).map(renderHomeCategory).join("");
