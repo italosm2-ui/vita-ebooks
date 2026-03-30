@@ -568,10 +568,9 @@ function renderShelfCard(book) {
           <strong class="book-price">${price(book.preco)}</strong>
           <span class="book-price-old">${price(book.preco_original)}</span>
         </div>
-        <span class="rating" aria-label="Avaliação ${book.avaliacao}">${stars(book.avaliacao)} ${book.avaliacao.toFixed(1)}</span>
-        <div class="card-actions">
-          <a class="btn btn-primary" href="ebook.html?slug=${book.slug}">Ver ebook</a>
-          <a class="btn btn-ghost" href="planos.html">Premium</a>
+        <div class="book-footline">
+          <span class="rating" aria-label="Avaliação ${book.avaliacao}">${stars(book.avaliacao)} ${book.avaliacao.toFixed(1)}</span>
+          <a class="text-link" href="ebook.html?slug=${book.slug}">Abrir detalhes</a>
         </div>
       </div>
     </article>
@@ -618,7 +617,7 @@ function renderHome() {
   renderHomeHero();
 
   if (categories) {
-    categories.innerHTML = state.categories.map((category) => `
+    categories.innerHTML = state.categories.slice(0, 4).map((category) => `
       <a class="genre-card" href="catalogo.html?categoria=${category.id}">
         <span class="genre-icon"><i data-lucide="${category.icone}" aria-hidden="true"></i></span>
         <h3>${category.nome}</h3>
@@ -629,7 +628,7 @@ function renderHome() {
   }
 
   if (featured) {
-    featured.innerHTML = state.ebooks.filter((book) => book.destaque).slice(0, 4).map(renderShelfCard).join("");
+    featured.innerHTML = state.ebooks.filter((book) => book.destaque).slice(0, 3).map(renderShelfCard).join("");
   }
 
   if (spotlight) {
@@ -640,7 +639,7 @@ function renderHome() {
   }
 
   if (premium) {
-    premium.innerHTML = sortBooks(state.ebooks, "avaliacao").slice(0, 4).map(renderShelfCard).join("");
+    premium.innerHTML = sortBooks(state.ebooks, "avaliacao").slice(0, 3).map(renderShelfCard).join("");
   }
 
   if (quotes) {
@@ -688,6 +687,7 @@ function renderCatalog() {
   }
 
   if (topPicks) {
+    topPicks.classList.add("editorial-track");
     topPicks.innerHTML = state.ebooks.filter((book) => book.destaque).slice(0, 3).map((book, index) => {
       const label = index === 0 ? "Escolha da semana" : index === 1 ? "Mais lido" : "Vale conhecer";
       return renderTopPick(book, label);
@@ -801,36 +801,55 @@ function renderProduct() {
             </div>
           </aside>
           <article class="product-summary">
-            <span class="eyebrow">${categoryName(book.categoria)}</span>
-            <h1>${book.titulo}</h1>
-            <p class="product-lead">${book.sinopse}</p>
-            <p class="section-copy">${book.descricao}</p>
-            <div class="product-meta">
-              <span>${book.autor}</span>
-              <span>${book.atualizado_em}</span>
-              <span>${book.badge || "Curadoria Vita"}</span>
-            </div>
-            <div class="product-price-row">
-              <strong>${price(book.preco)}</strong>
-              <span>${price(book.preco_original)}</span>
-            </div>
-            <div class="summary-chips">
-              <span class="summary-chip"><i data-lucide="download" aria-hidden="true"></i>${book.formato}</span>
-              <span class="summary-chip"><i data-lucide="badge-check" aria-hidden="true"></i>${book.badge || "Curadoria Vita"}</span>
-              <span class="summary-chip"><i data-lucide="star" aria-hidden="true"></i>Leitura muito bem avaliada</span>
-            </div>
-            <div class="product-cta glass-panel">
-              <div class="cta-actions">
-                <a class="btn btn-primary" href="suporte.html?interesse=${book.slug}#contato">Quero este ebook</a>
-                <a class="btn btn-ghost" href="planos.html">Ver Premium</a>
+            <div class="product-summary-head">
+              <span class="eyebrow">${categoryName(book.categoria)}</span>
+              <h1>${book.titulo}</h1>
+              <p class="product-lead">${book.sinopse}</p>
+              <div class="product-meta">
+                <span>${book.autor}</span>
+                <span>${book.atualizado_em}</span>
+                <span>${book.badge || "Curadoria Vita"}</span>
               </div>
-              <p>Receba detalhes de acesso, formatos e melhores opções para leitura com o apoio da equipe Vita.</p>
             </div>
-            <div class="detail-grid">
-              <article class="detail-card">
-                <h3>O que você leva desta leitura</h3>
-                <ul class="detail-list">${book.aprendizados.map((item) => `<li>${item}</li>`).join("")}</ul>
-              </article>
+
+            <div class="product-decision-grid">
+              <div class="product-story-stack">
+                <p class="section-copy product-story-copy">${book.descricao}</p>
+                <div class="product-story-panels">
+                  <article class="detail-card product-story-card">
+                    <h3>O que você encontra nesta leitura</h3>
+                    <p>Uma leitura clara, de aplicação rápida e com força suficiente para abrir novas decisões no tema ${categoryName(book.categoria).toLowerCase()}.</p>
+                  </article>
+                  <article class="detail-card product-story-card">
+                    <h3>O que você leva desta leitura</h3>
+                    <ul class="detail-list">${book.aprendizados.map((item) => `<li>${item}</li>`).join("")}</ul>
+                  </article>
+                </div>
+              </div>
+
+              <aside class="product-buy-card glass-panel">
+                <div class="product-buy-top">
+                  <span class="mini-label">Compra avulsa</span>
+                  <div class="product-price-row">
+                    <strong>${price(book.preco)}</strong>
+                    <span>${price(book.preco_original)}</span>
+                  </div>
+                  <p>Ideal para entrar por um título e decidir com calma como continuar dentro da curadoria.</p>
+                </div>
+                <div class="summary-chips">
+                  <span class="summary-chip"><i data-lucide="download" aria-hidden="true"></i>${book.formato}</span>
+                  <span class="summary-chip"><i data-lucide="badge-check" aria-hidden="true"></i>${book.badge || "Curadoria Vita"}</span>
+                  <span class="summary-chip"><i data-lucide="star" aria-hidden="true"></i>${book.avaliacao.toFixed(1)} de 5</span>
+                </div>
+                <div class="cta-actions">
+                  <a class="btn btn-primary" href="suporte.html?interesse=${book.slug}#contato">Quero este ebook</a>
+                  <a class="btn btn-ghost" href="planos.html">Ver Premium</a>
+                </div>
+                <p class="product-support-note">Receba detalhes de acesso, formatos e a melhor opção para leitura com o apoio da equipe Vita.</p>
+              </aside>
+            </div>
+
+            <div class="detail-grid product-detail-grid">
               <article class="detail-card">
                 <h3>Para quem este título funciona melhor</h3>
                 <ul class="detail-list">${book.para_quem.map((item) => `<li>${item}</li>`).join("")}</ul>
@@ -841,6 +860,14 @@ function renderProduct() {
                   <li>Leitura clara, aplicável e fácil de recomendar</li>
                   <li>Boa porta de entrada para o tema ${categoryName(book.categoria).toLowerCase()}</li>
                   <li>Ótimo equilíbrio entre profundidade e ritmo</li>
+                </ul>
+              </article>
+              <article class="detail-card">
+                <h3>Formato e contexto de leitura</h3>
+                <ul class="detail-list">
+                  <li>${book.paginas} páginas para avançar com ritmo constante</li>
+                  <li>${book.formato} para abrir no formato mais confortável</li>
+                  <li>Atualizado em ${book.atualizado_em}</li>
                 </ul>
               </article>
             </div>
