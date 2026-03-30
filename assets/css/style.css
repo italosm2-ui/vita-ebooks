@@ -392,6 +392,39 @@ main{display:block;padding-top:var(--header-height)}
 .support-contact-copy h2{font-size:clamp(2rem,1.55rem + 1.5vw,3rem);max-width:12ch}
 .support-contact-copy p{max-width:48ch;color:var(--text-muted)}
 .support-faq-stack{display:grid;gap:1rem}
+.account-billboard-section{position:relative;overflow:hidden;min-height:calc(100svh - var(--header-height));padding-block:clamp(var(--space-10),6vw,var(--space-16));background:radial-gradient(circle at 76% 22%,rgba(74,142,255,.18),transparent 18%),radial-gradient(circle at 84% 28%,rgba(0,220,229,.11),transparent 16%),linear-gradient(180deg,#0d1017 0%,#101521 54%,#0d0e13 100%)}
+.account-billboard-section::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,9,16,.76) 0%,rgba(7,9,16,.34) 38%,transparent 72%);pointer-events:none}
+.account-billboard{position:relative;z-index:1;display:flex;align-items:center;min-height:calc(100svh - var(--header-height))}
+.account-hero-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(320px,.92fr);gap:clamp(var(--space-8),4vw,var(--space-14));align-items:center}
+.account-hero-copy{display:grid;gap:1.25rem;max-width:37rem}
+.account-headline-stack{display:grid;gap:1rem}
+.account-hero-copy h1{max-width:8.8ch;font-size:clamp(3.1rem,2.3rem + 3.3vw,5.8rem);letter-spacing:-.06em}
+.account-hero-body{max-width:35rem;color:var(--text-muted);font-size:var(--text-base)}
+.account-proof-row{display:flex;flex-wrap:wrap;gap:.8rem}
+.account-hero-visual{display:flex;justify-content:center}
+.account-stage{position:relative;width:min(100%,32rem);min-height:31rem}
+.account-stage::before{content:"";position:absolute;inset:14% 12% auto 12%;height:68%;border-radius:50%;background:radial-gradient(circle,rgba(74,142,255,.26),transparent 68%);filter:blur(44px);pointer-events:none}
+.account-stage-window{position:relative;z-index:2;width:min(100%,30rem);margin:clamp(1.2rem,4vw,3rem) 0 0 auto;padding:1.05rem;background:linear-gradient(180deg,rgba(74,142,255,.12),transparent 28%),rgba(20,24,34,.82);box-shadow:0 34px 80px rgba(0,0,0,.34)}
+.account-stage-window header{align-items:flex-start}
+.account-stage-window header>div,.account-stage-window .preview-card>div{display:grid;gap:.38rem}
+.account-stage-window .preview-card{align-items:flex-start;padding:.95rem 1rem;border-radius:1.3rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06)}
+.account-stage-window .preview-card strong{font-size:1rem;letter-spacing:-.03em}
+.account-stage-window .section-copy{color:var(--text-muted);font-size:var(--text-sm)}
+.account-benefits-section .stream-head p{max-width:39ch}
+.account-benefit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-5)}
+.account-benefit-card{padding:1.45rem;display:grid;gap:.95rem;align-content:start}
+.account-benefit-card h3{font-size:1.2rem}
+.account-benefit-card p{color:var(--text-muted)}
+.account-story-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.92fr);gap:clamp(var(--space-6),3vw,var(--space-10));align-items:stretch}
+.account-story-panel{padding:clamp(1.5rem,3vw,2.3rem);display:grid;gap:1rem}
+.account-story-panel h2{font-size:clamp(2rem,1.55rem + 1.5vw,3rem);max-width:13ch}
+.account-story-panel p{color:var(--text-muted);max-width:44ch}
+.account-story-panel-secondary{background:linear-gradient(180deg,rgba(74,142,255,.14),transparent 34%),linear-gradient(135deg,rgba(0,220,229,.08),transparent 66%),var(--surface-solid)}
+.account-final-section{padding-top:var(--space-8)}
+.account-final-banner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(var(--space-6),3vw,var(--space-10));align-items:center;padding:clamp(1.6rem,3vw,2.4rem);background:radial-gradient(circle at 82% 24%,rgba(74,142,255,.16),transparent 16%),linear-gradient(180deg,rgba(74,142,255,.12),transparent 42%),var(--surface-glass);border:1px solid rgba(74,142,255,.22)}
+.account-final-copy{display:grid;gap:.8rem;max-width:34rem}
+.account-final-copy p{color:var(--text-muted)}
+.account-final-actions{display:grid;gap:.95rem;justify-items:start}
 
 @media (min-width:1181px){
   .hero-cinematic{overflow:visible}
@@ -408,7 +441,7 @@ main{display:block;padding-top:var(--header-height)}
   .hero-cinematic .hero-grid{align-items:center}
   .hero-cinematic .poster-stage{min-height:32rem}
   .hero-cinematic .poster-stack{padding-top:0}
-  .editorial-split,.product-decision-grid,.product-story-panels,.product-hero-grid,.product-learning-grid,.product-depth-grid,.product-confidence-grid,.product-final-banner,.plans-hero-grid,.plans-confidence-grid,.plans-final-banner,.about-hero-grid,.about-manifesto-banner,.support-hero-grid,.support-contact-grid{grid-template-columns:1fr}
+  .editorial-split,.product-decision-grid,.product-story-panels,.product-hero-grid,.product-learning-grid,.product-depth-grid,.product-confidence-grid,.product-final-banner,.plans-hero-grid,.plans-confidence-grid,.plans-final-banner,.about-hero-grid,.about-manifesto-banner,.support-hero-grid,.support-contact-grid,.account-hero-grid,.account-story-grid,.account-final-banner{grid-template-columns:1fr}
   .product-buy-card{position:static}
   .premium-home-band{grid-template-columns:1fr}
   .hero-billboard{min-height:auto}
@@ -425,6 +458,9 @@ main{display:block;padding-top:var(--header-height)}
   .about-billboard,.about-billboard-section,.support-billboard,.support-billboard-section{min-height:auto}
   .about-stage,.support-stage{max-width:26rem;margin-inline:auto}
   .about-values-grid,.about-editorial-grid,.support-lanes-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .account-billboard,.account-billboard-section{min-height:auto}
+  .account-stage{max-width:26rem;margin-inline:auto}
+  .account-benefit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
 @media (max-width:1040px){
@@ -466,6 +502,12 @@ main{display:block;padding-top:var(--header-height)}
   .about-stage-card-main,.support-stage-card-main{inset:auto}
   .about-values-grid,.about-editorial-grid,.support-lanes-grid{grid-template-columns:1fr}
   .about-manifesto-actions,.support-contact-copy .cta-actions{justify-items:stretch}
+  .account-proof-row{gap:.65rem}
+  .account-stage{min-height:auto}
+  .account-stage-window{margin:0}
+  .account-benefit-grid{grid-template-columns:1fr}
+  .account-final-actions{justify-items:stretch}
+  .account-final-actions .btn{width:100%}
 }
 
 @media (max-width:560px){
@@ -484,4 +526,5 @@ main{display:block;padding-top:var(--header-height)}
   .product-hero-copy h1{max-width:9.5ch}
   .plans-hero-copy h1{max-width:9.2ch}
   .about-hero-copy h1,.support-hero-copy h1{max-width:9.2ch}
+  .account-hero-copy h1{max-width:9.3ch}
 }
