@@ -173,17 +173,17 @@ main{display:block;padding-top:var(--header-height)}
 .mobile-menu a[aria-current="page"]{border-color:rgba(74,142,255,.28);background:linear-gradient(135deg,var(--primary-soft),var(--secondary-soft))}
 
 .hero-cinematic{min-height:calc(100svh - var(--header-height));display:flex;align-items:center;padding-block:clamp(var(--space-8),5vw,var(--space-12))}
-.hero-cinematic .hero-grid{align-items:end}
-.hero-copy-stack{display:grid;align-content:center;gap:.8rem;max-width:34rem;padding-block:var(--space-3)}
-.hero-copy-stack .hero-subtitle{max-width:31rem}
-.hero-copy-stack .hero-title{max-width:10.2ch;font-size:clamp(2rem,1.72rem + 1.15vw,3rem)}
-.hero-cinematic .poster-stage{min-height:28rem}
+.hero-cinematic .hero-grid{grid-template-columns:minmax(0,1.18fr) minmax(280px,.82fr);align-items:center;gap:clamp(var(--space-5),3vw,var(--space-8))}
+.hero-copy-stack{display:grid;align-content:center;gap:.72rem;max-width:38rem;padding-block:var(--space-2)}
+.hero-copy-stack .hero-subtitle{max-width:34rem}
+.hero-copy-stack .hero-title{max-width:13ch;font-size:clamp(2.05rem,1.76rem + 1.2vw,3.15rem)}
+.hero-cinematic .poster-stage{min-height:24rem}
 .hero-cinematic .poster-stack{height:100%}
 .home-billboard{padding-block:0}
 .hero-billboard{position:relative;overflow:hidden;padding:clamp(var(--space-5),2.4vw,var(--space-7));border-radius:1.4rem;min-height:calc(100svh - var(--header-height) - var(--space-6));background:radial-gradient(circle at 72% 18%,rgba(74,142,255,.22),transparent 20%),radial-gradient(circle at 94% 26%,rgba(255,116,166,.18),transparent 18%),linear-gradient(135deg,rgba(8,12,24,.94) 0%,rgba(12,16,28,.92) 44%,rgba(18,26,42,.86) 100%)}
 .hero-billboard::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,7,14,.7) 0%,rgba(5,7,14,.3) 38%,transparent 72%);pointer-events:none}
 .hero-billboard::after{content:"";position:absolute;inset:auto -8% -14% auto;width:28rem;height:28rem;border-radius:50%;background:radial-gradient(circle,rgba(92,120,255,.18),transparent 68%);filter:blur(32px);pointer-events:none}
-.hero-editorial-note{display:grid;gap:.65rem;max-width:29rem}
+.hero-editorial-note{display:grid;gap:.5rem;max-width:27rem}
 .hero-editorial-note p{color:var(--text-muted);font-size:var(--text-sm)}
 .hero-editorial-rule{width:5rem;height:1px;background:linear-gradient(90deg,var(--primary-strong),transparent)}
 .editorial-split{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);gap:clamp(var(--space-8),4vw,var(--space-14));align-items:start}
@@ -198,7 +198,7 @@ main{display:block;padding-top:var(--header-height)}
 .offer-item{display:grid;gap:.3rem}
 .offer-item strong{font-size:.94rem;letter-spacing:-.02em}
 .offer-item p{color:var(--text-muted);font-size:var(--text-sm)}
-.spotlight-panel{display:grid;gap:.7rem}
+.spotlight-panel{display:grid;gap:.58rem}
 .spotlight-panel .mini-label{width:fit-content}
 .spotlight-panel .btn{width:auto;align-self:flex-start}
 .home-continue-track{grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
@@ -241,19 +241,21 @@ main{display:block;padding-top:var(--header-height)}
 .home-category-card p{font-size:.82rem}
 .catalog-feature-band .top-pick-track{margin-top:.4rem}
 .catalog-page-main{padding-bottom:var(--space-16)}
-.catalog-public-hero{padding-block:clamp(var(--space-6),4vw,var(--space-9)) var(--space-5)}
-.catalog-hero-stack{display:grid;gap:.72rem;justify-items:center;text-align:center}
-.catalog-hero-stack .hero-title{max-width:11.2ch;font-size:clamp(1.85rem,1.62rem + .95vw,2.7rem)}
-.catalog-hero-stack .hero-subtitle{max-width:38rem;font-size:var(--text-base)}
-.catalog-search-hero{width:min(100%,900px);margin-inline:auto;padding:.82rem .9rem;background:linear-gradient(180deg,rgba(255,255,255,.04),transparent 42%),var(--surface-glass)}
-.catalog-hero-field{min-height:2.7rem;padding-inline:.82rem}
-.catalog-hero-field input{font-size:.94rem}
-.catalog-chip-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem}
-.catalog-toolbar-copy{display:grid;gap:.35rem;text-align:left}
-.catalog-toolbar-copy p{color:var(--text-muted);font-size:var(--text-sm);max-width:40ch}
-.catalog-toolbar-actions{display:flex;align-items:center;justify-content:flex-end;gap:.75rem;flex-wrap:wrap}
+.catalog-public-hero{padding-block:clamp(var(--space-5),3vw,var(--space-7)) var(--space-4)}
+.catalog-hero-stack{display:grid;gap:.58rem;justify-items:center;text-align:center}
+.catalog-hero-stack .hero-title{max-width:12.8ch;font-size:clamp(1.65rem,1.48rem + .72vw,2.25rem)}
+.catalog-hero-stack .hero-subtitle{max-width:34rem;font-size:var(--text-sm)}
+.catalog-search-hero{width:min(100%,820px);margin-inline:auto;padding:.72rem .78rem;background:linear-gradient(180deg,rgba(255,255,255,.03),transparent 42%),var(--surface-glass)}
+.catalog-hero-field{min-height:2.5rem;padding-inline:.76rem}
+.catalog-hero-field input{font-size:.9rem}
+.catalog-chip-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.48rem}
+.catalog-chip-row .catalog-chip{padding:.58rem .78rem;font-size:var(--text-sm)}
+.catalog-toolbar{gap:.72rem}
+.catalog-toolbar-copy{display:grid;gap:.28rem;text-align:left}
+.catalog-toolbar-copy p{color:var(--text-muted);font-size:var(--text-sm);max-width:30ch}
+.catalog-toolbar-actions{display:flex;align-items:center;justify-content:flex-end;gap:.58rem;flex-wrap:wrap}
 .catalog-toolbar-actions select,.catalog-toolbar-actions .btn{width:auto}
-.catalog-toolbar-actions select{min-width:13rem}
+.catalog-toolbar-actions select{min-width:11.6rem}
 .catalog-top-pick-track{grid-template-columns:minmax(0,1.35fr) repeat(2,minmax(0,.82fr))}
 .catalog-top-pick-track .top-pick-card:first-child{min-height:19.2rem}
 .catalog-top-pick-track .top-pick-card:not(:first-child){min-height:16.4rem}
@@ -510,18 +512,18 @@ body[data-shell="app"]{background:linear-gradient(180deg,#090c13 0%,#0e1320 58%,
 
 @media (min-width:1181px){
   .hero-cinematic{overflow:visible}
-  .hero-cinematic .poster-stage{min-height:27rem}
-  .hero-cinematic .hero-card-a{top:28%;left:2%}
-  .hero-cinematic .hero-card-b{top:34%;left:42%}
-  .hero-cinematic .hero-card-c{top:8%;left:28%;bottom:auto}
-  .hero-cinematic .hero-card-d{top:12%;left:58%;width:clamp(10rem,12vw,11.6rem);transform:rotate(10deg)}
-  .hero-cinematic .floating-panel{top:18%;right:2%;bottom:auto}
+  .hero-cinematic .poster-stage{min-height:25rem}
+  .hero-cinematic .hero-card-a{top:32%;left:8%}
+  .hero-cinematic .hero-card-b{top:37%;left:42%}
+  .hero-cinematic .hero-card-c{top:11%;left:26%;bottom:auto}
+  .hero-cinematic .hero-card-d{top:18%;left:60%;width:clamp(9rem,10vw,10.4rem);transform:rotate(10deg)}
+  .hero-cinematic .floating-panel{top:24%;right:4%;bottom:auto;width:min(15rem,100%)}
 }
 
 @media (max-width:1180px){
   .shell-search{max-width:20rem}
   .hero-cinematic .hero-grid{align-items:center}
-  .hero-cinematic .poster-stage{min-height:24rem}
+  .hero-cinematic .poster-stage{min-height:21rem}
   .hero-cinematic .poster-stack{padding-top:0}
   .editorial-split,.product-decision-grid,.product-story-panels,.product-hero-grid,.product-learning-grid,.product-depth-grid,.product-confidence-grid,.product-final-banner,.plans-hero-grid,.plans-confidence-grid,.plans-final-banner,.about-hero-grid,.about-manifesto-banner,.support-hero-grid,.support-contact-grid,.account-hero-grid,.account-story-grid,.account-final-banner{grid-template-columns:1fr}
   .product-buy-card{position:static}
@@ -565,6 +567,7 @@ body[data-shell="app"]{background:linear-gradient(180deg,#090c13 0%,#0e1320 58%,
   .mobile-search{display:block}
   .hero-cinematic{min-height:auto}
   .hero-copy-stack{padding-block:0}
+  .hero-copy-stack .hero-title{max-width:11.5ch;font-size:clamp(1.85rem,1.64rem + .92vw,2.55rem)}
   .continue-card-link{grid-template-columns:88px minmax(0,1fr)}
   .home-member-band{padding:.9rem}
   .home-member-preview-book{grid-template-columns:74px minmax(0,1fr)}
@@ -618,6 +621,9 @@ body[data-shell="app"]{background:linear-gradient(180deg,#090c13 0%,#0e1320 58%,
   .continue-card-link{grid-template-columns:1fr}
   .continue-cover{min-height:9.4rem}
   .hero-cinematic .hero-card-a,.hero-cinematic .hero-card-b,.hero-cinematic .hero-card-c,.hero-cinematic .hero-card-d{width:6.6rem}
+  .catalog-hero-stack .hero-title{max-width:13.2ch;font-size:clamp(1.5rem,1.38rem + .52vw,1.95rem)}
+  .catalog-search-hero{width:100%;padding:.68rem}
+  .catalog-hero-field{min-height:2.35rem}
   .home-member-actions{flex-direction:column;align-items:flex-start}
   .home-member-stats{grid-template-columns:1fr}
   .catalog-chip-row{justify-content:flex-start}
