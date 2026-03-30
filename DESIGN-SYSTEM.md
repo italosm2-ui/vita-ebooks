@@ -78,3 +78,37 @@ Following the "Netflix/Kiwify" inspiration, components are tactile and fluid.
 - **Never use pure white (#FFFFFF):** It is too harsh. Use `on_surface` (#e3e1e9) for primary text.
 - **No Sharp Corners:** All interactive elements must adhere to the `full` or `xl` (3rem) rounding tokens. Sharp corners break the "Glassmorphism" immersion.
 - **Avoid Flat Blue:** Blue should always feel "electric." If a blue feels dull, check if you are using `primary_fixed_dim` instead of the vibrant `tertiary`.
+
+---
+
+## 7. Public Shell Contract
+The public experience must feel like a finished reading platform, not a technical prototype or implementation handoff.
+
+- Use one fixed header across every public route.
+- Header structure is locked to:
+  - left: `Vita Ebooks` wordmark
+  - center: integrated search field routing to `catalogo.html`
+  - primary nav: `Início`, `Catálogo`, `Premium`
+  - right: theme toggle, account access, one primary CTA `Assinar Premium`
+- `Sobre` and `Suporte` belong in the footer and mobile menu, not in the desktop primary nav.
+- The right-side action cluster must never change order, size, or label between pages.
+
+---
+
+## 8. Public Copy Guardrails
+Public copy must speak to the reader, never to the repository owner or the build process.
+
+### Allowed voice
+- reading benefits
+- curation logic
+- membership value
+- discovery, access, library, favorites, and support
+
+### Forbidden on the public site
+- Any reference to `GitHub`, `Hostinger`, `build`, `framework`, `deploy`, `V1`, `public_html`, `JSON`, or implementation phases
+- Any sentence explaining the stack or saying the site is "ready to publish"
+- Any phrase narrating what is missing in developer-facing language
+- Meta commentary such as "honest CTA", "no fake checkout", "no simulated account", or "static site"
+
+### Tone rule
+If a sentence sounds like release notes, project management, or implementation commentary, it does not belong in the public UI. Rewrite it until it sounds like a real reading platform talking to a real customer.

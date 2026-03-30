@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catálogo | Vita Ebooks</title>
-  <meta name="description" content="Explore o catálogo da Vita Ebooks por busca, categoria e ordenação na nova experiência pública.">
+  <meta name="description" content="Busque ebooks por título, autor e tema em uma experiência de catálogo mais densa, visual e prazerosa de explorar.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,50 +14,15 @@
 </head>
 <body data-page="catalogo">
   <a class="sr-only skip-link" href="#main">Pular para o conteúdo</a>
-  <header class="site-header" id="site-header">
-    <div class="container-wide header-inner">
-      <a class="logo" href="index.html" aria-label="Vita Ebooks">
-        <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 5.5h8.5a3.5 3.5 0 0 1 0 7H6z"></path><path d="M6 13h9.5a2.5 2.5 0 0 1 0 5H6z"></path></svg></span>
-        <span class="logo-wordmark">Vita Ebooks</span>
-      </a>
-      <nav class="nav-desktop" aria-label="Navegação principal">
-        <ul>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="planos.html">Planos</a></li>
-          <li><a href="catalogo.html" aria-current="page">Catálogo</a></li>
-          <li><a href="sobre.html">Sobre</a></li>
-          <li><a href="suporte.html">Suporte</a></li>
-          <li><a href="conta.html">Conta</a></li>
-        </ul>
-      </nav>
-      <div class="header-actions">
-        <button class="btn-icon" type="button" data-theme-toggle aria-label="Alternar tema"></button>
-        <a class="btn btn-soft desktop-only" href="planos.html">Comparar planos</a>
-        <a class="btn btn-primary desktop-only" href="suporte.html#contato">Falar com a equipe</a>
-        <button class="btn-icon menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
-      </div>
-    </div>
-    <nav class="mobile-menu" id="mobile-menu" aria-label="Menu mobile" hidden>
-      <div class="container-wide">
-        <ul>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="planos.html">Planos</a></li>
-          <li><a href="catalogo.html">Catálogo</a></li>
-          <li><a href="sobre.html">Sobre</a></li>
-          <li><a href="suporte.html">Suporte</a></li>
-          <li><a href="conta.html">Conta</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+  <header class="site-header" id="site-header"></header>
 
   <main id="main">
     <section class="catalog-hero">
       <div class="container-wide">
         <div class="section-head centered">
-          <span class="eyebrow">Descoberta</span>
-          <h1 class="hero-title">Encontre seu próximo <span class="accent">conhecimento</span>.</h1>
-          <p class="hero-subtitle">A inspiração vem das novas páginas de exploração, mas o funcionamento continua fiel ao V1 estático: busca real, filtros reais, links reais e nenhuma área privada fingida.</p>
+          <span class="eyebrow">Explorar o catálogo</span>
+          <h1 class="hero-title">Encontre o próximo ebook que faz sentido para o seu momento.</h1>
+          <p class="hero-subtitle">Busque por títulos, autores e temas, navegue por categorias e descubra leituras escolhidas para diferentes ritmos de vida, carreira e repertório.</p>
         </div>
       </div>
     </section>
@@ -65,13 +30,13 @@
     <section class="section-tight">
       <div class="container-wide catalog-layout">
         <aside class="catalog-rail">
-          <span class="eyebrow">Curadoria premium</span>
-          <h2>Explorar por categoria</h2>
-          <p>O catálogo usa um rail lateral para descoberta rápida no desktop, sem transformar a navegação pública em dashboard.</p>
+          <span class="eyebrow">Categorias</span>
+          <h2>Navegue pela curadoria</h2>
+          <p>Use o rail para trocar de tema rápido, descobrir novas frentes de leitura e voltar sempre para aquilo que mais conversa com o seu momento.</p>
           <div class="catalog-rail-list" id="catalog-quick-filters"></div>
           <div class="stream-banner">
-            <span class="mini-label">Contexto</span>
-            <p>Todos os caminhos continuam apontando para produto, planos ou suporte enquanto a compra online não entra.</p>
+            <span class="mini-label">Premium</span>
+            <p>Assinantes encontram uma forma mais contínua de acompanhar a curadoria e explorar novos títulos com liberdade.</p>
           </div>
         </aside>
 
@@ -97,10 +62,10 @@
           <section class="stream-section">
             <div class="stream-head">
               <div>
-                <span class="eyebrow">Top pick</span>
-                <h2>Tendências da semana</h2>
+                <span class="eyebrow">Vale começar aqui</span>
+                <h2>Títulos que estão puxando atenção agora</h2>
               </div>
-              <p>Uma camada editorial para orientar descoberta antes da grade completa do catálogo.</p>
+              <p>Uma camada editorial para ajudar a descobrir leituras fortes antes de mergulhar na grade completa.</p>
             </div>
             <div class="top-pick-track" id="catalog-top-picks"></div>
           </section>
@@ -108,13 +73,13 @@
           <section class="stream-section">
             <div class="stream-head">
               <div>
-                <span class="eyebrow">Catálogo</span>
-                <h2>Explorar todos os títulos</h2>
+                <span class="eyebrow">Todos os títulos</span>
+                <h2>Explore a curadoria completa</h2>
               </div>
             </div>
             <div class="catalog-summary">
-              <p><strong id="catalog-count">0 resultados</strong> disponíveis nesta estrutura inicial.</p>
-              <a class="text-link" href="planos.html">Comparar com assinatura</a>
+              <p><strong id="catalog-count">0 resultados</strong> disponíveis para explorar agora.</p>
+              <a class="text-link" href="planos.html">Conhecer o Premium</a>
             </div>
             <div class="catalog-grid" id="catalog-grid"></div>
           </section>
@@ -123,46 +88,6 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container-wide footer-grid">
-      <div class="footer-brand">
-        <a class="logo" href="index.html">
-          <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 5.5h8.5a3.5 3.5 0 0 1 0 7H6z"></path><path d="M6 13h9.5a2.5 2.5 0 0 1 0 5H6z"></path></svg></span>
-          <span class="logo-wordmark">Vita Ebooks</span>
-        </a>
-        <p>Catálogo estático em nova linguagem visual, com rail de descoberta, shelf editorial e grade ligada ao JSON local.</p>
-      </div>
-      <nav class="footer-column" aria-label="Rotas">
-        <h3>Rotas</h3>
-        <ul>
-          <li><a href="planos.html">Planos</a></li>
-          <li><a href="ebook.html?slug=habitos-atomicos">Página de ebook</a></li>
-          <li><a href="suporte.html">Suporte</a></li>
-        </ul>
-      </nav>
-      <nav class="footer-column" aria-label="Empresa">
-        <h3>Empresa</h3>
-        <ul>
-          <li><a href="sobre.html">Sobre</a></li>
-          <li><a href="conta.html">Conta</a></li>
-          <li><a href="index.html">Página inicial</a></li>
-        </ul>
-      </nav>
-      <nav class="footer-column" aria-label="Apoio">
-        <h3>Apoio</h3>
-        <ul>
-          <li><a href="suporte.html#faq">FAQ</a></li>
-          <li><a href="suporte.html#contato">Contato</a></li>
-          <li><a href="planos.html">Assinaturas</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="footer-bottom">
-      <div class="container-wide">
-        <p>&copy; <span data-year></span> Vita Ebooks.</p>
-        <nav class="footer-legal"><a href="suporte.html#faq">FAQ</a><a href="suporte.html#contato">Contato</a></nav>
-      </div>
-    </div>
-  </footer>
+  <footer class="footer" id="site-footer"></footer>
 </body>
 </html>
